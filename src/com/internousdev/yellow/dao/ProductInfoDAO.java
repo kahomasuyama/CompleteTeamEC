@@ -13,6 +13,51 @@ import com.internousdev.yellow.util.DBConnector;
 public class ProductInfoDAO
 {
 
+	public List<ProductInfoDTO> getRandomProductInfoListByCategoryId(int categoryId, int ignoreProductId)
+	{
+		DBConnector dbConnector = new DBConnector();
+		Connection connection = dbConnector.getConnection();
+
+		List<ProductInfoDTO> productInfoList = new ArrayList<ProductInfoDTO>();
+
+		String sql = "select * from product_info where category_id=? and product_id not in(?) order by rand() limit 0, 3";
+
+		try
+		{
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, categoryId);
+			preparedStatement.setInt(2, ignoreProductId);
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next())
+			{
+				ProductInfoDTO productInfoDTO = new ProductInfoDTO();
+				productInfoDTO.setId(resultSet.getInt("id"));
+				productInfoDTO.setProductId(resultSet.getInt("product_id"));
+				productInfoDTO.setProductName(resultSet.getString("product_name"));
+				productInfoDTO.setProductNameKana(resultSet.getString("product_name_kana"));
+				productInfoDTO.setCategoryId(resultSet.getInt("category_id"));
+				productInfoDTO.setPrice(resultSet.getInt("price"));
+				productInfoDTO.setImageFilePath(resultSet.getString("image_file_path"));
+				productInfoDTO.setImageFileName(resultSet.getString("image_file_name"));
+				productInfoDTO.setReleaseDate(resultSet.getDate("release_date"));
+				productInfoDTO.setReleaseCompany(resultSet.getString("release_company"));
+				productInfoDTO.setStatus(resultSet.getInt("status"));
+				productInfoDTO.setRegistDate(resultSet.getDate("regist_date"));
+				productInfoDTO.setUpdateDate(resultSet.getDate("update_date"));
+
+				productInfoList.add(productInfoDTO);
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+
+		return productInfoList;
+	}
+
 	public List<ProductInfoDTO> getProductInfoList()
 	{
 		DBConnector dbConnector = new DBConnector();
@@ -72,7 +117,7 @@ public class ProductInfoDAO
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 
-			while (resultSet.next())
+			if (resultSet.next())
 			{
 				productInfoDTO.setId(resultSet.getInt("id"));
 				productInfoDTO.setProductId(resultSet.getInt("product_id"));
@@ -87,6 +132,10 @@ public class ProductInfoDAO
 				productInfoDTO.setStatus(resultSet.getInt("status"));
 				productInfoDTO.setRegistDate(resultSet.getDate("regist_date"));
 				productInfoDTO.setUpdateDate(resultSet.getDate("update_date"));
+			}
+			else
+			{
+				return null;
 			}
 		}
 		catch(SQLException e)
