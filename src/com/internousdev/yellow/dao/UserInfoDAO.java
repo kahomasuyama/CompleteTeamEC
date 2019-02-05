@@ -8,16 +8,25 @@ import java.sql.SQLException;
 import com.internousdev.yellow.dto.UserInfoDTO;
 import com.internousdev.yellow.util.DBConnector;
 
-public class UserInfoDAO {
-	public int createUser(String familyName,String firstName,String familyNameKana,
-			String firstNameKana,String sex,String email,String loginId,String password) {
+public class UserInfoDAO
+{
+
+
+	public int createUser(String familyName, String firstName, String familyNameKana, String firstNameKana, String sex, String email, String loginId, String password)
+	{
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
+
 		int count = 0;
+
+		//	SQL作成
 		String sql="insert into user_info(user_id, password, family_name, first_name, family_name_kana,"
 				+ " first_name_kana, sex, email, status, logined, regist_date, update_date)"
 				+ " values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now())";
-		try {
+
+		//	SQL実行
+		try
+		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, loginId);
 			preparedStatement.setString(2, password);
@@ -30,54 +39,91 @@ public class UserInfoDAO {
 			preparedStatement.setInt(9, 0);
 			preparedStatement.setInt(10, 1);
 			count = preparedStatement.executeUpdate();
-		}catch(SQLException e) {
+		}
+		catch(SQLException e)
+		{
 			e.printStackTrace();
 		}
-		try {
+
+		//	Close
+		try
+		{
 			connection.close();
-		}catch(SQLException e) {
+		}
+		catch(SQLException e)
+		{
 			e.printStackTrace();
 		}
+
 		return count;
 	}
-	
-	public boolean isExistsUserInfo(String loginId,String password) {
+
+	public boolean isExistsUserInfo(String loginId, String password)
+	{
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
+
 		boolean result = false;
+
+		//	SQLを作成
 		String sql = "select count(*) as count from user_info where user_id=? and password=?";
-		try {
+
+		//	SQL実行
+		try
+		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, loginId);
 			preparedStatement.setString(2, password);
+
 			ResultSet resultSet = preparedStatement.executeQuery();
-			while(resultSet.next()) {
-				if(resultSet.getInt("count") > 0) {
+
+			while(resultSet.next())
+			{
+				if(resultSet.getInt("count") > 0)
+				{
 					result = true;
 				}
 			}
-		}catch(SQLException e) {
+		}
+		catch(SQLException e)
+		{
 			e.printStackTrace();
 		}
-		try {
+
+		//	Close
+		try
+		{
 			connection.close();
-		}catch(SQLException e) {
+		}
+		catch(SQLException e)
+		{
 			e.printStackTrace();
 		}
+
 		return result;
 	}
-	
-	public UserInfoDTO getUserInfo(String loginId,String password) {
+
+	public UserInfoDTO getUserInfo(String loginId, String password)
+	{
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
-		UserInfoDTO userInfoDTO=new UserInfoDTO();
+
+		UserInfoDTO userInfoDTO = new UserInfoDTO();
+
+		//	SQLを作成
 		String sql="select * from user_info where user_id=? and password=?";
-		try {
+
+		//	SQL実行
+		try
+		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, loginId);
 			preparedStatement.setString(2, password);
+
 			ResultSet resultSet=preparedStatement.executeQuery();
-			while(resultSet.next()) {
+
+			while(resultSet.next())
+			{
 				userInfoDTO.setId(resultSet.getInt("id"));
 				userInfoDTO.setUserId(resultSet.getString("user_id"));
 				userInfoDTO.setPassword(resultSet.getString("password"));
@@ -92,88 +138,143 @@ public class UserInfoDAO {
 				userInfoDTO.setRegistDate(resultSet.getDate("regist_date"));
 				userInfoDTO.setUpdateDate(resultSet.getDate("update_date"));
 			}
-		}catch(SQLException e) {
+		}
+		catch(SQLException e)
+		{
 			e.printStackTrace();
 		}
-		try {
+
+		//	Close
+		try
+		{
 			connection.close();
-		}catch(SQLException e) {
+		}
+		catch(SQLException e) {
 			e.printStackTrace();
 		}
 		return userInfoDTO;
 	}
-	
-	public int resetPassword(String loginId, String password) {
+
+	public int resetPassword(String loginId, String password)
+	{
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
+
+		//	SQLを作成
 		String sql = "update user_info set passworrd=? where user_id=?";
+
 		int result= 0;
-		try {
+
+		//	SQLを実行
+		try
+		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, password);
 			preparedStatement.setString(2, loginId);
 			result = preparedStatement.executeUpdate();
-		}catch(SQLException e) {
+		}
+		catch(SQLException e)
+		{
 			e.printStackTrace();
 		}
-		try {
+
+		//	Close
+		try
+		{
 			connection.close();
-		}catch(SQLException e) {
+		}
+		catch(SQLException e)
+		{
 			e.printStackTrace();
 		}
+
 		return result;
 	}
-	
-	public int login(String loginId,String password) {
+
+	public int login(String loginId, String password)
+	{
 		DBConnector dbConnector=new DBConnector();
 		Connection connection = dbConnector.getConnection();
+
 		int result=0;
+
+		//	SQLを作成
 		String sql = "update user_info set logined=1 where user_id=? and password=?";
-		try {
+
+		//	SQLを実行
+		try
+		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, loginId);
 			preparedStatement.setString(2, password);
-			result=preparedStatement.executeUpdate();
-		}catch(SQLException e) {
+
+			result = preparedStatement.executeUpdate();
+		}
+		catch(SQLException e)
+		{
 			e.printStackTrace();
 		}
-		try {
+
+		//	Close
+		try
+		{
 			connection.close();
-		}catch(SQLException e) {
+		}
+		catch(SQLException e)
+		{
 			e.printStackTrace();
 		}
 		return result;
 	}
-	
-	public int logout(String loginId) {
+
+	public int logout(String loginId)
+	{
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
+
 		int result=0;
+
+		//	SQLを作成
 		String sql = "update user_info set logined=0 where user_id=?";
-		try {
+
+		//	SQLを実行
+		try
+		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, loginId);
 			result=preparedStatement.executeUpdate();
-		}catch(SQLException e) {
+		}
+		catch(SQLException e)
+		{
 			e.printStackTrace();
 		}
-		try {
+
+		//	Close
+		try
+		{
 			connection.close();
-		}catch(SQLException e) {
+		}
+		catch(SQLException e)
+		{
 			e.printStackTrace();
 		}
+
 		return result;
 	}
-	public String concealPassword(String password) {
+
+	public String concealPassword(String password)
+	{
 		int beginIndex = 0;
 		int endIndex = 1;
-		if(password.length() > 1) {
+
+		if(password.length() > 1)
+		{
 			endIndex = 2;
 		}
 		StringBuilder stringBuilder = new StringBuilder("****************");
-		
+
 		String concealPassword = stringBuilder.replace(beginIndex, endIndex, password.substring(beginIndex,endIndex)).toString();
 		return concealPassword;
 	}
-	
+
 }
