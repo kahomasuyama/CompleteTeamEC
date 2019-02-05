@@ -67,9 +67,8 @@
       </div>
       </s:form>
       <div class="box">
-		<!--
           <div class="product-details-recomend-box">
-                <s:iterator value=#session.productInfoDtoList>
+                <s:iterator value="productInfoDtoList">
                 <div class="recommend-box">
                     <a href='<s:url action="ProductDetailsAction">
                 <s:param name="productId" value="%{productId}"/>
@@ -81,7 +80,6 @@
                 </div>
                 </s:iterator>
           </div>
-       -->
       </div>
 </div>
 <s:include value="footer.jsp" />
