@@ -10,6 +10,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.yellow.dao.CartInfoDAO;
 import com.internousdev.yellow.dao.DestinationInfoDAO;
+import com.internousdev.yellow.dao.MCategoryDAO;
 import com.internousdev.yellow.dao.UserInfoDAO;
 import com.internousdev.yellow.dto.DestinationInfoDTO;
 import com.internousdev.yellow.dto.MCategoryDTO;
@@ -23,7 +24,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private String password;
 	private boolean savedLoginId;
 
-	private List<MCategoryDTO>mCategoryDtoList=new ArrayList<MCategoryDTO>();
+	private List<MCategoryDTO> mCategoryDtoList=new ArrayList<MCategoryDTO>();
 	private List<String>loginIdErrorMessageList=new ArrayList<String>();
 	private List<String>passwordErrorMessageList=new ArrayList<String>();
 	private Map<String,Object>session;
@@ -47,10 +48,16 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		if(loginIdErrorMessageList.size()!=0 || passwordErrorMessageList.size()!=0) {
 			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
+			session.put("passwordErrorMessageList", passwordErrorMessageList);
 			session.put("logined",0);
 		}
+		if(!session.containsKey("mCategoryList")) {
+			MCategoryDAO mCategoryDao=new MCategoryDAO();
+			mCategoryDtoList=mCategoryDao.getMCategoryList();
+			session.put("mCategoryDtoList",mCategoryDtoList);
+		}
 
-		UserInfoDAO userInfoDao=new UserinfoDAO();
+		UserInfoDAO userInfoDao=new UserInfoDAO();
 		if(userInfoDao.isExistsUserInfo(loginId,password)) {
 			if(userInfoDao.login(loginId,password)>0) {
 				UserInfoDTO userInfoDTO=userInfoDao.getUserInfo(loginId,password);
@@ -58,13 +65,13 @@ public class LoginAction extends ActionSupport implements SessionAware{
 				int count=0;
 				CartInfoDAO cartInfoDao=new CartInfoDAO();
 
-				count=cartInfoDao.linkToLoginId(String,valueOf(session.get("tempUserId")),loginId);
+				count=cartInfoDao.linkToLoginId(String.valueOf(session.get("tempUserId")),loginId);
 				if(count>0) {
-					DestinationInfoDAO destinationDao=new DestinationInfoDAO();
+					DestinationInfoDAO destinationInfoDao=new DestinationInfoDAO();
 					try {
 						List<DestinationInfoDTO> destinationInfoDtoList=new  ArrayList<DestinationInfoDTO>();
 						destinationInfoDtoList=destinationInfoDao.getDestinationInfo(loginId);
-						Iterator<destinationInfoDTO>iterator=destinationInfoDtoList.iterator();
+						Iterator<DestinationInfoDTO>iterator=destinationInfoDtoList.iterator();
 						if(!(iterator.hasNext())) {
 							destinationInfoDtoList=null;
 						}
