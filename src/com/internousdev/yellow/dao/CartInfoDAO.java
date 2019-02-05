@@ -170,7 +170,7 @@ public class CartInfoDAO {
     	return count;
     }
 
-    public int deleteALL(String userId){
+    public int deleteAll(String userId){
     	DBConnector dbConnector=new DBConnector();
     	Connection connection=dbConnector.getConnection();
     	int count=0;
