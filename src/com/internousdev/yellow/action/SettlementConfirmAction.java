@@ -81,7 +81,7 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 				e.printStackTrace();
 			}
 			HIDTO.setProductCount(Integer.parseInt(String.valueOf(productCountList[i])));
-			HIDTO.setSubtotal(Integer.parseInt(String.valueOf(subtotalList[i])));
+			//HIDTO.setSubtotal(Integer.parseInt(String.valueOf(subtotalList[i])));
 			purchaseHistoryInfoDtoList.add(HIDTO);
 		}
 		session.put("purchaseHIstoryInfoDtoList",purchaseHistoryInfoDtoList );
