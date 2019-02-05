@@ -37,31 +37,36 @@
 	</head>
 	<body>
 		<header>
-			<div>
-				<div>Yellow</div>
-				<div>
-					<ul>
-						<s:form id="form">
-							<s:if test='#session.containsKey("mCategoryDtoList")'>
-								<li><s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" /></li>
-							</s:if>
-							<li><s:textfield name="keywords" placeholder="検索ワード" /></li>
-							<li><s:submit value="商品検索" onclick="goSearchItemAction();" /></li>
-							<s:if test="#session.logined==1">
-								<li><s:submit value="ログアウト" onclick="goLogoutAction();" /></li>
-							</s:if>
-							<s:else>
-								<li><s:submit value="ログイン" onclick="goLoginAction();" /></li>
-							</s:else>
-							<li><s:submit value="カート" onclick="goCartAction();" /></li>
-							<li><s:submit value="商品一覧" onclick="goProductListAction();" /></li>
-							<s:if test="#session.logined==1">
-								<li><s:submit value="マイページ" onclick="goMyPageAction();" /></li>
-							</s:if>
-						</s:form>
-					</ul>
-				</div>
-			</div>
+			<div>Yellow</div>
+			<ul>
+				<s:form id="form">
+
+					<s:if test='#session.containsKey("mCategoryDtoList")'>
+						<li><s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" /></li>
+					</s:if>
+
+					<li><s:textfield name="keywords" placeholder="検索ワード" /></li>
+
+					<li><s:submit value="商品検索" onclick="goSearchItemAction();" /></li>
+
+					<s:if test="#session.logined==1">
+						<li><s:submit value="ログアウト" onclick="goLogoutAction();" /></li>
+					</s:if>
+
+					<s:else>
+						<li><s:submit value="ログイン" onclick="goLoginAction();" /></li>
+					</s:else>
+
+					<li><s:submit value="カート" onclick="goCartAction();" /></li>
+
+					<li><s:submit value="商品一覧" onclick="goProductListAction();" /></li>
+
+					<s:if test="#session.logined==1">
+						<li><s:submit value="マイページ" onclick="goMyPageAction();" /></li>
+					</s:if>
+
+				</s:form>
+			</ul>
 		</header>
 	</body>
 </html>
