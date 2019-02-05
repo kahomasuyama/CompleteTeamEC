@@ -1,5 +1,6 @@
 package com.internousdev.yellow.action;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -10,24 +11,38 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductDetailsAction extends ActionSupport implements SessionAware {
 
+	//	Get
 	private int productId;
+
+	//	Send
 	private ProductInfoDTO productInfoDTO;
-	private String categoryId;
+	private List<ProductInfoDTO> productInfoDtoList;
+
 	private Map<String, Object> session;
 
-	public String execute() {
-		String result = ERROR;
+	public String execute()
+	{
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 
+		//	商品情報を取得
 		productInfoDTO = productInfoDAO.getProductInfo(productId);
 
-		return result;
+		//	商品情報を取得できているのならば、商品のカテゴリIDを使用する。
+		int categoryId = (productInfoDTO == null) ? 1 : productInfoDTO.getCategoryId();
+
+		//	関連商品情報を取得
+		productInfoDtoList =  productInfoDAO.getRandomProductInfoListByCategoryId(categoryId, productId);
+
+
+		return SUCCESS;
 	}
-	public String getCategoryId() {
-		return categoryId;
+
+	public List<ProductInfoDTO> getProductInfoDtoList() {
+		return productInfoDtoList;
 	}
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
+
+	public void setProductInfoDtoList(List<ProductInfoDTO> productInfoDtoList) {
+		this.productInfoDtoList = productInfoDtoList;
 	}
 	public int getProductId() {
 		return productId;
@@ -44,6 +59,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 	public Map<String, Object> getSession() {
 		return session;
 	}
+	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
