@@ -2,7 +2,8 @@ package com.internousdev.yellow.dto;
 
 import java.sql.Date;
 
-public class UserInfoDTO {
+public class UserInfoDTO
+{
 	private int id;
 	private String userId;
 	private String password;
@@ -16,7 +17,6 @@ public class UserInfoDTO {
 	private int logined;
 	private Date registDate;
 	private Date updateDate;
-
 
 	public int getId() {
 		return id;
@@ -96,29 +96,5 @@ public class UserInfoDTO {
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
