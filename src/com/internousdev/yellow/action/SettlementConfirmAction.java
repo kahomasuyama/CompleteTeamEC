@@ -10,6 +10,9 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.yellow.dao.DestinationInfoDAO;
+import com.internousdev.yellow.dto.DestinationInfoDTO;
+import com.internousdev.yellow.dto.PurchaseHistoryInfoDTO;
 import com.internousdev.yellow.util.CommonUtility;
 import com.opensymphony.xwork2.ActionSupport;
 
