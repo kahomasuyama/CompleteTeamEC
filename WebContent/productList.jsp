@@ -10,7 +10,7 @@
 	</head>
 	<body>
 
-		<!-- <-- jsp:include page="header.jsp" /> -->
+		<jsp:include page="header.jsp" />
 
 		<s:if test="!errorMsg.isEmpty()">
 			<s:property value="errorMsg" /><br>
@@ -36,8 +36,6 @@
 				</ul>
 			</s:else>
 		</div>
-
-		<!-- <-- s:include value="footer.jsp"/> -->
 
 	</body>
 </html>
