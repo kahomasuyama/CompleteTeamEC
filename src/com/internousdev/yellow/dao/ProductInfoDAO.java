@@ -20,8 +20,10 @@ public class ProductInfoDAO
 
 		List<ProductInfoDTO> productInfoList = new ArrayList<ProductInfoDTO>();
 
+		//	SQL作成
 		String sql = "select * from product_info where category_id=? and product_id not in(?) order by rand() limit 0, 3";
 
+		//	SQL実行
 		try
 		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -55,6 +57,16 @@ public class ProductInfoDAO
 			e.printStackTrace();
 		}
 
+		//	Close
+		try
+		{
+			connection.close();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+
 		return productInfoList;
 	}
 
@@ -65,8 +77,10 @@ public class ProductInfoDAO
 
 		List<ProductInfoDTO> productInfoList = new ArrayList<ProductInfoDTO>();
 
+		//	SQL作成
 		String sql = "SELECT * FROM product_info";
 
+		//	SQL実行
 		try
 		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -97,6 +111,16 @@ public class ProductInfoDAO
 			e.printStackTrace();
 		}
 
+		//	Close
+		try
+		{
+			connection.close();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+
 
 		return productInfoList;
 	}
@@ -108,8 +132,10 @@ public class ProductInfoDAO
 
 		ProductInfoDTO productInfoDTO = new ProductInfoDTO();
 
+		//	SQL作成
 		String sql = "SELECT * FROM product_info WHERE product_id = ?";
 
+		//	SQL実行
 		try
 		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -143,6 +169,16 @@ public class ProductInfoDAO
 			e.printStackTrace();
 		}
 
+		//	Close
+		try
+		{
+			connection.close();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+
 		return productInfoDTO;
 	}
 
@@ -153,11 +189,13 @@ public class ProductInfoDAO
 
 		List<ProductInfoDTO> productInfoList = new ArrayList<ProductInfoDTO>();
 
-		//	SQL文作成
+		//	SQL作成
 		String sql = "SELECT * FROM product_info";
 
+		//	カテゴリを検索条件に含むか
 		boolean category_search = (category_id != 1);
-		boolean word_search = (!searchWordList.isEmpty());
+		//	ワードを指定して検索するか
+		boolean word_search = (searchWordList != null && !searchWordList.isEmpty());
 
 		//	どちらかでも、検索指定があるならば
 		if(category_search || word_search)
@@ -169,6 +207,7 @@ public class ProductInfoDAO
 		if(category_search)
 		{
 			sql += "(category_id = '" + category_id + "')";
+
 			//	検索ワード指定があるならば
 			if(word_search)
 			{
@@ -232,6 +271,16 @@ public class ProductInfoDAO
 			e.printStackTrace();
 		}
 
+
+		//	Close
+		try
+		{
+			connection.close();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
 
 		return productInfoList;
 	}
