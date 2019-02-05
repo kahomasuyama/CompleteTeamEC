@@ -69,15 +69,12 @@
       <div class="box">
           <div class="product-details-recomend-box">
                 <s:iterator value="productInfoDtoList">
-                <div class="recommend-box">
-                    <a href='<s:url action="ProductDetailsAction">
-                <s:param name="productId" value="%{productId}"/>
-                </s:url>'>
-                    <img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>'
-                        class="item-image-box-100" /></a>
-                <s:property value="productName" />
-                <br>
-                </div>
+	                <div class="recommend-box">
+	                    <a href='<s:url action="ProductDetailsAction"> <s:param name="productId" value="%{productId}"/> </s:url>'>
+	                    	<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' class="item-image-box-100" />
+                    	</a>
+	                	<s:property value="productName" /><br>
+	                </div>
                 </s:iterator>
           </div>
       </div>
