@@ -26,6 +26,8 @@ public class PurchaseHistoryInfoDTO {
 	private String email;
 	private String telNumber;
 	private String userAddress;
+	private int subtotal;
+
 
 	public int getId() {
 		return id;
@@ -163,5 +165,11 @@ public class PurchaseHistoryInfoDTO {
 		return userAddress;
 	}
 	public void setUserAddress(String userAddress) {
+	}
+	public int getSubtotal() {
+		return subtotal;
+	}
+	public void setSubtotal(int subtotal) {
+		this.subtotal = subtotal;
 	}
 }
