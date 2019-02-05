@@ -12,6 +12,7 @@ import com.internousdev.yellow.util.DBConnector;
 
 public class MCategoryDAO
 {
+
 	public List<MCategoryDTO> getMCategoryList()
 	{
 		DBConnector dbConnector = new DBConnector();
@@ -19,7 +20,10 @@ public class MCategoryDAO
 
 		List<MCategoryDTO> mCategoryList = new ArrayList<MCategoryDTO>();
 
+		//	SQL作成
 		String sql = "SELECT * FROM m_category";
+
+		//	SQL実行
 		try
 		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -36,6 +40,16 @@ public class MCategoryDAO
 
 				mCategoryList.add(mCategoryDTO);
 			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+
+		//	Close
+		try
+		{
+			connection.close();
 		}
 		catch(SQLException e)
 		{
