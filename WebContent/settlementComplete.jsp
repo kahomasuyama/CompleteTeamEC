@@ -4,27 +4,24 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="./css/style.css">
-<meta http-equiv="refresh" content="3;URL='HomeAction'"/>
-
-  <title>決済完了</title>
-
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./css/style.css">
+		<meta http-equiv="refresh" content="3;URL='HomeAction'"/>
+		<title>決済完了</title>
+	</head>
 
 <body>
-  <jsp:include page="header.jsp" />
 
-  <div id="contents">
-    <h1>決済完了画面</h1>
+	<jsp:include page="header.jsp" />
 
-  <div class="success">
-    決済が完了しました。
-  </div>
-  </div>
+	<div id="contents">
+		<h1>決済完了画面</h1>
 
-	<s:include value="footer.jsp"/>
+		<div class="success">
+			決済が完了しました。
+		</div>
+	</div>
 
 </body>
 </html>

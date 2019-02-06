@@ -57,10 +57,10 @@
 	   </div>
      </s:if>
 
-     <s:if test="!#session.telNumberErrorMessageList.isEmpty()">
+     <s:if test="!#session.tellNumberErrorMessageList.isEmpty()">
 	   <div class="error">
 		 <div class="error-message">
-		   <s:iterator value="#session.telNumberErrorMessageList"><s:property /><br></s:iterator>
+		   <s:iterator value="#session.tellNumberErrorMessageList"><s:property /><br></s:iterator>
 		 </div>
 	   </div>
      </s:if>
@@ -108,7 +108,7 @@
 
       <tr>
 	   <th scope="row"><s:label value="電話番号"/></th>
-	    <td><s:textfield name="telNumber" class="txt" /></td>
+	    <td><s:textfield name="tellNumber" class="txt" /></td>
       </tr>
 
       <tr>

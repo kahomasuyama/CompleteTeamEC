@@ -10,7 +10,7 @@ public class DestinationInfoDTO {
 	private String familyNameKana;
 	private String firstNameKana;
 	private String email;
-	private String telNumber;
+	private String tellNumber;
 	private String userAddress;
 	private Date registDate;
 	private Date updateDate;
@@ -64,11 +64,11 @@ public class DestinationInfoDTO {
 		this.email = email;
 	}
 
-	public String getTelNumber() {
-		return telNumber;
+	public String getTellNumber() {
+		return tellNumber;
 	}
-	public void setTelNumber(String telNumber) {
-		this.telNumber = telNumber;
+	public void setTellNumber(String tellNumber) {
+		this.tellNumber = tellNumber;
 	}
 
 	public String getUserAddress() {

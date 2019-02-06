@@ -2,6 +2,12 @@ package com.internousdev.yellow.dto;
 
 import java.sql.Date;
 
+/**
+ *	商品情報
+ *
+ * @author 酒井和馬
+ *
+ */
 public class ProductInfoDTO
 {
 	private int id;

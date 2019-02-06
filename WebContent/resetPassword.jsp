@@ -58,8 +58,8 @@
 		<s:form action="ResetPasswordConfirmAction">
 			<table class="vertical-list-table">
 				<tr>
-					<th scope="row"><s:label value="ログインID"/></th>
-					<td><s:textfield name="loginId" placeholder="ログインID" class="txt"/></td>
+					<th scope="row"><s:label value="ユーザーID"/></th>
+					<td><s:textfield name="loginId" placeholder="ユーザーID" class="txt"/></td>
 				</tr>
 				<tr>
 					<th scope="row"><s:label value="現在のパスワード"/></th>
@@ -70,11 +70,11 @@
 					<td><s:password name="nesPassword" placeholder="新しいパスワード" class="txt"/></td>
 				</tr>
 				<tr>
-					<th scope="row"><s:label value="(s再確認用)"/></th>
-					<td><s:password name="reConfirmactionPassword" placeholder="新しいパスワード(再確認用)" class="txt"/></td>
+					<th scope="row"><s:label value="(再確認)"/></th>
+					<td><s:password name="reConfirmactionPassword" placeholder="新しいパスワード(再確認)" class="txt"/></td>
 				</tr>
 			</table>
-			<s:submit value="パスワード再設定" class="submit_btn"/>
+			<s:submit value="確認" class="submit_btn"/>
 		</s:form>
 	</div>
 	<s:include value="footer.jsp"/>

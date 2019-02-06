@@ -10,8 +10,26 @@ import java.util.List;
 import com.internousdev.yellow.dto.ProductInfoDTO;
 import com.internousdev.yellow.util.DBConnector;
 
+/**
+ * 商品情報に関するDB操作
+ *
+ * @author internousdev
+ */
 public class ProductInfoDAO
 {
+	/**
+	 * 商品リストをランダムな順番でDBより取得する<br/>
+	 * 商品カテゴリを指定可能、ひとつだけ商品を除外できる
+	 *
+	 * @param categoryId
+	 * 指定のカテゴリID (1 : 指定しない)
+	 *
+	 * @param ignoreProductId
+	 * 除外する商品ID (0 : 指定しない)
+	 *
+	 * @return
+	 * 商品リスト
+	 */
 	public List<ProductInfoDTO> getRandomProductInfoListByCategoryId(int categoryId, int ignoreProductId)
 	{
 		DBConnector dbConnector = new DBConnector();
@@ -19,15 +37,24 @@ public class ProductInfoDAO
 
 		List<ProductInfoDTO> productInfoList = new ArrayList<ProductInfoDTO>();
 
+
 		//	SQL作成
-		String sql = "select * from product_info where category_id=? and product_id not in(?) order by rand() limit 0, 3";
+		String sql = "SELECT * FROM product_info WHERE ";
+
+		//	カテゴリが指定されているのならば条件を追加
+		if(categoryId != 1)
+		{
+			sql += "category_id = " + categoryId + " AND ";
+		}
+
+		sql += "product_id NOT IN(?) ORDER BY rand() LIMIT 0, 3";
+
 
 		//	SQL実行
 		try
 		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, categoryId);
-			preparedStatement.setInt(2, ignoreProductId);
+			preparedStatement.setInt(1, ignoreProductId);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -69,6 +96,12 @@ public class ProductInfoDAO
 		return productInfoList;
 	}
 
+	/**
+	 * 商品のリストをDBより取得する
+	 *
+	 * @return
+	 * 商品のリスト
+	 */
 	public List<ProductInfoDTO> getProductInfoList()
 	{
 		DBConnector dbConnector = new DBConnector();
@@ -124,6 +157,15 @@ public class ProductInfoDAO
 		return productInfoList;
 	}
 
+	/**
+	 * 指定の商品IDの商品情報をDBより取得する
+	 *
+	 * @param productId
+	 * 指定の商品ID
+	 *
+	 * @return
+	 * 商品情報
+	 */
 	public ProductInfoDTO getProductInfo(int productId)
 	{
 		DBConnector dbConnector = new DBConnector();
@@ -181,6 +223,18 @@ public class ProductInfoDAO
 		return productInfoDTO;
 	}
 
+	/**
+	 * 検索ワードと商品をカテゴリを指定して、DBより商品リストを取得する
+	 *
+	 * @param category_id
+	 * 指定の商品カテゴリ
+	 *
+	 * @param searchWordList
+	 * 指定の検索ワードのリスト
+	 *
+	 * @return
+	 * 商品リスト
+	 */
 	public List<ProductInfoDTO> searchProductInfoList(int category_id, List<String> searchWordList)
 	{
 		DBConnector dbConnector = new DBConnector();

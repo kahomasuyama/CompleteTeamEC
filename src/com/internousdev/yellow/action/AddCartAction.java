@@ -29,43 +29,62 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 	private String categoryId;
 
 	private Map<String,Object> session;
-	public String execute(){
+	public String execute()
+	{
 		String result=ERROR;
 		String userId=null;
 		String tempUserId=null;
 
 		session.remove("checkListErrorMessageList");
 
-		if(!(session.containsKey("loginId"))&& !(session.containsKey("tempUserId"))){
+		//未ログイン時のときにtempUserIdの発行
+		if(!(session.containsKey("loginId"))&& !(session.containsKey("tempUserId")))
+		{
 			CommonUtility commonUtility=new CommonUtility();
 			session.put("tempUserId", commonUtility.getRamdomValue());
 		}
 
-		if(session.containsKey("loginId")){
+
+		if(session.containsKey("loginId"))
+		{
 			userId=String.valueOf(session.get("loginId"));
-		}else{
+		}
+
+		else
+		{
 			userId=String.valueOf(session.get("tempUserId"));
 			tempUserId=String.valueOf(session.get("tempUserId"));
 		}
+
+
 		int intProductCount=Integer.parseInt(productCount);
 
 		CartInfoDAO cartInfoDao=new CartInfoDAO();
 		CartInfoDAO cartInfoDAO=new CartInfoDAO();
 
 		int count=0;
-		if(cartInfoDAO.isExistsCartInfo(userId,productId)){
+
+		if(cartInfoDAO.isExistsCartInfo(userId,productId))
+		{
 			count=cartInfoDAO.update(userId,productId,intProductCount);
-		}else{
+		}
+
+		else
+		{
 			count=cartInfoDAO.regist(userId,tempUserId,productId,intProductCount,price);
 		}
 
-		if(count>0){
+		if(count>0)
+		{
 			result=SUCCESS;
 		}
+
 		List<CartInfoDTO> cartInfoDtoList=new ArrayList<CartInfoDTO>();
 		cartInfoDtoList=cartInfoDao.getCartInfoDtoList(userId);
 		Iterator<CartInfoDTO> iterator=cartInfoDtoList.iterator();
-		if(!(iterator.hasNext())){
+
+		if(!(iterator.hasNext()))
+		{
 			cartInfoDtoList=null;
 		}
 		session.put("cartInfoDtoList",cartInfoDtoList);
@@ -74,100 +93,125 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 		return result;
 
 	}
-	public int getProductId(){
+
+	public int getProductId()
+	{
 		return productId;
 	}
 
-	public void setProductId(int productId){
+	public void setProductId(int productId)
+	{
 		this.productId=productId;
 	}
 
 
-	public String getProducName(){
+	public String getProducName()
+	{
 		return productName;
 	}
 
-	public void setProductName(String productName){
+	public void setProductName(String productName)
+	{
 		this.productName=productName;
 	}
 
-	public String getProductNameKana(){
+	public String getProductNameKana()
+	{
 		return productNameKana;
 	}
 
-	public void setProductNameKana(String productNameKana){
+	public void setProductNameKana(String productNameKana)
+	{
 		this.productNameKana=productNameKana;
 	}
 
-	public String getImageFilePath(){
+	public String getImageFilePath()
+	{
 		return imageFilePath;
 	}
 
-	public void setImageFilePath(String imageFilePath){
+	public void setImageFilePath(String imageFilePath)
+	{
 		this.imageFilePath=imageFilePath;
 	}
 
-	public String getImageFileName(){
+	public String getImageFileName()
+	{
 		return imageFileName;
 	}
 
-	public void setImageFileName(String imageFileName){
+	public void setImageFileName(String imageFileName)
+	{
 		this.imageFileName=imageFileName;
 	}
 
-	public int getPrice(){
+	public int getPrice()
+	{
 		return price;
 	}
 
-	public void setPrice(int price){
+	public void setPrice(int price)
+	{
 		this.price=price;
 	}
 
-	public String getProductCount(){
+	public String getProductCount()
+	{
 		return productCount;
 	}
 
-	public void setProductCount(String productCount){
+	public void setProductCount(String productCount)
+	{
 		this.productCount=productCount;
 	}
 
-	public String getReleaseCompany(){
+	public String getReleaseCompany()
+	{
 		return releaseCompany;
 	}
 
-	public void setReleaseCompanny(String releaseCompany){
+	public void setReleaseCompanny(String releaseCompany)
+	{
 		this.releaseCompany=releaseCompany;
 	}
 
-	public Date getReleaseDate(){
+	public Date getReleaseDate()
+	{
 		return releaseDate;
 	}
 
-	public void setReleaseDate(Date releaseDate){
+	public void setReleaseDate(Date releaseDate)
+	{
 		this.releaseDate=releaseDate;
 	}
 
-	public String getProductDescription(){
+	public String getProductDescription()
+	{
 		return productDescription;
 	}
 
-	public void setProductDescription(String productDescription){
+	public void setProductDescription(String productDescription)
+	{
 		this.productDescription=productDescription;
 	}
 
-	public String getCategoryId(){
+	public String getCategoryId()
+	{
 		return categoryId;
 	}
 
-	public void setCategoryId(String categoryId){
+	public void setCategoryId(String categoryId)
+	{
 		this.categoryId=categoryId;
 	}
 
-	public Map<String,Object> getSession(){
+	public Map<String,Object> getSession()
+	{
 		return session;
 	}
 
-	public void setSession(Map<String,Object> session){
+	public void setSession(Map<String,Object> session)
+	{
 		this.session=session;
 	}
 }

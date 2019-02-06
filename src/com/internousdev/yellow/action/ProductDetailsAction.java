@@ -11,13 +11,14 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductDetailsAction extends ActionSupport implements SessionAware {
 
-	//	Get
+	//	Receive
 	private int productId;
 
 	//	Send
 	private ProductInfoDTO productInfoDTO;
 	private List<ProductInfoDTO> productInfoDtoList;
 
+	//	Session
 	private Map<String, Object> session;
 
 	public String execute()
@@ -33,14 +34,12 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 		//	関連商品情報を取得
 		productInfoDtoList =  productInfoDAO.getRandomProductInfoListByCategoryId(categoryId, productId);
 
-
 		return SUCCESS;
 	}
 
 	public List<ProductInfoDTO> getProductInfoDtoList() {
 		return productInfoDtoList;
 	}
-
 	public void setProductInfoDtoList(List<ProductInfoDTO> productInfoDtoList) {
 		this.productInfoDtoList = productInfoDtoList;
 	}
