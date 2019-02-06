@@ -13,7 +13,8 @@ import com.internousdev.yellow.dto.CartInfoDTO;
 import com.internousdev.yellow.util.CommonUtility;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class AddCartAction extends ActionSupport implements SessionAware{
+public class AddCartAction extends ActionSupport implements SessionAware
+{
 
 	private int productId;
 	private String productName;
@@ -26,9 +27,8 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 	private Date releaseDate;
 	private String productDescription;
 
-	private String categoryId;
-
 	private Map<String,Object> session;
+
 	public String execute()
 	{
 		String result=ERROR;
@@ -49,7 +49,6 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 		{
 			userId=String.valueOf(session.get("loginId"));
 		}
-
 		else
 		{
 			userId=String.valueOf(session.get("tempUserId"));
@@ -193,16 +192,6 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 	public void setProductDescription(String productDescription)
 	{
 		this.productDescription=productDescription;
-	}
-
-	public String getCategoryId()
-	{
-		return categoryId;
-	}
-
-	public void setCategoryId(String categoryId)
-	{
-		this.categoryId=categoryId;
 	}
 
 	public Map<String,Object> getSession()
