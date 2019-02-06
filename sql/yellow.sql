@@ -45,7 +45,7 @@ INSERT INTO user_info VALUES
 
 
 
-CREATE TABLE product_inf
+CREATE TABLE product_info
 (
 
 	id INT PRIMARY KEY NOT NULL auto_increment comment "ID",

@@ -22,7 +22,6 @@
 			}
 			function goProductListAction()
 			{
-				document.getElementById("categoryId").value = 1;
 				document.getElementById("form").action="ProductListAction";
 			}
 			function goLogoutAction()
@@ -31,6 +30,7 @@
 			}
 			function goSearchItemAction()
 			{
+				document.getElementById("categoryId").value = 1;
 				document.getElementById("form").action="SearchItemAction";
 			}
 		</script>

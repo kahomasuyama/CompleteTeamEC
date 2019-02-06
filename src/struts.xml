@@ -7,7 +7,6 @@
 <!-- 	<constant name="struts.devMode" value="true" /> -->
 	<package name="com.internousdev.yellow.action" extends="struts-default">
 
-<!--
 	<action name="CreateUserAction" class="com.internousdev.yellow.action.CreateUserAction" method="execute">
 		<result name="success">createUser.jsp</result>
 	</action>
@@ -50,7 +49,7 @@
 		<result name="success">productList.jsp</result>
 	</action>
 
-	<action name="ProductDetails" class="com.internousdev.yellow.action.ProductDetails" method="execute">
+	<action name="ProductDetailsAction" class="com.internousdev.yellow.action.ProductDetailsAction" method="execute">
 		<result name="success">productDetails.jsp</result>
 	</action>
 
@@ -101,7 +100,7 @@
 	</action>
 
 	<action name="MyPageAction" class="com.internousdev.yellow.action.MyPageAction" method="execute">
-		<result name="success">mypage.jsp</result>
+		<result name="success">myPage.jsp</result>
 	</action>
 
 	<action name="PurchaseHistoryAction" class="com.internousdev.yellow.action.PurchaseHistoryAction" method="execute">
@@ -116,7 +115,6 @@
 	<action name="LogoutAction" class="com.internousdev.yellow.action.LogoutAction" method="execute">
 		<result name="success">index.jsp</result>
 	</action>
- -->
 
 	</package>
 </struts>
