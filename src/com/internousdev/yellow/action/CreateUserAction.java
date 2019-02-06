@@ -28,7 +28,6 @@ public class CreateUserAction extends ActionSupport implements SessionAware
 
 	public String execute()
 	{
-		String result=ERROR;
 
 		session.remove("familyNameErrorMessageList");
 		session.remove("firstNameErrorMessageList");
@@ -57,12 +56,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware
 		session.put("loginId", loginId);
 		session.put("password", password);
 
-		//	ここでresult に SUCCESSを入れているが、return SUCCESSではなぜだめ？
-		//	理由がないならシンプルなreturn SUCCESSを使おう
-		//	resultを使わないなら一番上のString result = ERRORも消そう
-		result=SUCCESS;
-
-		return result;
+		return SUCCESS;
 	}
 
 	public String getFamilyName()

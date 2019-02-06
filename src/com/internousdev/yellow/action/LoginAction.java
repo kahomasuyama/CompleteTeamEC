@@ -37,8 +37,8 @@ public class LoginAction extends ActionSupport implements SessionAware
 		session.put("loginIdErrorMessageList", "");
 		session.put("passwordErrorMessageList", "");
 
-		//	ここでは何を？しているかコメントしよう
-		if(savedLoginId==true)
+		//	ユーザーIDが保存されているか
+		if(savedLoginId)
 		{
 			session.put("savedLoginId", true);
 			session.put("loginId",loginId);
@@ -49,16 +49,13 @@ public class LoginAction extends ActionSupport implements SessionAware
 			session.put("loginId", loginId);
 		}
 
-		//	ここでは何を？しているかコメントしよう
+		//文字種の判定
 		InputChecker inputChecker=new InputChecker();
 		loginIdErrorMessageList=inputChecker.doCheck("ログインID",loginId,1,8,true,false,false,true,false,false,false,false,false);
 		passwordErrorMessageList=inputChecker.doCheck("パスワード",password,1,16,true,false,false,true,false,false,false,false,false);
 
 		//	ここでは何を？しているかコメントしよう
-		//	loginIdErrorMessageList.size() != 0
-		//	ではなく
-		//	!loginIdErrorMessageList.isEmpty()を使おう
-		if(loginIdErrorMessageList.size()!=0 || passwordErrorMessageList.size()!=0)
+		if(!loginIdErrorMessageList.isEmpty() || !passwordErrorMessageList.isEmpty())
 		{
 			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
 			session.put("passwordErrorMessageList", passwordErrorMessageList);
@@ -73,7 +70,7 @@ public class LoginAction extends ActionSupport implements SessionAware
 			session.put("mCategoryDtoList",mCategoryDtoList);
 		}
 
-		//	この下のif文でなにをしているか書くとわかりやすい
+		//	DBにユーザーが存在しているかの確認
 		UserInfoDAO userInfoDao=new UserInfoDAO();
 		if(userInfoDao.isExistsUserInfo(loginId,password))
 		{
