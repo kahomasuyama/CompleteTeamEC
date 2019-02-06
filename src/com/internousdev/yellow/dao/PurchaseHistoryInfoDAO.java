@@ -16,43 +16,61 @@ public class PurchaseHistoryInfoDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList = new ArrayList<PurchaseHistoryInfoDTO>();
-		String sql = "select"
-				+ " phi.id as id,"
-				+ " phi.user_id as user_id,"
-				+ " phi.product_count as product_count,"
-				+ " pi.product_id as product_id,"
-				+ " pi.product_name as product_name,"
-				+ " pi.product_name_kana as product_name_kana,"
-				+ " pi.product_description as product_description,"
-				+ " pi.category_id as category_id,"
+
+
+		String sql = "SELECT"
+				// ID ユーザーID 個数
+				+ " phi.id AS id,"
+				+ " phi.user_id AS user_id,"
+				+ " phi.product_count AS product_count,"
+				// 商品ID 商品名 商品名かな 商品詳細
+				+ " pi.product_id AS product_id,"
+				+ " pi.product_name AS product_name,"
+				+ " pi.product_name_kana AS product_name_kana,"
+				+ " pi.product_description AS product_description,"
+				// カテゴリID 価格 画像ファイルパス 画像ファイル名 発売会社名 発売年月日
+				+ " pi.category_id AS category_id,"
 				+ " pi.price,"
-				+ " pi.image_file_name as image_file_name,"
-				+ " pi.image_file_path as image_file_path,"
+				+ " pi.image_file_name AS image_file_name,"
+				+ " pi.image_file_path AS image_file_path,"
 				+ " pi.release_company,"
 				+ " pi.release_date,"
-				+ " phi.price as price,"
-				+ " phi.regist_date as regist_date,"
-				+ " phi.update_date as update_date,"
-				+ " di.family_name as family_name,"
-				+ " di.first_name as first_name,"
-				+ " di.family_name_kana as family_name_kana,"
-				+ " di.first_name_kana as first_name_kana,"
-				+ " di.email as email,"
-				+ " di.tel_number as tel_number,"
-				+ " di.user_address as user_address"
-				+ " FROM purchase_history_info as phi"
-				+ " LEFT JOIN product_info as pi"
+				// 値段 登録日 更新日
+				+ " phi.price AS price,"
+				+ " phi.regist_date AS regist_date,"
+				+ " phi.update_date AS update_date,"
+				// 姓 名 姓かな 名かな メールアドレス 電話番号 住所
+				+ " di.family_name AS family_name,"
+				+ " di.first_name AS first_name,"
+				+ " di.family_name_kana AS family_name_kana,"
+				+ " di.first_name_kana AS first_name_kana,"
+				+ " di.email AS email,"
+				+ " di.tel_number AS tel_number,"
+				+ " di.user_address AS user_address"
+
+				// purchase_history_info(購入履歴)をphiと定義
+				+ " FROM purchase_history_info AS phi"
+				// product_info(商品情報)をpiと定義
+				+ " LEFT JOIN product_info AS pi"
+				// phiとpiのproduct_idをつなげる
 				+ " ON phi.product_id = pi.product_id"
-				+ " LEFT JOIN destination_info as di"
+
+				// destination_info（宛先情報）をdiと定義
+				+ " LEFT JOIN destination_info AS di"
+				// 上記のdiとphiのidをつなげる
 				+ " ON phi.destination_id = di.id"
+
+				// phi.userが？の時
 				+ " WHERE phi.user_id = ?"
+				// regist_dateを降順に並べる
 				+ " ORDER BY regist_date DESC";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, loginId);
 			ResultSet resultSet = preparedStatement.executeQuery();
-			while (resultSet.next()) {
+			while (resultSet.next())
+			{
 				PurchaseHistoryInfoDTO purchaseHistoryInfoDto = new PurchaseHistoryInfoDTO();
 				purchaseHistoryInfoDto.setId(resultSet.getInt("id"));
 				purchaseHistoryInfoDto.setUserId(resultSet.getString("user_id"));
@@ -89,11 +107,14 @@ public class PurchaseHistoryInfoDAO {
 		return purchaseHistoryInfoDTOList;
 	}
 
-	public int regist(String loginId, int productId, int productCount, int destinationId, int price) {
+	public int regist(String loginId, int productId, int productCount, int destinationId, int price)
+	{
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
-		String sql = "insert into purchase_history_info(user_id, product_id, product_count, price, destination_id, regist_date, update_date) values (?, ?, ?, ?, ?, now(), '0000-01-01')";
+		// phiに()の中の値を入れる
+		String sql = "INSERT INTO purchase_history_info(user_id, product_id, product_count, price, destination_id, regist_date, update_date) VALUES (?, ?, ?, ?, ?, now(), '0000-01-01')";
 		int count = 0;
+
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, loginId);
@@ -105,18 +126,22 @@ public class PurchaseHistoryInfoDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
 		try {
 			connection.close();
-		} catch (SQLException e) {
+			} catch (SQLException e)
+		{
 			e.printStackTrace();
 		}
 		return count;
 	}
 
-	public int deleteAll(String loginId) {
+	public int deleteAll(String loginId)
+	{
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
-		String sql = "delete from purchase_history_info where user_id=?";
+					// phi内の指定のuser_idの情報をDELETE（消す）
+		String sql = "DELETE FROM purchase_history_info WHERE user_id=?";
 		int count = 0;
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
