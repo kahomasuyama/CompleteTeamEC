@@ -11,13 +11,14 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductDetailsAction extends ActionSupport implements SessionAware {
 
-	//	Get
+	//	Receive
 	private int productId;
 
 	//	Send
 	private ProductInfoDTO productInfoDTO;
 	private List<ProductInfoDTO> productInfoDtoList;
 
+	//	Session
 	private Map<String, Object> session;
 
 	public String execute()

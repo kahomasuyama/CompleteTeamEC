@@ -13,15 +13,15 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class SearchItemAction extends ActionSupport implements SessionAware
 {
-	//	Get
+	//	Receive
 	private String searchWord;
 	private int categoryId;
 
-	// Send
+	//	Send
 	private List<ProductInfoDTO> productInfoList;
 	private String errorMsg;
 
-	// Session
+	//	Session
 	private Map<String, Object> session;
 
 	public String execute()

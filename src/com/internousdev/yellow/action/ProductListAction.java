@@ -20,6 +20,7 @@ public class ProductListAction extends ActionSupport implements SessionAware
 	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
 	private List<ProductInfoDTO> productInfoDtoList = new ArrayList<ProductInfoDTO>();
 
+	//	Session
 	private Map<String, Object> session;
 
 	public String execute()
