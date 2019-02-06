@@ -41,7 +41,7 @@
 								</tr>
 								<tr>
 									<th scope="row"><s:label value="購入個数" /></th>
-									<td><s:select name="productCount" list="%{productInfoDTO.productCountList}" />個</td>
+									<td><s:select name="productCount" list="%{productCountList}" />個</td>
 								</tr>
 								<tr>
 									<th scope="row"><s:label value="発売会社名" /></th>

@@ -8,9 +8,11 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.yellow.dao.CartInfoDAO;
+import com.internousdev.yellow.dao.MCategoryDAO;
 import com.internousdev.yellow.dao.PurchaseHistoryInfoDAO;
 import com.internousdev.yellow.dto.CartInfoDTO;
 import com.internousdev.yellow.dto.DestinationInfoDTO;
+import com.internousdev.yellow.dto.MCategoryDTO;
 import com.internousdev.yellow.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -22,6 +24,14 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 
 	public String execute() {
 		String result = ERROR;
+
+		//	商品カテゴリがないなら取得
+		if(!session.containsKey("mCategoryDtoList"))
+		{
+			MCategoryDAO mcategoryDAO = new MCategoryDAO();
+			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
+			session.put("mCategoryDtoList", mCategoryDtoList);
+		}
 
 		@SuppressWarnings("unchecked")
 		ArrayList<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList = (ArrayList<PurchaseHistoryInfoDTO>)session.get("purchaseHistoryInfoDtoList");

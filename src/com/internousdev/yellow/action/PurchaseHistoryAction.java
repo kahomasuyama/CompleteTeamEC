@@ -22,6 +22,13 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 
 	public String execute()
 	{
+		//	商品カテゴリがないなら取得
+		if(!session.containsKey("mCategoryDtoList"))
+		{
+			MCategoryDAO mcategoryDAO = new MCategoryDAO();
+			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
+			session.put("mCategoryDtoList", mCategoryDtoList);
+		}
 
 		PurchaseHistoryInfoDAO purchaseHistoryInfoDao = new PurchaseHistoryInfoDAO();
 		purchaseHistoryInfoDtoList = purchaseHistoryInfoDao.getPurchaseHistoryList(String.valueOf(session.get("loginId")));

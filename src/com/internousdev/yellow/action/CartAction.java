@@ -21,6 +21,14 @@ public class CartAction extends ActionSupport implements SessionAware
 
 	public String execute()
 	{
+		//	商品カテゴリがないなら取得
+		if(!session.containsKey("mCategoryDtoList"))
+		{
+			MCategoryDAO mcategoryDAO = new MCategoryDAO();
+			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
+			session.put("mCategoryDtoList", mCategoryDtoList);
+		}
+
 		String result=ERROR;
 		String userId=null;
 		CartInfoDAO cartInfoDao=new CartInfoDAO();

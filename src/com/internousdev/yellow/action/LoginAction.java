@@ -34,6 +34,14 @@ public class LoginAction extends ActionSupport implements SessionAware
 
 		String result=ERROR;
 
+		//	商品カテゴリがないなら取得
+		if(!session.containsKey("mCategoryDtoList"))
+		{
+			MCategoryDAO mcategoryDAO = new MCategoryDAO();
+			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
+			session.put("mCategoryDtoList", mCategoryDtoList);
+		}
+
 		session.put("loginIdErrorMessageList", "");
 		session.put("passwordErrorMessageList", "");
 

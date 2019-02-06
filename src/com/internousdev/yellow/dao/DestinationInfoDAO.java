@@ -17,7 +17,7 @@ public class DestinationInfoDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		int count = 0;
-		String sql = "insert into destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, email, tell_number, user_address, regist_date, update_date)"
+		String sql = "insert into destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address, regist_date, update_date)"
 				+ " values (?, ?, ?, ?, ?, ?, ?, ?, now(), '0000-01-01')";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -46,7 +46,7 @@ public class DestinationInfoDAO {
 		Connection connection = dbConnector.getConnection();
 		List<DestinationInfoDTO> destinationInfoDtoList = new ArrayList<DestinationInfoDTO>();
 
-		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tell_number, email FROM destination_info WHERE user_id = ?";
+		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email FROM destination_info WHERE user_id = ?";
 
 		try {
 			connection = dbConnector.getConnection();
@@ -63,7 +63,7 @@ public class DestinationInfoDAO {
 				destinationInfoDTO.setFirstNameKana(rs.getString("first_name_kana"));
 				destinationInfoDTO.setUserAddress(rs.getString("user_address"));
 				destinationInfoDTO.setEmail(rs.getString("email"));
-				destinationInfoDTO.setTellNumber(rs.getString("tell_number"));
+				destinationInfoDTO.setTellNumber(rs.getString("tel_number"));
 				destinationInfoDtoList.add(destinationInfoDTO);
 			}
 		}catch(SQLException e) {

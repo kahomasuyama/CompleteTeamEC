@@ -6,11 +6,13 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.yellow.dao.MCategoryDAO;
+import com.internousdev.yellow.dto.MCategoryDTO;
 import com.internousdev.yellow.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateUserConfirmAction extends ActionSupport implements SessionAware{
-	
+
 	private String familyName;
 	private String firstName;
 	private String familyNameKana;
@@ -19,7 +21,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	private String email;
 	private String loginId;
 	private String password;
-	
+
 	private List<String> familyNameErrorMessageList = new ArrayList<String>();
 	private List<String> firstNameErrorMessageList = new ArrayList<String>();
 	private List<String> familyNameKanaErrorMessageList = new ArrayList<String>();
@@ -27,15 +29,24 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	private List<String> emailErrorMessageList = new ArrayList<String>();
 	private List<String> loginIdErrorMessageList = new ArrayList<String>();
 	private List<String> passwordErrorMessageList = new ArrayList<String>();
-	
+
 	private String categoryId;
 	private List<String> sexList = new ArrayList<String>();
 	private Map<String,Object> session;
-	
+
 	public String execute() {
+
+		//	商品カテゴリがないなら取得
+		if(!session.containsKey("mCategoryDtoList"))
+		{
+			MCategoryDAO mcategoryDAO = new MCategoryDAO();
+			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
+			session.put("mCategoryDtoList", mCategoryDtoList);
+		}
+
 		String result=ERROR;
 		InputChecker inputChecker=new InputChecker();
-		
+
 		session.put("familyName", familyName);
 		session.put("firstName", firstName);
 		session.put("familyNameKana", familyNameKana);
@@ -43,7 +54,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		session.put("sex", sex);
 		session.put("email", email);
 		session.put("loginId", loginId);
-		
+
 		familyNameErrorMessageList = inputChecker.doCheck("姓", familyName, 1, 16, true, true, true, false, false, false, false, false, false);
 		firstNameErrorMessageList = inputChecker.doCheck("名", firstName, 1, 16, true, true, true, false, false, false, false, false, false);
 		familyNameKanaErrorMessageList = inputChecker.doCheck("姓ふりがな", familyNameKana, 1, 16, false, false, true, false, false, false, false, false, false);
@@ -51,7 +62,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		emailErrorMessageList = inputChecker.doCheck("メールアドレス", email, 14, 32, true, false, false, true, true, false, false, false, false);
 		loginIdErrorMessageList = inputChecker.doCheck("ログインID", loginId, 1, 8, true, false, false, true, false, false, false, false, false);
 		passwordErrorMessageList = inputChecker.doCheck("パスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
-		
+
 		if(familyNameErrorMessageList.size()==0
 		&& firstNameErrorMessageList.size()==0
 		&& familyNameErrorMessageList.size()==0
@@ -72,7 +83,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		}
 		return result;
 	}
-	
+
 	public List<String> getSexList() {
 		return sexList;
 	}
@@ -210,7 +221,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		this.passwordErrorMessageList = passwordErrorMessageList;
 	}
 
-	
+
 
 	public Map<String, Object> getSession() {
 		return session;
@@ -219,6 +230,6 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-	
+
 
 }

@@ -6,7 +6,9 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.yellow.dao.MCategoryDAO;
 import com.internousdev.yellow.dao.ProductInfoDAO;
+import com.internousdev.yellow.dto.MCategoryDTO;
 import com.internousdev.yellow.dto.ProductInfoDTO;
 import com.internousdev.yellow.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
@@ -26,6 +28,15 @@ public class SearchItemAction extends ActionSupport implements SessionAware
 
 	public String execute()
 	{
+		//	商品カテゴリがないなら取得
+		if(!session.containsKey("mCategoryDtoList"))
+		{
+			MCategoryDAO mcategoryDAO = new MCategoryDAO();
+			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
+			session.put("mCategoryDtoList", mCategoryDtoList);
+		}
+
+
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 		List<String> searchWordList = null;
 

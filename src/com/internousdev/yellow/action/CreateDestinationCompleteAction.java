@@ -7,6 +7,8 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.yellow.dao.DestinationInfoDAO;
+import com.internousdev.yellow.dao.MCategoryDAO;
+import com.internousdev.yellow.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateDestinationCompleteAction extends ActionSupport implements SessionAware{
@@ -23,13 +25,25 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 	private Map<String, Object> session;
 
 	public String execute() {
-		String result = ERROR;
+
+		//	商品カテゴリがないなら取得
+		if(!session.containsKey("mCategoryDtoList"))
+		{
+			MCategoryDAO mcategoryDAO = new MCategoryDAO();
+			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
+			session.put("mCategoryDtoList", mCategoryDtoList);
+		}
+
 		DestinationInfoDAO destinationInfoDao = new DestinationInfoDAO();
 		int count = destinationInfoDao.insert(String.valueOf(session.get("loginId")), familyName, firstName, familyNameKana, firstNameKana, email, tellNumber, userAddress);
-		if(count > 0) {
-			result = SUCCESS;
+		if(count > 0)
+		{
+			return SUCCESS;
 		}
-		return result;
+		else
+		{
+			return ERROR;
+		}
 	}
 
 	public String getFamilyName() {
@@ -92,7 +106,7 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 		return tellNumber;
 	}
 
-	public void setTelNumber(String tellNumber) {
+	public void setTellNumber(String tellNumber) {
 		this.tellNumber = tellNumber;
 	}
 
@@ -119,6 +133,4 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
-
 }

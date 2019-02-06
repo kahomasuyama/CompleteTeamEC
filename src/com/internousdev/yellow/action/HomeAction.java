@@ -16,6 +16,7 @@ public class HomeAction extends ActionSupport implements SessionAware
 
 	public String execute()
 	{
+		//	商品カテゴリがないなら取得
 		if(!session.containsKey("mCategoryDtoList"))
 		{
 			MCategoryDAO mcategoryDAO = new MCategoryDAO();
