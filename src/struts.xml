@@ -100,7 +100,7 @@
 	</action>
 
 	<action name="MyPageAction" class="com.internousdev.yellow.action.MyPageAction" method="execute">
-		<result name="success">mypage.jsp</result>
+		<result name="success">myPage.jsp</result>
 	</action>
 
 	<action name="PurchaseHistoryAction" class="com.internousdev.yellow.action.PurchaseHistoryAction" method="execute">

@@ -89,9 +89,9 @@ public class CartInfoDAO {
     	int totalPrice=0;
     	DBConnector dbConnector=new DBConnector();
     	Connection connection=dbConnector.getConnection();
-    	
+
     	//	SQL作成
-    	String sql="select sum(pruduct_count * price) as total_price from cart_info where user_id=? group by user_id";
+    	String sql="select sum(product_count * price) as total_price from cart_info where user_id=? group by user_id";
 
     	//	SQL実行
     	try
@@ -126,8 +126,8 @@ public class CartInfoDAO {
     	DBConnector dbConnector =new DBConnector();
     	Connection connection=dbConnector.getConnection();
     	int count=0;
-    	
-    	// SQL作成    	
+
+    	// SQL作成
     	String sql="insert into cart_info(user_id,temp_user_id,product_id,product_count,price,regist_date)"
     		+"values (?,?,?,?,?,now())";
 
@@ -147,7 +147,7 @@ public class CartInfoDAO {
     	{
     		e.printStackTrace();
     	}
-    	
+
     	// Close
     	try
     	{
@@ -165,7 +165,7 @@ public class CartInfoDAO {
 
     	DBConnector db=new DBConnector();
     	Connection con=db.getConnection();
-    
+
     	//SQL作成
     	String sql="UPDATE cart_info SET product_count=(product_count + ?),update_date=now() WHERE user_id=? AND product_id=?";
 
@@ -202,7 +202,7 @@ public class CartInfoDAO {
     	DBConnector dbConnector=new DBConnector();
     	Connection connection=dbConnector.getConnection();
     	int count=0;
-    	
+
     	//SQL作成
     	String sql="delete from cart_info where product_id=? and user_id=?";
 
@@ -238,7 +238,7 @@ public class CartInfoDAO {
     	Connection connection=dbConnector.getConnection();
     	int count=0;
 
-    	//SQL作成    	
+    	//SQL作成
     	String sql="delete from cart_info where user_id=?";
 
     	//SQL実行
@@ -271,7 +271,7 @@ public class CartInfoDAO {
     	DBConnector db =new DBConnector();
     	Connection con=db.getConnection();
 
-    	//SQL作成    	
+    	//SQL作成
     	String sql="SELECT COUNT(id) AS COUNT FROM cart_info WHERE user_id=? and product_id=?";
 
     	boolean result=false;
