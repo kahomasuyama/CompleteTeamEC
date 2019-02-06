@@ -13,6 +13,10 @@
 <div id="contents">
 <h1>マイページ画面</h1>
 	<s:form action="MyPageAction">
+		<s:if test="userInfoDTO == null">
+				ユーザー情報がありません。
+			</s:if>
+			<s:else>
 	<table class="vertical-list-table">
 		<tr>
 			<th scope="row"><s:label value="姓"/></th>
@@ -26,7 +30,7 @@
 
 		<tr>
 			<th scope="row"><s:label value="ふりがな"/></th>
-			<td><s:property value="#session.familyNameKana"/><span>　</span><s:property value="#session.firstNameKana"/></td>
+			<td><s:property value="#session.familyNameKana"/><span> </span><s:property value="#session.firstNameKana"/></td>
 		</tr>
 
 		<tr>
@@ -40,8 +44,10 @@
 		</tr>
 	</table>
 	<div class="submit_btn_box">
-	<s:submit value="購入履歴" class="submit_btn" />
+	<input type="button" value="購入履歴" onClick="location.href='PurchaseHistoryAction'">
 	</div>
+	</s:else>
+
 	</s:form>
 </div>
 	<s:include value="footer.jsp"/>
