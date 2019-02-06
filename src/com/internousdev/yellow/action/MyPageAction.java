@@ -14,6 +14,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class MyPageAction extends ActionSupport implements SessionAware
 {
 	private Map<String, Object> session;
+	private UserInfoDTO userInfoDTO;
+
 
 	public String execute()
 	{
@@ -26,7 +28,7 @@ public class MyPageAction extends ActionSupport implements SessionAware
 		}
 
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
-		UserInfoDTO userInfoDTO = new UserInfoDTO();
+
 
 		userInfoDTO = userInfoDAO.getUserInfo(String.valueOf(session.get("loginId")));
 
@@ -55,4 +57,11 @@ public class MyPageAction extends ActionSupport implements SessionAware
 		this.session = session;
 	}
 
+	public UserInfoDTO getUserInfoDTO() {
+		return userInfoDTO;
+	}
+
+	public void setUserInfoDTO(UserInfoDTO userInfoDTO) {
+		this.userInfoDTO = userInfoDTO;
+	}
 }
