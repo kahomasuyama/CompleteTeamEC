@@ -60,39 +60,30 @@ public class SearchItemAction extends ActionSupport implements SessionAware
 	public String getSearchWord() {
 		return searchWord;
 	}
-
 	public void setSearchWord(String searchWord) {
 		this.searchWord = searchWord;
 	}
-
 	public int getCategoryId() {
 		return categoryId;
 	}
-
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
-
 	public List<ProductInfoDTO> getProductInfoList() {
 		return productInfoList;
 	}
-
 	public void setProductInfoList(List<ProductInfoDTO> productInfoList) {
 		this.productInfoList = productInfoList;
 	}
-
 	public String getErrorMsg() {
 		return errorMsg;
 	}
-
 	public void setErrorMsg(String errorMsg) {
 		this.errorMsg = errorMsg;
 	}
-
 	public Map<String, Object> getSession() {
 		return session;
 	}
-
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;

@@ -34,14 +34,12 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 		//	関連商品情報を取得
 		productInfoDtoList =  productInfoDAO.getRandomProductInfoListByCategoryId(categoryId, productId);
 
-
 		return SUCCESS;
 	}
 
 	public List<ProductInfoDTO> getProductInfoDtoList() {
 		return productInfoDtoList;
 	}
-
 	public void setProductInfoDtoList(List<ProductInfoDTO> productInfoDtoList) {
 		this.productInfoDtoList = productInfoDtoList;
 	}

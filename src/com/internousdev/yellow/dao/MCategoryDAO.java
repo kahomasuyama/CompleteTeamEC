@@ -10,8 +10,20 @@ import java.util.List;
 import com.internousdev.yellow.dto.MCategoryDTO;
 import com.internousdev.yellow.util.DBConnector;
 
+/**
+ * 商品カテゴリに関するDB操作
+ *
+ * @author 酒井和馬
+ *
+ */
 public class MCategoryDAO
 {
+
+	/**
+	 * 商品カテゴリのリストをDBより取得
+	 *
+	 * @return 商品カテゴリのリスト
+	 */
 	public List<MCategoryDTO> getMCategoryList()
 	{
 		DBConnector dbConnector = new DBConnector();
