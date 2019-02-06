@@ -12,8 +12,12 @@
 
 		<jsp:include page="header.jsp" />
 
-		<s:if test="!errorMsg.isEmpty()">
-			<s:property value="errorMsg" /><br>
+		<s:if test="!errorMsgList.isEmpty()">
+			<div>
+				<s:iterator value="errorMsgList">
+					<s:property value="errorMsgList" /><br>
+				</s:iterator>
+			</div>
 		</s:if>
 
 		<div id="contents">
