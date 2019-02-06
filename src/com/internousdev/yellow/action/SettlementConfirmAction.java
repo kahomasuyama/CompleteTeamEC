@@ -10,7 +10,9 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.yellow.dao.DestinationInfoDAO;
+import com.internousdev.yellow.dao.MCategoryDAO;
 import com.internousdev.yellow.dto.DestinationInfoDTO;
+import com.internousdev.yellow.dto.MCategoryDTO;
 import com.internousdev.yellow.dto.PurchaseHistoryInfoDTO;
 import com.internousdev.yellow.util.CommonUtility;
 import com.opensymphony.xwork2.ActionSupport;
@@ -34,6 +36,15 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 
 	public String execute()
 	{
+		//	商品カテゴリがないなら取得
+		if(!session.containsKey("mCategoryDtoList"))
+		{
+			MCategoryDAO mcategoryDAO = new MCategoryDAO();
+			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
+			session.put("mCategoryDtoList", mCategoryDtoList);
+		}
+
+
 		//宛先情報
 		if(session.containsKey("loginId"))
 		{

@@ -1,10 +1,13 @@
 package com.internousdev.yellow.action;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.yellow.dao.MCategoryDAO;
 import com.internousdev.yellow.dao.UserInfoDAO;
+import com.internousdev.yellow.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateUserCompleteAction extends ActionSupport implements SessionAware{
@@ -23,6 +26,14 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 
 	public String execute()
 	{
+		//	商品カテゴリがないなら取得
+		if(!session.containsKey("mCategoryDtoList"))
+		{
+			MCategoryDAO mcategoryDAO = new MCategoryDAO();
+			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
+			session.put("mCategoryDtoList", mCategoryDtoList);
+		}
+
 		//	ユーザーを作成
 		UserInfoDAO UserInfoDao = new UserInfoDAO();
 		int count = UserInfoDao.createUser(familyName, firstName, familyNameKana, firstNameKana, sex, email, loginId, password);

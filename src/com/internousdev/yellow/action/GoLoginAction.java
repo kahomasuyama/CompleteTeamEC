@@ -17,10 +17,11 @@ public class GoLoginAction extends ActionSupport implements SessionAware
 
 	public String execute()
 	{
-		if(!session.containsKey("mCategoryList"))
+		//	商品カテゴリがないなら取得
+		if(!session.containsKey("mCategoryDtoList"))
 		{
-			MCategoryDAO mCategoryDao=new MCategoryDAO();
-			mCategoryDtoList=mCategoryDao.getMCategoryList();
+			MCategoryDAO mcategoryDAO = new MCategoryDAO();
+			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
 			session.put("mCategoryDtoList", mCategoryDtoList);
 		}
 		session.put("loginIdErrorMessageList", "");

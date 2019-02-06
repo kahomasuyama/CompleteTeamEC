@@ -136,10 +136,10 @@ public class CartInfoDAO {
     	{
     		PreparedStatement preparedStatement=connection.prepareStatement(sql);
     		preparedStatement.setString(1, userId);
-    		preparedStatement.setString(1, tempUserId);
-    		preparedStatement.setInt(1, productId);
-    		preparedStatement.setInt(1, productCount);
-    		preparedStatement.setInt(1, price);
+    		preparedStatement.setString(2, tempUserId);
+    		preparedStatement.setInt(3, productId);
+    		preparedStatement.setInt(4, productCount);
+    		preparedStatement.setInt(5, price);
 
     		count=preparedStatement.executeUpdate();
     	}
