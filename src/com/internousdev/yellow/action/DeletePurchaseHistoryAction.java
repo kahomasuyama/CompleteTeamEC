@@ -11,7 +11,8 @@ import com.internousdev.yellow.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class DeletePurchaseHistoryAction extends ActionSupport implements SessionAware{
-	private String product_id;
+	private String categoryId;
+
 	private String sex;
 	private List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList;
 	private Map<String, Object> session;
@@ -31,11 +32,12 @@ public class DeletePurchaseHistoryAction extends ActionSupport implements Sessio
 		return result;
 	}
 
-	public String getProduct_id() {
-		return product_id;
+	public String getCategoryId() {
+		return categoryId;
 	}
-	public void setProduct_id(String product_id) {
-		this.product_id=product_id;
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	public String getSex() {

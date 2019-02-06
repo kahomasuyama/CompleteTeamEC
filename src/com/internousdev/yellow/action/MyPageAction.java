@@ -6,23 +6,31 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.yellow.dao.UserInfoDAO;
+import com.internousdev.yellow.dto.MCategoryDTO;
+import com.internousdev.yellow.dto.UserInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class MyPageAction extends ActionSupport implements SessionAware{
-		private String id;
-		private String user_id;
-		private List<UserInfoDTO> UserInfoDTOList = new ArrayList<UserInfoDTO>();
-
+	private String categoryId;
+	private String keywords;
+	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
 
 	private Map<String, Object> session;
-	public String execute() {
+
+	public String execute()
+	{
 		String result = ERROR;
-		System.out.println(id);
-		System.out.println(user_id);
+		System.out.println(categoryId);
+		System.out.println(keywords);
+
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		UserInfoDTO userInfoDTO = new UserInfoDTO();
+
 		userInfoDTO = userInfoDAO.getUserInfo(String.valueOf(session.get("loginId")));
-		if(userInfoDTO!=null) {
+
+		if(userInfoDTO!=null)
+		{
 			session.put("familyName", userInfoDTO.getFamilyName());
 			session.put("firstName", userInfoDTO.getFirstName());
 			session.put("familyNameKana", userInfoDTO.getFamilyNameKana());
@@ -35,34 +43,47 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		return result;
 	}
 
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
+
+
+	public List<MCategoryDTO> getmCategoryDtoList() {
+		return mCategoryDtoList;
 	}
 
-	public String getUser_id() {
-		return user_id;
+
+
+	public void setmCategoryDtoList(List<MCategoryDTO> mCategoryDtoList) {
+		this.mCategoryDtoList = mCategoryDtoList;
 	}
 
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+
+
+	public String getCategoryId() {
+		return categoryId;
 	}
 
-	public List<UserInfoDTO> getUserInfoDTOList() {
-		return UserInfoDTOList;
+
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
 	}
 
-	public void setUserInfoDTOList(List<UserInfoDTO> userInfoDTOList) {
-		UserInfoDTOList = userInfoDTOList;
+
+
+	public String getKeywords() {
+		return keywords;
 	}
+
+
+
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
+	}
+
+
 
 	public Map<String, Object> getSession() {
 		return session;
 	}
-
-
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}

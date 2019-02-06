@@ -7,57 +7,63 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.yellow.dao.MCategoryDAO;
 import com.internousdev.yellow.dao.PurchaseHistoryInfoDAO;
-import com.internousdev.yellow.dto.MyPageDTO;
+import com.internousdev.yellow.dto.MCategoryDTO;
 import com.internousdev.yellow.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class PurchaseHistoryAction extends ActionSupport implements SessionAware{
-	private String product_id;
+	private String categoryId;
 
-	private List<MyPageDTO> myPageDTOList = new ArrayList<MyPageDTO>();
-	private List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList;
+	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
+	private List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList;
 	private Map<String, Object> session;
 
-	public String execute() {
+	public String execute()
+	{
 
-		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
-		purchaseHistoryInfoDTOList = purchaseHistoryInfoDAO.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
-		Iterator<PurchaseHistoryInfoDTO> iterator = purchaseHistoryInfoDTOList.iterator();
-		if(!(iterator.hasNext())) {
-			purchaseHistoryInfoDTOList = null;
+		PurchaseHistoryInfoDAO purchaseHistoryInfoDao = new PurchaseHistoryInfoDAO();
+		purchaseHistoryInfoDtoList = purchaseHistoryInfoDao.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
+		Iterator<PurchaseHistoryInfoDTO> iterator = purchaseHistoryInfoDtoList.iterator();
+
+		if(!(iterator.hasNext()))
+		{
+
+			purchaseHistoryInfoDtoList = null;
 		}
 
 		if(!session.containsKey("myPageInfoList")) {
-			MyPageDAO myPageDAO = new MyPageDAO();
-			myPageDTOList = myPageDAO.getMyPageInfoList();
-			session.put("myPageDTOList", myPageDTOList);
+			MCategoryDAO mCategoryDao = new MCategoryDAO();
+			mCategoryDtoList = mCategoryDao.getMCategoryList();
+			session.put("mCategoryDtoList", mCategoryDtoList);
+
 		}
 		return SUCCESS;
 	}
 
-	public List<MyPageDTO> getMyPageDTOList() {
-		return myPageDTOList;
+	public List<MCategoryDTO> getmCategoryDtoList() {
+		return mCategoryDtoList;
 	}
 
-	public void setMyPageDTOList(List<MyPageDTO> myPageDTOList) {
-		this.myPageDTOList=myPageDTOList;
+	public void setmCategoryDtoList(List<MCategoryDTO> mCategoryDtoList) {
+		this.mCategoryDtoList = mCategoryDtoList;
 	}
 
-	public List<PurchaseHistoryInfoDTO> getPurchaseHistoryInfoDTOList() {
-		return purchaseHistoryInfoDTOList;
+	public List<PurchaseHistoryInfoDTO> getPurchaseHistoryInfoDtoList() {
+		return purchaseHistoryInfoDtoList;
 	}
 
-	public void setPurchaseHistoryInfoDTOList(List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList) {
-		this.purchaseHistoryInfoDTOList = purchaseHistoryInfoDTOList;
+	public void setPurchaseHistoryInfoDtoList(List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList) {
+		this.purchaseHistoryInfoDtoList = purchaseHistoryInfoDtoList;
 	}
 
-	public String getProduct_id() {
-		return product_id;
+	public String getCategoryId() {
+		return categoryId;
 	}
 
-	public void setProduct_id(String product_id) {
-		this.product_id = product_id;
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	public Map<String, Object> getSession() {
