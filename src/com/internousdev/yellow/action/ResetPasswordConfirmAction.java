@@ -10,7 +10,8 @@ import com.internousdev.yellow.dao.UserInfoDAO;
 import com.internousdev.yellow.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ResetPasswordConfirmAction extends ActionSupport implements SessionAware{
+public class ResetPasswordConfirmAction extends ActionSupport implements SessionAware
+{
 	private String loginId;
 	private String password;
 	private String newPassword;
@@ -26,7 +27,8 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 
 	private Map<String,Object> session;
 
-	public String execute(){
+	public String execute()
+	{
 		String result=ERROR;
 
 		session.remove("loginIdErrorMessageList");
@@ -49,28 +51,32 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
         && 	passwordErrorMessageList.size()==0
         &&  newPasswordErrorMessageList.size()==0
         &&  reConfirmationNewPasswordErrorMessageList.size()==0
-        &&  newPasswordIncorrectErrorMessageList.size()==0){
-
-        	UserInfoDAO userInfoDAO = new UserInfoDAO();
-			if(userInfoDAO.isExistsUserInfo(loginId, password)) {
-				String concealedPassword = userInfoDAO.concealPassword(password);
-				session.put("loginId", loginId);
-				session.put("newPassword", newPassword);
-				session.put("concealedPassword", concealedPassword);
-				result = SUCCESS;
-			} else {
-				passwordIncorrectErrorMessageList.add("入力されたパスワードが異なります。");
-				session.put("passwordIncorrectErrorMessageList", passwordIncorrectErrorMessageList);
-			}
-        }else{
-        	session.put("loginIdErrorMessageList",loginIdErrorMessageList);
-        	session.put("passwordErrorMassageList",passwordErrorMessageList );
-        	session.put("newPasswordErrormassageList",newPasswordErrorMessageList);
-        	session.put("reConfirmationNewPasswordErrorMessageList",reConfirmationNewPasswordErrorMessageList);
-        	session.put(" newPasswordIncorrectErrorMessageList", newPasswordIncorrectErrorMessageList);
+        &&  newPasswordIncorrectErrorMessageList.size()==0)
+        {
+	
+	    UserInfoDAO userInfoDAO = new UserInfoDAO();
+		if(userInfoDAO.isExistsUserInfo(loginId, password))
+		{
+		 String concealedPassword = userInfoDAO.concealPassword(password);
+		 session.put("loginId", loginId);
+		 session.put("newPassword", newPassword);
+		 session.put("concealedPassword", concealedPassword);
+		 result = SUCCESS;
+		} else
+		{
+		  passwordIncorrectErrorMessageList.add("入力されたパスワードが異なります。");
+		  session.put("passwordIncorrectErrorMessageList", passwordIncorrectErrorMessageList);
+		}
+	    }else
+	    {
+		  session.put("loginIdErrorMessageList",loginIdErrorMessageList);
+		  session.put("passwordErrorMassageList",passwordErrorMessageList );
+		  session.put("newPasswordErrormassageList",newPasswordErrorMessageList);
+		  session.put("reConfirmationNewPasswordErrorMessageList",reConfirmationNewPasswordErrorMessageList);
+		  session.put(" newPasswordIncorrectErrorMessageList", newPasswordIncorrectErrorMessageList);
+		}
+        return result;
 	}
-	return result;
-  }
 
 	public String getLoginId() {
 		return loginId;

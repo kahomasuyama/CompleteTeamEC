@@ -50,7 +50,7 @@
         <s:property value="userAddress" />
     </td>
     <td>
-        <s:property value="telNumber"/>
+        <s:property value="tellNumber"/>
     </td>
     <td>
         <s:property value="email"/>

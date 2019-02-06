@@ -17,7 +17,8 @@ import com.internousdev.yellow.util.CommonUtility;
 import com.opensymphony.xwork2.ActionSupport;
 
 
-public class SettlementConfirmAction extends ActionSupport implements SessionAware {
+public class SettlementConfirmAction extends ActionSupport implements SessionAware
+{
 
 	private String categoryId;
 	private String productId;
@@ -33,24 +34,30 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 	private Collection<String>cheakList;
 	private Map<String,Object>session;
 
-	public String execute() {
+	public String execute() 
+	{
 		String result = ERROR;
-
-    if(session.containsKey("loginId")) {
+   //宛先情報
+    if(session.containsKey("loginId"))
+    {
 	   DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
 	   List<DestinationInfoDTO> destinationInfoDtoList = new ArrayList<>();
-	   try {
+	   try
+	   {
 			destinationInfoDtoList = destinationInfoDAO.getDestinationInfo(String.valueOf(session.get("loginId")));
 			Iterator<DestinationInfoDTO> iterator = destinationInfoDtoList.iterator();
-			if(!(iterator.hasNext())) {
+			if(!(iterator.hasNext())) 
+			{
 					destinationInfoDtoList = null;
-		   }
-		   session.put("destinationInfoDtoList", destinationInfoDtoList);
-		   } catch (SQLException e) {
+		    }
+		    session.put("destinationInfoDtoList", destinationInfoDtoList);
+		    } catch (SQLException e) {
 				e.printStackTrace();
-		   }
+		    }
 		}
-    if(!session.containsKey("purchaseHistoryInfoDtoList")){
+    //商品購入履歴
+     if(!session.containsKey("purchaseHistoryInfoDtoList"))
+     {
     	List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList=new ArrayList<PurchaseHistoryInfoDTO>();
 
     	CommonUtility cou=new CommonUtility();
@@ -63,17 +70,18 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 		String[] releaseCompanyList = cou.parseArrayList(releaseCompany);
 		String[] releaseDateList = cou.parseArrayList(releaseDate);
 		String[] productCountList = cou.parseArrayList(productCount);
-		String[] subtotalList = cou.parseArrayList(subtotal);
-		for(int i=0;i<productIdList.length;i++) {
-			PurchaseHistoryInfoDTO HIDTO=new PurchaseHistoryInfoDTO();
-			HIDTO.setUserId(String.valueOf(session.get("loginId")));
-			HIDTO.setProductId(Integer.parseInt(String.valueOf(productIdList[i])));
-			HIDTO.setProductName(String.valueOf(productNameList[i]));
-			HIDTO.setProductNameKana(String.valueOf(productNameKanaList[i]));
-			HIDTO.setImageFilePath(String.valueOf(imageFilePathList[i]));
-			HIDTO.setImageFileName(String.valueOf(imageFileNameList[i]));
-			HIDTO.setPrice(Integer.parseInt(String.valueOf(priceList[i])));
-			HIDTO.setReleaseCompany(String.valueOf(releaseCompanyList[i]));
+
+	 for(int i=0;i<productIdList.length;i++)
+	 {
+		PurchaseHistoryInfoDTO HIDTO=new PurchaseHistoryInfoDTO();
+		HIDTO.setUserId(String.valueOf(session.get("loginId")));
+		HIDTO.setProductId(Integer.parseInt(String.valueOf(productIdList[i])));
+		HIDTO.setProductName(String.valueOf(productNameList[i]));
+		HIDTO.setProductNameKana(String.valueOf(productNameKanaList[i]));
+		HIDTO.setImageFilePath(String.valueOf(imageFilePathList[i]));
+		HIDTO.setImageFileName(String.valueOf(imageFileNameList[i]));
+		HIDTO.setPrice(Integer.parseInt(String.valueOf(priceList[i])));
+		HIDTO.setReleaseCompany(String.valueOf(releaseCompanyList[i]));
 			try{
 				SimpleDateFormat SDF= new SimpleDateFormat("yyyy/MM/dd");
 				HIDTO.setReleaseDate(SDF.parse(String.valueOf(releaseDateList[i])));
@@ -81,14 +89,16 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 				e.printStackTrace();
 			}
 			HIDTO.setProductCount(Integer.parseInt(String.valueOf(productCountList[i])));
-			//HIDTO.setSubtotal(Integer.parseInt(String.valueOf(subtotalList[i])));
+			
 			purchaseHistoryInfoDtoList.add(HIDTO);
-		}
-		session.put("purchaseHIstoryInfoDtoList",purchaseHistoryInfoDtoList );
+	  }
+		session.put("purchaseHistoryInfoDtoList",purchaseHistoryInfoDtoList );
     }
-    if(!session.containsKey("loginId")){
+    if(!session.containsKey("loginId"))
+    {
     	result=ERROR;
-    }else{
+    }else
+    {
     	result=SUCCESS;
     }
     return result;
@@ -98,7 +108,7 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 
 
 
-	public String getCategoryId() {
+	public String getCategoryId(){
 		return categoryId;
 	}
 
