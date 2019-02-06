@@ -15,24 +15,6 @@ public class LogoutAction extends ActionSupport implements SessionAware
 
 	public String execute()
 	{
-		String result=ERROR;
-
-		UserInfoDAO userInfoDAO=new UserInfoDAO();
-		String loginId=String.valueOf(session.get("loginId"));
-		boolean savedLoginId=Boolean.valueOf(String.valueOf(session.get("savedLoginId")));
-		int count=userInfoDAO.logout(loginId);
-		if(count>0)
-		{
-			session.clear();
-			if(savedLoginId)
-			{
-				session.put("savedLoginId", savedLoginId);
-				session.put("loginId", loginId);
-
-				result= SUCCESS;
-			}
-		}
-
 		//	商品カテゴリがないなら取得
 		if(!session.containsKey("mCategoryDtoList"))
 		{
@@ -40,8 +22,20 @@ public class LogoutAction extends ActionSupport implements SessionAware
 			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
 			session.put("mCategoryDtoList", mCategoryDtoList);
 		}
+		UserInfoDAO userInfoDao = new UserInfoDAO();
+		String loginId = String.valueOf(session.get("loginId"));
+		boolean savedLoginId = Boolean.valueOf(String.valueOf(session.get("savedLoginId")));
+		int count = userInfoDao.logout(loginId);
+		if(count > 0) {
+			session.clear();
 
-		return result;
+			if(savedLoginId){
+				session.put("savedLoginId", savedLoginId);
+				session.put("loginId", loginId);
+			}
+		}
+
+		return SUCCESS;
 	}
 	public Map<String,Object> getSession()
 	{
