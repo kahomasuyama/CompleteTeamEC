@@ -1,13 +1,12 @@
 package com.internousdev.yellow.action;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.yellow.dao.MCategoryDAO;
 import com.internousdev.yellow.dao.ProductInfoDAO;
-import com.internousdev.yellow.dto.MCategoryDTO;
 import com.internousdev.yellow.dto.ProductInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -19,21 +18,13 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 	//	Send
 	private ProductInfoDTO productInfoDTO;
 	private List<ProductInfoDTO> productInfoDtoList;
+	private List<Integer> productCountList = new ArrayList<Integer>();
 
 	//	Session
 	private Map<String, Object> session;
 
 	public String execute()
 	{
-		//	商品カテゴリがないなら取得
-		if(!session.containsKey("mCategoryDtoList"))
-		{
-			MCategoryDAO mcategoryDAO = new MCategoryDAO();
-			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
-		}
-
-
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 
 		//	商品情報を取得
@@ -44,6 +35,10 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 
 		//	関連商品情報を取得
 		productInfoDtoList =  productInfoDAO.getRandomProductInfoListByCategoryId(categoryId, productId);
+
+		for (int i=1; i<=5; i++) {
+			productCountList.add(i);
+		}
 
 		return SUCCESS;
 	}
@@ -66,6 +61,14 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 	public void setProductInfoDTO(ProductInfoDTO productInfoDTO) {
 		this.productInfoDTO = productInfoDTO;
 	}
+	public List<Integer> getProductCountList() {
+		return productCountList;
+	}
+
+	public void setProductCountList(List<Integer> productCountList) {
+		this.productCountList = productCountList;
+	}
+
 	public Map<String, Object> getSession() {
 		return session;
 	}

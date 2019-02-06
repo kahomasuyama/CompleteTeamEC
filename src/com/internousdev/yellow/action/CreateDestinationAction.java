@@ -42,10 +42,8 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 		session.remove("tellNumberErrorMessageList");
 		session.remove("userAddressErrorMessageList");
 
-		//	return SUCCESSではだめ？
-		//	resultを使わないのならば、 一番上のString result = ERRORも消そう
-		result=SUCCESS;
-		return result;
+		return SUCCESS;
+
 	}
 
 	public String getSex() {

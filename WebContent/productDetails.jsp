@@ -22,7 +22,7 @@
 					<div class="2coulm-container">
 
 						<div class="right">
-							<img src='<s:property value="%{productInfoDTO.imageFilePath}"/>/<s:property value="%{productInfoDTO.imageFileName}"/>' class="item-image-box-320" width="100" /><br>
+							<img src='<s:property value="%{productInfoDTO.imageFilePath}"/>/<s:property value="%{productInfoDTO.imageFilename}"/>' class="item-image-box-320" /><br>
 						</div>
 
 						<div class="left">
@@ -41,7 +41,7 @@
 								</tr>
 								<tr>
 									<th scope="row"><s:label value="購入個数" /></th>
-									<td><s:select name="productCount" list="5" />個</td>
+									<td><s:select name="productCount" list="%{productCountList}" />個</td>
 								</tr>
 								<tr>
 									<th scope="row"><s:label value="発売会社名" /></th>
@@ -82,7 +82,7 @@
 					<s:iterator value="productInfoDtoList">
 						<div class="recommend-box">
 							<a href='<s:url action="ProductDetailsAction"> <s:param name="productId" value="%{productId}"/> </s:url>'>
-								<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' class="item-image-box-100" width="100" />
+								<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' class="item-image-box-100" />
 							</a>
 							<s:property value="productName" /><br>
 						</div>
