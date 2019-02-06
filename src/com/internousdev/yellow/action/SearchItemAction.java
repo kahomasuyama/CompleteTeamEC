@@ -1,6 +1,5 @@
 package com.internousdev.yellow.action;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +8,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.yellow.dao.ProductInfoDAO;
 import com.internousdev.yellow.dto.ProductInfoDTO;
+import com.internousdev.yellow.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SearchItemAction extends ActionSupport implements SessionAware
@@ -19,7 +19,7 @@ public class SearchItemAction extends ActionSupport implements SessionAware
 
 	//	Send
 	private List<ProductInfoDTO> productInfoList;
-	private String errorMsg;
+	private List<String> errorMsgList;
 
 	//	Session
 	private Map<String, Object> session;
@@ -32,23 +32,19 @@ public class SearchItemAction extends ActionSupport implements SessionAware
 		//	検索ワードが指定されているならば
 		if(searchWord != null && !searchWord.isEmpty())
 		{
-			//	TODO 文字種チェック
+			//	文字チェック
+			InputChecker inputChecker = new InputChecker();
+			errorMsgList = inputChecker.doCheck("検索ワード", searchWord, 0, 50, true, true, true, true, false, true, false, true, true);
 
-			//	文字数チェック
-			if(searchWord.length() > 50)
+			//	エラーメッセージがあるならば、エラーを返す
+			if(!errorMsgList.isEmpty())
 			{
-				errorMsg = "検索ワードは50文字以内でなければなりません。";
 				return ERROR;
 			}
 
 			//	検索ワードをリストへ
 			searchWord = searchWord.replaceAll("　", " ");
 			searchWordList = Arrays.asList(searchWord.split(" "));
-		}
-		//	検索ワードが指定されていないのならば
-		else
-		{
-			searchWordList = new ArrayList<String>();
 		}
 
 		//	データベースよりデータを取得
@@ -75,11 +71,11 @@ public class SearchItemAction extends ActionSupport implements SessionAware
 	public void setProductInfoList(List<ProductInfoDTO> productInfoList) {
 		this.productInfoList = productInfoList;
 	}
-	public String getErrorMsg() {
-		return errorMsg;
+	public List<String> getErrorMsgList() {
+		return errorMsgList;
 	}
-	public void setErrorMsg(String errorMsg) {
-		this.errorMsg = errorMsg;
+	public void setErrorMsgList(List<String> errorMsgList) {
+		this.errorMsgList = errorMsgList;
 	}
 	public Map<String, Object> getSession() {
 		return session;
