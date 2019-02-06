@@ -158,7 +158,7 @@ public class UserInfoDAO
 		Connection connection = dbConnector.getConnection();
 
 		//	SQLを作成
-		String sql = "update user_info set passworrd=? where user_id=?";
+		String sql = "update user_info set password=? where user_id=?";
 
 		int result= 0;
 
