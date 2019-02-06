@@ -2,7 +2,8 @@ package com.internousdev.yellow.dto;
 
 import java.util.Date;
 
-public class CartInfoDTO {
+public class CartInfoDTO
+{
 
 	private int id;
 	private String userId;
@@ -21,128 +22,156 @@ public class CartInfoDTO {
 	private int subtotal;
 
 
-	public int getId(){
+	public int getId()
+	{
 		return id;
 	}
 
-	public void setId(int id){
+	public void setId(int id)
+	{
 		this.id=id;
 	}
 
 
-	public String getUserId(){
+	public String getUserId()
+	{
 		return userId;
 	}
 
-	public void setUserId(String userId){
+	public void setUserId(String userId)
+	{
 		this.userId=userId;
 	}
 
 
-	public String getTempUserId(){
+	public String getTempUserId()
+	{
 		return tempUserId;
 	}
 
-	public void setTempUserId(String tempUserId){
+	public void setTempUserId(String tempUserId)
+	{
 		this.tempUserId=tempUserId;
 	}
 
 
-	public int getProductId(){
+	public int getProductId()
+	{
 		return productId;
 	}
 
-	public void setProductId(int productId){
+	public void setProductId(int productId)
+	{
 		this.productId=productId;
 	}
 
 
-	public int getProductCount(){
+	public int getProductCount()
+	{
 		return productCount;
 	}
 
-	public void setProductCount(int productCount){
+	public void setProductCount(int productCount)
+	{
 		this.productCount=productCount;
 	}
 
 
-	public int getPrice(){
+	public int getPrice()
+	{
 		return price;
 	}
 
-	public void setPrice(int price){
+	public void setPrice(int price)
+	{
 		this.price=price;
 	}
 
 
-	public String getProductName(){
+	public String getProductName()
+	{
 		return productName;
 	}
 
-	public void setProductName(String productName){
+	public void setProductName(String productName)
+	{
 		this.productName=productName;
 	}
 
 
-	public String getProductNameKana(){
+	public String getProductNameKana()
+	{
 		return productNameKana;
 	}
 
-	public void setProductNameKana(String productNameKana){
+	public void setProductNameKana(String productNameKana)
+	{
 		this.productNameKana=productNameKana;
 	}
 
 
-	public String getImageFilePath(){
+	public String getImageFilePath()
+	{
 		return imageFilePath;
 	}
 
-	public void setImageFilePath(String imageFilePath){
+	public void setImageFilePath(String imageFilePath)
+	{
 		this.imageFilePath=imageFilePath;
 	}
 
 
-	public String getImageFileName(){
+	public String getImageFileName()
+	{
 		return imageFileName;
 	}
 
-	public void setImageFileName(String imageFileName){
+	public void setImageFileName(String imageFileName)
+	{
 		this.imageFileName=imageFileName;
 	}
 
 
-	public Date getReleaseDate(){
+	public Date getReleaseDate()
+	{
 		return releaseDate;
 	}
 
-	public void setReleaseDate(Date releaseDate){
+	public void setReleaseDate(Date releaseDate)
+	{
 		this.releaseDate=releaseDate;
 	}
 
 
-	public String getReleaseCompany(){
+	public String getReleaseCompany()
+	{
 		return releaseCompany;
 	}
 
-	public void setReleaseCompany(String releaseCompany){
+	public void setReleaseCompany(String releaseCompany)
+	{
 		this.releaseCompany=releaseCompany;
 	}
 
 
-	public String getStatus(){
+	public String getStatus()
+	{
 		return status;
 	}
 
-	public void setStatus(String status){
+	public void setStatus(String status)
+	{
 		this.status=status;
 	}
 
 
-	public int getSubtotal(){
+	public int getSubtotal()
+	{
 		return subtotal;
 	}
 
-	public void setSubtotal(int subtotal){
+	public void setSubtotal(int subtotal)
+	{
 		this.subtotal=subtotal;
 	}
 }

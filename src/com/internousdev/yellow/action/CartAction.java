@@ -13,7 +13,8 @@ import com.internousdev.yellow.dto.CartInfoDTO;
 import com.internousdev.yellow.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class CartAction extends ActionSupport implements SessionAware{
+public class CartAction extends ActionSupport implements SessionAware
+{
 
 	private String categoryId;
 	private String keywords;
@@ -27,14 +28,19 @@ public class CartAction extends ActionSupport implements SessionAware{
 
 		session.remove("checkListErrorMessageList");
 
-		if(session.containsKey("loginId")){
+		if(session.containsKey("loginId"))
+		{
 			userId=String.valueOf(session.get("loginId"));
-		}else if(session.containsKey("tempUserId")){
+		}
+
+		else if(session.containsKey("tempUserId")){
 			userId=String.valueOf(session.get("tempUserId"));
 		}
+
 		cartInfoDtoList=cartInfoDao.getCartInfoDtoList(userId);
 		Iterator<CartInfoDTO>iterator=cartInfoDtoList.iterator();
-		if(!(iterator.hasNext())){
+		if(!(iterator.hasNext()))
+		{
 			cartInfoDtoList=null;
 		}
 		session.put("cartInfoDtoList", cartInfoDtoList);
@@ -43,7 +49,8 @@ public class CartAction extends ActionSupport implements SessionAware{
 		session.put("totalPrice",totalPrice);
 		result=SUCCESS;
 
-		if(!session.containsKey("mCategoryDtoList")){
+		if(!session.containsKey("mCategoryDtoList"))
+		{
 			MCategoryDAO mCategoryDao=new MCategoryDAO();
 			mCategoryDtoList=mCategoryDao.getMCategoryList();
 			session.put("mCategoryDtoList", mCategoryDtoList);
@@ -51,27 +58,33 @@ public class CartAction extends ActionSupport implements SessionAware{
 		return result;
 	}
 
-	public String getCategoryId(){
+	public String getCategoryId()
+	{
 		return categoryId;
 	}
 
-	public void setCategoryId(String categoryId){
+	public void setCategoryId(String categoryId)
+	{
 		this.categoryId=categoryId;
 	}
 
-	public String getKeywords() {
+	public String getKeywords()
+	{
 		return keywords;
 	}
 
-	public void setKeywords(String keywords) {
+	public void setKeywords(String keywords)
+	{
 		this.keywords = keywords;
 	}
 
-	public Map<String,Object> getSession(){
+	public Map<String,Object> getSession()
+	{
 		return session;
 	}
 
-	public void setSession(Map<String,Object> session){
+	public void setSession(Map<String,Object> session)
+	{
 		this.session=session;
 	}
 
