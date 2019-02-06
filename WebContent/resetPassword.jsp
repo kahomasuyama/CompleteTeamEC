@@ -67,7 +67,7 @@
 				</tr>
 				<tr>
 					<th scope="row"><s:label value="新しいパスワード"/></th>
-					<td><s:password name="nesPassword" placeholder="新しいパスワード" class="txt"/></td>
+					<td><s:password name="newPassword" placeholder="新しいパスワード" class="txt"/></td>
 				</tr>
 				<tr>
 					<th scope="row"><s:label value="(再確認)"/></th>
