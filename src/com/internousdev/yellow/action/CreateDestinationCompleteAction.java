@@ -34,13 +34,16 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 			session.put("mCategoryDtoList", mCategoryDtoList);
 		}
 
-		String result = ERROR;
 		DestinationInfoDAO destinationInfoDao = new DestinationInfoDAO();
 		int count = destinationInfoDao.insert(String.valueOf(session.get("loginId")), familyName, firstName, familyNameKana, firstNameKana, email, tellNumber, userAddress);
-		if(count > 0) {
-			result = SUCCESS;
+		if(count > 0)
+		{
+			return SUCCESS;
 		}
-		return result;
+		else
+		{
+			return ERROR;
+		}
 	}
 
 	public String getFamilyName() {
@@ -103,7 +106,7 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 		return tellNumber;
 	}
 
-	public void setTelNumber(String tellNumber) {
+	public void setTellNumber(String tellNumber) {
 		this.tellNumber = tellNumber;
 	}
 
@@ -130,6 +133,4 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
-
 }

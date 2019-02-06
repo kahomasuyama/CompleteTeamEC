@@ -14,7 +14,7 @@
 
 		<div id="contents">
 			<h1>決済確認画面</h1>
-			<s:if test="#session.destinationInfoDtoList.size()>0">
+			<s:if test="!#session.destinationInfoDtoList.isEmpty()">
 
 				<div class="info">
 					送り先情報を選択してください
@@ -78,7 +78,7 @@
 
 			<div class="submit_btn_box">
 				<div id=".contents-btn-set">
-					<s:form actrion="CreateDestinationAction">
+					<s:form action="CreateDestinationAction">
 						<s:submit value="新規登録" class="submit_btn"/>
 					</s:form>
 				</div>
