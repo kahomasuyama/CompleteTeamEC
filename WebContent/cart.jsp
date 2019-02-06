@@ -104,7 +104,14 @@ function checkValue(check){
                 </div>
           </s:form>
 </s:if>
-
+<s:else>
+<div class="info">
+	カート情報はありません。
+</div>
+</s:else>
+</div>
+<div id="footer">
+	<s:include value="footer.jsp"/>
 </div>
 </body>
 </html>
