@@ -85,7 +85,7 @@
 					</tr>
 					<tr>
 						<th scope="row">性別</th>
-						<td><s:textfield name="sex" list="%{#session.sexList}" value="%{#session.sex}" label="性別" placeholder="性別" class="txt" /></td>
+						<td><s:radio name="sex" list="%{#session.sexList}" value="%{#session.sex}" label="性別" placeholder="性別" class="txt" /></td>
 					</tr>
 					<tr>
 						<th scope="row">メールアドレス</th>
