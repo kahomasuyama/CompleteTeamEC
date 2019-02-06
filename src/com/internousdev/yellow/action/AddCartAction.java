@@ -102,115 +102,70 @@ public class AddCartAction extends ActionSupport implements SessionAware
 		return result;
 
 	}
-
-	public int getProductId()
-	{
+	public int getProductId(){
 		return productId;
 	}
-
-	public void setProductId(int productId)
-	{
+	public void setProductId(int productId){
 		this.productId=productId;
 	}
-
-
-	public String getProducName()
-	{
+	public String getProducName(){
 		return productName;
 	}
-
-	public void setProductName(String productName)
-	{
+	public void setProductName(String productName){
 		this.productName=productName;
 	}
-
-	public String getProductNameKana()
-	{
+	public String getProductNameKana(){
 		return productNameKana;
 	}
-
-	public void setProductNameKana(String productNameKana)
-	{
+	public void setProductNameKana(String productNameKana){
 		this.productNameKana=productNameKana;
 	}
-
-	public String getImageFilePath()
-	{
+	public String getImageFilePath(){
 		return imageFilePath;
 	}
-
-	public void setImageFilePath(String imageFilePath)
-	{
+	public void setImageFilePath(String imageFilePath){
 		this.imageFilePath=imageFilePath;
 	}
-
-	public String getImageFileName()
-	{
+	public String getImageFileName(){
 		return imageFileName;
 	}
-
-	public void setImageFileName(String imageFileName)
-	{
+	public void setImageFileName(String imageFileName){
 		this.imageFileName=imageFileName;
 	}
-
-	public int getPrice()
-	{
+	public int getPrice(){
 		return price;
 	}
-
-	public void setPrice(int price)
-	{
+	public void setPrice(int price){
 		this.price=price;
 	}
-
-	public String getProductCount()
-	{
+	public String getProductCount(){
 		return productCount;
 	}
-
-	public void setProductCount(String productCount)
-	{
+	public void setProductCount(String productCount){
 		this.productCount=productCount;
 	}
-
-	public String getReleaseCompany()
-	{
+	public String getReleaseCompany(){
 		return releaseCompany;
 	}
-
-	public void setReleaseCompanny(String releaseCompany)
-	{
+	public void setReleaseCompanny(String releaseCompany){
 		this.releaseCompany=releaseCompany;
 	}
-
-	public Date getReleaseDate()
-	{
+	public Date getReleaseDate(){
 		return releaseDate;
 	}
-
-	public void setReleaseDate(Date releaseDate)
-	{
+	public void setReleaseDate(Date releaseDate){
 		this.releaseDate=releaseDate;
 	}
-
-	public String getProductDescription()
-	{
+	public String getProductDescription(){
 		return productDescription;
 	}
-
-	public void setProductDescription(String productDescription)
-	{
+	public void setProductDescription(String productDescription){
 		this.productDescription=productDescription;
 	}
-
-	public Map<String,Object> getSession()
-	{
+	public Map<String,Object> getSession(){
 		return session;
 	}
-
-	public void setSession(Map<String,Object> session)
-	{
+	public void setSession(Map<String,Object> session){
 		this.session=session;
 	}
 }
