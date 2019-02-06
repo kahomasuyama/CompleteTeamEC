@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<!-- <link rel="stylesheet" href="./css/style.css"> -->
+		<link rel="stylesheet" href="./css/style.css">
 		<title>ヘッダー</title>
 		<script>
 			function goLoginAction()
@@ -22,7 +22,7 @@
 			}
 			function goProductListAction()
 			{
-				document.getElementById("categoryId").value=1;
+				document.getElementById("categoryId").value = 1;
 				document.getElementById("form").action="ProductListAction";
 			}
 			function goLogoutAction()
@@ -49,7 +49,7 @@
 
 					<li><s:submit value="商品検索" onclick="goSearchItemAction();" /></li>
 
-					<s:if test="#session.logined==1">
+					<s:if test="#session.logined == 1">
 						<li><s:submit value="ログアウト" onclick="goLogoutAction();" /></li>
 					</s:if>
 
@@ -61,7 +61,7 @@
 
 					<li><s:submit value="商品一覧" onclick="goProductListAction();" /></li>
 
-					<s:if test="#session.logined==1">
+					<s:if test="#session.logined == 1">
 						<li><s:submit value="マイページ" onclick="goMyPageAction();" /></li>
 					</s:if>
 

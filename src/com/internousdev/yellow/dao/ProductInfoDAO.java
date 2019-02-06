@@ -12,7 +12,6 @@ import com.internousdev.yellow.util.DBConnector;
 
 public class ProductInfoDAO
 {
-
 	public List<ProductInfoDTO> getRandomProductInfoListByCategoryId(int categoryId, int ignoreProductId)
 	{
 		DBConnector dbConnector = new DBConnector();
@@ -284,5 +283,4 @@ public class ProductInfoDAO
 
 		return productInfoList;
 	}
-
 }

@@ -104,5 +104,4 @@ public class ProductInfoDTO
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
-
 }

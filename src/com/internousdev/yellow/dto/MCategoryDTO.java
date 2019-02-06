@@ -47,5 +47,4 @@ public class MCategoryDTO
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
-
 }

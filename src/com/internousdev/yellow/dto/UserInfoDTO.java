@@ -97,4 +97,3 @@ public class UserInfoDTO
 		this.updateDate = updateDate;
 	}
 }
-

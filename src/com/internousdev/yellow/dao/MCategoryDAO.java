@@ -12,7 +12,6 @@ import com.internousdev.yellow.util.DBConnector;
 
 public class MCategoryDAO
 {
-
 	public List<MCategoryDTO> getMCategoryList()
 	{
 		DBConnector dbConnector = new DBConnector();

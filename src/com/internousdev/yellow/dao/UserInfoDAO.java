@@ -10,8 +10,6 @@ import com.internousdev.yellow.util.DBConnector;
 
 public class UserInfoDAO
 {
-
-
 	public int createUser(String familyName, String firstName, String familyNameKana, String firstNameKana, String sex, String email, String loginId, String password)
 	{
 		DBConnector dbConnector = new DBConnector();
@@ -276,5 +274,4 @@ public class UserInfoDAO
 		String concealPassword = stringBuilder.replace(beginIndex, endIndex, password.substring(beginIndex,endIndex)).toString();
 		return concealPassword;
 	}
-
 }
