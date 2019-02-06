@@ -101,7 +101,7 @@ public class UserInfoDAO
 		return result;
 	}
 
-	public UserInfoDTO getUserInfo(String loginId, String password)
+	public UserInfoDTO getUserInfo(String loginId)
 	{
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
@@ -109,16 +109,15 @@ public class UserInfoDAO
 		UserInfoDTO userInfoDTO = new UserInfoDTO();
 
 		//	SQLを作成
-		String sql="select * from user_info where user_id=? and password=?";
+		String sql="select * from user_info where user_id= ?";
 
 		//	SQL実行
 		try
 		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, loginId);
-			preparedStatement.setString(2, password);
 
-			ResultSet resultSet=preparedStatement.executeQuery();
+			ResultSet resultSet = preparedStatement.executeQuery();
 
 			while(resultSet.next())
 			{

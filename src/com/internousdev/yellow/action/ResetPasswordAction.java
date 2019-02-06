@@ -20,6 +20,8 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware
 		session.remove("reConfirmationNewPasswordErrorMessageList");
 		session.remove("newPasswordIncorrectErrorMessageList");
 
+		//	return SUCCESSではだめ？
+		//	resultを使わないのならば、 一番上のString result = ERRORも消そう
 		result=SUCCESS;
 		return result;
 	}

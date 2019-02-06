@@ -16,7 +16,6 @@ import com.opensymphony.xwork2.ActionSupport;
 public class DeleteCartAction extends ActionSupport implements SessionAware
 {
 	private Collection<String> checkList;
-	private String categoryId;
 	private String productId;
 
 	private String sex;
@@ -71,6 +70,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware
 			cartInfoDtoList = cartInfoDAO.getCartInfoDtoList(userId);
 			Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
 
+			//	インデント直そう
 		if(!(iterator.hasNext()))
 		{
 				cartInfoDtoList = null;
@@ -145,17 +145,6 @@ public class DeleteCartAction extends ActionSupport implements SessionAware
 	public void setProductId(String productId)
 	{
 		this.productId = productId;
-	}
-
-
-	public String getCategoryId()
-	{
-		return categoryId;
-	}
-
-	public void setCategoryId(String categoryId)
-	{
-		this.categoryId = categoryId;
 	}
 
 	public Map<String, Object> getSession()
