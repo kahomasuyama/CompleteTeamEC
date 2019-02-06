@@ -30,8 +30,7 @@
 			}
 			function goSearchItemAction()
 			{
-				document.getElementById("categoryId").value = 1;
-				document.getElementById("form").action="SearchItemAction";
+				document.getElementById("form").action = "SearchItemAction";
 			}
 		</script>
 	</head>
@@ -42,10 +41,12 @@
 				<s:form id="form">
 
 					<s:if test='#session.containsKey("mCategoryDtoList")'>
-						<li><s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" /></li>
+						<li>
+							<s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" />
+						</li>
 					</s:if>
 
-					<li><s:textfield name="keywords" placeholder="検索ワード" /></li>
+					<li><s:textfield name="searchWord" placeholder="検索ワード" /></li>
 
 					<li><s:submit value="商品検索" onclick="goSearchItemAction();" /></li>
 

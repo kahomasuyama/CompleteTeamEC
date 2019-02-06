@@ -23,7 +23,7 @@
 		<jsp:include page="header.jsp"/>
 		<div id="contents">
 			<h1>ログイン画面</h1>
-			<s:form id="form" action="loginAction">
+			<s:form id="form" action="LoginAction">
 				<s:if test="!#session.loginIdErrorMessageList.isEmpty()">
 					<div class="error">
 						<div class="error-message">

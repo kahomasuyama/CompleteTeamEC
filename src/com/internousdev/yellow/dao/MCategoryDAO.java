@@ -44,6 +44,7 @@ public class MCategoryDAO
 			{
 				MCategoryDTO mCategoryDTO = new MCategoryDTO();
 				mCategoryDTO.setId(resultSet.getInt("id"));
+				mCategoryDTO.setCategoryId(resultSet.getInt("category_id"));
 				mCategoryDTO.setCategoryName(resultSet.getString("category_name"));
 				mCategoryDTO.setCategoryDescription(resultSet.getString("category_description"));
 				mCategoryDTO.setInsertDate(resultSet.getDate("insert_date"));
