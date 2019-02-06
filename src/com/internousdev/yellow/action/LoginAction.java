@@ -18,7 +18,8 @@ import com.internousdev.yellow.dto.UserInfoDTO;
 import com.internousdev.yellow.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class LoginAction extends ActionSupport implements SessionAware{
+public class LoginAction extends ActionSupport implements SessionAware
+{
 	private String categoryId;
 	private String loginId;
 	private String password;
@@ -29,16 +30,20 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private List<String>passwordErrorMessageList=new ArrayList<String>();
 	private Map<String,Object>session;
 
-	public String execute() {
+	public String execute()
+	{
+
 		String result=ERROR;
 
 		session.put("loginIdErrorMessageList", "");
 		session.put("passwordErrorMessageList", "");
 
-		if(savedLoginId==true) {
+		if(savedLoginId==true)
+		{
 			session.put("savedLoginId", true);
 			session.put("loginId",loginId);
-		}else {
+		}else
+		{
 			session.put("savedLoginId", false);
 			session.put("loginId", loginId);
 		}
@@ -46,41 +51,53 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		loginIdErrorMessageList=inputChecker.doCheck("ログインID",loginId,1,8,true,false,false,true,false,false,false,false,false);
 		passwordErrorMessageList=inputChecker.doCheck("パスワード",password,1,16,true,false,false,true,false,false,false,false,false);
 
-		if(loginIdErrorMessageList.size()!=0 || passwordErrorMessageList.size()!=0) {
+		if(loginIdErrorMessageList.size()!=0 || passwordErrorMessageList.size()!=0)
+		{
 			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
 			session.put("passwordErrorMessageList", passwordErrorMessageList);
 			session.put("logined",0);
 		}
-		if(!session.containsKey("mCategoryList")) {
+
+		if(!session.containsKey("mCategoryList"))
+		{
 			MCategoryDAO mCategoryDao=new MCategoryDAO();
 			mCategoryDtoList=mCategoryDao.getMCategoryList();
 			session.put("mCategoryDtoList",mCategoryDtoList);
 		}
 
 		UserInfoDAO userInfoDao=new UserInfoDAO();
-		if(userInfoDao.isExistsUserInfo(loginId,password)) {
-			if(userInfoDao.login(loginId,password)>0) {
+		if(userInfoDao.isExistsUserInfo(loginId,password))
+		{
+			if(userInfoDao.login(loginId,password)>0)
+			{
 				UserInfoDTO userInfoDTO=userInfoDao.getUserInfo(loginId,password);
 				session.put("loginId", userInfoDTO.getUserId());
 				int count=0;
 				CartInfoDAO cartInfoDao=new CartInfoDAO();
 
 				count=cartInfoDao.linkToLoginId(String.valueOf(session.get("tempUserId")),loginId);
-				if(count>0) {
+				if(count>0)
+				{
 					DestinationInfoDAO destinationInfoDao=new DestinationInfoDAO();
-					try {
+					try
+					{
 						List<DestinationInfoDTO> destinationInfoDtoList=new  ArrayList<DestinationInfoDTO>();
 						destinationInfoDtoList=destinationInfoDao.getDestinationInfo(loginId);
 						Iterator<DestinationInfoDTO>iterator=destinationInfoDtoList.iterator();
-						if(!(iterator.hasNext())) {
+						if(!(iterator.hasNext()))
+						{
 							destinationInfoDtoList=null;
 						}
 						session.put("destinationInfoDtoList",destinationInfoDtoList);
-					}catch(SQLException e){
+					}catch(SQLException e)
+					{
 						e.printStackTrace();
 					}
+					//cart.jspへ飛ぶ
 					result="cart";
-				}else {
+				}else
+				{
+					//home.jspへ飛ぶ
 					result=SUCCESS;
 				}
 			}
@@ -89,59 +106,73 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		return result;
 	}
 
-	public String getCategoryId() {
+	public String getCategoryId()
+	{
 		return categoryId;
 	}
 
-	public void setCategoryId(String categoryId) {
+	public void setCategoryId(String categoryId)
+	{
 		this.categoryId = categoryId;
 	}
 
-	public String getLoginId() {
+	public String getLoginId()
+	{
 		return loginId;
 	}
 
-	public void setLoginId(String loginId) {
+	public void setLoginId(String loginId)
+	{
 		this.loginId = loginId;
 	}
 
-	public String getPassword() {
+	public String getPassword()
+	{
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(String password)
+	{
 		this.password = password;
 	}
 
-	public boolean isSavedLoginId() {
+	public boolean isSavedLoginId()
+	{
 		return savedLoginId;
 	}
 
-	public void setSavedLoginId(boolean savedLoginId) {
+	public void setSavedLoginId(boolean savedLoginId)
+	{
 		this.savedLoginId = savedLoginId;
 	}
 
-	public List<String> getLoginIdErrorMessageList() {
+	public List<String> getLoginIdErrorMessageList()
+	{
 		return loginIdErrorMessageList;
 	}
 
-	public void setLoginIdErrorMessageList(List<String> loginIdErrorMessageList) {
+	public void setLoginIdErrorMessageList(List<String> loginIdErrorMessageList)
+	{
 		this.loginIdErrorMessageList = loginIdErrorMessageList;
 	}
 
-	public List<String> getPasswordErrorMessageList() {
+	public List<String> getPasswordErrorMessageList()
+	{
 		return passwordErrorMessageList;
 	}
 
-	public void setPasswordErrorMessageList(List<String> passwordErrorMessageList) {
+	public void setPasswordErrorMessageList(List<String> passwordErrorMessageList)
+	{
 		this.passwordErrorMessageList = passwordErrorMessageList;
 	}
 
-	public Map<String, Object> getSession() {
+	public Map<String, Object> getSession()
+	{
 		return session;
 	}
 
-	public void setSession(Map<String, Object> session) {
+	public void setSession(Map<String, Object> session)
+	{
 		this.session = session;
 	}
 

@@ -41,12 +41,12 @@
 
 			<table class="vertcal-list-table">
 				<tr>
-					<th scope="row"><s:label value="ログインID:"/></th>
+					<th scope="row"><s:label value="ユーザーID:"/></th>
 					<s:if test="#session.savedLoginId==true">
-						<td><s:textfield name="loginId" class="txt" placeholder="ログインID" value='%{#session.loginId}' autocomplete="off"/></td>
+						<td><s:textfield name="loginId" class="txt" placeholder="ユーザーID" value='%{#session.loginId}' autocomplete="off"/></td>
 					</s:if>
 					<s:else>
-						<td><s:textfield name="loginId" class="txt" placeholder="ログインID" autocomplete="off"/></td>
+						<td><s:textfield name="loginId" class="txt" placeholder="ユーザーID" autocomplete="off"/></td>
 					</s:else>
 				</tr>
 				<tr>
@@ -61,9 +61,9 @@
 				<s:else>
 					<s:checkbox name="savedLoginId"/>
 				</s:else>
-				<s:label value="ログインID保存"/><br>
+				<s:label value="ユーザーID保存"/><br>
 			</div>
-			<div class="submit_btn-box">
+			<div class="submit_btn_box">
 				<s:submit value="ログイン" class="submit_btn" onclick="goLoginAction();"/>
 			</div>
 		</s:form>
@@ -76,7 +76,7 @@
 			</div>
 		</div>
 		<div class="submit_btn_box">
-			<div id=".contents_btn_set">
+			<div id=".contents-btn-set">
 				<s:form action="ResetPasswordAction">
 					<s:submit value="パスワード再設定" class="submit_btn"/>
 				</s:form>
