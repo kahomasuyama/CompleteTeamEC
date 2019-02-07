@@ -35,7 +35,7 @@
 		<result name="success">resetPassword.jsp</result>
 	</action>
 
-	<action name="ResetPasswordConfirmAction" class="com.internousdev.yellow.action.ResetPasswordAction" method="execute">
+	<action name="ResetPasswordConfirmAction" class="com.internousdev.yellow.action.ResetPasswordConfirmAction" method="execute">
 		<result name="success">resetPasswordConfirm.jsp</result>
 		<result name="error">resetPassword.jsp</result>
 	</action>

@@ -3,11 +3,11 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="stylesheet" href="./css/style.css">
-		<title>パスワード再設定</title>
-	</head>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="./css/style.css">
+<title>パスワード再設定</title>
+</head>
 <body>
 	<jsp:include page="header.jsp"/>
 	<div id="contents">
@@ -71,7 +71,7 @@
 				</tr>
 				<tr>
 					<th scope="row"><s:label value="(再確認)"/></th>
-					<td><s:password name="reConfirmactionPassword" placeholder="新しいパスワード(再確認)" class="txt"/></td>
+					<td><s:password name="reConfirmationPassword" placeholder="新しいパスワード(再確認)" class="txt"/></td>
 				</tr>
 			</table>
 			<s:submit value="確認" class="submit_btn"/>

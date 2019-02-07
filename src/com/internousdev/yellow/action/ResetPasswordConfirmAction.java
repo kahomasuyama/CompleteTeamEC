@@ -21,6 +21,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	private String reConfirmationPassword;
 
 	//	Send
+	private String concealedPassword;
 	private List<String> loginIdErrorMessageList = new ArrayList<String>();
 	private List<String> passwordErrorMessageList = new ArrayList<String>();
 	private List<String> passwordIncorrectErrorMessageList = new ArrayList<String>();
@@ -41,57 +42,43 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 			session.put("mCategoryDtoList", mCategoryDtoList);
 		}
 
-		session.remove("loginIdErrorMessageList");
-		session.remove("passwordErrorMassageList");
-		session.remove("passwordIncorrectErrorMasageList");
-		session.remove("newPasswordErrormassageList");
-		session.remove("reConfirmationNewPasswordErrorMessageList");
-		session.remove("newPasswordIncorrectErrorMessageList");
+		//	入力値チェック
+		InputChecker inputChecker = new InputChecker();
+		loginIdErrorMessageList = inputChecker.doCheck("ログインID", loginId,1,8,true,false, false, true, false, false, false, false, false);
+		passwordErrorMessageList = inputChecker.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
+        newPasswordErrorMessageList = inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false, false, false, false);
+        reConfirmationNewPasswordErrorMessageList = inputChecker.doCheck("新しいパスワード(再確認)", reConfirmationPassword, 1, 16, true, false, false, true, false, false, false, false, false);
+        newPasswordIncorrectErrorMessageList = inputChecker.doPasswordCheck(newPassword, reConfirmationPassword);
 
-		InputChecker IC = new InputChecker();
-
-		loginIdErrorMessageList=IC.doCheck("ログインID", loginId,1,8,true,false, false, true, false, false, false, false, false);
-		passwordErrorMessageList = IC.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
-        newPasswordErrorMessageList=IC.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false, false, false, false);
-        reConfirmationNewPasswordErrorMessageList=IC.doCheck("新しいパスワード(再確認)", reConfirmationPassword, 1, 16, true, false, false, true, false, false, false, false, false);
-        //TODO
-        newPasswordIncorrectErrorMessageList=IC.doPasswordCheck(newPassword, reConfirmationPassword);
-
-        //	全てが空なら
+        //	入力値チェックで、エラーがなかったら
         if(loginIdErrorMessageList.isEmpty()
         		&& passwordErrorMessageList.isEmpty()
         		&& newPasswordErrorMessageList.isEmpty()
         		&& reConfirmationNewPasswordErrorMessageList.isEmpty()
         		&& newPasswordIncorrectErrorMessageList.isEmpty())
         {
+
 		    UserInfoDAO userInfoDAO = new UserInfoDAO();
 
+		    //	ユーザーが存在するのならば
 			if(userInfoDAO.isExistsUserInfo(loginId, password))
 			{
-				String concealedPassword = userInfoDAO.concealPassword(password);
+				concealedPassword = userInfoDAO.concealPassword(newPassword);
 				session.put("loginId", loginId);
 				session.put("newPassword", newPassword);
-				session.put("concealedPassword", concealedPassword);
 
 				return SUCCESS;
 			}
 			else
 			{
 				passwordIncorrectErrorMessageList.add("入力されたパスワードが異なります。");
-				session.put("passwordIncorrectErrorMessageList", passwordIncorrectErrorMessageList);
 
 		        return ERROR;
 			}
 	    }
-        //	空でないなら
+        //	入力値チェックでエラーがあったら、それを表示させる
         else
 	    {
-			session.put("loginIdErrorMessageList",loginIdErrorMessageList);
-			session.put("passwordErrorMassageList",passwordErrorMessageList );
-			session.put("newPasswordErrormassageList",newPasswordErrorMessageList);
-			session.put("reConfirmationNewPasswordErrorMessageList",reConfirmationNewPasswordErrorMessageList);
-			session.put(" newPasswordIncorrectErrorMessageList", newPasswordIncorrectErrorMessageList);
-
 	        return ERROR;
 		}
 	}
@@ -119,6 +106,12 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	}
 	public void setReConfirmationPassword(String reConfirmationPassword) {
 		this.reConfirmationPassword = reConfirmationPassword;
+	}
+	public String getConcealedPassword() {
+		return concealedPassword;
+	}
+	public void setConcealedPassword(String concealedPassword) {
+		this.concealedPassword = concealedPassword;
 	}
 	public List<String> getLoginIdErrorMessageList() {
 		return loginIdErrorMessageList;

@@ -23,18 +23,7 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware
 			session.put("mCategoryDtoList", mCategoryDtoList);
 		}
 
-		String result=ERROR;
-		session.remove("loginIdErrorMessageList");
-		session.remove("passwordErrorMessageList");
-		session.remove("passwordIncorrectErrorMessageList");
-		session.remove("newPasswordErrorMessageList");
-		session.remove("reConfirmationNewPasswordErrorMessageList");
-		session.remove("newPasswordIncorrectErrorMessageList");
-
-		//	return SUCCESSではだめ？
-		//	resultを使わないのならば、 一番上のString result = ERRORも消そう
-		result=SUCCESS;
-		return result;
+		return SUCCESS;
 	}
 	public String getCategoryId()
 	{
