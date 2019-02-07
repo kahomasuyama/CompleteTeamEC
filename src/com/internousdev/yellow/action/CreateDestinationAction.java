@@ -30,7 +30,6 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 			session.put("mCategoryDtoList", mCategoryDtoList);
 		}
 
-		String result = ERROR;
 		sexList.add(MALE);
 		sexList.add(FEMALE);
 

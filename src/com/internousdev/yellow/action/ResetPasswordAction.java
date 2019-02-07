@@ -23,6 +23,10 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware
 			session.put("mCategoryDtoList", mCategoryDtoList);
 		}
 
+		//	セッション情報を初期化
+		session.put("loginId", "");
+		session.put("newPassword", "");
+
 		return SUCCESS;
 	}
 	public String getCategoryId()

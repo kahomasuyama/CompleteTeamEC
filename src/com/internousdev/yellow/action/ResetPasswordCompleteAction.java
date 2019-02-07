@@ -26,8 +26,13 @@ public class ResetPasswordCompleteAction extends ActionSupport implements Sessio
 			session.put("mCategoryDtoList", mCategoryDtoList);
 		}
 
+		//	DBのパスワードを更新
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		int count = userInfoDAO.resetPassword(String.valueOf(session.get("loginId")), String.valueOf(session.get("newPassword")));
+
+		//	セッション情報を初期化
+		session.put("loginId", "");
+		session.put("newPassword", "");
 
 		if (count > 0)
 		{

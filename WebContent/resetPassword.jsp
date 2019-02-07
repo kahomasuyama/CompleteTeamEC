@@ -9,7 +9,9 @@
 <title>パスワード再設定</title>
 </head>
 <body>
+
 	<jsp:include page="header.jsp"/>
+
 	<div id="contents">
 		<h1>パスワード再設定画面</h1>
 		<s:if test="!#session.loginIdErrorMessageList.isEmpty()">

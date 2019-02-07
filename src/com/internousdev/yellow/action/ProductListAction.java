@@ -31,9 +31,9 @@ public class ProductListAction extends ActionSupport implements SessionAware
 			session.put("mCategoryDtoList", mCategoryDtoList);
 		}
 
-		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 
 		//	データベースよりデータを取得
+		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 		productInfoList = productInfoDAO.getProductInfoList();
 
 		return SUCCESS;

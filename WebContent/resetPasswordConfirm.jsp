@@ -9,8 +9,9 @@
 		<title>パスワード再設定確認</title>
 	</head>
 	<body>
+
 		<jsp:include page="header.jsp" />
-		resetPasswordConfirm.jsp
+
 		<div id="contents">
 			<h1>パスワード再設定確認画面</h1>
 			<s:form action="ResetPasswordCompleteAction">
