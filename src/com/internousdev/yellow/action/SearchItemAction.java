@@ -39,9 +39,6 @@ public class SearchItemAction extends ActionSupport implements SessionAware
 		//	検索ワードが指定されているならば
 		if(searchWord != null && !searchWord.isEmpty())
 		{
-			System.out.println(searchWord);
-			System.out.println(categoryId);
-
 			//	文字チェック
 			InputChecker inputChecker = new InputChecker();
 			errorMsgList = inputChecker.doCheck("検索ワード", searchWord, 0, 50, true, true, true, true, false, true, false, true, true);

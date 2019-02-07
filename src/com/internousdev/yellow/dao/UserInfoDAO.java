@@ -147,6 +147,48 @@ public class UserInfoDAO
 		return userInfoDTO;
 	}
 
+	public boolean checkPassword(String loginId, String password)
+	{
+		DBConnector dbConnector = new DBConnector();
+		Connection connection = dbConnector.getConnection();
+
+		boolean result = false;
+
+		//	SQLを作成
+		String sql = "SELECT COUNT(*) AS count FROM user_info WHERE user_id = ? AND password = ?";
+
+		//	SQL実行
+		try
+		{
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, loginId);
+			preparedStatement.setString(2, password);
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			if(resultSet.next())
+			{
+				result = (resultSet.getInt("count") > 0);
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+
+		//	Close
+		try
+		{
+			connection.close();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
 	public int resetPassword(String loginId, String password)
 	{
 		DBConnector dbConnector = new DBConnector();

@@ -38,7 +38,8 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 			purchaseHistoryInfoDtoList = null;
 		}
 
-		if(!session.containsKey("myPageInfoList")) {
+		if(!session.containsKey("myPageInfoList"))
+		{
 			MCategoryDAO mCategoryDao = new MCategoryDAO();
 			mCategoryDtoList = mCategoryDao.getMCategoryList();
 			session.put("mCategoryDtoList", mCategoryDtoList);

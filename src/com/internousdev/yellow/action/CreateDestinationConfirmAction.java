@@ -9,8 +9,9 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.yellow.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class CreateDestinationConfirmAction  extends ActionSupport implements SessionAware {
-
+public class CreateDestinationConfirmAction  extends ActionSupport implements SessionAware
+{
+	//	Receive + Send
 	private String familyName;
 	private String firstName;
 	private String familyNameKana;
@@ -24,11 +25,12 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 	private String tellNumber;
 	private String userAddress;
 
+	//	Send
 	private List<String> errorMsgList;
 
-
-	private String categoryId;
+	//	Session
 	private Map<String, Object> session;
+
 	public String execute()
 	{
 		//	商品カテゴリがないならセッションタイムアウト
@@ -37,9 +39,8 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 			return "sessionTimeOut";
 		}
 
-//		String result = ERROR;
+		//	String result = ERROR;
 		InputChecker inputChecker = new InputChecker();
-//
 		errorMsgList = new ArrayList<String>();
 		errorMsgList.addAll(inputChecker.doCheck("姓", familyName, 1, 16, true, true, true, false, false, false, true, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("名", firstName, 1, 16, true, true, true, false, false, false, true, false, false));
@@ -49,11 +50,8 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 		errorMsgList.addAll(inputChecker.doCheck("電話番号", tellNumber, 10, 13, false, false, false, true, false, false, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("メールアドレス", email, 10, 32, true, false, false, true, true, false, false, false, false));
 
-
-
 		sexList.add(MALE);
 		sexList.add(FEMALE);
-
 
 		//	エラーがないのならば
 		if(errorMsgList.isEmpty())
@@ -126,13 +124,6 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 	}
 	public void setUserAddress(String userAddress) {
 		this.userAddress = userAddress;
-	}
-
-	public String getCategoryId() {
-		return categoryId;
-	}
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
 	}
 
 	public List<String> getErrorMsgList() {

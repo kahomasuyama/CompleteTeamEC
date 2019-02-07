@@ -41,26 +41,24 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 
 		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
 		int count = 0;
-		for(int i=0; i<purchaseHistoryInfoDtoList.size();i++) {
-			count += purchaseHistoryInfoDAO.regist(
-					String.valueOf(session.get("loginId")),
-					purchaseHistoryInfoDtoList.get(i).getProductId(),
-					purchaseHistoryInfoDtoList.get(i).getProductCount(),
-					purchaseHistoryInfoDtoList.get(i).getDestinationId(),
-					purchaseHistoryInfoDtoList.get(i).getSubtotal()
-					);
+		for(PurchaseHistoryInfoDTO dto : purchaseHistoryInfoDtoList)
+		{
+			count += purchaseHistoryInfoDAO.regist(String.valueOf(session.get("loginId")), dto.getProductId(), dto.getProductCount(), dto.getDestinationId(), dto.getSubtotal());
 		}
 
-		if(count > 0) {
+		if(count > 0)
+		{
 			CartInfoDAO cartInfoDAO = new CartInfoDAO();
 			count = cartInfoDAO.deleteAll(String.valueOf(session.get("loginId")));
 
-			if(count > 0) {
+			if(count > 0)
+			{
 				List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
 				cartInfoDtoList = cartInfoDAO.getCartInfoDtoList(String.valueOf(session.get("loginId")));
 				Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
 
-				if(!(iterator.hasNext())) {
+				if(!(iterator.hasNext()))
+				{
 					cartInfoDtoList = null;
 				}
 				session.put("cartInfoDtoList", cartInfoDtoList);
@@ -68,6 +66,7 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 				int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(String.valueOf(session.get("loginId")))));
 				session.put("totalPrice", totalPrice);
 				session.remove("purchaseHistoryInfoDtoList");
+
 				result = SUCCESS;
 			}
 		}
@@ -80,19 +79,16 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 	public void setId(String id) {
 		this.id = id;
 	}
-
 	public String getCategoryId() {
 		return categoryId;
 	}
 	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
-
 	public Map<String, Object> getSession() {
 		return session;
 	}
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
 }

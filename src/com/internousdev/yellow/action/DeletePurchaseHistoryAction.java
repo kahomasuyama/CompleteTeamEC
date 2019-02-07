@@ -28,10 +28,12 @@ public class DeletePurchaseHistoryAction extends ActionSupport implements Sessio
 
 		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
 		int count = purchaseHistoryInfoDAO.deleteAll(String.valueOf(session.get("loginId")));
-		if(count > 0) {
+		if(count > 0)
+		{
 			purchaseHistoryInfoDTOList = purchaseHistoryInfoDAO.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
 			Iterator<PurchaseHistoryInfoDTO> iterator = purchaseHistoryInfoDTOList.iterator();
-			if(!(iterator.hasNext())) {
+			if(!(iterator.hasNext()))
+			{
 				purchaseHistoryInfoDTOList = null;
 			}
 

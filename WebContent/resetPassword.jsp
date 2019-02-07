@@ -14,45 +14,10 @@
 
 	<div id="contents">
 		<h1>パスワード再設定画面</h1>
-		<s:if test="!#session.loginIdErrorMessageList.isEmpty()">
+		<s:if test="!errorMsgList.isEmpty()">
 			<div class="error">
 				<div class="error-message">
-				<s:iterator value="#session.loginIdErrorMessageList"><s:property/><br></s:iterator>
-				</div>
-			</div>
-		</s:if>
-		<s:if test="!#session.passwordErrorMessageList.isEmpty()">
-			<div class="error">
-				<div class="error-message">
-					<s:iterator value="#session.passwordErrorMessageList"><s:property/><br></s:iterator>
-				</div>
-			</div>
-		</s:if>
-		<s:if test="!#session.passwordIncorrectErrorMessageList.isEmpty()">
-			<div class="error">
-				<div class="error-message">
-					<s:iterator value="#session.passwordIncorrectErrorList"><s:property/><br></s:iterator>
-				</div>
-			</div>
-		</s:if>
-		<s:if test="!#session.newPasswordErrorMessageList.inEmpty()">
-			<div class="error">
-				<div class="error-message">
-					<s:iterator value="#session.reConfirmactionNewPasswordErrorMessageList"><s:property/><br></s:iterator>
-				</div>
-			</div>
-		</s:if>
-		<s:if test="!#session.reConfirmactionNewPasswordErrorMessageList.isEmpty()">
-			<div class="error">
-				<div class="error-message">
-					<s:iterator value="#session.reConfirmactionNewPasswordErrorMessageList"><s:property/><br></s:iterator>
-				</div>
-			</div>
-		</s:if>
-		<s:if test="!#session.newPasswordIncorrectErrorMessageList.isEmpty()">
-			<div class="error">
-				<div class="error-message">
-					<s:iterator value="#session.newPasswordIncorrectErrorMessageList"><s:property/><br></s:iterator>
+				<s:iterator value="errorMsgList"><s:property/><br></s:iterator>
 				</div>
 			</div>
 		</s:if>
