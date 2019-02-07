@@ -25,7 +25,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	private String password;
 
 	//	Send
-	private List<String> errorMsgList = new ArrayList<String>();
+	private List<String> errorMsgList;
 	private List<String> sexList = new ArrayList<String>();
 
 	//	Session
@@ -43,6 +43,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 
 		//	入力値チェック
 		InputChecker inputChecker = new InputChecker();
+		errorMsgList = new ArrayList<String>();
 		errorMsgList.addAll(inputChecker.doCheck("姓", familyName, 1, 16, true, true, true, false, false, false, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("名", firstName, 1, 16, true, true, true, false, false, false, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("姓ふりがな", familyNameKana, 1, 16, false, false, true, false, false, false, false, false, false));

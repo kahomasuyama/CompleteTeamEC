@@ -27,6 +27,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware
 	private String loginId;
 	private String password;
 	private List<String> sexList;
+	private List<String> errorMsgList;
 
 	//	Session
 	private Map<String,Object>session;
@@ -50,7 +51,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware
 		{
 			sex = MALE;
 		}
-		else
+		else if(sex.equals("1"))
 		{
 			sex = FEMALE;
 		}
@@ -152,5 +153,11 @@ public class CreateUserAction extends ActionSupport implements SessionAware
 	public void setSession(Map<String, Object> session)
 	{
 		this.session = session;
+	}
+	public List<String> getErrorMsgList() {
+		return errorMsgList;
+	}
+	public void setErrorMsgList(List<String> errorMsgList) {
+		this.errorMsgList = errorMsgList;
 	}
 }
