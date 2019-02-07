@@ -58,7 +58,7 @@ public class LoginAction extends ActionSupport implements SessionAware
 		errorMsgList.addAll(inputChecker.doCheck("パスワード",password,1,16,true,false,false,true,false,false,false,false,false));
 
 		//	エラーメッセージがあるならば
-		if(errorMsgList.isEmpty())
+		if(!errorMsgList.isEmpty())
 		{
 			return ERROR;
 		}
@@ -104,7 +104,15 @@ public class LoginAction extends ActionSupport implements SessionAware
 					result=SUCCESS;
 				}
 			}
+			else
+			{
+				errorMsgList.add("ユーザーIDまたはパスワードが異なります。");
+			}
 			session.put("logined", 1);
+		}
+		else
+		{
+			errorMsgList.add("ユーザーIDまたはパスワードが異なります。");
 		}
 		return result;
 	}
