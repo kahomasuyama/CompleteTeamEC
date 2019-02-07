@@ -7,6 +7,16 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/style.css">
 		<title>登録内容確認</title>
+		<script>
+			function goCreateUserCompleteAction()
+			{
+				document.getElementById("s_form").action="CreateUserCompleteAction";
+			}
+			function goCreateUserAction()
+			{
+				document.getElementById("s_form").action="CreateUserAction";
+			}
+		</script>
 	</head>
 	<body>
 
@@ -14,7 +24,7 @@
 
 		<div id="contents">
 			<h1>登録内容確認画面</h1>
-			<s:form action="CreateUserCompleteAction">
+			<s:form id="s_form">
 				<table class="vertical-list-table">
 					<tr>
 						<th scope="row"><s:label value="姓"/></th>
@@ -51,8 +61,8 @@
 				</table>
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
-					    <input type="button" onclick="history.back()" value="戻る"/>
-						<s:submit value="登録" class="subimt_btn" />
+					    <s:submit value="戻る" onclick="goCreateUserAction()" />
+						<s:submit value="登録" onclicK="goCreateUserCompleteAction()" class="subimt_btn" />
 					</div>
 				</div>
 

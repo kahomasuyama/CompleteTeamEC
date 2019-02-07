@@ -10,8 +10,9 @@ import com.internousdev.yellow.dao.UserInfoDAO;
 import com.internousdev.yellow.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class CreateUserCompleteAction extends ActionSupport implements SessionAware{
-
+public class CreateUserCompleteAction extends ActionSupport implements SessionAware
+{
+	//	Receive
 	private String familyName;
 	private String firstName;
 	private String familyNameKana;
@@ -22,6 +23,7 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 	private String password;
 	private String categoryId;
 
+	//	Session
 	private Map<String,Object> session;
 
 	public String execute()

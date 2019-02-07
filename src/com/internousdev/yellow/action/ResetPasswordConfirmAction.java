@@ -61,7 +61,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		    UserInfoDAO userInfoDAO = new UserInfoDAO();
 
 		    //	ユーザーが存在するのならば
-			if(userInfoDAO.isExistsUserInfo(loginId, password))
+			if(userInfoDAO.isExistsUserInfo(loginId))
 			{
 				concealedPassword = userInfoDAO.concealPassword(newPassword);
 				session.put("loginId", loginId);

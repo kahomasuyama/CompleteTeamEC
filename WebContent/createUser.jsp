@@ -15,52 +15,10 @@
 		<div id="contents">
 			<h1>ユーザー情報入力画面</h1>
 
-			<s:if test="!#session.familyNameErrorMessageList.isEmpty()">
+			<s:if test="!errorMsgList.isEmpty()">
 				<div class="error">
 					<div class="error-message">
-						<s:iterator value="#session.familyNameErrorMessageList"><s:property /><br></s:iterator>
-					</div>
-				</div>
-			</s:if>
-			<s:if test="!#session.firstNameErrorMessageList.isEmpty()">
-				<div class="error">
-					<div class="error-message">
-						<s:iterator value="#session.firstNameErrorMessageList"><s:property /><br></s:iterator>
-					</div>
-				</div>
-			</s:if>
-			<s:if test="!#session.familyNameKanaErrorMessageList.isEmpty()">
-				<div class="error">
-					<div class="error-message">
-						<s:iterator value="#session.familyNameKanaErrorMessageList"><s:property /><br></s:iterator>
-					</div>
-				</div>
-			</s:if>
-			<s:if test="!#session.firstNameKanaErrorMessageList.isEmpty()">
-				<div class="error">
-					<div class="error-message">
-						<s:iterator value="#session.firstNameKanaErrorMessageList"><s:property /><br></s:iterator>
-					</div>
-				</div>
-			</s:if>
-			<s:if test="!#session.emailErrorMessageList.isEmpty()">
-				<div class="error">
-					<div class="error-message">
-						<s:iterator value="#session.emailErrorMessageList"><s:property /><br></s:iterator>
-					</div>
-				</div>
-			</s:if>
-			<s:if test="!#session.loginIdErrorMessageList.isEmpty()">
-				<div class="error">
-					<div class="error-message">
-						<s:iterator value="#session.loginIdErrorMessageList"><s:property /><br></s:iterator>
-					</div>
-				</div>
-			</s:if>
-			<s:if test="!#session.passwordErrorMessageList.isEmpty()">
-				<div class="error">
-					<div class="error-message">
-						<s:iterator value="#session.passwordErrorMessageList"><s:property /><br></s:iterator>
+						<s:iterator value="errorMsgList"><s:property /><br></s:iterator>
 					</div>
 				</div>
 			</s:if>
@@ -69,31 +27,31 @@
 				<table class="vertical-list-table">
 					<tr>
 						<th scope="row">姓</th>
-						<td><s:textfield name="familyName" value="%{#session.familyName}" label="姓" placeholder="姓" class="txt" /></td>
+						<td><s:textfield name="familyName" value="%{familyName}" label="姓" placeholder="姓" class="txt" /></td>
 					</tr>
 					<tr>
 						<th scope="row">名</th>
-						<td><s:textfield name="firstName" value="%{#session.firstName}" label="名" placeholder="名" class="txt" /></td>
+						<td><s:textfield name="firstName" value="%{firstName}" label="名" placeholder="名" class="txt" /></td>
 					</tr>
 					<tr>
 						<th scope="row">姓ふりがな</th>
-						<td><s:textfield name="familyNameKana" value="%{#session.familyNameKana}" label="姓ふりがな" placeholder="姓ふりがな" class="txt" /></td>
+						<td><s:textfield name="familyNameKana" value="%{familyNameKana}" label="姓ふりがな" placeholder="姓ふりがな" class="txt" /></td>
 					</tr>
 					<tr>
 						<th scope="row">名ふりがな</th>
-						<td><s:textfield name="firstNameKana" value="%{#session.firstNameKana}" label="名ふりがな" placeholder="名ふりがな" class="txt" /></td>
+						<td><s:textfield name="firstNameKana" value="%{firstNameKana}" label="名ふりがな" placeholder="名ふりがな" class="txt" /></td>
 					</tr>
 					<tr>
 						<th scope="row">性別</th>
-						<td><s:radio name="sex" list="%{#session.sexList}" value="%{#session.sex}" label="性別" placeholder="性別" class="txt" /></td>
+						<td><s:radio name="sex" list="%{sexList}" value="%{sex}" label="性別" placeholder="性別" class="txt" /></td>
 					</tr>
 					<tr>
 						<th scope="row">メールアドレス</th>
-						<td><s:textfield name="email" value="%{#session.email}" label="メールアドレス" placeholder="メールアドレス" class="txt" /></td>
+						<td><s:textfield name="email" value="%{email}" label="メールアドレス" placeholder="メールアドレス" class="txt" /></td>
 					</tr>
 					<tr>
 						<th scope="row">ログインID</th>
-						<td><s:textfield name="loginId" value="%{#session.loginId}" label="ログインID" placeholder="ログインID" class="txt" /></td>
+						<td><s:textfield name="loginId" value="%{loginId}" label="ログインID" placeholder="ログインID" class="txt" /></td>
 					</tr>
 					<tr>
 						<th scope="row">パスワード</th>

@@ -20,18 +20,21 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport implements SessionAware
 {
+	//	Receive
 	private String loginId;
 	private String password;
 	private boolean savedLoginId;
 
+	//	Send
 	private List<MCategoryDTO> mCategoryDtoList=new ArrayList<MCategoryDTO>();
 	private List<String>loginIdErrorMessageList=new ArrayList<String>();
 	private List<String>passwordErrorMessageList=new ArrayList<String>();
+
+	//	Session
 	private Map<String,Object>session;
 
 	public String execute()
 	{
-
 		String result=ERROR;
 
 		//	商品カテゴリがないなら取得
@@ -79,37 +82,40 @@ public class LoginAction extends ActionSupport implements SessionAware
 		}
 
 		//	DBにユーザーが存在しているかの確認
-		UserInfoDAO userInfoDao=new UserInfoDAO();
-		if(userInfoDao.isExistsUserInfo(loginId,password))
+		UserInfoDAO userInfoDao = new UserInfoDAO();
+
+		if(userInfoDao.isExistsUserInfo(loginId))
 		{
-			if(userInfoDao.login(loginId,password)>0)
+			if(userInfoDao.login(loginId,password) > 0)
 			{
-				UserInfoDTO userInfoDTO=userInfoDao.getUserInfo(loginId);
+				UserInfoDTO userInfoDTO = userInfoDao.getUserInfo(loginId);
 				session.put("loginId", userInfoDTO.getUserId());
-				int count=0;
+				int count = 0;
 				CartInfoDAO cartInfoDao=new CartInfoDAO();
 
-				count=cartInfoDao.linkToLoginId(String.valueOf(session.get("tempUserId")),loginId);
-				if(count>0)
+				count = cartInfoDao.linkToLoginId(String.valueOf(session.get("tempUserId")),loginId);
+				if(count > 0)
 				{
 					DestinationInfoDAO destinationInfoDao=new DestinationInfoDAO();
 					try
 					{
 						List<DestinationInfoDTO> destinationInfoDtoList = new  ArrayList<DestinationInfoDTO>();
-						destinationInfoDtoList=destinationInfoDao.getDestinationInfo(loginId);
-						Iterator<DestinationInfoDTO>iterator=destinationInfoDtoList.iterator();
+						destinationInfoDtoList = destinationInfoDao.getDestinationInfo(loginId);
+						Iterator<DestinationInfoDTO>iterator = destinationInfoDtoList.iterator();
 						if(!(iterator.hasNext()))
 						{
 							destinationInfoDtoList=null;
 						}
 						session.put("destinationInfoDtoList",destinationInfoDtoList);
-					}catch(SQLException e)
+					}
+					catch(SQLException e)
 					{
 						e.printStackTrace();
 					}
 					//cart.jspへ飛ぶ
 					result="cart";
-				}else
+				}
+				else
 				{
 					//home.jspへ飛ぶ
 					result=SUCCESS;
@@ -120,65 +126,52 @@ public class LoginAction extends ActionSupport implements SessionAware
 		return result;
 	}
 
-
 	public String getLoginId()
 	{
 		return loginId;
 	}
-
 	public void setLoginId(String loginId)
 	{
 		this.loginId = loginId;
 	}
-
 	public String getPassword()
 	{
 		return password;
 	}
-
 	public void setPassword(String password)
 	{
 		this.password = password;
 	}
-
 	public boolean isSavedLoginId()
 	{
 		return savedLoginId;
 	}
-
 	public void setSavedLoginId(boolean savedLoginId)
 	{
 		this.savedLoginId = savedLoginId;
 	}
-
 	public List<String> getLoginIdErrorMessageList()
 	{
 		return loginIdErrorMessageList;
 	}
-
 	public void setLoginIdErrorMessageList(List<String> loginIdErrorMessageList)
 	{
 		this.loginIdErrorMessageList = loginIdErrorMessageList;
 	}
-
 	public List<String> getPasswordErrorMessageList()
 	{
 		return passwordErrorMessageList;
 	}
-
 	public void setPasswordErrorMessageList(List<String> passwordErrorMessageList)
 	{
 		this.passwordErrorMessageList = passwordErrorMessageList;
 	}
-
 	public Map<String, Object> getSession()
 	{
 		return session;
 	}
-
 	public void setSession(Map<String, Object> session)
 	{
 		this.session = session;
 	}
-
 }

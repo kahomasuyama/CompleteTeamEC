@@ -55,7 +55,7 @@ public class UserInfoDAO
 		return count;
 	}
 
-	public boolean isExistsUserInfo(String loginId, String password)
+	public boolean isExistsUserInfo(String loginId)
 	{
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
@@ -63,23 +63,19 @@ public class UserInfoDAO
 		boolean result = false;
 
 		//	SQLを作成
-		String sql = "SELECT COUNT(*) AS count FROM user_info WHERE user_id = ? AND password = ?";
+		String sql = "SELECT COUNT(*) AS count FROM user_info WHERE user_id = ?";
 
 		//	SQL実行
 		try
 		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, loginId);
-			preparedStatement.setString(2, password);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 
-			while(resultSet.next())
+			if(resultSet.next())
 			{
-				if(resultSet.getInt("count") > 0)
-				{
-					result = true;
-				}
+				result = (resultSet.getInt("count") > 0);
 			}
 		}
 		catch(SQLException e)
