@@ -34,7 +34,7 @@
 				<s:if test="!#session.passwordErrorMessageList.isEmpty()">
 					<div class="error">
 						<div class="error-message">
-							<s:iterator value="#wsession.passwordErrorMessageList"><s:property /><br></s:iterator>
+							<s:iterator value="#session.passwordErrorMessageList"><s:property /><br></s:iterator>
 						</div>
 					</div>
 				</s:if>
