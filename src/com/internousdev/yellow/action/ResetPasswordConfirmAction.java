@@ -36,7 +36,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		InputChecker inputChecker = new InputChecker();
 
 		errorMsgList = new ArrayList<String>();
-		errorMsgList.addAll(inputChecker.doCheck("ログインID", loginId,1,8,true,false, false, true, false, false, false, false, false));
+		errorMsgList.addAll(inputChecker.doCheck("ユーザーID", loginId,1,8,true,false, false, true, false, false, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("新しいパスワード(再確認)", reConfirmationPassword, 1, 16, true, false, false, true, false, false, false, false, false));
@@ -106,5 +106,11 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	}
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+	public List<String> getErrorMsgList() {
+		return errorMsgList;
+	}
+	public void setErrorMsgList(List<String> errorMsgList) {
+		this.errorMsgList = errorMsgList;
 	}
 }

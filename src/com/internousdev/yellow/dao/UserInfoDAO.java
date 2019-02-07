@@ -304,7 +304,7 @@ public class UserInfoDAO
 
 		if(password.length() > 1)
 		{
-			endIndex = 2;
+			endIndex = 1;
 		}
 		StringBuilder stringBuilder = new StringBuilder("****************");
 

@@ -54,7 +54,7 @@ public class LoginAction extends ActionSupport implements SessionAware
 		//文字種の判定
 		InputChecker inputChecker=new InputChecker();
 		errorMsgList = new ArrayList<String>();
-		errorMsgList.addAll(inputChecker.doCheck("ログインID",loginId,1,8,true,false,false,true,false,false,false,false,false));
+		errorMsgList.addAll(inputChecker.doCheck("ユーザーID",loginId,1,8,true,false,false,true,false,false,false,false,false));
 		errorMsgList.addAll(inputChecker.doCheck("パスワード",password,1,16,true,false,false,true,false,false,false,false,false));
 
 		//	エラーメッセージがあるならば

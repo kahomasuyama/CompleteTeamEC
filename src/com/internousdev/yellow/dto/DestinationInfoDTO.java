@@ -2,7 +2,8 @@ package com.internousdev.yellow.dto;
 
 import java.util.Date;
 
-public class DestinationInfoDTO {
+public class DestinationInfoDTO
+{
 	private int id;
 	private String userId;
 	private String familyName;

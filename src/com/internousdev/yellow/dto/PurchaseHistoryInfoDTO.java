@@ -2,7 +2,8 @@ package com.internousdev.yellow.dto;
 
 import java.util.Date;
 
-public class PurchaseHistoryInfoDTO {
+public class PurchaseHistoryInfoDTO
+{
 	private int id;
 	private String userId;
 	private int productId;

@@ -38,11 +38,16 @@
 		<header>
 			<div>Yellow</div>
 			<ul>
-				<s:form id="form">
+				<s:form id="form" action="HomeAction">
 
 					<s:if test='#session.containsKey("mCategoryDtoList")'>
 						<li>
-							<s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" />
+							<s:if test='#session.containsKey("selectCategoryId")'>
+								<s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" value="#session.selectCategoryId" />
+							</s:if>
+							<s:else>
+								<s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" />
+							</s:else>
 						</li>
 					</s:if>
 

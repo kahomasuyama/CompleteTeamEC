@@ -12,7 +12,8 @@ import com.internousdev.yellow.util.DBConnector;
 
 public class PurchaseHistoryInfoDAO {
 
-	public List<PurchaseHistoryInfoDTO> getPurchaseHistoryList(String loginId) {
+	public List<PurchaseHistoryInfoDTO> getPurchaseHistoryList(String loginId)
+	{
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList = new ArrayList<PurchaseHistoryInfoDTO>();
@@ -65,7 +66,8 @@ public class PurchaseHistoryInfoDAO {
 				// regist_dateを降順に並べる
 				+ " ORDER BY regist_date DESC";
 
-		try {
+		try
+		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, loginId);
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -96,12 +98,16 @@ public class PurchaseHistoryInfoDAO {
 				purchaseHistoryInfoDto.setUserAddress(resultSet.getString("user_address"));
 				purchaseHistoryInfoDTOList.add(purchaseHistoryInfoDto);
 			}
-		} catch (SQLException e) {
+		}
+		catch (SQLException e)
+		{
 			e.printStackTrace();
 		}
-		try {
+		try
+		{
 			connection.close();
-		} catch (SQLException e) {
+		} catch (SQLException e)
+		{
 			e.printStackTrace();
 		}
 		return purchaseHistoryInfoDTOList;
@@ -115,7 +121,8 @@ public class PurchaseHistoryInfoDAO {
 		String sql = "INSERT INTO purchase_history_info(user_id, product_id, product_count, price, destination_id, regist_date, update_date) VALUES (?, ?, ?, ?, ?, now(), '0000-01-01')";
 		int count = 0;
 
-		try {
+		try
+		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, loginId);
 			preparedStatement.setInt(2, productId);
@@ -123,16 +130,21 @@ public class PurchaseHistoryInfoDAO {
 			preparedStatement.setInt(4, price);
 			preparedStatement.setInt(5, destinationId);
 			count = preparedStatement.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
-
-		try {
-			connection.close();
-			} catch (SQLException e)
+		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
+
+		try
+		{
+			connection.close();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+
 		return count;
 	}
 
@@ -143,14 +155,18 @@ public class PurchaseHistoryInfoDAO {
 		// phi内の指定のuser_idの情報をDELETE（消す）
 		String sql = "DELETE FROM purchase_history_info WHERE user_id = ?";
 		int count = 0;
-		try {
+		try
+		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, loginId);
 			count = preparedStatement.executeUpdate();
-		} catch (SQLException e) {
+		}
+		catch (SQLException e)
+		{
 			e.printStackTrace();
 		}
-		try {
+		try
+		{
 			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();

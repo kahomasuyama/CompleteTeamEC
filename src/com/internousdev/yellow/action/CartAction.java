@@ -35,7 +35,8 @@ public class CartAction extends ActionSupport implements SessionAware
 			userId=String.valueOf(session.get("loginId"));
 		}
 
-		else if(session.containsKey("tempUserId")){
+		else if(session.containsKey("tempUserId"))
+		{
 			userId=String.valueOf(session.get("tempUserId"));
 		}
 

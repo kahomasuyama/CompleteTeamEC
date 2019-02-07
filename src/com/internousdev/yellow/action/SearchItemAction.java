@@ -49,12 +49,14 @@ public class SearchItemAction extends ActionSupport implements SessionAware
 				return ERROR;
 			}
 
+
 			//	検索ワードをリストへ
 			searchWord = searchWord.replaceAll("　", " ");
 			searchWordList = Arrays.asList(searchWord.split(" "));
 		}
 
 		//	データベースよりデータを取得
+		session.put("selectCategoryId", categoryId);
 		productInfoList = productInfoDAO.searchProductInfoList(categoryId, searchWordList);
 
 		return SUCCESS;
