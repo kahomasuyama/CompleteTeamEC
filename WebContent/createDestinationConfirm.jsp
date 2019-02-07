@@ -9,13 +9,24 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/style.css">
 		<title>宛先情報確認</title>
+		
+				<script>
+			function goCreateDestinationAction()
+			{
+				document.getElementById("destinationForm").action="CreateDestinationAction";
+			}
+			function goCreateDestinationCompleteAction()
+			{
+				document.getElementById("destinationForm").action="CreateDestinationCompleteAction";
+			}
+		</script>
 	</head>
 	<body>
 		<jsp:include page="header.jsp" />
 		<div id="contents">
-			<h1>宛先情報確認画面</h1>
+			<h1>宛先情報入力確認画面</h1>
 
-			<s:form action="CreateDestinationCompleteAction">
+			<s:form id="destinationForm" action="">
 				<table class="vertical-list-table">
 					<tr>
 						<th scope="row"><s:label value="姓"/></th>
@@ -33,10 +44,7 @@
 						<th scope="row"><s:label value="名ふりがな"/></th>
 						<td><s:property value="firstNameKana"/><s:hidden name="firstNameKana" value="%{firstNameKana}"/></td>
 					</tr>
-					<tr>
-						<th scope="row"><s:label value="性別"/></th>
-						<td><s:property value="sex"/><s:hidden name="sex" value="%{sex}"/></td>
-					</tr>
+					
 					<tr>
 						<th scope="row"><s:label value="住所"/></th>
 						<td><s:property value="userAddress"/><s:hidden name="userAddress" value="%{userAddress}"/></td>
@@ -54,7 +62,13 @@
 
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
-						<s:submit value="宛先情報登録" class="submit_btn" />
+						<s:submit value="登録" onclick="goCreateDestinationCompleteAction()" class="submit_btn" />
+					</div>
+				</div>
+				
+				<div class="submit_btn_box">
+					<div id=".contents-btn-set">
+						<s:submit value="戻る" onclick="goCreateDestinationAction()" class="submit_btn" />
 					</div>
 				</div>
 

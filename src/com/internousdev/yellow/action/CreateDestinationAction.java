@@ -1,6 +1,5 @@
 package com.internousdev.yellow.action;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -12,12 +11,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateDestinationAction extends ActionSupport implements SessionAware{
 
-	private String categoryId;
-	private static final String MALE = "男性";
-	private static final String FEMALE = "女性";
-	private String defaultSexValue = MALE;
-	private String sex;
-	private List<String> sexList = new ArrayList<String>();
+	private String familyName;
+	private String firstName;
+	private String familyNameKana;
+	private String firstNameKana;
+	private String email;
+	private String tellNumber;
+	private String userAddress;
 	private Map<String, Object> session;
 
 	public String execute() {
@@ -29,9 +29,6 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
 			session.put("mCategoryDtoList", mCategoryDtoList);
 		}
-
-		sexList.add(MALE);
-		sexList.add(FEMALE);
 
 		session.remove("familyNameErrorMessageList");
 		session.remove("firstNameErrorMessageList");
@@ -45,33 +42,62 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 
 	}
 
-	public String getSex() {
-		return sex;
+	public String getFamilyName() {
+		return familyName;
 	}
 
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setFamilyName(String familyName) {
+		this.familyName = familyName;
 	}
 
-	public String getCategoryId() {
-		return categoryId;
-	}
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public String getDefaultSexValue() {
-		return defaultSexValue;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public void setDefaultSexValue(String defaultSexValue) {
-		this.defaultSexValue = defaultSexValue;
+
+	public String getFamilyNameKana() {
+		return familyNameKana;
 	}
-	public List<String> getSexList() {
-		return sexList;
+
+	public void setFamilyNameKana(String familyNameKana) {
+		this.familyNameKana = familyNameKana;
 	}
-	public void setSexList(List<String> sexList) {
-		this.sexList = sexList;
+
+	public String getFirstNameKana() {
+		return firstNameKana;
 	}
+
+	public void setFirstNameKana(String firstNameKana) {
+		this.firstNameKana = firstNameKana;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTellNumber() {
+		return tellNumber;
+	}
+
+	public void setTellNumber(String tellNumber) {
+		this.tellNumber = tellNumber;
+	}
+
+	public String getUserAddress() {
+		return userAddress;
+	}
+
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
+	}
+
 	public Map<String, Object> getSession() {
 		return session;
 	}
