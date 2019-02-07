@@ -42,12 +42,7 @@
 				<table class="vertcal-list-table">
 					<tr>
 						<th scope="row"><s:label value="ユーザーID:"/></th>
-
-						<!--
-					    	 savedLoginId == trueはやめよう
-							s:if test="#session.savedLoginId"で十分
-						-->
-						<s:if test="#session.savedLoginId==true">
+						<s:if test="#session.savedLoginId">
 							<td><s:textfield name="loginId" class="txt" placeholder="ユーザーID" value='%{#session.loginId}' autocomplete="off"/></td>
 						</s:if>
 						<s:else>
@@ -60,11 +55,7 @@
 					</tr>
 				</table>
 				<div class="box">
-						<!--
-					    	 savedLoginId == trueはやめよう
-							s:if test="#session.savedLoginId"で十分
-						-->
-					<s:if test="#session.savedLoginId==true">
+					<s:if test="#session.savedLoginId">
 						<s:checkbox name="savedLoginId" checked="checked"/>
 					</s:if>
 					<s:else>
