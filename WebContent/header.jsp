@@ -40,7 +40,7 @@
 			<ul>
 				<s:form id="form">
 
-					<s:if test='#session.containsKey("mCategoryDtoList") && #session.mCategoryDtoList != null && !mCategoryDtoList.isEmpty()'>
+					<s:if test='#session.containsKey("mCategoryDtoList")'>
 						<li>
 							<s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" />
 						</li>

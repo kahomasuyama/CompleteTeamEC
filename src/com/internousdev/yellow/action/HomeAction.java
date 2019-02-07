@@ -14,21 +14,12 @@ public class HomeAction extends ActionSupport implements SessionAware
 	//	Session
 	private Map<String, Object> session;
 
-	@SuppressWarnings("unchecked")
 	public String execute()
 	{
-		//	商品カテゴリがないなら取得
-		List<MCategoryDTO> mCategoryDtoList = null;
-		if(session.containsKey("mCategoryDtoList"))
-		{
-			mCategoryDtoList = (List<MCategoryDTO>) session.get("mCategoryDtoList");
-		}
-		if(mCategoryDtoList == null || mCategoryDtoList.isEmpty())
-		{
-			MCategoryDAO mcategoryDAO = new MCategoryDAO();
-			mCategoryDtoList = mcategoryDAO.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
-		}
+		//	商品カテゴリを取得
+		MCategoryDAO mcategoryDAO = new MCategoryDAO();
+		List<MCategoryDTO >mCategoryDtoList = mcategoryDAO.getMCategoryList();
+		session.put("mCategoryDtoList", mCategoryDtoList);
 
 		return SUCCESS;
 	}
