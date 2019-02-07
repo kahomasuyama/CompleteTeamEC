@@ -10,10 +10,8 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.yellow.dao.CartInfoDAO;
 import com.internousdev.yellow.dao.DestinationInfoDAO;
-import com.internousdev.yellow.dao.MCategoryDAO;
 import com.internousdev.yellow.dao.UserInfoDAO;
 import com.internousdev.yellow.dto.DestinationInfoDTO;
-import com.internousdev.yellow.dto.MCategoryDTO;
 import com.internousdev.yellow.dto.UserInfoDTO;
 import com.internousdev.yellow.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
@@ -26,9 +24,7 @@ public class LoginAction extends ActionSupport implements SessionAware
 	private boolean savedLoginId;
 
 	//	Send
-	private List<MCategoryDTO> mCategoryDtoList=new ArrayList<MCategoryDTO>();
-	private List<String>loginIdErrorMessageList=new ArrayList<String>();
-	private List<String>passwordErrorMessageList=new ArrayList<String>();
+	private List<String> errorMsgList;
 
 	//	Session
 	private Map<String,Object>session;
@@ -42,9 +38,6 @@ public class LoginAction extends ActionSupport implements SessionAware
 		{
 			return "sessionTimeOut";
 		}
-
-		session.put("loginIdErrorMessageList", "");
-		session.put("passwordErrorMessageList", "");
 
 		//	ユーザーIDが保存されているか
 		if(savedLoginId)
@@ -60,28 +53,20 @@ public class LoginAction extends ActionSupport implements SessionAware
 
 		//文字種の判定
 		InputChecker inputChecker=new InputChecker();
-		loginIdErrorMessageList=inputChecker.doCheck("ログインID",loginId,1,8,true,false,false,true,false,false,false,false,false);
-		passwordErrorMessageList=inputChecker.doCheck("パスワード",password,1,16,true,false,false,true,false,false,false,false,false);
+		errorMsgList = new ArrayList<String>();
+		errorMsgList.addAll(inputChecker.doCheck("ログインID",loginId,1,8,true,false,false,true,false,false,false,false,false));
+		errorMsgList.addAll(inputChecker.doCheck("パスワード",password,1,16,true,false,false,true,false,false,false,false,false));
 
-		//	ここでは何を？しているかコメントしよう
-		if(!loginIdErrorMessageList.isEmpty() || !passwordErrorMessageList.isEmpty())
+		//	エラーメッセージがあるならば
+		if(errorMsgList.isEmpty())
 		{
-			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
-			session.put("passwordErrorMessageList", passwordErrorMessageList);
-			session.put("logined",0);
+			return ERROR;
 		}
 
-		//	ここでは何を？しているかコメントしよう
-		if(!session.containsKey("mCategoryList"))
-		{
-			MCategoryDAO mCategoryDao=new MCategoryDAO();
-			mCategoryDtoList=mCategoryDao.getMCategoryList();
-			session.put("mCategoryDtoList",mCategoryDtoList);
-		}
+		session.put("logined",0);
 
 		//	DBにユーザーが存在しているかの確認
 		UserInfoDAO userInfoDao = new UserInfoDAO();
-
 		if(userInfoDao.isExistsUserInfo(loginId))
 		{
 			if(userInfoDao.login(loginId,password) > 0)
@@ -148,22 +133,6 @@ public class LoginAction extends ActionSupport implements SessionAware
 	{
 		this.savedLoginId = savedLoginId;
 	}
-	public List<String> getLoginIdErrorMessageList()
-	{
-		return loginIdErrorMessageList;
-	}
-	public void setLoginIdErrorMessageList(List<String> loginIdErrorMessageList)
-	{
-		this.loginIdErrorMessageList = loginIdErrorMessageList;
-	}
-	public List<String> getPasswordErrorMessageList()
-	{
-		return passwordErrorMessageList;
-	}
-	public void setPasswordErrorMessageList(List<String> passwordErrorMessageList)
-	{
-		this.passwordErrorMessageList = passwordErrorMessageList;
-	}
 	public Map<String, Object> getSession()
 	{
 		return session;
@@ -171,5 +140,13 @@ public class LoginAction extends ActionSupport implements SessionAware
 	public void setSession(Map<String, Object> session)
 	{
 		this.session = session;
+	}
+
+	public List<String> getErrorMsgList() {
+		return errorMsgList;
+	}
+
+	public void setErrorMsgList(List<String> errorMsgList) {
+		this.errorMsgList = errorMsgList;
 	}
 }

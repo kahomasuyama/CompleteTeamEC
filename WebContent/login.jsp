@@ -24,17 +24,10 @@
 		<div id="contents">
 			<h1>ログイン画面</h1>
 			<s:form id="form" action="LoginAction">
-				<s:if test="!#session.loginIdErrorMessageList.isEmpty()">
+				<s:if test="errorMsgList != null && !errorMsgList.isEmpty()">
 					<div class="error">
 						<div class="error-message">
-							<s:iterator value="#session.loginIdErrorMessageList"><s:property /><br></s:iterator>
-						</div>
-					</div>
-				</s:if>
-				<s:if test="!#session.passwordErrorMessageList.isEmpty()">
-					<div class="error">
-						<div class="error-message">
-							<s:iterator value="#session.passwordErrorMessageList"><s:property /><br></s:iterator>
+							<s:iterator value="errorMsgList"><s:property /><br></s:iterator>
 						</div>
 					</div>
 				</s:if>
