@@ -15,7 +15,7 @@
 		<s:if test="!errorMsgList.isEmpty()">
 			<div>
 				<s:iterator value="errorMsgList">
-					<s:property value="errorMsgList" /><br>
+					<s:property /><br>
 				</s:iterator>
 			</div>
 		</s:if>
@@ -23,7 +23,7 @@
 		<div id="contents">
 			<h1>商品一覧画面</h1>
 			<s:if test="productInfoList == null || productInfoList.isEmpty()">
-				検索条件がありません。
+				検索結果なし
 			</s:if>
 			<s:else>
 				<ul>
