@@ -17,8 +17,8 @@ public class DestinationInfoDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		int count = 0;
-		String sql = "insert into destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address, regist_date, update_date)"
-				+ " values (?, ?, ?, ?, ?, ?, ?, ?, now(), '0000-01-01')";
+		String sql = "INSERT INTO destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address, regist_date, update_date)"
+				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, now(), '0000-01-01')";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, userId);

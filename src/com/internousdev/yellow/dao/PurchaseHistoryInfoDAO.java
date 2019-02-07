@@ -140,8 +140,8 @@ public class PurchaseHistoryInfoDAO {
 	{
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
-					// phi内の指定のuser_idの情報をDELETE（消す）
-		String sql = "DELETE FROM purchase_history_info WHERE user_id=?";
+		// phi内の指定のuser_idの情報をDELETE（消す）
+		String sql = "DELETE FROM purchase_history_info WHERE user_id = ?";
 		int count = 0;
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);

@@ -18,9 +18,8 @@ public class UserInfoDAO
 		int count = 0;
 
 		//	SQL作成
-		String sql="insert into user_info(user_id, password, family_name, first_name, family_name_kana,"
-				+ " first_name_kana, sex, email, status, logined, regist_date, update_date)"
-				+ " values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now())";
+		String sql="INSERT INTO user_info(user_id, password, family_name, first_name, family_name_kana, first_name_kana,sex, email, status, logined, regist_date, update_date) "
+				+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now())";
 
 		//	SQL実行
 		try
@@ -64,7 +63,7 @@ public class UserInfoDAO
 		boolean result = false;
 
 		//	SQLを作成
-		String sql = "select count(*) as count from user_info where user_id=? and password=?";
+		String sql = "SELECT COUNT(*) AS count FROM user_info WHERE user_id = ? AND password = ?";
 
 		//	SQL実行
 		try
@@ -109,7 +108,7 @@ public class UserInfoDAO
 		UserInfoDTO userInfoDTO = new UserInfoDTO();
 
 		//	SQLを作成
-		String sql="select * from user_info where user_id= ?";
+		String sql="SELECT * FROM user_info WHERE user_id = ?";
 
 		//	SQL実行
 		try
@@ -197,7 +196,7 @@ public class UserInfoDAO
 		int result=0;
 
 		//	SQLを作成
-		String sql = "update user_info set logined=1 where user_id=? and password=?";
+		String sql = "UPDATE user_info SET logined = 1 WHERE user_id = ? AND password = ?";
 
 		//	SQLを実行
 		try
@@ -233,7 +232,7 @@ public class UserInfoDAO
 		int result=0;
 
 		//	SQLを作成
-		String sql = "update user_info set logined=0 where user_id=?";
+		String sql = "UPDATE user_info SET logined = 0 WHERE user_id = ?";
 
 		//	SQLを実行
 		try
