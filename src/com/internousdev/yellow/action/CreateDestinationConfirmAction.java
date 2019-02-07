@@ -70,7 +70,7 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 			session.put("famimyNameKanaErrorMessageList", familyNameKanaErrorMessageList);
 			session.put("firstNameKanaErrorMessageList", firstNameKanaErrorMessageList);
 			session.put("emailErrorMessageList", emailErrorMessageList);
-			session.put("telNumberErrorMessageList", tellNumberErrorMessageList);
+			session.put("tellNumberErrorMessageList", tellNumberErrorMessageList);
 			session.put("userAddressErrorMessageList", userAddressErrorMessageList);
 			result = ERROR;
 		}

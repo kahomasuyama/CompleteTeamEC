@@ -48,7 +48,7 @@ function checkValue(check){
           <tr>
                 <th><s:label value="#" /></th>
                 <th><s:label value="商品名" /></th>
-                <th><s:label value="ふりがな" /></th>
+                <th><s:label value="商品名ふりがな" /></th>
                 <th><s:label value="商品画像" /></th>
                 <th><s:label value="値段" /></th>
                 <th><s:label value="発売会社名" /></th>
