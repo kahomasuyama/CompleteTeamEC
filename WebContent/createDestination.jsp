@@ -17,62 +17,13 @@
    <div id="contents">
      <h1>宛先情報入力画面</h1>
 
-     <s:if test="!#session.familyNameErrorMessageList.isEmpty()">
+     <s:if test="!errorMsgList.isEmpty()">
 	   <div class="error">
 		 <div class="error-message">
-		   <s:iterator value="#session.familyNameErrorMessageList"><s:property /><br></s:iterator>
+		   <s:iterator value="errorMsgList"><s:property /><br></s:iterator>
 		  </div>
 	    </div>
      </s:if>
-
-     <s:if test="!#session.firstNameErrorMessageList.isEmpty()">
-	   <div class="error">
-		 <div class="error-message">
-		   <s:iterator value="#session.firstNameErrorMessageList"><s:property /><br></s:iterator>
-		 </div>
-	   </div>
-     </s:if>
-
-     <s:if test="!#session.famimyNameKanaErrorMessageList.isEmpty()">
-	   <div class="error">
-		 <div class="error-message">
-		   <s:iterator value="#session.famimyNameKanaErrorMessageList"><s:property /><br></s:iterator>
-		 </div>
-	   </div>
-     </s:if>
-
-     <s:if test="!#session.firstNameKanaErrorMessageList.isEmpty()">
-	   <div class="error">
-		 <div class="error-message">
-		   <s:iterator value="#session.firstNameKanaErrorMessageList"><s:property /><br></s:iterator>
-		</div>
-	   </div>
-     </s:if>
-
-     <s:if test="!#session.emailErrorMessageList.isEmpty()">
-	   <div class="error">
-		 <div class="error-message">
-		   <s:iterator value="#session.emailErrorMessageList"><s:property /><br></s:iterator>
-		 </div>
-	   </div>
-     </s:if>
-
-     <s:if test="!#session.tellNumberErrorMessageList.isEmpty()">
-	   <div class="error">
-		 <div class="error-message">
-		   <s:iterator value="#session.tellNumberErrorMessageList"><s:property /><br></s:iterator>
-		 </div>
-	   </div>
-     </s:if>
-
-     <s:if test="!#session.userAddressErrorMessageList.isEmpty()">
-	   <div class="error">
-		 <div class="error-message">
-		   <s:iterator value="#session.userAddressErrorMessageList"><s:property /><br></s:iterator>
-		 </div>
-	   </div>
-     </s:if>
-
 
    <s:form action="CreateDestinationConfirmAction">
      <table class="vertical-list-table">
