@@ -11,7 +11,7 @@
 <body>
 <jsp:include page="header.jsp" />
 <div id="contents">
-<h1>商品購入履歴画面</h1>
+<h1>商品購入履歴一覧画面</h1>
 <s:if test="purchaseHistoryInfoDtoList.size()>0">
 <table class="horizontal-list-table">
 <thead>
