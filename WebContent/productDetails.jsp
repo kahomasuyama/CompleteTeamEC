@@ -20,7 +20,7 @@
 				詳細情報なし
 			</s:if>
 			<s:else>
-				<s:form action="AddCartAction">
+				<s:form action="AddCartAction" theme="simple">
 
 					<div class="box">
 						<div class="2coulm-container">
