@@ -51,6 +51,7 @@
 				</table>
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
+					    <input type="button" onclick="history.back()" value="戻る"/>
 						<s:submit value="登録" class="subimt_btn" />
 					</div>
 				</div>
@@ -61,7 +62,7 @@
 				<s:hidden name="firstName" value="%{firstName}"/>
 				<s:hidden name="familyNameKana" value="%{familyNameKana}"/>
 				<s:hidden name="firstNameKana" value="%{firstNameKana}"/>
-				<s:if test='sex.equals("男性")'>;
+				<s:if test='sex.equals("男性")'>
 					<s:hidden name="sex" value="0"/>
 				</s:if>
 				<s:if test='sex.equals("女性")'>
