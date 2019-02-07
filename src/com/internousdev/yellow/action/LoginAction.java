@@ -37,12 +37,10 @@ public class LoginAction extends ActionSupport implements SessionAware
 	{
 		String result=ERROR;
 
-		//	商品カテゴリがないなら取得
+		//	商品カテゴリがないならセッションタイムアウト
 		if(!session.containsKey("mCategoryDtoList"))
 		{
-			MCategoryDAO mcategoryDAO = new MCategoryDAO();
-			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
+			return "sessionTimeOut";
 		}
 
 		session.put("loginIdErrorMessageList", "");

@@ -1,12 +1,9 @@
 package com.internousdev.yellow.action;
 
-import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.yellow.dao.MCategoryDAO;
-import com.internousdev.yellow.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateDestinationAction extends ActionSupport implements SessionAware{
@@ -20,14 +17,12 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 	private String userAddress;
 	private Map<String, Object> session;
 
-	public String execute() {
-
-		//	商品カテゴリがないなら取得
+	public String execute()
+	{
+		//	商品カテゴリがないならセッションタイムアウト
 		if(!session.containsKey("mCategoryDtoList"))
 		{
-			MCategoryDAO mcategoryDAO = new MCategoryDAO();
-			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
+			return "sessionTimeOut";
 		}
 
 		session.remove("familyNameErrorMessageList");

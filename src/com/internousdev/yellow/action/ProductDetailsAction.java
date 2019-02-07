@@ -25,6 +25,11 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 
 	public String execute()
 	{
+		//	商品カテゴリがないならセッションタイムアウト
+		if(!session.containsKey("mCategoryDtoList"))
+		{
+			return "sessionTimeOut";
+		}
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 
 		//	商品情報を取得

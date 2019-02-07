@@ -21,12 +21,10 @@ public class CartAction extends ActionSupport implements SessionAware
 
 	public String execute()
 	{
-		//	商品カテゴリがないなら取得
+		//	商品カテゴリがないならセッションタイムアウト
 		if(!session.containsKey("mCategoryDtoList"))
 		{
-			MCategoryDAO mcategoryDAO = new MCategoryDAO();
-			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
+			return "sessionTimeOut";
 		}
 
 		String result=ERROR;

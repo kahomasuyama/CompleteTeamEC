@@ -6,8 +6,6 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.yellow.dao.MCategoryDAO;
-import com.internousdev.yellow.dto.MCategoryDTO;
 import com.internousdev.yellow.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -36,20 +34,18 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 
 	private String categoryId;
 	private Map<String, Object> session;
-	public String execute() {
-
-		//	商品カテゴリがないなら取得
+	public String execute()
+	{
+		//	商品カテゴリがないならセッションタイムアウト
 		if(!session.containsKey("mCategoryDtoList"))
 		{
-			MCategoryDAO mcategoryDAO = new MCategoryDAO();
-			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
+			return "sessionTimeOut";
 		}
 
 		String result = ERROR;
 		InputChecker inputChecker = new InputChecker();
 
-//		フォームの入力内容をinputCheckerを使用しチェックする。-----------------------------------------------
+		//	フォームの入力内容をinputCheckerを使用しチェックする。-----------------------------------------------
 		familyNameErrorMessageList = inputChecker.doCheck("姓", familyName, 1, 16, true, true, true, false, false, false, true, false, false);
 		firstNameErrorMessageList = inputChecker.doCheck("名", firstName, 1, 16, true, true, true, false, false, false, true, false, false);
 		familyNameKanaErrorMessageList = inputChecker.doCheck("姓ふりがな", familyNameKana, 1, 16, false, false, true, false, false, false, false, false, false);
@@ -66,8 +62,9 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 		&&	userAddressErrorMessageList.size()==0) {
 			result = SUCCESS;
 
-		} else {
-
+		}
+		else
+		{
 			session.put("familyNameErrorMessageList", familyNameErrorMessageList);
 			session.put("firstNameErrorMessageList", firstNameErrorMessageList);
 			session.put("famimyNameKanaErrorMessageList", familyNameKanaErrorMessageList);

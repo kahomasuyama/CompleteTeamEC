@@ -6,9 +6,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.yellow.dao.MCategoryDAO;
 import com.internousdev.yellow.dao.PurchaseHistoryInfoDAO;
-import com.internousdev.yellow.dto.MCategoryDTO;
 import com.internousdev.yellow.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -18,15 +16,14 @@ public class DeletePurchaseHistoryAction extends ActionSupport implements Sessio
 	private String sex;
 	private List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList;
 	private Map<String, Object> session;
-	public String execute() {
+	public String execute()
+	{
 		String result = ERROR;
 
-		//	商品カテゴリがないなら取得
+		//	商品カテゴリがないならセッションタイムアウト
 		if(!session.containsKey("mCategoryDtoList"))
 		{
-			MCategoryDAO mcategoryDAO = new MCategoryDAO();
-			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
+			return "sessionTimeOut";
 		}
 
 		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();

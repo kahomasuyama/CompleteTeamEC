@@ -9,9 +9,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.yellow.dao.CartInfoDAO;
-import com.internousdev.yellow.dao.MCategoryDAO;
 import com.internousdev.yellow.dto.CartInfoDTO;
-import com.internousdev.yellow.dto.MCategoryDTO;
 import com.internousdev.yellow.util.CommonUtility;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -33,12 +31,10 @@ public class AddCartAction extends ActionSupport implements SessionAware
 
 	public String execute()
 	{
-		//	商品カテゴリがないなら取得
+		//	商品カテゴリがないならセッションタイムアウト
 		if(!session.containsKey("mCategoryDtoList"))
 		{
-			MCategoryDAO mcategoryDAO = new MCategoryDAO();
-			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
+			return "sessionTimeOut";
 		}
 
 		String result=ERROR;

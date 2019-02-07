@@ -7,8 +7,6 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.yellow.dao.MCategoryDAO;
-import com.internousdev.yellow.dto.MCategoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateUserAction extends ActionSupport implements SessionAware
@@ -34,12 +32,10 @@ public class CreateUserAction extends ActionSupport implements SessionAware
 
 	public String execute()
 	{
-		//	商品カテゴリがないなら取得
+		//	商品カテゴリがないならセッションタイムアウト
 		if(!session.containsKey("mCategoryDtoList"))
 		{
-			MCategoryDAO mcategoryDAO = new MCategoryDAO();
-			List<MCategoryDTO> mCategoryDtoList = mcategoryDAO.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
+			return "sessionTimeOut";
 		}
 
 		//	性別が選択されていないのならば、デフォルトの性別を選択するように変更
