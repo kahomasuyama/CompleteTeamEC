@@ -20,7 +20,6 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 	private String sex;
 	private static final String MALE = "男性";
 	private static final String FEMALE= "女性";
-	private String defaultSexValue = MALE;
 	private String email;
 	private String tellNumber;
 	private String userAddress;
@@ -62,8 +61,8 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 		{
 			return ERROR;
 		}
-
-
+		
+		
 	}
 	public String getFamilyName() {
 		return familyName;
@@ -101,12 +100,7 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public String getDefaultSexValue() {
-		return defaultSexValue;
-	}
-	public void setDefaultSexValue(String defaultSexValue) {
-		this.defaultSexValue = defaultSexValue;
-	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -138,6 +132,5 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
 
 }
