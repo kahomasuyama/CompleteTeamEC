@@ -25,14 +25,6 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 			return "sessionTimeOut";
 		}
 
-		session.remove("familyNameErrorMessageList");
-		session.remove("firstNameErrorMessageList");
-		session.remove("famimyNameKanaErrorMessageList");
-		session.remove("firstNameKanaErrorMessageList");
-		session.remove("emailErrorMessageList");
-		session.remove("tellNumberErrorMessageList");
-		session.remove("userAddressErrorMessageList");
-
 		return SUCCESS;
 
 	}
