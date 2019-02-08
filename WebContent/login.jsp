@@ -1,23 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="./css/style.css">
-	<title>ログイン画面</title>
-	<script>
-		function goLoginAction(){
-			document.getElementById("form").action="LoginAction";
-		}
-		function goCreateUserAction(){
-			document.getElementById("form").action="CreateUserAction";
-		}
-		function goResetPassword(){
-			document.getElementById("form").action="ResetPasswordAction";
-		}
-	</script>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./css/style.css">
+		<title>ログイン画面</title>
+		<script>
+			function goLoginAction(){
+				document.getElementById("form").action="LoginAction";
+			}
+			function goCreateUserAction(){
+				document.getElementById("form").action="CreateUserAction";
+			}
+			function goResetPassword(){
+				document.getElementById("form").action="ResetPasswordAction";
+			}
+		</script>
 	</head>
 	<body>
 		<jsp:include page="header.jsp"/>
