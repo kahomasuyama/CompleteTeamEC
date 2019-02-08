@@ -35,4 +35,8 @@
 .submit_buttun:active{
 	background: #4477a1;
 }
-
+.submit_btn_box{
+	margin: 20px;
+	text-align: center;
+	clear: both;
+}
