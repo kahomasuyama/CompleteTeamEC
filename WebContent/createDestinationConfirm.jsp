@@ -9,7 +9,7 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/style.css">
 		<title>宛先情報確認</title>
-		
+
 				<script>
 			function goCreateDestinationAction()
 			{
@@ -44,7 +44,7 @@
 						<th scope="row"><s:label value="名ふりがな"/></th>
 						<td><s:property value="firstNameKana"/><s:hidden name="firstNameKana" value="%{firstNameKana}"/></td>
 					</tr>
-					
+
 					<tr>
 						<th scope="row"><s:label value="住所"/></th>
 						<td><s:property value="userAddress"/><s:hidden name="userAddress" value="%{userAddress}"/></td>
@@ -65,7 +65,7 @@
 						<s:submit value="登録" onclick="goCreateDestinationCompleteAction()" class="submit_btn" />
 					</div>
 				</div>
-				
+
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
 						<s:submit value="戻る" onclick="goCreateDestinationAction()" class="submit_btn" />
