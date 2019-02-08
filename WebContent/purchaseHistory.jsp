@@ -19,9 +19,11 @@
 							<th><s:label value="商品名"/></th>
 							<th><s:label value="ふりがな"/></th>
 							<th><s:label value="商品画像"/></th>
-							<th><s:label value="値段"/></th>
 							<th><s:label value="発売会社名"/></th>
 							<th><s:label value="発売年月日"/></th>
+							<th><s:label value="値段"/></th>
+							<th><s:label value="個数"/></th>
+							<th><s:label value="合計金額"/></th>
 						</tr>
 					</thead>
 					<tbody>
