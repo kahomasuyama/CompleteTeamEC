@@ -6,7 +6,7 @@
 		<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/style.css">
-		<title>登録内容確認</title>
+		<title>ユーザー情報入力確認画面</title>
 		<script>
 			function goCreateUserCompleteAction()
 			{
@@ -51,7 +51,7 @@
 						<td><s:property value="email"/></td>
 					</tr>
 					<tr>
-						<th scope="row"><s:label value="ログインID"/></th>
+						<th scope="row"><s:label value="ユーザーID"/></th>
 						<td><s:property value="loginId"/></td>
 					</tr>
 					<tr>

@@ -6,7 +6,7 @@
 	<head>
 	<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/style.css">
-		<title>ユーザー情報入力</title>
+		<title>ユーザー情報入力画面</title>
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
 	</head>
 	<body>
@@ -50,8 +50,8 @@
 						<td><s:textfield name="email" value="%{email}" placeholder="メールアドレス" class="txt" /></td>
 					</tr>
 					<tr>
-						<th scope="row">ログインID</th>
-						<td><s:textfield name="loginId" value="%{loginId}" placeholder="ログインID" class="txt" /></td>
+						<th scope="row">ユーザーID</th>
+						<td><s:textfield name="loginId" value="%{loginId}" placeholder="ユーザーID" class="txt" /></td>
 					</tr>
 					<tr>
 						<th scope="row">パスワード</th>

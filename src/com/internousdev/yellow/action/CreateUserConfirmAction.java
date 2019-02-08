@@ -48,14 +48,21 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		errorMsgList.addAll(inputChecker.doCheck("ユーザーID", loginId, 1, 8, true, false, false, true, false, false, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("パスワード", password, 1, 16, true, false, false, true, false, false, false, false, false));
 
+
+		//	エラーがないのならば
+		if(!errorMsgList.isEmpty())
+		{
+			return ERROR;
+		}
+
 		//	ユーザーIDの存在チェック
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		if(userInfoDAO.isExistsUserInfo(loginId))
 		{
-			errorMsgList.add("すでにユーザーIDが登録されている");
+			errorMsgList.add("使用できないユーザーIDです。");
 		}
 
-		//	エラーがないのならば
+
 		if(errorMsgList.isEmpty())
 		{
 			return SUCCESS;
