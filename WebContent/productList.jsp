@@ -23,7 +23,7 @@
 		<div id="contents">
 			<h1>商品一覧画面</h1>
 			<s:if test="productInfoList == null || productInfoList.isEmpty()">
-				検索結果なし
+				検索結果がありません。
 			</s:if>
 			<s:else>
 				<ul>
