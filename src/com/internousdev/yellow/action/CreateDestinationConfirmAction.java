@@ -41,11 +41,11 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 		//	String result = ERROR;
 		InputChecker inputChecker = new InputChecker();
 		errorMsgList = new ArrayList<String>();
-		errorMsgList.addAll(inputChecker.doCheck("姓", familyName, 1, 16, true, true, true, false, false, false, true, false, false));
-		errorMsgList.addAll(inputChecker.doCheck("名", firstName, 1, 16, true, true, true, false, false, false, true, false, false));
+		errorMsgList.addAll(inputChecker.doCheck("姓", familyName, 1, 16, true, true, true, false, false, false, false, false, false));
+		errorMsgList.addAll(inputChecker.doCheck("名", firstName, 1, 16, true, true, true, false, false, false, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("姓ふりがな", familyNameKana, 1, 16, false, false, true, false, false, false, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("名ふりがな", firstNameKana, 1, 16, false, false, true, false, false, false, false, false, false));
-		errorMsgList.addAll(inputChecker.doCheck("住所", userAddress, 10, 50, false, true, true, true, true, true, false, false, false));
+		errorMsgList.addAll(inputChecker.doCheck("住所", userAddress, 10, 50, true, true, true, true, true, true, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("電話番号", tellNumber, 10, 13, false, false, false, true, false, false, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("メールアドレス", email, 10, 32, true, false, false, true, true, false, false, false, false));
 
@@ -61,8 +61,8 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 		{
 			return ERROR;
 		}
-		
-		
+
+
 	}
 	public String getFamilyName() {
 		return familyName;
