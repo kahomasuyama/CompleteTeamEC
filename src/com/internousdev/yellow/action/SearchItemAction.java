@@ -32,7 +32,6 @@ public class SearchItemAction extends ActionSupport implements SessionAware
 			return "sessionTimeOut";
 		}
 
-
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 		List<String> searchWordList = null;
 
@@ -48,7 +47,6 @@ public class SearchItemAction extends ActionSupport implements SessionAware
 			{
 				return ERROR;
 			}
-
 
 			//	検索ワードをリストへ
 			searchWord = searchWord.replaceAll("　", " ");

@@ -37,7 +37,6 @@ public class ProductInfoDAO
 
 		List<ProductInfoDTO> productInfoList = new ArrayList<ProductInfoDTO>();
 
-
 		//	SQL作成
 		String sql = "SELECT * FROM product_info WHERE ";
 
@@ -48,7 +47,6 @@ public class ProductInfoDAO
 		}
 
 		sql += "product_id NOT IN(?) ORDER BY rand() LIMIT 0, 3";
-
 
 		//	SQL実行
 		try
@@ -152,7 +150,6 @@ public class ProductInfoDAO
 		{
 			e.printStackTrace();
 		}
-
 
 		return productInfoList;
 	}
@@ -323,7 +320,6 @@ public class ProductInfoDAO
 		{
 			e.printStackTrace();
 		}
-
 
 		//	Close
 		try

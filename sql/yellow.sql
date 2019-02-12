@@ -40,11 +40,6 @@ INSERT INTO user_info VALUES
 (11, "guest11", "guest11", "インターノウス", "ゲストユーザー11", "いんたーのうす", "げすとゆーざー11", 0, "guest11@gmail.com", 0, 0, now(), now()),
 (12, "guest12", "guest12", "インターノウス", "ゲストユーザー12", "いんたーのうす", "げすとゆーざー12", 0, "guest12@gmail.com", 0, 0, now(), now());
 
-
-
-
-
-
 CREATE TABLE product_info
 (
 
@@ -84,8 +79,6 @@ INSERT INTO product_info VALUES
 ( 14, 14, "サウンドトラック４","さうんどとらっく４","サウンドトラック４の商品詳細",4,100,"./images","sample.jpg",now(),"発売会社",0,now(),now()),
 ( 15, 15, "サウンドトラック５","さうんどとらっく５","サウンドトラック５の商品詳細",4,100,"./images","sample.jpg",now(),"発売会社",0,now(),now());
 
-
-
 CREATE TABLE cart_info
 (
 
@@ -100,10 +93,6 @@ CREATE TABLE cart_info
 
 )
 DEFAULT charset=utf8 comment="カート情報テーブル";
-
-
-
-
 
 CREATE TABLE purchase_history_info
 (
@@ -120,10 +109,6 @@ CREATE TABLE purchase_history_info
 
 )
 DEFAULT charset=utf8 comment="商品情報テーブル";
-
-
-
-
 
 CREATE TABLE destination_info
 (
@@ -145,10 +130,6 @@ DEFAULT charset=utf8 comment="購入履歴情報テーブル";
 
 INSERT INTO destination_info VALUES
 (1, "guest", "インターノウス", "テストユーザー", "いんたーのうす", "てすとゆーざー", "guest@internous.co.jp", "080-1234-5678", "東京都千代田区三番町１ー１　ＫＹ三番町ビル１Ｆ", now(), now());
-
-
-
-
 
 CREATE TABLE m_category
 (

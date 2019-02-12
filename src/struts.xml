@@ -5,7 +5,7 @@
 <struts>
 <!-- 開発者モード(デバッグしたい時にはコメント外してください。ユーザーのエラーページが無効にできます) -->
 <!-- 	<constant name="struts.devMode" value="true" /> -->
-<!-- 	<constant name="struts.ui.theme" value="simple" /> -->
+	<constant name="struts.ui.theme" value="simple" />
 	<package name="com.internousdev.yellow.action" extends="struts-default">
 
 	<action name="CreateUserAction" class="com.internousdev.yellow.action.CreateUserAction" method="execute">
