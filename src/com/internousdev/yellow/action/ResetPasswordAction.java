@@ -20,8 +20,8 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware
 		}
 
 		//	セッション情報を初期化
-		session.put("loginId", "");
-		session.put("newPassword", "");
+		session.remove("loginId");
+		session.remove("newPassword");
 
 		return SUCCESS;
 	}
