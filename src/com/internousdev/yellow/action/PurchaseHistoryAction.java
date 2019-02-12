@@ -1,21 +1,18 @@
 package com.internousdev.yellow.action;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.yellow.dao.MCategoryDAO;
 import com.internousdev.yellow.dao.PurchaseHistoryInfoDAO;
-import com.internousdev.yellow.dto.MCategoryDTO;
 import com.internousdev.yellow.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 {
-	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
+
 	private List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList;
 	private Map<String, Object> session;
 
@@ -37,24 +34,7 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 			purchaseHistoryInfoDtoList = null;
 		}
 
-		if(!session.containsKey("myPageInfoList"))
-		{
-			MCategoryDAO mCategoryDao = new MCategoryDAO();
-			mCategoryDtoList = mCategoryDao.getMCategoryList();
-			session.put("mCategoryDtoList", mCategoryDtoList);
-
-		}
 		return SUCCESS;
-	}
-
-	public List<MCategoryDTO> getmCategoryDtoList()
-	{
-		return mCategoryDtoList;
-	}
-
-	public void setmCategoryDtoList(List<MCategoryDTO> mCategoryDtoList)
-	{
-		this.mCategoryDtoList = mCategoryDtoList;
 	}
 
 	public List<PurchaseHistoryInfoDTO> getPurchaseHistoryInfoDtoList()
