@@ -43,7 +43,7 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 		int count = 0;
 		for(PurchaseHistoryInfoDTO dto : purchaseHistoryInfoDtoList)
 		{
-			count += purchaseHistoryInfoDAO.regist(String.valueOf(session.get("loginId")), dto.getProductId(), dto.getProductCount(), dto.getDestinationId(), dto.getPrice());
+			count += purchaseHistoryInfoDAO.regist(String.valueOf(session.get("loginId")), dto.getProductId(), dto.getProductCount(), dto.getDestinationId(), dto.getPrice() * dto.getProductCount());
 		}
 
 		if(count > 0)
