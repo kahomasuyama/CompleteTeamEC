@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/yellow.css">
 		<title>ヘッダー</title>
 		<script>
 			function goLoginAction()
@@ -36,7 +36,7 @@
 	</head>
 	<body>
 		<header>
-			<div>Yellow</div>
+			<div class="header-menu">Yellow</div>
 			<ul>
 				<s:form id="form" action="HomeAction">
 
@@ -53,22 +53,22 @@
 
 					<li><s:textfield name="searchWord" placeholder="検索ワード" /></li>
 
-					<li><s:submit value="商品検索" onclick="goSearchItemAction();" /></li>
+					<li><s:submit class="submit_buttun" value="商品検索" onclick="goSearchItemAction();" /></li>
 
 					<s:if test="#session.logined == 1">
-						<li><s:submit value="ログアウト" onclick="goLogoutAction();" /></li>
+						<li><s:submit class="submit_buttun" value="ログアウト" onclick="goLogoutAction();" /></li>
 					</s:if>
 
 					<s:else>
-						<li><s:submit value="ログイン" onclick="goLoginAction();" /></li>
+						<li><s:submit class="submit_buttun" value="ログイン" onclick="goLoginAction();" /></li>
 					</s:else>
 
-					<li><s:submit value="カート" onclick="goCartAction();" /></li>
+					<li><s:submit class="submit_buttun" value="カート" onclick="goCartAction();" /></li>
 
-					<li><s:submit value="商品一覧" onclick="goProductListAction();" /></li>
+					<li><s:submit class="submit_buttun" value="商品一覧" onclick="goProductListAction();" /></li>
 
 					<s:if test="#session.logined == 1">
-						<li><s:submit value="マイページ" onclick="goMyPageAction();" /></li>
+						<li><s:submit class="submit_buttun" value="マイページ" onclick="goMyPageAction();" /></li>
 					</s:if>
 
 				</s:form>
