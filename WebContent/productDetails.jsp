@@ -79,9 +79,7 @@
 					</div>
 
 				</s:form>
-			</s:else>
-
-			<!-- 関連商品 -->
+				<!-- 関連商品 -->
 			<div class="box">
 				<div class="product-details-recomend-box">
 					<s:iterator value="productInfoDtoList">
@@ -94,6 +92,7 @@
 					</s:iterator>
 				</div>
 			</div>
+			</s:else>
 
 		</div>
 
