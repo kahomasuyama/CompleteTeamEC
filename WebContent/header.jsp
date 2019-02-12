@@ -36,8 +36,8 @@
 	</head>
 	<body>
 		<header>
-			<div>Yellow</div>
 			<ul>
+				<li class="siteTitle">Yellow</li>
 				<s:form id="form" action="HomeAction">
 
 					<s:if test='#session.containsKey("mCategoryDtoList")'>

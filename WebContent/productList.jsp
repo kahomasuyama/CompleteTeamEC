@@ -23,15 +23,17 @@
 		<div id="contents">
 			<h1>商品一覧画面</h1>
 			<s:if test="productInfoList == null || productInfoList.isEmpty()">
-				検索結果がありません。
+				<div class="notFoundMsgBox">
+					検索結果がありません。
+				</div>
 			</s:if>
 			<s:else>
 				<ul class="productList">
 					<s:iterator value="productInfoList">
-						<li class="productListBox">
+						<li>
 							<a href='<s:url action="ProductDetailsAction"> <s:param name="productId" value="%{productId}" /> </s:url>'>
 								<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' width="100" />
-							</a>
+							</a><br />
 							<s:property value="productName" /><br/>
 							<s:property value="productNameKana" /><br/>
 							<s:property value="price" />円<br/>
