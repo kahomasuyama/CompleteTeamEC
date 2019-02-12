@@ -76,7 +76,6 @@ public class DeleteCartAction extends ActionSupport implements SessionAware
 			cartInfoDtoList = cartInfoDAO.getCartInfoDtoList(userId);
 			Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
 
-			//	インデント直そう
 			if(!(iterator.hasNext()))
 			{
 				cartInfoDtoList = null;
@@ -93,100 +92,132 @@ public class DeleteCartAction extends ActionSupport implements SessionAware
 		return result;
 	}
 
-	public List<MCategoryDTO> getmCategoryDtoList(){
+	public List<MCategoryDTO> getmCategoryDtoList()
+	{
 		return mCategoryDtoList;
 	}
-	public void setmCategoryDtoList(List<MCategoryDTO> mCategoryDtoList){
+	public void setmCategoryDtoList(List<MCategoryDTO> mCategoryDtoList)
+	{
 		this.mCategoryDtoList = mCategoryDtoList;
 	}
-	public String getSex(){
+	public String getSex()
+	{
 		return sex;
 	}
-	public void setSex(String sex){
+	public void setSex(String sex)
+	{
 		this.sex = sex;
 	}
-	public List<String> getSexList(){
+	public List<String> getSexList()
+	{
 		return sexList;
 	}
-	public void setSexList(List<String> sexList){
+	public void setSexList(List<String> sexList)
+	{
 		this.sexList = sexList;
 	}
-	public String getDefaultSexValue(){
+	public String getDefaultSexValue()
+	{
 		return defaultSexValue;
 	}
-	public void setDefaultSexValue(String defaultSexValue){
+	public void setDefaultSexValue(String defaultSexValue)
+	{
 		this.defaultSexValue = defaultSexValue;
 	}
-	public Collection<String> getCheckList(){
+	public Collection<String> getCheckList()
+	{
 		return checkList;
 	}
-	public void setCheckList(Collection<String> checkList){
+	public void setCheckList(Collection<String> checkList)
+	{
 		this.checkList = checkList;
 	}
-	public String getProductId(){
+	public String getProductId()
+	{
 		return productId;
 	}
-	public void setProductId(String productId){
+	public void setProductId(String productId)
+	{
 		this.productId = productId;
 	}
-	public Map<String, Object> getSession(){
+	public Map<String, Object> getSession()
+	{
 		return session;
 	}
-	public void setSession(Map<String, Object> session){
+	public void setSession(Map<String, Object> session)
+	{
 		this.session = session;
 	}
-	public String getProductName(){
+	public String getProductName()
+	{
 		return productName;
 	}
-	public void setProductName(String productName){
+	public void setProductName(String productName)
+	{
 		this.productName = productName;
 	}
-	public String getProductNameKana(){
+	public String getProductNameKana()
+	{
 		return productNameKana;
 	}
-	public void setProductNameKana(String productNameKana){
+	public void setProductNameKana(String productNameKana)
+	{
 		this.productNameKana = productNameKana;
 	}
-	public String getImageFilePath(){
+	public String getImageFilePath()
+	{
 		return imageFilePath;
 	}
-	public void setImageFilePath(String imageFilePath){
+	public void setImageFilePath(String imageFilePath)
+	{
 		this.imageFilePath = imageFilePath;
 	}
-	public String getImageFileName(){
+	public String getImageFileName()
+	{
 		return imageFileName;
 	}
-	public void setImageFileName(String imageFileName){
+	public void setImageFileName(String imageFileName)
+	{
 		this.imageFileName = imageFileName;
 	}
-	public String getPrice(){
+	public String getPrice()
+	{
 		return price;
 	}
-	public void setPrice(String price){
+	public void setPrice(String price)
+	{
 		this.price = price;
 	}
-	public String getReleaseCompany(){
+	public String getReleaseCompany()
+	{
 		return releaseCompany;
 	}
-	public void setReleaseCompany(String releaseCompany){
+	public void setReleaseCompany(String releaseCompany)
+	{
 		this.releaseCompany = releaseCompany;
 	}
-	public String getReleaseDate(){
+	public String getReleaseDate()
+	{
 		return releaseDate;
 	}
-	public void setReleaseDate(String releaseDate){
+	public void setReleaseDate(String releaseDate)
+	{
 		this.releaseDate = releaseDate;
 	}
-	public String getProductCount(){
+	public String getProductCount()
+	{
 		return productCount;
 	}
-	public void setProductCount(String productCount){
+	public void setProductCount(String productCount)
+	{
 		this.productCount = productCount;
 	}
-	public String getSubtotal(){
+	public String getSubtotal()
+	{
 		return subtotal;
 	}
-	public void setSubtotal(String subtotal){
+	public void setSubtotal(String subtotal)
+	{
 		this.subtotal = subtotal;
 	}
 }

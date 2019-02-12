@@ -9,7 +9,8 @@
 		<link rel="stylesheet" href="./css/style.css">
 		<title>ユーザー情報入力完了画面</title>
 		<script>
-		    window.onload = function(){
+		    window.onload = function()
+		    {
 		    	var form = document.getElementById('form1');
 		    	setTimeout(function(){form.submit()},3000);
 		    }
