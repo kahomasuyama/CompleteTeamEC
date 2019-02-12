@@ -57,15 +57,17 @@ public class MCategoryDAO
 		{
 			e.printStackTrace();
 		}
-
-		//	Close
-		try
-		{
-			connection.close();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
 		}
 
 		return mCategoryList;

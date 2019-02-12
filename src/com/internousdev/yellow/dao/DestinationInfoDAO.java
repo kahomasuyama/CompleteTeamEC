@@ -37,14 +37,19 @@ public class DestinationInfoDAO {
 		{
 			e.printStackTrace();
 		}
-		try
-		{
-			connection.close();
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
 		}
-		catch (SQLException e)
-		{
-			e.printStackTrace();
-		}
+
 		return count;
 	}
 
@@ -81,9 +86,17 @@ public class DestinationInfoDAO {
 		{
 			e.printStackTrace();
 		}
-		finally
-		{
-			connection.close();
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
 		}
 
 		return destinationInfoDtoList;

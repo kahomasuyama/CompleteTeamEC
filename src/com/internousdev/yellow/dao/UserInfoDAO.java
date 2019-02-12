@@ -41,15 +41,17 @@ public class UserInfoDAO
 		{
 			e.printStackTrace();
 		}
-
-		//	Close
-		try
-		{
-			connection.close();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
 		}
 
 		return count;
@@ -82,15 +84,17 @@ public class UserInfoDAO
 		{
 			e.printStackTrace();
 		}
-
-		//	Close
-		try
-		{
-			connection.close();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
 		}
 
 		return result;
@@ -135,15 +139,19 @@ public class UserInfoDAO
 		{
 			e.printStackTrace();
 		}
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
+		}
 
-		//	Close
-		try
-		{
-			connection.close();
-		}
-		catch(SQLException e) {
-			e.printStackTrace();
-		}
 		return userInfoDTO;
 	}
 
@@ -175,15 +183,17 @@ public class UserInfoDAO
 		{
 			e.printStackTrace();
 		}
-
-		//	Close
-		try
-		{
-			connection.close();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
 		}
 
 		return result;
@@ -212,15 +222,17 @@ public class UserInfoDAO
 		{
 			e.printStackTrace();
 		}
-
-		//	Close
-		try
-		{
-			connection.close();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
 		}
 
 		return result;
@@ -249,16 +261,19 @@ public class UserInfoDAO
 		{
 			e.printStackTrace();
 		}
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
+		}
 
-		//	Close
-		try
-		{
-			connection.close();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
 		return result;
 	}
 
@@ -283,15 +298,17 @@ public class UserInfoDAO
 		{
 			e.printStackTrace();
 		}
-
-		//	Close
-		try
-		{
-			connection.close();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
 		}
 
 		return result;

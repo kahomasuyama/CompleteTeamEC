@@ -74,15 +74,19 @@ public class CartInfoDAO {
         {
         	e.printStackTrace();
         }
-        // Close
-        try
+        finally
         {
-        	connection.close();
-        }
-        catch (SQLException e)
-        {
-        	e.printStackTrace();
-        }
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
+		}
+
         return cartInfoDtoList;
     }
 
@@ -109,15 +113,18 @@ public class CartInfoDAO {
     	{
     		e.printStackTrace();
     	}
-    	// Close
-    	try
-    	{
-    		connection.close();
-    	}
-    	catch(SQLException e)
-    	{
-    		e.printStackTrace();
-    	}
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
+		}
 
     	return totalPrice;
     }
@@ -148,24 +155,27 @@ public class CartInfoDAO {
     	{
     		e.printStackTrace();
     	}
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
+		}
 
-    	// Close
-    	try
-    	{
-    		connection.close();
-    	}
-    	catch(SQLException e)
-    	{
-    		e.printStackTrace();
-    	}
     	return count;
     }
 
     public int update(String userId,int productId,int productCount)
     {
 
-    	DBConnector db=new DBConnector();
-    	Connection con=db.getConnection();
+    	DBConnector dbConnector = new DBConnector();
+    	Connection connection = dbConnector.getConnection();
 
     	//SQL作成
     	String sql="UPDATE cart_info SET product_count = (product_count + ?),update_date=now() WHERE user_id=? AND product_id=?";
@@ -175,26 +185,29 @@ public class CartInfoDAO {
     	//SQL実行
     	try
     	{
-    		PreparedStatement ps=con.prepareStatement(sql);
-    		ps.setInt(1, productCount);
-    		ps.setString(2, userId);
-    		ps.setInt(3, productId);
-    		result=ps.executeUpdate();
+    		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+    		preparedStatement.setInt(1, productCount);
+    		preparedStatement.setString(2, userId);
+    		preparedStatement.setInt(3, productId);
+    		result = preparedStatement.executeUpdate();
     	}
     	catch(SQLException e)
     	{
     		e.printStackTrace();
     	}
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
+		}
 
-    	//Close
-    	try
-    	{
-    		con.close();
-    	}
-    	catch(SQLException e)
-    	{
-    		e.printStackTrace();
-    	}
     	return result;
     }
 
@@ -220,16 +233,19 @@ public class CartInfoDAO {
     	{
     		e.printStackTrace();
     	}
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
+		}
 
-    	//Close
-    	try
-    	{
-    		connection.close();
-    	}
-    	catch(SQLException e)
-    	{
-    		e.printStackTrace();
-    	}
     	return count;
     }
 
@@ -254,23 +270,26 @@ public class CartInfoDAO {
     	{
     		e.printStackTrace();
     	}
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
+		}
 
-    	//Close
-    	try
-    	{
-    		connection.close();
-    	}
-    	catch(SQLException e)
-    	{
-    		e.printStackTrace();
-    	}
     	return count;
     }
 
     public boolean isExistsCartInfo(String loginId,int productId)
     {
-    	DBConnector db =new DBConnector();
-    	Connection con=db.getConnection();
+    	DBConnector dbConnector =new DBConnector();
+    	Connection connection = dbConnector.getConnection();
 
     	//SQL作成
     	String sql="SELECT COUNT(id) AS COUNT FROM cart_info WHERE user_id=? and product_id=?";
@@ -280,10 +299,10 @@ public class CartInfoDAO {
     	//SQL実行
     	try
     	{
-    		PreparedStatement ps=con.prepareStatement(sql);
-    		ps.setString(1, loginId);
-    		ps.setInt(2, productId);
-    		ResultSet rs=ps.executeQuery();
+    		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+    		preparedStatement.setString(1, loginId);
+    		preparedStatement.setInt(2, productId);
+    		ResultSet rs = preparedStatement.executeQuery();
 
     		if(rs.next())
     		{
@@ -293,28 +312,30 @@ public class CartInfoDAO {
     			}
     		}
     	}
-
     	catch(SQLException e)
     	{
     		e.printStackTrace();
     	}
-
-    	try{
-    		con.close();
-    	}
-
-    	catch(SQLException e)
-    	{
-    		e.printStackTrace();
-    	}
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
+		}
 
     	return result;
     }
 
     public int linkToLoginId(String tempUserId,String loginId)
     {
-    	DBConnector dbConnector =new DBConnector();
-    	Connection connection=dbConnector.getConnection();
+    	DBConnector dbConnector = new DBConnector();
+    	Connection connection = dbConnector.getConnection();
     	int count=0;
     	String sql="UPDATE cart_info SET user_id = ?, temp_user_id = null WHERE temp_user_id = ?";
 
@@ -325,21 +346,23 @@ public class CartInfoDAO {
     		preparedStatement.setString(2, tempUserId);
     		count=preparedStatement.executeUpdate();
     	}
-
     	catch(SQLException e)
     	{
     		e.printStackTrace();
     	}
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
+		}
 
-    	try
-    	{
-    		connection.close();
-    	}
-
-    	catch(SQLException e)
-    	{
-    		e.printStackTrace();
-    	}
     	return count;
     }
 

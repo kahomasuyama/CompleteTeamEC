@@ -103,13 +103,19 @@ public class PurchaseHistoryInfoDAO {
 		{
 			e.printStackTrace();
 		}
-		try
-		{
-			connection.close();
-		} catch (SQLException e)
-		{
-			e.printStackTrace();
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
 		}
+
 		return purchaseHistoryInfoDTOList;
 	}
 
@@ -135,14 +141,17 @@ public class PurchaseHistoryInfoDAO {
 		{
 			e.printStackTrace();
 		}
-
-		try
-		{
-			connection.close();
-		}
-		catch (SQLException e)
-		{
-			e.printStackTrace();
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
 		}
 
 		return count;
@@ -155,6 +164,7 @@ public class PurchaseHistoryInfoDAO {
 		// phi内の指定のuser_idの情報をDELETE（消す）
 		String sql = "DELETE FROM purchase_history_info WHERE user_id = ?";
 		int count = 0;
+
 		try
 		{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -165,12 +175,19 @@ public class PurchaseHistoryInfoDAO {
 		{
 			e.printStackTrace();
 		}
-		try
-		{
-			connection.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
 		}
+
 		return count;
 	}
 }

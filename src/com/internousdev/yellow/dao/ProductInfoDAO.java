@@ -81,15 +81,17 @@ public class ProductInfoDAO
 		{
 			e.printStackTrace();
 		}
-
-		//	Close
-		try
-		{
-			connection.close();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
 		}
 
 		return productInfoList;
@@ -142,15 +144,17 @@ public class ProductInfoDAO
 		{
 			e.printStackTrace();
 		}
-
-		//	Close
-		try
-		{
-			connection.close();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
 		}
 
 		return productInfoList;
@@ -209,15 +213,17 @@ public class ProductInfoDAO
 		{
 			e.printStackTrace();
 		}
-
-		//	Close
-		try
-		{
-			connection.close();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
 		}
 
 		return productInfoDTO;
@@ -324,15 +330,17 @@ public class ProductInfoDAO
 		{
 			e.printStackTrace();
 		}
-
-		//	Close
-		try
-		{
-			connection.close();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
 		}
 
 		return productInfoList;
