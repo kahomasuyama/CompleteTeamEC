@@ -12,6 +12,7 @@
 
 		<jsp:include page="header.jsp" />
 
+		<h1>商品一覧画面</h1>
 		<s:if test="!errorMsgList.isEmpty()">
 			<div class="errorMsgBox">
 				<s:iterator value="errorMsgList">
@@ -19,29 +20,29 @@
 				</s:iterator>
 			</div>
 		</s:if>
-
-		<div id="contents">
-			<h1>商品一覧画面</h1>
-			<s:if test="productInfoList == null || productInfoList.isEmpty()">
-				<div class="notFoundMsgBox">
-					検索結果がありません。
-				</div>
-			</s:if>
-			<s:else>
-				<ul class="productList">
-					<s:iterator value="productInfoList">
-						<li>
-							<a href='<s:url action="ProductDetailsAction"> <s:param name="productId" value="%{productId}" /> </s:url>'>
-								<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' width="100" />
-							</a><br />
-							<s:property value="productName" /><br/>
-							<s:property value="productNameKana" /><br/>
-							<s:property value="price" />円<br/>
-						</li>
-					</s:iterator>
-				</ul>
-			</s:else>
-		</div>
+		<s:else>
+			<div id="contents">
+				<s:if test="productInfoList == null || productInfoList.isEmpty()">
+					<div class="notFoundMsgBox">
+						検索結果がありません。
+					</div>
+				</s:if>
+				<s:else>
+					<ul class="productList">
+						<s:iterator value="productInfoList">
+							<li>
+								<a href='<s:url action="ProductDetailsAction"> <s:param name="productId" value="%{productId}" /> </s:url>'>
+									<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' width="100" />
+								</a><br />
+								<s:property value="productName" /><br/>
+								<s:property value="productNameKana" /><br/>
+								<s:property value="price" />円<br/>
+							</li>
+						</s:iterator>
+					</ul>
+				</s:else>
+			</div>
+		</s:else>
 
 	</body>
 </html>

@@ -15,7 +15,7 @@
 
 	<action name="CreateUserConfirmAction" class="com.internousdev.yellow.action.CreateUserConfirmAction" method="execute">
 		<result name="success">createUserConfirm.jsp</result>
-		<result name="error" type="chain">CreateUserAction</result>
+		<result name="error">createUser.jsp</result>
 		<result name="sessionTimeOut">error.jsp</result>
 	</action>
 
@@ -72,7 +72,6 @@
 
 	<action name="HomeAction" class="com.internousdev.yellow.action.HomeAction" method="execute">
 		<result name="success">home.jsp</result>
-		<result name="sessionTimeOut">error.jsp</result>
 	</action>
 
 	<action name="AddCartAction" class="com.internousdev.yellow.action.AddCartAction" method="execute">
@@ -138,7 +137,6 @@
 
 	<action name="LogoutAction" class="com.internousdev.yellow.action.LogoutAction" method="execute">
 		<result name="success">index.jsp</result>
-		<result name="sessionTimeOut">error.jsp</result>
 	</action>
 
 	</package>

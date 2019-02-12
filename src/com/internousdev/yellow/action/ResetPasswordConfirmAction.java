@@ -50,7 +50,10 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		    //	ユーザーが存在するのならば
 			if(userInfoDAO.checkPassword(loginId, password))
 			{
-				concealedPassword = userInfoDAO.concealPassword(newPassword);
+				//	パスワードを一文字目のみ表示する
+				StringBuilder stringBuilder = new StringBuilder("****************");
+				concealedPassword = stringBuilder.replace(0, 1, newPassword.substring(0, 1)).toString();
+
 				session.put("loginId", loginId);
 				session.put("newPassword", newPassword);
 
