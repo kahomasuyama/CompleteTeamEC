@@ -48,7 +48,7 @@
 
       <tr>
 	   <th scope="row"><s:label value="住所"/></th>
-	    <td><s:textfield name="userAddress"value="%{userAddress}" placeholder="住所" class="txt" /></td>
+	    <td><s:textfield name="userAddress" value="%{userAddress}" placeholder="住所" class="txt" /></td>
       </tr>
 
       <tr>
