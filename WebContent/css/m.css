@@ -9,14 +9,14 @@
 }
 
 /* 完了メッセージ */
-.completemsgBox{
+.completeMsgBox{
 
-	background-color: pink;
-	border: 3px solid red;
+	background-color: #E6FFE6;
+	border: 3px solid #00552e;
 	padding: 60px 100px;
 	font-family: 'Vidaloka', serif;
 	text-align: center;
 	font-weight: bold;
-	color: red;
-	font-size: 50px;
+	color: #00552e;
+	font-size: 10px;
 }
