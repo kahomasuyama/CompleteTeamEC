@@ -5,7 +5,7 @@
 	<html>
 		<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/yellow.css">
 		<title>ユーザー情報入力確認画面</title>
 		<script>
 			function goCreateUserCompleteAction()
@@ -23,7 +23,7 @@
 		<jsp:include page="header.jsp" />
 
 		<div id="contents">
-			<h1>登録内容確認画面</h1>
+			<h1>ユーザー情報入力確認画面</h1>
 			<s:form id="s_form">
 				<table class="vertical-list-table">
 					<tr>
@@ -61,8 +61,8 @@
 				</table>
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
-					    <s:submit value="戻る" onclick="goCreateUserAction()" />
-						<s:submit value="登録" onclicK="goCreateUserCompleteAction()" class="subimt_btn" />
+					    <s:submit value="戻る" onclick="goCreateUserAction()"  class="submit_buttun"/>
+						<s:submit value="登録" onclicK="goCreateUserCompleteAction()" class="submit_buttun" />
 					</div>
 				</div>
 

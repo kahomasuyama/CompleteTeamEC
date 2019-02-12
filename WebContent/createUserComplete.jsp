@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/yellow.css">
 		<title>ユーザー情報入力完了画面</title>
 		<script>
 		    window.onload = function()
@@ -21,8 +21,8 @@
 		<jsp:include page="header.jsp" />
 
 		<div id="contents">
-			<h1>登録完了画面</h1>
-			<div class="success">
+			<h1>ユーザー情報入力完了画面</h1>
+			<div class="completeMsgBox">
 				ユーザー情報入力が完了しました。
 			</div>
 		</div>

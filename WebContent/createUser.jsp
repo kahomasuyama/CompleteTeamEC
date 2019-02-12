@@ -5,9 +5,9 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/pagetitle.css">
 		<title>ユーザー情報入力画面</title>
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/yellow.css">
 	</head>
 	<body>
 		<jsp:include page="header.jsp" />
@@ -15,15 +15,15 @@
 		<div id="contents">
 			<h1>ユーザー情報入力画面</h1>
 
-			<s:if test="!errorMsgList.isEmpty()">
+			<s:if test="!errorMsgList.isEmpty()" >
 				<div class="error">
-					<div class="error-message">
+					<div class="errorMsgBox">
 						<s:iterator value="errorMsgList"><s:property /><br></s:iterator>
 					</div>
 				</div>
 			</s:if>
 
-			<s:form action="CreateUserConfirmAction">
+			<s:form action="CreateUserConfirmAction" theme="simple">
 				<table class="vertical-list-table">
 					<tr>
 						<th scope="row">姓</th>
@@ -43,7 +43,7 @@
 					</tr>
 					<tr>
 						<th scope="row">性別</th>
-						<td><s:radio name="sex" list="%{sexList}" value="%{sex}" placeholder="性別" class="txt" /></td>
+						<td><s:radio name="sex" list="%{sexList}" value="%{sex}" class="txt" /></td>
 					</tr>
 					<tr>
 						<th scope="row">メールアドレス</th>
@@ -60,7 +60,7 @@
 				</table>
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
-						<s:submit value="確認" class="submit_btn" />
+						<s:submit value="確認" class="submit_buttun" />
 					</div>
 				</div>
 			</s:form>

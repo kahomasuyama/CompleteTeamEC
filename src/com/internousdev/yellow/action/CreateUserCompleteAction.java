@@ -45,64 +45,84 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 		}
 	}
 
-	public String getCategoryId() {
+	public String getCategoryId() 
+	{
 		return categoryId;
 	}
-	public void setCategoryId(String categoryId) {
+	public void setCategoryId(String categoryId) 
+	{
 		this.categoryId = categoryId;
 	}
-	public String getFamilyName() {
+	public String getFamilyName() 
+	{
 		return familyName;
 	}
-	public void setFamilyName(String familyName) {
+	public void setFamilyName(String familyName) 
+	{
 		this.familyName = familyName;
 	}
-	public String getFirstName() {
+	public String getFirstName() 
+	{
 		return firstName;
 	}
-	public void setFirstName(String firstName) {
+	public void setFirstName(String firstName) 
+	{
 		this.firstName = firstName;
 	}
-	public String getFamilyNameKana() {
+	public String getFamilyNameKana() 
+	{
 		return familyNameKana;
 	}
-	public void setFamilyNameKana(String familyNameKana) {
+	public void setFamilyNameKana(String familyNameKana) 
+	{
 		this.familyNameKana = familyNameKana;
 	}
-	public String getFirstNameKana() {
+	public String getFirstNameKana() 
+	{
 		return firstNameKana;
 	}
-	public void setFirstNameKana(String firstNameKana) {
+	public void setFirstNameKana(String firstNameKana) 
+	{
 		this.firstNameKana = firstNameKana;
 	}
-	public String getSex() {
+	public String getSex() 
+	{
 		return sex;
 	}
-	public void setSex(String sex) {
+	public void setSex(String sex) 
+	{
 		this.sex = sex;
 	}
-	public String getEmail() {
+	public String getEmail() 
+	{
 		return email;
 	}
-	public void setEmail(String email) {
+	public void setEmail(String email) 
+	{
 		this.email = email;
 	}
-	public String getLoginId() {
+	public String getLoginId() 
+	{
 		return loginId;
 	}
-	public void setLoginId(String loginId) {
+	public void setLoginId(String loginId) 
+	{
 		this.loginId = loginId;
 	}
-	public String getPassword() {
+	public String getPassword() 
+	{
 		return password;
 	}
-	public void setPassword(String password) {
+	public void setPassword(String password) 
+	{
 		this.password = password;
 	}
-	public Map<String, Object> getSession() {
+	public Map<String, Object> getSession() 
+	{
 		return session;
 	}
-	public void setSession(Map<String, Object> session) {
+	public void setSession(Map<String, Object> session) 
+	{
 		this.session = session;
 	}
 }
