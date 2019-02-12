@@ -16,10 +16,6 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-	private List<String> sexList = new ArrayList<String>();
-	private String sex;
-	private static final String MALE = "男性";
-	private static final String FEMALE= "女性";
 	private String email;
 	private String tellNumber;
 	private String userAddress;
@@ -47,9 +43,6 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 		errorMsgList.addAll(inputChecker.doCheck("住所", userAddress, 10, 50, true, true, true, true, true, true, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("電話番号", tellNumber, 10, 13, false, false, false, true, false, false, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("メールアドレス", email, 10, 32, true, false, false, true, true, false, false, false, false));
-
-		sexList.add(MALE);
-		sexList.add(FEMALE);
 
 		//	エラーがないのならば
 		if(errorMsgList.isEmpty())
@@ -88,20 +81,6 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 	}
 	public void setFirstNameKana(String firstNameKana) {
 		this.firstNameKana = firstNameKana;
-	}
-
-	public List<String> getSexList() {
-		return sexList;
-	}
-	public void setSexList(List<String> sexList) {
-		this.sexList = sexList;
-	}
-
-	public String getSex() {
-		return sex;
-	}
-	public void setSex(String sex) {
-		this.sex = sex;
 	}
 
 	public String getEmail() {

@@ -120,6 +120,15 @@ table.vertical-list-table td input
 	border-bottom: 1px solid #ccc;
 }
 
+table.vertical-list-table td input[type="radio"]
+{
+	width: 10%;
+	padding: 10px;
+	vertical-align: top;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
 table.vertical-list-table, th, td
 {
 	margin : 3%;
