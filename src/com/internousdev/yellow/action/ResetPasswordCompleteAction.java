@@ -42,18 +42,23 @@ public class ResetPasswordCompleteAction extends ActionSupport implements Sessio
 	public String getLoginId() {
 		return loginId;
 	}
+	
 	public void setLoginId(String loginId) {
 		this.loginId = loginId;
 	}
+	
 	public String getPassword() {
 		return password;
 	}
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 	public Map<String, Object> getSession() {
 		return session;
 	}
+	
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
