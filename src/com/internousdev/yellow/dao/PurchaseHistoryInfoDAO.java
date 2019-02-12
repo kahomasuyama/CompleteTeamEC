@@ -95,6 +95,7 @@ public class PurchaseHistoryInfoDAO {
 				purchaseHistoryInfoDto.setEmail(resultSet.getString("email"));
 				purchaseHistoryInfoDto.setTelNumber(resultSet.getString("tel_number"));
 				purchaseHistoryInfoDto.setUserAddress(resultSet.getString("user_address"));
+				purchaseHistoryInfoDto.setSubtotal(resultSet.getInt("price") * resultSet.getInt("product_count"));
 				purchaseHistoryInfoDTOList.add(purchaseHistoryInfoDto);
 			}
 		}
