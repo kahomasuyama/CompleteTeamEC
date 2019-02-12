@@ -18,82 +18,108 @@ public class UserInfoDTO
 	private Date registDate;
 	private Date updateDate;
 
-	public int getId() {
+	public int getId() 
+	{
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(int id) 
+	{
 		this.id = id;
 	}
-	public String getUserId() {
+	public String getUserId() 
+	{
 		return userId;
 	}
-	public void setUserId(String userId) {
+	public void setUserId(String userId) 
+	{
 		this.userId = userId;
 	}
-	public String getPassword() {
+	public String getPassword() 
+	{
 		return password;
 	}
-	public void setPassword(String password) {
+	public void setPassword(String password) 
+	{
 		this.password = password;
 	}
-	public String getFamilyName() {
+	public String getFamilyName() 
+	{
 		return familyName;
 	}
-	public void setFamilyName(String familyName) {
+	public void setFamilyName(String familyName) 
+	{
 		this.familyName = familyName;
 	}
-	public String getFirstName() {
+	public String getFirstName() 
+	{
 		return firstName;
 	}
-	public void setFirstName(String firstName) {
+	public void setFirstName(String firstName) 
+	{
 		this.firstName = firstName;
 	}
-	public String getFamilyNameKana() {
+	public String getFamilyNameKana() 
+	{
 		return familyNameKana;
 	}
-	public void setFamilyNameKana(String familyNameKana) {
+	public void setFamilyNameKana(String familyNameKana) 
+	{
 		this.familyNameKana = familyNameKana;
 	}
-	public String getFirstNameKana() {
+	public String getFirstNameKana() 
+	{
 		return firstNameKana;
 	}
-	public void setFirstNameKana(String firstNameKana) {
+	public void setFirstNameKana(String firstNameKana) 
+	{
 		this.firstNameKana = firstNameKana;
 	}
-	public int getSex() {
+	public int getSex() 
+	{
 		return sex;
 	}
-	public void setSex(int sex) {
+	public void setSex(int sex) 
+	{
 		this.sex = sex;
 	}
-	public String getEmail() {
+	public String getEmail() 
+	{
 		return email;
 	}
-	public void setEmail(String email) {
+	public void setEmail(String email) 
+	{
 		this.email = email;
 	}
-	public String getStatus() {
+	public String getStatus() 
+	{
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(String status) 
+	{
 		this.status = status;
 	}
-	public int getLogined() {
+	public int getLogined() 
+	{
 		return logined;
 	}
-	public void setLogined(int logined) {
+	public void setLogined(int logined) 
+	{
 		this.logined = logined;
 	}
-	public Date getRegistDate() {
+	public Date getRegistDate() 
+	{
 		return registDate;
 	}
-	public void setRegistDate(Date registDate) {
+	public void setRegistDate(Date registDate) 
+	{
 		this.registDate = registDate;
 	}
-	public Date getUpdateDate() {
+	public Date getUpdateDate() 
+	{
 		return updateDate;
 	}
-	public void setUpdateDate(Date updateDate) {
+	public void setUpdateDate(Date updateDate) 
+	{
 		this.updateDate = updateDate;
 	}
 }

@@ -40,18 +40,13 @@ INSERT INTO user_info VALUES
 (11, "guest11", "guest11", "インターノウス", "ゲストユーザー11", "いんたーのうす", "げすとゆーざー11", 0, "guest11@gmail.com", 0, 0, now(), now()),
 (12, "guest12", "guest12", "インターノウス", "ゲストユーザー12", "いんたーのうす", "げすとゆーざー12", 0, "guest12@gmail.com", 0, 0, now(), now());
 
-
-
-
-
-
 CREATE TABLE product_info
 (
 
 	id INT PRIMARY KEY NOT NULL auto_increment comment "ID",
 	product_id INT NOT NULL unique,
 	product_name VARCHAR(100) unique NOT NULL comment "商品名",
-	product_name_kana VARCHAR(100) NOT NULL comment "商品名かな",
+	product_name_kana VARCHAR(100) unique NOT NULL comment "商品名かな",
 	product_description VARCHAR(255) NOT NULL comment "商品詳細",
 	category_id INT NOT NULL NOT NULL comment "カテゴリID",
 	price INT comment "価格",
@@ -59,7 +54,7 @@ CREATE TABLE product_info
 	image_file_name VARCHAR(50) comment "画像ファイル名",
 	release_date DATETIME NOT NULL comment "発売年月",
 	release_company VARCHAR(50) comment "発売会社",
-	status TINYINT NOT NULL comment "登録日",
+	status TINYINT NOT NULL DEFAULT 0 comment "登録日",
 	regist_date DATETIME NOT NULL comment "登録日",
 	update_date datetime comment "更新日",
 	foreign key(category_id) references m_category(category_id)
@@ -84,8 +79,6 @@ INSERT INTO product_info VALUES
 ( 14, 14, "サウンドトラック４","さうんどとらっく４","サウンドトラック４の商品詳細",4,100,"./images","sample.jpg",now(),"発売会社",0,now(),now()),
 ( 15, 15, "サウンドトラック５","さうんどとらっく５","サウンドトラック５の商品詳細",4,100,"./images","sample.jpg",now(),"発売会社",0,now(),now());
 
-
-
 CREATE TABLE cart_info
 (
 
@@ -101,10 +94,6 @@ CREATE TABLE cart_info
 )
 DEFAULT charset=utf8 comment="カート情報テーブル";
 
-
-
-
-
 CREATE TABLE purchase_history_info
 (
 
@@ -116,15 +105,10 @@ CREATE TABLE purchase_history_info
 	destination_id INT NOT NULL comment "宛先情報ID",
 	regist_date DATETIME NOT NULL comment "登録日",
 	update_date DATETIME NOT NULL comment "更新日",
-	FOREIGN KEY(user_id) REFERENCES user_info(user_id),
 	FOREIGN KEY(product_id) REFERENCES product_info(product_id)
 
 )
 DEFAULT charset=utf8 comment="商品情報テーブル";
-
-
-
-
 
 CREATE TABLE destination_info
 (
@@ -139,17 +123,13 @@ CREATE TABLE destination_info
 	tel_number VARCHAR(13) NOT NULL comment "電話番号",
 	user_address VARCHAR(50) NOT NULL comment "住所",
 	regist_date DATETIME NOT NULL comment "登録日",
-	update_Date DATETIME NOT NULL comment "更新日"
+	update_date DATETIME comment "更新日"
 
 )
 DEFAULT charset=utf8 comment="購入履歴情報テーブル";
 
 INSERT INTO destination_info VALUES
 (1, "guest", "インターノウス", "テストユーザー", "いんたーのうす", "てすとゆーざー", "guest@internous.co.jp", "080-1234-5678", "東京都千代田区三番町１ー１　ＫＹ三番町ビル１Ｆ", now(), now());
-
-
-
-
 
 CREATE TABLE m_category
 (
@@ -158,7 +138,7 @@ CREATE TABLE m_category
 	category_id INT NOT NULL UNIQUE comment "カテゴリID",
 	category_name VARCHAR(20) NOT NULL UNIQUE comment "カテゴリ名",
 	category_description VARCHAR(100) comment "カテゴリ詳細",
-	insert_date datetime comment "登録日",
+	insert_date datetime NOT NULL comment "登録日",
 	update_date datetime comment "更新日"
 
 )DEFAULT charset=utf8 comment="カテゴリマスタテーブル";

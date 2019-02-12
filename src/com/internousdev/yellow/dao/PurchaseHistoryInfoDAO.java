@@ -18,7 +18,6 @@ public class PurchaseHistoryInfoDAO {
 		Connection connection = dbConnector.getConnection();
 		List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList = new ArrayList<PurchaseHistoryInfoDTO>();
 
-
 		String sql = "SELECT"
 				// ID ユーザーID 個数
 				+ " phi.id AS id,"
@@ -96,6 +95,7 @@ public class PurchaseHistoryInfoDAO {
 				purchaseHistoryInfoDto.setEmail(resultSet.getString("email"));
 				purchaseHistoryInfoDto.setTelNumber(resultSet.getString("tel_number"));
 				purchaseHistoryInfoDto.setUserAddress(resultSet.getString("user_address"));
+				purchaseHistoryInfoDto.setSubtotal(resultSet.getInt("price") * resultSet.getInt("product_count"));
 				purchaseHistoryInfoDTOList.add(purchaseHistoryInfoDto);
 			}
 		}

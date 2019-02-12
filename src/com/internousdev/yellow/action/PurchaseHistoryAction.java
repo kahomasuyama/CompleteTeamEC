@@ -13,9 +13,8 @@ import com.internousdev.yellow.dto.MCategoryDTO;
 import com.internousdev.yellow.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class PurchaseHistoryAction extends ActionSupport implements SessionAware{
-	private String categoryId;
-
+public class PurchaseHistoryAction extends ActionSupport implements SessionAware
+{
 	private List<MCategoryDTO> mCategoryDtoList = new ArrayList<MCategoryDTO>();
 	private List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList;
 	private Map<String, Object> session;
@@ -48,34 +47,32 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 		return SUCCESS;
 	}
 
-	public List<MCategoryDTO> getmCategoryDtoList() {
+	public List<MCategoryDTO> getmCategoryDtoList()
+	{
 		return mCategoryDtoList;
 	}
 
-	public void setmCategoryDtoList(List<MCategoryDTO> mCategoryDtoList) {
+	public void setmCategoryDtoList(List<MCategoryDTO> mCategoryDtoList)
+	{
 		this.mCategoryDtoList = mCategoryDtoList;
 	}
 
-	public List<PurchaseHistoryInfoDTO> getPurchaseHistoryInfoDtoList() {
+	public List<PurchaseHistoryInfoDTO> getPurchaseHistoryInfoDtoList()
+	{
 		return purchaseHistoryInfoDtoList;
 	}
 
-	public void setPurchaseHistoryInfoDtoList(List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList) {
+	public void setPurchaseHistoryInfoDtoList(List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList)
+	{
 		this.purchaseHistoryInfoDtoList = purchaseHistoryInfoDtoList;
 	}
 
-	public String getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	public Map<String, Object> getSession() {
+	public Map<String, Object> getSession()
+	{
 		return session;
 	}
-	public void setSession(Map<String, Object> session) {
+	public void setSession(Map<String, Object> session)
+	{
 		this.session = session;
 	}
 }

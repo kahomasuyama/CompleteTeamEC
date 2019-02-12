@@ -17,7 +17,7 @@
 			<h1>商品詳細画面</h1>
 
 			<s:if test="productInfoDTO == null">
-				詳細情報なし
+				商品の詳細情報がありません
 			</s:if>
 			<s:else>
 				<s:form action="AddCartAction" theme="simple">
@@ -36,7 +36,7 @@
 										<td><s:property value="%{productInfoDTO.productName}" /></td>
 									</tr>
 									<tr>
-										<th scope="row"><s:label value="商品名かな" /></th>
+										<th scope="row"><s:label value="商品名ふりがな" /></th>
 										<td><s:property value="%{productInfoDTO.productNameKana}" /></td>
 									</tr>
 									<tr>

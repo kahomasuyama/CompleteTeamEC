@@ -7,9 +7,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/style.css">
-		<title>登録完了</title>
+		<title>ユーザー情報入力完了画面</title>
 		<script>
-		    window.onload = function(){
+		    window.onload = function()
+		    {
 		    	var form = document.getElementById('form1');
 		    	setTimeout(function(){form.submit()},3000);
 		    }
@@ -22,7 +23,7 @@
 		<div id="contents">
 			<h1>登録完了画面</h1>
 			<div class="success">
-				ユーザー登録が完了しました。
+				ユーザー情報入力が完了しました。
 			</div>
 		</div>
 

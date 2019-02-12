@@ -22,9 +22,6 @@ public class GoLoginAction extends ActionSupport implements SessionAware
 			return "sessionTimeOut";
 		}
 
-		session.put("loginIdErrorMessageList", "");
-		session.put("passwordErrorMessageList", "");
-
 		return SUCCESS;
 	}
 

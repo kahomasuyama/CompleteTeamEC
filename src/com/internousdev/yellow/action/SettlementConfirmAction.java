@@ -87,6 +87,8 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 				purchaseHistoryInfoDTO.setImageFileName(String.valueOf(imageFileNameList[i]));
 				purchaseHistoryInfoDTO.setPrice(Integer.parseInt(String.valueOf(priceList[i])));
 				purchaseHistoryInfoDTO.setReleaseCompany(String.valueOf(releaseCompanyList[i]));
+				purchaseHistoryInfoDTO.setProductCount(Integer.parseInt(String.valueOf(productCountList[i])));
+				purchaseHistoryInfoDTO.setSubtotal(purchaseHistoryInfoDTO.getProductCount() * purchaseHistoryInfoDTO.getPrice());
 
 				try
 				{
@@ -98,7 +100,6 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 					e.printStackTrace();
 				}
 
-				purchaseHistoryInfoDTO.setProductCount(Integer.parseInt(String.valueOf(productCountList[i])));
 				purchaseHistoryInfoDtoList.add(purchaseHistoryInfoDTO);
 			}
 			session.put("purchaseHistoryInfoDtoList",purchaseHistoryInfoDtoList );

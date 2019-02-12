@@ -25,10 +25,17 @@
 		<div id="contents">
 			<h1>パスワード再設定確認画面</h1>
 			<s:form id="resetPassword_form" action="ResetPasswordCompleteAction">
-				<s:property value="loginId"/><br>
-				<s:property value="concealedPassword"/><br>
-				<s:submit value="戻る" class="submit_btn" onclick="goResetPasswordAction();" />
-				<s:submit value="再設定" class="submit_btn" onclick="goResetPasswordCompleteAction();" />
+				<table>
+					<tr>
+					<th>ログインID：<s:property value="loginId" /><br></th>
+					<s:hidden name="userId" value="%{loginId}"/>
+					</tr>
+					<tr>
+					<th>新しいパスワード:<s:property value="concealedPassword"/><br></th>
+					</tr>
+				</table>
+					<s:submit value="戻る" class="submit_btn" onclick="goResetPasswordAction();" />
+					<s:submit value="パスワード再設定" class="submit_btn" onclick="goResetPasswordCompleteAction();" />
 			</s:form>
 		</div>
 	</body>

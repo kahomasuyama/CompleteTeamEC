@@ -26,8 +26,8 @@ public class ResetPasswordCompleteAction extends ActionSupport implements Sessio
 		int count = userInfoDAO.resetPassword(String.valueOf(session.get("loginId")), String.valueOf(session.get("newPassword")));
 
 		//	セッション情報を初期化
-		session.put("loginId", "");
-		session.put("newPassword", "");
+		session.remove("loginId");
+		session.remove("newPassword");
 
 		if (count > 0)
 		{
@@ -42,18 +42,23 @@ public class ResetPasswordCompleteAction extends ActionSupport implements Sessio
 	public String getLoginId() {
 		return loginId;
 	}
+
 	public void setLoginId(String loginId) {
 		this.loginId = loginId;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public Map<String, Object> getSession() {
 		return session;
 	}
+
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}

@@ -20,7 +20,6 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 	private String sex;
 	private static final String MALE = "男性";
 	private static final String FEMALE= "女性";
-	private String defaultSexValue = MALE;
 	private String email;
 	private String tellNumber;
 	private String userAddress;
@@ -39,14 +38,13 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 			return "sessionTimeOut";
 		}
 
-		//	String result = ERROR;
 		InputChecker inputChecker = new InputChecker();
 		errorMsgList = new ArrayList<String>();
-		errorMsgList.addAll(inputChecker.doCheck("姓", familyName, 1, 16, true, true, true, false, false, false, true, false, false));
-		errorMsgList.addAll(inputChecker.doCheck("名", firstName, 1, 16, true, true, true, false, false, false, true, false, false));
+		errorMsgList.addAll(inputChecker.doCheck("姓", familyName, 1, 16, true, true, true, false, false, false, false, false, false));
+		errorMsgList.addAll(inputChecker.doCheck("名", firstName, 1, 16, true, true, true, false, false, false, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("姓ふりがな", familyNameKana, 1, 16, false, false, true, false, false, false, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("名ふりがな", firstNameKana, 1, 16, false, false, true, false, false, false, false, false, false));
-		errorMsgList.addAll(inputChecker.doCheck("住所", userAddress, 10, 50, false, true, true, true, true, true, false, false, false));
+		errorMsgList.addAll(inputChecker.doCheck("住所", userAddress, 10, 50, true, true, true, true, true, true, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("電話番号", tellNumber, 10, 13, false, false, false, true, false, false, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("メールアドレス", email, 10, 32, true, false, false, true, true, false, false, false, false));
 
@@ -63,7 +61,6 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 			return ERROR;
 		}
 
-
 	}
 	public String getFamilyName() {
 		return familyName;
@@ -71,54 +68,56 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 	public void setFamilyName(String familyName) {
 		this.familyName = familyName;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getFamilyNameKana() {
 		return familyNameKana;
 	}
 	public void setFamilyNameKana(String familyNameKana) {
 		this.familyNameKana = familyNameKana;
 	}
+
 	public String getFirstNameKana() {
 		return firstNameKana;
 	}
 	public void setFirstNameKana(String firstNameKana) {
 		this.firstNameKana = firstNameKana;
 	}
+
 	public List<String> getSexList() {
 		return sexList;
 	}
 	public void setSexList(List<String> sexList) {
 		this.sexList = sexList;
 	}
+
 	public String getSex() {
 		return sex;
 	}
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public String getDefaultSexValue() {
-		return defaultSexValue;
-	}
-	public void setDefaultSexValue(String defaultSexValue) {
-		this.defaultSexValue = defaultSexValue;
-	}
+
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getTellNumber() {
 		return tellNumber;
 	}
 	public void setTellNumber(String tellNumber) {
 		this.tellNumber = tellNumber;
 	}
+
 	public String getUserAddress() {
 		return userAddress;
 	}
@@ -132,12 +131,12 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 	public void setErrorMsgList(List<String> errorMsgList) {
 		this.errorMsgList = errorMsgList;
 	}
+
 	public Map<String, Object> getSession() {
 		return session;
 	}
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
 
 }

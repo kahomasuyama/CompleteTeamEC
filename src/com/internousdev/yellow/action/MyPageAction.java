@@ -13,7 +13,6 @@ public class MyPageAction extends ActionSupport implements SessionAware
 	private Map<String, Object> session;
 	private UserInfoDTO userInfoDTO;
 
-
 	public String execute()
 	{
 		//	商品カテゴリがないならセッションタイムアウト
@@ -23,7 +22,6 @@ public class MyPageAction extends ActionSupport implements SessionAware
 		}
 
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
-
 
 		userInfoDTO = userInfoDAO.getUserInfo(String.valueOf(session.get("loginId")));
 
@@ -44,19 +42,23 @@ public class MyPageAction extends ActionSupport implements SessionAware
 		}
 	}
 
-	public Map<String, Object> getSession() {
+	public Map<String, Object> getSession() 
+	{
 		return session;
 	}
 	@Override
-	public void setSession(Map<String, Object> session) {
+	public void setSession(Map<String, Object> session) 
+	{
 		this.session = session;
 	}
 
-	public UserInfoDTO getUserInfoDTO() {
+	public UserInfoDTO getUserInfoDTO() 
+	{
 		return userInfoDTO;
 	}
 
-	public void setUserInfoDTO(UserInfoDTO userInfoDTO) {
+	public void setUserInfoDTO(UserInfoDTO userInfoDTO) 
+	{
 		this.userInfoDTO = userInfoDTO;
 	}
 }

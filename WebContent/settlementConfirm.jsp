@@ -25,7 +25,8 @@
 						<thead>
 							<tr>
 								<th><s:label value="#"/></th>
-								<th><s:label value="名前"/></th>
+									<th><s:label value="姓"/></th>
+								<th><s:label value="名"/></th>
 								<th><s:label value="ふりがな"/></th>
 								<th><s:label value="住所"/></th>
 								<th><s:label value="電話番号"/></th>
@@ -44,7 +45,10 @@
 										</s:else>
 									</td>
 									<td>
-										<s:property value="familyName"/><span>　</span><s:property value="firstName"/><br>
+										<s:property value="familyName"/><span>　</span><s:property value="familyName"/><br>
+									</td>
+									<td>
+										<s:property value="firstName"/><span>　</span><s:property value="firstName"/><br>
 									</td>
 									<td>
 										<s:property value="familyNameKana" /><span>　</span><s:property value="firstNameKana" /><br>
@@ -72,14 +76,14 @@
 			</s:if>
 			<s:else>
 				<div class="info">
-					宛先情報はありません
+					宛先情報がありません
 				</div>
 			</s:else>
 
 			<div class="submit_btn_box">
 				<div id=".contents-btn-set">
 					<s:form action="CreateDestinationAction">
-						<s:submit value="新規登録" class="submit_btn"/>
+						<s:submit value="新規宛先登録" class="submit_btn_box"/>
 					</s:form>
 				</div>
 			</div>

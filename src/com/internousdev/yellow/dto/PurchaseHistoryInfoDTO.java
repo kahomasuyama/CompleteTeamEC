@@ -29,7 +29,6 @@ public class PurchaseHistoryInfoDTO
 	private String userAddress;
 	private int subtotal;
 
-
 	public int getId() {
 		return id;
 	}

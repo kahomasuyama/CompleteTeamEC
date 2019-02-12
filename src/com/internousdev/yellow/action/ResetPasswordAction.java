@@ -8,7 +8,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ResetPasswordAction extends ActionSupport implements SessionAware
 {
-	private String categoryId;
+	private String userId;
+
 	private Map<String,Object> session;
 	public String execute()
 	{
@@ -19,18 +20,18 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware
 		}
 
 		//	セッション情報を初期化
-		session.put("loginId", "");
-		session.put("newPassword", "");
+		session.remove("loginId");
+		session.remove("newPassword");
 
 		return SUCCESS;
 	}
-	public String getCategoryId()
+	public String getUserId()
 	{
-		return categoryId;
+		return userId;
 	}
-	public void setCategoryId(String categoryId)
+	public void setUserId(String userId)
 	{
-		this.categoryId = categoryId;
+		this.userId = userId;
 	}
 	public Map<String, Object> getSession()
 	{

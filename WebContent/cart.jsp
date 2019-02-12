@@ -8,20 +8,27 @@
 		<link rel="stylesheet" href=".css/style.css">
 		<title>カート</title>
 		<script>
-			function checkValue(check){
+			function checkValue(check)
+			{
 				var checkList = document.getElementsByClassName("checkList");
 				var checkFlag = 0;
-				for( var i = 0; i < checkList.length; i++ ){
-					if(checkFlag == 0){
-						if(checkList[i].checked){
+				for( var i = 0; i < checkList.length; i++ )
+				{
+					if(checkFlag == 0)
+					{
+						if(checkList[i].checked)
+						{
 							checkFlag = 1;
 							break;
 						}
 					}
 				}
-				if(checkFlag == 1){
+				if(checkFlag == 1)
+				{
 					document.getElementById('delete_btn').disabled="";
-				}else{
+				}
+				else
+				{
 					document.getElementById('delete_btn').disabled="true";
 				}
 			}
