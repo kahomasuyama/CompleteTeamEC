@@ -8,13 +8,16 @@
 		<link rel="stylesheet" href="./css/style.css">
 		<title>ログイン画面</title>
 		<script>
-			function goLoginAction(){
+			function goLoginAction()
+			{
 				document.getElementById("form").action="LoginAction";
 			}
-			function goCreateUserAction(){
+			function goCreateUserAction()
+			{
 				document.getElementById("form").action="CreateUserAction";
 			}
-			function goResetPassword(){
+			function goResetPassword()
+			{
 				document.getElementById("form").action="ResetPasswordAction";
 			}
 		</script>

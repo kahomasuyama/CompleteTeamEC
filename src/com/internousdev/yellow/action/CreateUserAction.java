@@ -150,10 +150,12 @@ public class CreateUserAction extends ActionSupport implements SessionAware
 	{
 		this.session = session;
 	}
-	public List<String> getErrorMsgList() {
+	public List<String> getErrorMsgList()
+	{
 		return errorMsgList;
 	}
-	public void setErrorMsgList(List<String> errorMsgList) {
+	public void setErrorMsgList(List<String> errorMsgList)
+	{
 		this.errorMsgList = errorMsgList;
 	}
 }
