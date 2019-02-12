@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/yellow.css">
 		<title>決済確認</title>
 	</head>
 	<body>
@@ -21,7 +21,7 @@
 				</div>
 				<s:form id="form" action="SettlementCompleteAction" >
 					<h3>お届け先住所</h3>
-					<table class="horizontal-list-table">
+					<table class="vertical-list-table">
 						<thead>
 							<tr>
 								<th><s:label value="#"/></th>
@@ -45,10 +45,10 @@
 										</s:else>
 									</td>
 									<td>
-										<s:property value="familyName"/><span>　</span><s:property value="familyName"/><br>
+										<s:property value="familyName"/><span>　</span><br>
 									</td>
 									<td>
-										<s:property value="firstName"/><span>　</span><s:property value="firstName"/><br>
+										<s:property value="firstName"/><span>　</span><br>
 									</td>
 									<td>
 										<s:property value="familyNameKana" /><span>　</span><s:property value="firstNameKana" /><br>
@@ -69,21 +69,21 @@
 
 					<div class="submit_btn_box">
 						<div id="contents-btn-set">
-							<s:submit value="決済" class="submit_btn"/>
+							<s:submit value="決済" class="submit_buttun"/>
 						</div>
 					</div>
 				</s:form>
 			</s:if>
 			<s:else>
 				<div class="info">
-					宛先情報がありません
+					宛先情報がありません。
 				</div>
 			</s:else>
 
 			<div class="submit_btn_box">
 				<div id=".contents-btn-set">
 					<s:form action="CreateDestinationAction">
-						<s:submit value="新規宛先登録" class="submit_btn_box"/>
+						<s:submit value="新規宛先登録" class="submit_buttun"/>
 					</s:form>
 				</div>
 			</div>
