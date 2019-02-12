@@ -38,7 +38,6 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 			return "sessionTimeOut";
 		}
 
-		//	String result = ERROR;
 		InputChecker inputChecker = new InputChecker();
 		errorMsgList = new ArrayList<String>();
 		errorMsgList.addAll(inputChecker.doCheck("姓", familyName, 1, 16, true, true, true, false, false, false, false, false, false));
@@ -62,7 +61,6 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 			return ERROR;
 		}
 
-
 	}
 	public String getFamilyName() {
 		return familyName;
@@ -70,30 +68,35 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 	public void setFamilyName(String familyName) {
 		this.familyName = familyName;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getFamilyNameKana() {
 		return familyNameKana;
 	}
 	public void setFamilyNameKana(String familyNameKana) {
 		this.familyNameKana = familyNameKana;
 	}
+
 	public String getFirstNameKana() {
 		return firstNameKana;
 	}
 	public void setFirstNameKana(String firstNameKana) {
 		this.firstNameKana = firstNameKana;
 	}
+
 	public List<String> getSexList() {
 		return sexList;
 	}
 	public void setSexList(List<String> sexList) {
 		this.sexList = sexList;
 	}
+
 	public String getSex() {
 		return sex;
 	}
@@ -107,12 +110,14 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getTellNumber() {
 		return tellNumber;
 	}
 	public void setTellNumber(String tellNumber) {
 		this.tellNumber = tellNumber;
 	}
+
 	public String getUserAddress() {
 		return userAddress;
 	}
@@ -126,6 +131,7 @@ public class CreateDestinationConfirmAction  extends ActionSupport implements Se
 	public void setErrorMsgList(List<String> errorMsgList) {
 		this.errorMsgList = errorMsgList;
 	}
+
 	public Map<String, Object> getSession() {
 		return session;
 	}

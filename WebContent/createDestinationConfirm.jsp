@@ -5,12 +5,12 @@
 <!DOCTYPE html>
 
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/style.css">
-		<title>宛先情報確認</title>
+<head>
+ <meta charset="UTF-8">
+ <link rel="stylesheet" href="./css/style.css">
+ <title>宛先情報確認</title>
 
-				<script>
+		<script>
 			function goCreateDestinationAction()
 			{
 				document.getElementById("destinationForm").action="CreateDestinationAction";
@@ -20,7 +20,7 @@
 				document.getElementById("destinationForm").action="CreateDestinationCompleteAction";
 			}
 		</script>
-	</head>
+</head>
 	<body>
 		<jsp:include page="header.jsp" />
 		<div id="contents">
@@ -58,7 +58,6 @@
 						<td><s:property value="email"/><s:hidden name="email" value="%{email}"/></td>
 					</tr>
 				</table>
-
 
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
