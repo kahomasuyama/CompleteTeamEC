@@ -1,242 +1,297 @@
 @charset "UTF-8";
 
-*:focus{
-	outline: none;
-}
-
-body, html {
-	margin : 0; /* 余白の削除 */
-	padding : 0; /* 余白の削除 */
-	width : 100%;
-	height : 100%;
-}
-
-/*画像の比を維持*/
-img {
-	object-fit: contain;
-}
-
-/*-------- 中身の範囲指定 -------------------------------------*/
-#contents {
-	width: 100%;
-	margin: 0 auto;
-	padding-bottom: 130px;
-}
-
-
-/* -----------------------------------------------------------------*/
-/*  	タイトル													*/
-/* -----------------------------------------------------------------*/
-h1 {
-	padding: 10px;
-	border-top: 2px solid black;
-	border-bottom: 2px solid black;
-	color: black;
-	text-align: center;
-}
-
-
-/*---------------------------------------------------------------*/
-/* 		テーブル												 */
-/*---------------------------------------------------------------*/
-/* ---------基本デザイン----------------------------------------- */
-table {
-	width: 90%;
-	margin: 0 auto;
-	border-collapse: collapse;
-	border: 1px solid rgba(200,200,200,0.7);
-}
-
-table th {
-	padding: 10px 2vw;
-	background-color: rgba(200,200,200,0.6);
-	border: 1px solid rgba(200,200,200,0.7);
-	color: black;
-}
-
-table td {
-	padding: 10px 0.5vw;
-	border: 1px solid rgba(200,200,200,0.7);
-	word-break: break-all;
-}
-
-/* -----------テーブル左詰め用------------------------------------ */
-.vertical-list-table tr th {
-	text-align: left;
-	width: 25%;
-}
-
-.vertical-list-table tr td {
-	width: 75%;
-}
-
-/*----------- テーブル中央揃え用------------------------------------- */
-.horizontal-list-table {
-	font-size: 1vw;
-}
-
-.horizontal-list-table tr th {
-	text-align: center;
-	white-space: nowrap;
-}
-
-.horizontal-list-table tr td {
-	text-align: center;
-}
-
-
-/*----------- テーブル内入力フォームデザイン--------------------------- */
-.txt {
-	width : 99%;
-	height : 30px;
-	border: 0.5px solid #999;
-	font-size : 24px;
-	background-color: white;
-}
-
-
-/* -----------------------------------------------------------------------------*/
-/*  		ボタン																*/
-/* -----------------------------------------------------------------------------*/
-/* ------------ボタン自体のデザイン-------------------------------------------- */
-
-.submit_btn {
-	border-radius: 100px;
-	border-width: 1px;
-	width: 200px;
+//ボタンのデザイン
+.submit_buttun {
+    padding: 0.5em 1em;
+    text-decoration:none;
+    border-radius:100px;
+    width:100px;
 	height : 35px;
 	margin-top : -5px;
-	margin-left : 10px;
-	font-size: 16px;
-	text-align: center;
-	color: black;
-	background-color: rgba(200,200,200,0);
+	margin-left : 6px;
+    font-size:10px;
+    text-align:center;
+    color:#fff;
+    box-shadow:2px 2px #1a6ea0;
+    background: #4b7ea1;
+    background: -webkit-gradient(linear, left top, left bottom, from(#81a8cb), to(#4477a1) );
+    background: -moz-linear-gradient(-90deg, #81a8cb, #4477a1);
+    filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#81a8cb', endColorstr='#4477a1');
 }
-
-
-.submit_btn:active {
-	position: relative;
-	top: 2px;
-	left: 2px;
+//ボタンの押印時に稼働
+.submit_buttun:hover{
+    color:#fff;
+    background-color:#49a9d4;
+    box-shadow:2px 2px #1a6ea0;
+    cursor: pointer;
+    opacity:0.5;
+    background: #81a8cb;
+    background: -webkit-gradient(linear, left top, left bottom, from(#4477a1), to(#81a8cb) );
+    background: -moz-linear-gradient(-90deg, #4477a1, #81a8cb);
+    filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4477a1', endColorstr='#81a8cb');
 }
-
-.submit_btn:focus {
-	box-shadow: 0 0 10px #e5a323;
+//ボタンが有効時に稼働
+.submit_buttun:active{
+	background: #4477a1;
 }
-
-.submit_btn:hover {
-	cursor: pointer;
-    box-shadow: 0 0 20px #e5a323;
-}
-
-/*-------------- ボタン配置------------------------------------------------*/
-/* 縦並び */
+//ボタン配置
 .submit_btn_box{
 	margin: 20px;
 	text-align: center;
 	clear: both;
 }
+body {
+    margin: 0;
+}
 
-/* -------------------------------------------------------------------- */
-/* 		メッセージ														*/
-/* -------------------------------------------------------------------- */
+header {
+    background-color: royalblue;
+}
 
-.message {
-	font-size: 15px;
-	border: 1px solid;
-	margin: 10px 20px;
-	padding: 15px 50px;
+header ul {
+    list-style: none;
+    display: inline-block;
+    padding: 4px;
+}
+
+header ul li {
+    float: left;
+    margin: 5px;
+}
+
+.categorySelect {
+    padding: 2px 2px 5px 2px;
+
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.searchWordInput {
+    padding: 5px 10px;
+
+    border: 1px solid cyan;
+    border-radius: 13px;
+
+}
+　
+/*入力フォーム*/
+
+table.vertical-list-table
+{
+	width: 90%;
+	border-collapse: separate;
+	border-spacing: 0;
+	text-align: left;
+	font-size: 1.4rem;
+	line-height: 1.5;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+}
+
+table.vertical-list-table th
+{
+	width: 25%;
+	padding: 10px;
+	font-weight: 400;
+	vertical-align: top;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	background: #005392;
+	color:#ffffff;
+}
+
+table.vertical-list-table td
+{
+	width: 75%;
+	padding: 10px;
+	vertical-align: top;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+table.vertical-list-table td input
+{
+	width: 95%;
+	padding: 10px;
+	vertical-align: top;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+table.vertical-list-table, th, td
+{
+	margin : 3%;
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+	line-height: 1.5;
+}
+
+table.vertical-list-table-mini
+{
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	text-align: left;
+	font-size: 1.0rem;
+	line-height: 1.5;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+}
+
+table.vertical-list-table-mini th
+{
+	width: 35%;
+	padding: 10px;
+	font-weight: 400;
+	vertical-align: middle;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	background: #005392;
+	color:#ffffff;
+}
+
+table.vertical-list-table-mini td
+{
+	width: 65%;
+	padding: 10px;
+	vertical-align: middle;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+/* カート合計 */
+.totalPrice{
+	color: #575757;
+	font-family:'Vidaloka', serif ;
+	font-size: 50px;
+	text-align: right;
+}
+
+
+/* 完了メッセージ */
+.completemsgBox{
+
+	background-color: pink;
+	border: 3px solid red;
+	padding: 60px 100px;
+	font-family: 'Vidaloka', serif;
+	text-align: center;
+	font-weight: bold;
+	color: red;
+	font-size: 50px;
+}
+table.vertical-list-table{
+	width:90%;
+	padding:10px;
+	font-weight:bold;
+	font-size:0.8em;
+	text-align:center;
+	vertical-align:top;
+	background-color:#005392;
+	color:#ffffff;
+}
+body
+{
+	margin:0;
+	padding:0;
+	background-image:url(images/photo.jpg);
+}
+
+h1
+{
+	padding:10px 0;
+	color:blue;
+	border-top:2px solid blue;
+	border-bottom:2px solid blue;
+	text-align:center;
+	margin:0;
+	width:90%;
+	margin-left:50px;
+}
+
+.right
+{
+	margin:15px 50px;
+	width:px;
+	float:left;
+}
+
+
+.item-image-box-320
+{
+	width:350px;
+	height:350px;
+}
+
+.left
+{
+	float:left;
+	margin-top:10px;
+}
+
+
+.product-details-recomend-box
+{
+	margin-top:35px;
+	margin-left:200px;
+}
+
+.recommend-box
+{
+	float:left;
+	width:33.3%;
+
+}
+
+.item-image-box-100
+{
+	height:100px;
+}
+h1
+{
+	border-bottom: 2px solid blue;
+	border-top: 2px solid blue;
+	text-align: center;
+	color: red;
+}
+.productList
+{
+	padding: 0;
+	list-style: none;
+	width: 100%;
+}
+.productList li
+{
+	float: left;
+	width: calc(100% / 3);
+	margin: 25px 0;
 	text-align: center;
 }
-
-.message_nomal {
-	border-color: blue;
-	color: blue;
-	background-color: #A9D0F5;
+.productList li img
+{
+	width: 55%;
 }
-
-.message_error {
-	border-color: red;
-	color: red;
-	background-color: #F5A9BC;
+/*ロゴ画面*/
+.sitetitle{
+	 text-align:center;
+	 border-top: 2px solid blue;
+	 border-bottom: 2px solid blue;
+	 padding:5px;
+	 font-family:;
+	 color:blue;
 }
-
-.message_success {
-	border-color: green;
-	color: green;
-	background-color: #A9F5BC;
-}
-
-
-/* ------------------------------------------------------------------ */
-/* 		個別指定													  */
-/* ------------------------------------------------------------------ */
-/* login.jspのチェックボックス用 */
-.box, .checkList {
-	padding: 30px;
-	padding-left: 100px;
-}
-
-/* チェックボックスのフォーカス、ホバー処理 */
-#form_savedLoginId:focus, .checkList:focus, .select_box:focus {
-	box-shadow: 0 0 10px #e5a323;
-}
-
-#form_savedLoginId:hover, .checkList:hover, .select_box:hover {
-	box-shadow: 0 0 20px #e5a323;
-}
-
-/* login.jspの入力フォーム背景 */
-.txt-yellow {
-	background-color:#fffacd;
-}
-
-.txt-yellow:focus {
-	box-shadow: 0 0 10px #e5a323;
-}
-
-/* -------------------------------------------------------------------- */
-/* 		画像サイズ設定													*/
-/* -------------------------------------------------------------------- */
-
-
-/*購入履歴、カート*/
-.item-image-box-50 {
-	width : 50px;
-	height : 50px;
-}
-
-/* 商品詳細のおすすめ商品 */
-.item-image-box-170{
-	width: 100%;
-	height: 170px;
-}
-
-/*商品一覧*/
-.item-image-box-250 {
-	width : 100%;
-	height : 250px;
-}
-
-/*商品詳細*/
-.item-image-box-320 {
-	width : 100%;
-	height : 320px;
-}
-
-
-/* 画像のホバー、アクティブアニメーション */
-.imgAnimation{
-	-webkit-transition: all 0.35s;
-	-ms-transition: all 0.35s;
-}
-
-.imgAnimation:hover{
-	border-radius: 20px;
-	box-shadow: 5px 10px 20px rgba(0,0,0,0.25);
-}
-
-.imgAnimation:active{
-	transform: scale(0.95, 0.95);
-	border-bottom: none;
+/*エラーメッセージ*/
+.errorMsgBox{
+	text-align:center;
+	background-color:pink;
+	margin:5px;
+	padding: 15px;
+	border: 1px solid red;
+	font-family:;
+	font-size:10px;
+	color:red;
 }
