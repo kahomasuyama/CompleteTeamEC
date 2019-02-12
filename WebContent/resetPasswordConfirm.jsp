@@ -27,7 +27,7 @@
 			<s:form id="resetPassword_form" action="ResetPasswordCompleteAction">
 				<table class="vertical-list-table">
 					<tr>
-						<th>ログインID：<s:property value="loginId" /><br></th>
+						<th>ユーザーID：<s:property value="loginId" /><br></th>
 						<s:hidden name="userId" value="%{loginId}"/>
 					</tr>
 					<tr>
