@@ -33,8 +33,6 @@ public class AddCartAction extends ActionSupport implements SessionAware
 		String userId=null;
 		String tempUserId=null;
 
-		session.remove("checkListErrorMessageList");
-
 		//未ログイン時のときにtempUserIdの発行
 		if(!(session.containsKey("loginId"))&& !(session.containsKey("tempUserId")))
 		{

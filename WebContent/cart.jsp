@@ -38,16 +38,6 @@
 		<jsp:include page="header.jsp" />
 		<div id="contents">
 			<h1>カート画面</h1>
-			<s:if test="#session.checkListErrorMessageList!=null">
-			      <div class="error">
-			          <div class="error-message">
-			                <s:iterator value="#session.checkListErrorMessageList">
-			                <s:property />
-			                </s:iterator>
-			          </div>
-			      </div>
-			</s:if>
-
 			<s:if test="#session.cartInfoDtoList.size()>0">
 				<s:form id="form" action="SettlementConfirmAction">
 					<table class="horizontal-list-table">
