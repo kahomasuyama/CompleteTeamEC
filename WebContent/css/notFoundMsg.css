@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+.productList
+{
+	padding: 0;
+	list-style: none;
+	width: 100%;
+}
+.productList li
+{
+	float: left;
+	width: 30%;
+	margin: 25px 0;
+	text-align: center;
+}
+.productList li img
+{
+	width: 50%;
+}
