@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/myPage.css">
 <title>マイページ</title>
 </head>
 <body>
@@ -19,27 +19,27 @@
 			<s:else>
 	<table class="vertical-list-table">
 		<tr>
-			<th scope="row"><s:label value="姓"/></th>
+			<th><s:label value="姓"/></th>
 			<td><s:property value="#session.familyName"/></td>
 		</tr>
 
 		<tr>
-			<th scope="row"><s:label value="名"/></th>
+			<th><s:label value="名"/></th>
 			<td><s:property value="#session.firstName"/></td>
 		</tr>
 
 		<tr>
-			<th scope="row"><s:label value="ふりがな"/></th>
+			<th><s:label value="ふりがな"/></th>
 			<td><s:property value="#session.familyNameKana"/><span> </span><s:property value="#session.firstNameKana"/></td>
 		</tr>
 
 		<tr>
-			<th scope="row"><s:label value="性別"/></th>
+			<th><s:label value="性別"/></th>
 			<td><s:if test="#session.sex==0">男性</s:if><s:if test="#session.sex==1">女性</s:if></td>
 		</tr>
 
 		<tr>
-			<th scope="row"><s:label value="メールアドレス"/></th>
+			<th><s:label value="メールアドレス"/></th>
 			<td><s:property value="#session.email"/></td>
 		</tr>
 	</table>
