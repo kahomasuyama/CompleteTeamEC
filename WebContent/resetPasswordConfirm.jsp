@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/yellow.css">
 		<title>パスワード再設定確認</title>
 		<script>
 			function goResetPasswordCompleteAction()
@@ -25,17 +25,21 @@
 		<div id="contents">
 			<h1>パスワード再設定確認画面</h1>
 			<s:form id="resetPassword_form" action="ResetPasswordCompleteAction">
-				<table>
+				<table class="vertical-list-table">
 					<tr>
-					<th>ログインID：<s:property value="loginId" /><br></th>
-					<s:hidden name="userId" value="%{loginId}"/>
+						<th>ログインID：<s:property value="loginId" /><br></th>
+						<s:hidden name="userId" value="%{loginId}"/>
 					</tr>
 					<tr>
-					<th>新しいパスワード:<s:property value="concealedPassword"/><br></th>
+						<th>新しいパスワード:<s:property value="concealedPassword"/><br></th>
 					</tr>
 				</table>
-					<s:submit value="戻る" class="submit_btn" onclick="goResetPasswordAction();" />
-					<s:submit value="パスワード再設定" class="submit_btn" onclick="goResetPasswordCompleteAction();" />
+				<div class="submit_btn_box">
+					<s:submit value="戻る" class="submit_buttun" onclick="goResetPasswordAction();" />
+				</div>
+				<div class="submit_btn_box">
+					<s:submit value="パスワード再設定" class="submit_buttun" onclick="goResetPasswordCompleteAction();" />
+				</div>
 			</s:form>
 		</div>
 	</body>

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/yellow.css">
 <title>パスワード再設定</title>
 </head>
 <body>
@@ -18,8 +18,8 @@
 		<h1>パスワード再設定画面</h1>
 		<s:if test="!errorMsgList.isEmpty()">
 			<div class="error">
-				<div class="error-message">
-				<s:iterator value="errorMsgList"><s:property/><br></s:iterator>
+				<div class="errorMsgBox">
+					<s:iterator value="errorMsgList"><s:property/><br></s:iterator>
 				</div>
 			</div>
 		</s:if>
@@ -43,7 +43,9 @@
 					<td><s:password name="reConfirmationPassword" placeholder="(再確認)" class="txt"/></td>
 				</tr>
 			</table>
-			<s:submit value="確認" class="submit_btn"/>
+			<div class="submit_btn_box">
+				<s:submit value="確認" class="submit_buttun"/>
+			</div>
 		</s:form>
 	</div>
 
