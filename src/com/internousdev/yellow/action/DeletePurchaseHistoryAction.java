@@ -45,11 +45,9 @@ public class DeletePurchaseHistoryAction extends ActionSupport implements Sessio
 	public String getCategoryId() {
 		return categoryId;
 	}
-
 	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
-
 	public String getSex() {
 		return sex;
 	}
@@ -59,11 +57,9 @@ public class DeletePurchaseHistoryAction extends ActionSupport implements Sessio
 	public List<PurchaseHistoryInfoDTO> getPurchaseHistoryInfoDtoList() {
 		return purchaseHistoryInfoDTOList;
 	}
-
 	public void setPurchaseHistoryInfoDtoList(List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList) {
 		this.purchaseHistoryInfoDTOList = purchaseHistoryInfoDtoList;
 	}
-
 	public Map<String, Object> getSession() {
 		return session;
 	}

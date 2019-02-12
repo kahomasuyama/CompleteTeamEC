@@ -18,7 +18,6 @@ public class PurchaseHistoryInfoDAO {
 		Connection connection = dbConnector.getConnection();
 		List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList = new ArrayList<PurchaseHistoryInfoDTO>();
 
-
 		String sql = "SELECT"
 				// ID ユーザーID 個数
 				+ " phi.id AS id,"

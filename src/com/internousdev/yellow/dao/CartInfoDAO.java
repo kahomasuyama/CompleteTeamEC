@@ -119,7 +119,6 @@ public class CartInfoDAO {
     		e.printStackTrace();
     	}
 
-
     	return totalPrice;
     }
 

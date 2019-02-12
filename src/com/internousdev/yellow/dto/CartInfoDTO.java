@@ -21,7 +21,6 @@ public class CartInfoDTO
 	private String status;
 	private int subtotal;
 
-
 	public int getId()
 	{
 		return id;
@@ -31,7 +30,6 @@ public class CartInfoDTO
 	{
 		this.id=id;
 	}
-
 
 	public String getUserId()
 	{
@@ -43,7 +41,6 @@ public class CartInfoDTO
 		this.userId=userId;
 	}
 
-
 	public String getTempUserId()
 	{
 		return tempUserId;
@@ -53,7 +50,6 @@ public class CartInfoDTO
 	{
 		this.tempUserId=tempUserId;
 	}
-
 
 	public int getProductId()
 	{
@@ -65,7 +61,6 @@ public class CartInfoDTO
 		this.productId=productId;
 	}
 
-
 	public int getProductCount()
 	{
 		return productCount;
@@ -75,7 +70,6 @@ public class CartInfoDTO
 	{
 		this.productCount=productCount;
 	}
-
 
 	public int getPrice()
 	{
@@ -87,7 +81,6 @@ public class CartInfoDTO
 		this.price=price;
 	}
 
-
 	public String getProductName()
 	{
 		return productName;
@@ -97,7 +90,6 @@ public class CartInfoDTO
 	{
 		this.productName=productName;
 	}
-
 
 	public String getProductNameKana()
 	{
@@ -119,7 +111,6 @@ public class CartInfoDTO
 	{
 		this.imageFilePath=imageFilePath;
 	}
-
 
 	public String getImageFileName()
 	{
@@ -153,7 +144,6 @@ public class CartInfoDTO
 		this.releaseCompany=releaseCompany;
 	}
 
-
 	public String getStatus()
 	{
 		return status;
@@ -163,7 +153,6 @@ public class CartInfoDTO
 	{
 		this.status=status;
 	}
-
 
 	public int getSubtotal()
 	{
