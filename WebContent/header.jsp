@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/yellow.css">
+		<link rel="stylesheet" href="./css/sitetitle.css">
 		<title>ヘッダー</title>
 		<script>
 			function goLoginAction()
