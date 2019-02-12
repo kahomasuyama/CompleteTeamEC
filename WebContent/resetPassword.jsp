@@ -40,7 +40,7 @@
 				</tr>
 				<tr>
 					<th scope="row"><s:label value="(再確認)"/></th>
-					<td><s:password name="reConfirmationPassword" placeholder="新しいパスワード(再確認)" class="txt"/></td>
+					<td><s:password name="reConfirmationPassword" placeholder="(再確認)" class="txt"/></td>
 				</tr>
 			</table>
 			<s:submit value="確認" class="submit_btn"/>
