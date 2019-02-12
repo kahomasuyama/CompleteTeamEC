@@ -36,39 +36,39 @@
 	</head>
 	<body>
 		<header>
-			<div class="header-menu">Yellow</div>
+			<div>Yellow</div>
 			<ul>
 				<s:form id="form" action="HomeAction">
 
 					<s:if test='#session.containsKey("mCategoryDtoList")'>
 						<li>
 							<s:if test='#session.containsKey("selectCategoryId")'>
-								<s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" value="#session.selectCategoryId" />
+								<s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" value="#session.selectCategoryId" class="categorySelect" />
 							</s:if>
 							<s:else>
-								<s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" />
+								<s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" class="categorySelect" />
 							</s:else>
 						</li>
 					</s:if>
 
-					<li><s:textfield name="searchWord" placeholder="検索ワード" /></li>
+					<li><s:textfield name="searchWord" placeholder="検索ワード" class="searchWordInput" /></li>
 
-					<li><s:submit class="submit_buttun" value="商品検索" onclick="goSearchItemAction();" /></li>
+					<li><s:submit value="商品検索" onclick="goSearchItemAction();" class="submit_buttun" /></li>
 
 					<s:if test="#session.logined == 1">
-						<li><s:submit class="submit_buttun" value="ログアウト" onclick="goLogoutAction();" /></li>
+						<li><s:submit value="ログアウト" onclick="goLogoutAction();" class="submit_buttun" /></li>
 					</s:if>
 
 					<s:else>
-						<li><s:submit class="submit_buttun" value="ログイン" onclick="goLoginAction();" /></li>
+						<li><s:submit value="ログイン" onclick="goLoginAction();" class="submit_buttun" /></li>
 					</s:else>
 
-					<li><s:submit class="submit_buttun" value="カート" onclick="goCartAction();" /></li>
+					<li><s:submit value="カート" onclick="goCartAction();" class="submit_buttun" /></li>
 
-					<li><s:submit class="submit_buttun" value="商品一覧" onclick="goProductListAction();" /></li>
+					<li><s:submit value="商品一覧" onclick="goProductListAction();" class="submit_buttun" /></li>
 
 					<s:if test="#session.logined == 1">
-						<li><s:submit class="submit_buttun" value="マイページ" onclick="goMyPageAction();" /></li>
+						<li><s:submit value="マイページ" onclick="goMyPageAction();" class="submit_buttun" /></li>
 					</s:if>
 
 				</s:form>

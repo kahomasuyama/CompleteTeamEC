@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/yellow.css">
 		<title>商品一覧画面</title>
 	</head>
 	<body>
@@ -13,7 +13,7 @@
 		<jsp:include page="header.jsp" />
 
 		<s:if test="!errorMsgList.isEmpty()">
-			<div>
+			<div class="errorMsgBox">
 				<s:iterator value="errorMsgList">
 					<s:property /><br>
 				</s:iterator>
@@ -26,9 +26,9 @@
 				検索結果がありません。
 			</s:if>
 			<s:else>
-				<ul>
+				<ul class="productList">
 					<s:iterator value="productInfoList">
-						<li>
+						<li class="productListBox">
 							<a href='<s:url action="ProductDetailsAction"> <s:param name="productId" value="%{productId}" /> </s:url>'>
 								<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' width="100" />
 							</a>

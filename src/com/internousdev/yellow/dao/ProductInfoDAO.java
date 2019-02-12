@@ -63,6 +63,7 @@ public class ProductInfoDAO
 				productInfoDTO.setProductId(resultSet.getInt("product_id"));
 				productInfoDTO.setProductName(resultSet.getString("product_name"));
 				productInfoDTO.setProductNameKana(resultSet.getString("product_name_kana"));
+				productInfoDTO.setProductDescription(resultSet.getString("product_description"));
 				productInfoDTO.setCategoryId(resultSet.getInt("category_id"));
 				productInfoDTO.setPrice(resultSet.getInt("price"));
 				productInfoDTO.setImageFilePath(resultSet.getString("image_file_path"));
@@ -123,6 +124,7 @@ public class ProductInfoDAO
 				productInfoDTO.setProductId(resultSet.getInt("product_id"));
 				productInfoDTO.setProductName(resultSet.getString("product_name"));
 				productInfoDTO.setProductNameKana(resultSet.getString("product_name_kana"));
+				productInfoDTO.setProductDescription(resultSet.getString("product_description"));
 				productInfoDTO.setCategoryId(resultSet.getInt("category_id"));
 				productInfoDTO.setPrice(resultSet.getInt("price"));
 				productInfoDTO.setImageFilePath(resultSet.getString("image_file_path"));
@@ -187,6 +189,7 @@ public class ProductInfoDAO
 				productInfoDTO.setProductId(resultSet.getInt("product_id"));
 				productInfoDTO.setProductName(resultSet.getString("product_name"));
 				productInfoDTO.setProductNameKana(resultSet.getString("product_name_kana"));
+				productInfoDTO.setProductDescription(resultSet.getString("product_description"));
 				productInfoDTO.setCategoryId(resultSet.getInt("category_id"));
 				productInfoDTO.setPrice(resultSet.getInt("price"));
 				productInfoDTO.setImageFilePath(resultSet.getString("image_file_path"));
@@ -303,6 +306,7 @@ public class ProductInfoDAO
 				productInfoDTO.setProductId(resultSet.getInt("product_id"));
 				productInfoDTO.setProductName(resultSet.getString("product_name"));
 				productInfoDTO.setProductNameKana(resultSet.getString("product_name_kana"));
+				productInfoDTO.setProductDescription(resultSet.getString("product_description"));
 				productInfoDTO.setCategoryId(resultSet.getInt("category_id"));
 				productInfoDTO.setPrice(resultSet.getInt("price"));
 				productInfoDTO.setImageFilePath(resultSet.getString("image_file_path"));
