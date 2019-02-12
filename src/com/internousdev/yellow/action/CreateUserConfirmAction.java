@@ -48,7 +48,6 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		errorMsgList.addAll(inputChecker.doCheck("ユーザーID", loginId, 1, 8, true, false, false, true, false, false, false, false, false));
 		errorMsgList.addAll(inputChecker.doCheck("パスワード", password, 1, 16, true, false, false, true, false, false, false, false, false));
 
-
 		//	エラーがないのならば
 		if(!errorMsgList.isEmpty())
 		{
@@ -61,7 +60,6 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		{
 			errorMsgList.add("使用できないユーザーIDです。");
 		}
-
 
 		if(errorMsgList.isEmpty())
 		{
