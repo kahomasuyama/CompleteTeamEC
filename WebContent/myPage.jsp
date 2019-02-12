@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/myPage.css">
+<link rel="stylesheet" href="./css/yellow.css">
 <title>マイページ</title>
 </head>
 <body>
