@@ -7,7 +7,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/yellow.css">
   <title>宛先情報入力</title>
 </head>
 
@@ -17,7 +17,7 @@
      <h1>宛先情報入力画面</h1>
 
      <s:if test="!errorMsgList.isEmpty()">
-	   <div class="error">
+	   <div class="errorMsgBox">
 		 <div class="error-message">
 		   <s:iterator value="errorMsgList"><s:property /><br></s:iterator>
 		  </div>
@@ -63,9 +63,7 @@
     </table>
 
   <div class="submit_btn_box">
-    <div id=".contents-btn-set">
-      <s:submit value="確認" class="submit_btn" />
-    </div>
+      <s:submit value="確認" class="submit_buttun" />
   </div>
 
   </s:form>

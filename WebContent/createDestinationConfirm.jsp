@@ -7,7 +7,7 @@
 <html>
 <head>
  <meta charset="UTF-8">
- <link rel="stylesheet" href="./css/style.css">
+ <link rel="stylesheet" href="./css/yellow.css">
  <title>宛先情報確認</title>
 
 		<script>
@@ -61,13 +61,13 @@
 
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
-						<s:submit value="登録" onclick="goCreateDestinationCompleteAction()" class="submit_btn" />
+						<s:submit value="登録" onclick="goCreateDestinationCompleteAction()" class="submit_buttun" />
 					</div>
 				</div>
 
 				<div class="submit_btn_box">
 					<div id=".contents-btn-set">
-						<s:submit value="戻る" onclick="goCreateDestinationAction()" class="submit_btn" />
+						<s:submit value="戻る" onclick="goCreateDestinationAction()" class="submit_buttun" />
 					</div>
 				</div>
 

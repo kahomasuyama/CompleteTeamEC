@@ -8,7 +8,7 @@
 <head>
  <meta charset="UTF-8">
  <meta http-equiv="refresh" content="3;URL='SettlementConfirmAction'"/>
- <link rel="stylesheet" href="./css/style.css">
+ <link rel="stylesheet" href="./css/yellow.css">
 
  <title>宛先情報入力完了</title>
 
