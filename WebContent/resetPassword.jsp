@@ -15,7 +15,7 @@
 		<jsp:include page="header.jsp"/>
 
 		<div id="contents">
-			<h1>パスワード再設定画面</h1>
+			<h1 class="pageTitle">パスワード再設定画面</h1>
 			<s:if test="!errorMsgList.isEmpty()">
 				<div class="error">
 					<div class="errorMsgBox">
@@ -25,7 +25,7 @@
 			</s:if>
 
 			<s:form action="ResetPasswordConfirmAction">
-				<table class="vertical-list-table">
+				<table class="inputTable">
 					<tr>
 						<th scope="row"><s:label value="ユーザーID"/></th>
 						<td><s:textfield name="loginId" placeholder="ユーザーID" class="txt" value="%{userId}"/></td>
@@ -43,8 +43,8 @@
 						<td><s:password name="reConfirmationPassword" placeholder="(再確認)" class="txt"/></td>
 					</tr>
 				</table>
-				<div class="submit_btn_box">
-					<s:submit value="確認" class="submit_buttun"/>
+				<div class="button_box">
+					<s:submit value="確認" class="button"/>
 				</div>
 			</s:form>
 		</div>

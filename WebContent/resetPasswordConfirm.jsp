@@ -23,22 +23,22 @@
 		<jsp:include page="header.jsp" />
 
 		<div id="contents">
-			<h1>パスワード再設定確認画面</h1>
+			<h1 class="pageTitle">パスワード再設定確認画面</h1>
 			<s:form id="resetPassword_form" action="ResetPasswordCompleteAction">
-				<table class="vertical-list-table">
+				<table class="inputTable">
 					<tr>
 						<th>ユーザーID：<s:property value="loginId" /><br></th>
 						<s:hidden name="userId" value="%{loginId}"/>
 					</tr>
 					<tr>
-						<th>新しいパスワード:<s:property value="concealedPassword"/><br></th>
+						<th>新しいパスワード：<s:property value="concealedPassword"/><br></th>
 					</tr>
 				</table>
-				<div class="submit_btn_box">
-					<s:submit value="戻る" class="submit_buttun" onclick="goResetPasswordAction();" />
+				<div class="button_box">
+					<s:submit value="戻る" class="button" onclick="goResetPasswordAction();" />
 				</div>
-				<div class="submit_btn_box">
-					<s:submit value="パスワード再設定" class="submit_buttun" onclick="goResetPasswordCompleteAction();" />
+				<div class="button_box">
+					<s:submit value="パスワード再設定" class="button" onclick="goResetPasswordCompleteAction();" />
 				</div>
 			</s:form>
 		</div>
