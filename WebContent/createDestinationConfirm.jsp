@@ -23,11 +23,10 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" />
-	<div id="contents">
-		<h1>宛先情報入力確認画面</h1>
+		<h1 class="pageTitle">宛先情報入力確認画面</h1>
 
 		<s:form id="destinationForm" action="">
-		<table class="vertical-list-table">
+		<table class="inputTable">
 		<tr>
 			<th scope="row"><s:label value="姓"/></th>
 			<td><s:property value="familyName"/></td>
@@ -59,16 +58,12 @@
 		</tr>
 	</table>
 
-	<div class="submit_btn_box">
-		<div id=".contents-btn-set">
+	<div class="button_box">
 			<s:submit value="登録" onclick="goCreateDestinationCompleteAction()" class="submit_buttun" />
-		</div>
 	</div>
 
-	<div class="submit_btn_box">
-		<div id=".contents-btn-set">
+	<div class="button_box">
 			<s:submit value="戻る" onclick="goCreateDestinationAction()" class="submit_buttun" />
-		</div>
 	</div>
 
 		<s:hidden name="loginId" value="%{loginId}"/>
@@ -82,6 +77,5 @@
 		<s:hidden name="email" value="%{email}"/>
 
 	</s:form>
-	</div>
 </body>
 </html>

@@ -13,8 +13,7 @@
 
 <body>
 <jsp:include page="header.jsp" />
-	<div id="contents">
-	<h1>宛先情報入力画面</h1>
+	<h1 class="pageTitle">宛先情報入力画面</h1>
 
 	<s:if test="!errorMsgList.isEmpty()">
 	<div class="errorMsgBox">
@@ -25,7 +24,7 @@
 	</s:if>
 
 	<s:form action="CreateDestinationConfirmAction">
-	<table class="vertical-list-table">
+	<table class="inputTable">
 	<tr>
 		<th scope="row"><s:label value="姓"/></th>
 		<td><s:textfield name="familyName" value="%{familyName}" placeholder="姓" class="txt" /></td>
@@ -62,8 +61,8 @@
 	</tr>
 	</table>
 
-	<div class="submit_btn_box">
-		<s:submit value="確認" class="submit_buttun" />
+	<div class="button_box">
+		<s:submit value="確認" class="button" />
 	</div>
 
 	</s:form>

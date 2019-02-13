@@ -191,6 +191,15 @@ table.inputTable td input
 	border-bottom: 1px solid #ccc;
 }
 
+table.inputTable td input[type="radio"]
+{
+	width: 10%;
+	padding: 10px;
+	vertical-align: top;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
 table.inputTable, th, td
 {
 	margin : 3%;

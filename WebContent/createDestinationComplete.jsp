@@ -16,12 +16,10 @@
 
 <body>
 <jsp:include page="header.jsp" />
-	<div id="contents">
-	<h1>宛先情報入力完了画面</h1>
+	<h1 class="pageTitle">宛先情報入力完了画面</h1>
 
-	<div class="success">
+	<div class="completeMsgBox">
 		宛先情報入力が完了しました。
-	</div>
 	</div>
 
 </body>
