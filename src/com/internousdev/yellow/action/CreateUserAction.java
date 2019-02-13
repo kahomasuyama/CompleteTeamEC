@@ -47,7 +47,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware
 		{
 			sex = MALE;
 		}
-		else if(sex.equals("1"))
+		else
 		{
 			sex = FEMALE;
 		}
@@ -134,14 +134,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware
 	{
 		this.password = password;
 	}
-	public String getDefaultSexValue()
-	{
-		return defaultSexValue;
-	}
-	public void setDefaultSexValue(String defaultSexValue)
-	{
-		this.defaultSexValue = defaultSexValue;
-	}
+
 	public Map<String, Object> getSession()
 	{
 		return session;

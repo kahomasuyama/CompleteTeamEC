@@ -18,7 +18,6 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 	private String email;
 	private String loginId;
 	private String password;
-	private String categoryId;
 
 	//	Session
 	private Map<String,Object> session;
@@ -45,14 +44,6 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 		}
 	}
 
-	public String getCategoryId() 
-	{
-		return categoryId;
-	}
-	public void setCategoryId(String categoryId) 
-	{
-		this.categoryId = categoryId;
-	}
 	public String getFamilyName() 
 	{
 		return familyName;
