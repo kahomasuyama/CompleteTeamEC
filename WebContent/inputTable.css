@@ -1,6 +1,6 @@
 @chaset "UTF-8";
 
-table.vertical-list-table
+table.inputTable
 {
 	width: 90%;
 	border-collapse: separate;
@@ -12,7 +12,7 @@ table.vertical-list-table
 	border-left: 1px solid #ccc;
 }
 
-table.vertical-list-table th
+table.inputTable th
 {
 	width: 25%;
 	padding: 10px;
@@ -26,7 +26,7 @@ table.vertical-list-table th
 	color:#ffffff;
 }
 
-table.vertical-list-table td
+table.inputTable td
 {
 	width: 75%;
 	padding: 10px;
@@ -35,7 +35,7 @@ table.vertical-list-table td
 	border-bottom: 1px solid #ccc;
 }
 
-table.vertical-list-table td input
+table.inputTable td input
 {
 	width: 95%;
 	padding: 10px;
@@ -44,7 +44,7 @@ table.vertical-list-table td input
 	border-bottom: 1px solid #ccc;
 }
 
-table.vertical-list-table, th, td
+table.inputTable, th, td
 {
 	margin : 3%;
 	border-collapse: collapse;
@@ -52,7 +52,7 @@ table.vertical-list-table, th, td
 	line-height: 1.5;
 }
 
-table.vertical-list-table-mini
+table.inputTable-mini
 {
 	width: 100%;
 	border-collapse: separate;
@@ -64,7 +64,7 @@ table.vertical-list-table-mini
 	border-left: 1px solid #ccc;
 }
 
-table.vertical-list-table-mini th
+table.inputTable-mini th
 {
 	width: 35%;
 	padding: 10px;
@@ -78,7 +78,7 @@ table.vertical-list-table-mini th
 	color:#ffffff;
 }
 
-table.vertical-list-table-mini td
+table.inputTable-mini td
 {
 	width: 65%;
 	padding: 10px;
