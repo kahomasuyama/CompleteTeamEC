@@ -255,7 +255,7 @@ table.inputTable-mini td
 	 padding:5px;
 	 font-family:;
 	 color:blue;
-	 
+
 }
 
 .errorMsgBox{
@@ -278,4 +278,8 @@ table.inputTable-mini td
 	font-family:;
 	font-size:10px;
 	color:blue;
+}
+.userIdCheckBox{
+	color:gray;
+	margin-left:20px;
 }

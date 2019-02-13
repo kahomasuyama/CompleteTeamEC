@@ -25,7 +25,7 @@
 	<body>
 		<jsp:include page="header.jsp"/>
 		<div id="contents">
-			<h1>ログイン画面</h1>
+			<h1 class="pageTitle">ログイン画面</h1>
 			<s:form id="form" action="LoginAction">
 				<s:if test="errorMsgList != null && !errorMsgList.isEmpty()">
 					<div class="error">
@@ -35,9 +35,9 @@
 					</div>
 				</s:if>
 
-				<table class="vertcal-list-table">
+				<table class="inputTable">
 					<tr>
-						<th scope="row"><s:label value="ユーザーID:"/></th>
+						<th scope="row"><s:label value="ユーザーID："/></th>
 						<s:if test="#session.savedLoginId">
 							<td><s:textfield name="loginId" class="txt" placeholder="ユーザーID" value='%{#session.loginId}' autocomplete="off"/></td>
 						</s:if>
@@ -46,11 +46,11 @@
 						</s:else>
 					</tr>
 					<tr>
-						<th scope="row"><s:label value="パスワード:"/></th>
+						<th scope="row"><s:label value="パスワード："/></th>
 						<td><s:password name="password" class="txt" placeholder="パスワード" autocomplete="off"/></td>
 					</tr>
 				</table>
-				<div class="box">
+				<div class="userIdCheckBox">
 					<s:if test="#session.savedLoginId">
 						<s:checkbox name="savedLoginId" checked="checked"/>
 					</s:if>
@@ -59,22 +59,21 @@
 					</s:else>
 					<s:label value="ユーザーID保存"/><br>
 				</div>
-				<div class="submit_btn_box">
-					<s:submit value="ログイン" class="submit_buttun" onclick="goLoginAction();"/>
+				<div class="button_box">
+					<s:submit value="ログイン" class="button" onclick="goLoginAction();"/>
 				</div>
 			</s:form>
-			<br>
-			<div class="submit_btn_box">
+			<div class="button_box">
 				<div id=".contents-btn-set">
 					<s:form action="CreateUserAction">
-						<s:submit value="新規ユーザー登録" class="submit_buttun"/>
+						<s:submit value="新規ユーザー登録" class="button"/>
 					</s:form>
 				</div>
 			</div>
-			<div class="submit_btn_box">
+			<div class="button_box">
 				<div id=".contents-btn-set">
 					<s:form action="ResetPasswordAction">
-						<s:submit value="パスワード再設定" class="submit_buttun"/>
+						<s:submit value="パスワード再設定" class="button"/>
 					</s:form>
 				</div>
 			</div>
