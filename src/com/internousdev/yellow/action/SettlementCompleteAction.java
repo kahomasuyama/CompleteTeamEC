@@ -13,7 +13,8 @@ import com.internousdev.yellow.dto.CartInfoDTO;
 import com.internousdev.yellow.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class SettlementCompleteAction extends ActionSupport implements SessionAware{
+public class SettlementCompleteAction extends ActionSupport implements SessionAware
+{
 
 	private String id;
 	private Map<String, Object> session;

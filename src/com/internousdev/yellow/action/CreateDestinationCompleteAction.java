@@ -7,7 +7,8 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.yellow.dao.DestinationInfoDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class CreateDestinationCompleteAction extends ActionSupport implements SessionAware{
+public class CreateDestinationCompleteAction extends ActionSupport implements SessionAware
+{
 	private String familyName;
 	private String firstName;
 	private String familyNameKana;
