@@ -207,7 +207,6 @@ public class UserInfoDAO
 		//	SQLを作成
 		String sql = "UPDATE user_info SET password = ? WHERE user_id = ?";
 
-
 		int result= 0;
 
 		//	SQLを実行
@@ -281,7 +280,7 @@ public class UserInfoDAO
 	{
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
-
+		
 		int result=0;
 
 		//	SQLを作成
@@ -310,8 +309,6 @@ public class UserInfoDAO
             	e.printStackTrace();
             }
 		}
-
 		return result;
 	}
-
 }
