@@ -103,12 +103,12 @@ public class LoginAction extends ActionSupport implements SessionAware
 					//home.jspへ飛ぶ
 					result=SUCCESS;
 				}
+				session.put("logined", 1);
 			}
 			else
 			{
 				errorMsgList.add("ユーザーIDまたはパスワードが異なります。");
 			}
-			session.put("logined", 1);
 		}
 		else
 		{

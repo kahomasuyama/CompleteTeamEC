@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/yellow.css">
-		<title>ホーム</title>
+		<title>ホーム画面</title>
 	</head>
 	<body>
 
