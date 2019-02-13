@@ -29,7 +29,7 @@
 			<s:form id="form" action="LoginAction">
 				<s:if test="errorMsgList != null && !errorMsgList.isEmpty()">
 					<div class="error">
-						<div class="error-message">
+						<div class="errorMsgBox">
 							<s:iterator value="errorMsgList"><s:property /><br></s:iterator>
 						</div>
 					</div>
