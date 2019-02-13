@@ -13,34 +13,34 @@
 <div id="contents">
 <h1>マイページ画面</h1>
 	<s:form action="MyPageAction">
-		<s:if test="userInfoDTO.isEmpty()">
+		<s:if test="userInfoDTO == null">
 				ユーザー情報がありません。
 			</s:if>
 			<s:else>
 	<table class="vertical-list-table">
 		<tr>
 			<th><s:label value="姓"/></th>
-			<td><s:property value="#session.familyName"/></td>
+			<td><s:property value="userInfoDTO.familyName"/></td>
 		</tr>
 
 		<tr>
 			<th><s:label value="名"/></th>
-			<td><s:property value="#session.firstName"/></td>
+			<td><s:property value="userInfoDTO.firstName"/></td>
 		</tr>
 
 		<tr>
 			<th><s:label value="ふりがな"/></th>
-			<td><s:property value="#session.familyNameKana"/><span> </span><s:property value="#session.firstNameKana"/></td>
+			<td><s:property value="userInfoDTO.familyNameKana"/><span> </span><s:property value="userInfoDTO.firstNameKana"/></td>
 		</tr>
 
 		<tr>
 			<th><s:label value="性別"/></th>
-			<td><s:if test="#session.sex==0">男性</s:if><s:if test="#session.sex==1">女性</s:if></td>
+			<td><s:if test="userInfoDTO.sex==0">男性</s:if><s:if test="userInfoDTO.sex==1">女性</s:if></td>
 		</tr>
 
 		<tr>
 			<th><s:label value="メールアドレス"/></th>
-			<td><s:property value="#session.email"/></td>
+			<td><s:property value="userInfoDTO.email"/></td>
 		</tr>
 	</table>
 	<div class="submit_btn_box">

@@ -25,39 +25,26 @@ public class MyPageAction extends ActionSupport implements SessionAware
 
 		userInfoDTO = userInfoDAO.getUserInfo(String.valueOf(session.get("loginId")));
 
-		if(userInfoDTO!=null)
-		{
-			session.put("familyName", userInfoDTO.getFamilyName());
-			session.put("firstName", userInfoDTO.getFirstName());
-			session.put("familyNameKana", userInfoDTO.getFamilyNameKana());
-			session.put("firstNameKana", userInfoDTO.getFirstNameKana());
-			session.put("sex", userInfoDTO.getSex());
-			session.put("email", userInfoDTO.getEmail());
 
-			return SUCCESS;
-		}
-		else
-		{
-			return ERROR;
-		}
+		return SUCCESS;
 	}
 
-	public Map<String, Object> getSession() 
+	public Map<String, Object> getSession()
 	{
 		return session;
 	}
 	@Override
-	public void setSession(Map<String, Object> session) 
+	public void setSession(Map<String, Object> session)
 	{
 		this.session = session;
 	}
 
-	public UserInfoDTO getUserInfoDTO() 
+	public UserInfoDTO getUserInfoDTO()
 	{
 		return userInfoDTO;
 	}
 
-	public void setUserInfoDTO(UserInfoDTO userInfoDTO) 
+	public void setUserInfoDTO(UserInfoDTO userInfoDTO)
 	{
 		this.userInfoDTO = userInfoDTO;
 	}

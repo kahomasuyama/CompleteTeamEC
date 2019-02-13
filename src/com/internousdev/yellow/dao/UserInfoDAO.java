@@ -118,7 +118,7 @@ public class UserInfoDAO
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 
-			while(resultSet.next())
+			if(resultSet.next())
 			{
 				userInfoDTO.setId(resultSet.getInt("id"));
 				userInfoDTO.setUserId(resultSet.getString("user_id"));
@@ -133,6 +133,10 @@ public class UserInfoDAO
 				userInfoDTO.setLogined(resultSet.getInt("logined"));
 				userInfoDTO.setRegistDate(resultSet.getDate("regist_date"));
 				userInfoDTO.setUpdateDate(resultSet.getDate("update_date"));
+			}
+			else
+			{
+				userInfoDTO=null;
 			}
 		}
 		catch(SQLException e)
@@ -280,7 +284,7 @@ public class UserInfoDAO
 	{
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
-		
+
 		int result=0;
 
 		//	SQLを作成
