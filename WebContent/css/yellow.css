@@ -267,3 +267,24 @@ table.inputTable-mini td
 	font-size:10px;
 	color:red;
 }
+.errorMsgBox{
+	text-align:center;
+	background-color:pink;
+	margin:5px;
+	padding: 15px;
+	border: 1px solid red;
+	font-family:;
+	font-size:10px;
+	color:red;
+}
+
+.notFoundMsgBox{
+	text-align:center;
+	background-color:lightblue;
+	margin:5px;
+	padding: 15px;
+	border: 1px solid blue;
+	font-family:;
+	font-size:10px;
+	color:blue;
+}
