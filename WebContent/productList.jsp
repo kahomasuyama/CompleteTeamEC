@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/yellow.css">
+		<link rel="stylesheet" href="./css/notFoundMsg.css">
 		<title>商品一覧画面</title>
 	</head>
 	<body>
