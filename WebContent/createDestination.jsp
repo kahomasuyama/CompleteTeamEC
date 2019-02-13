@@ -66,7 +66,6 @@
 	</div>
 
 	</s:form>
-	</div>
 
 </body>
 </html>
