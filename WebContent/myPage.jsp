@@ -13,7 +13,7 @@
 <div id="contents">
 <h1>マイページ画面</h1>
 	<s:form action="MyPageAction">
-		<s:if test="userInfoDTO == null">
+		<s:if test="userInfoDTO.isEmpty()">
 				ユーザー情報がありません。
 			</s:if>
 			<s:else>
@@ -50,6 +50,5 @@
 
 	</s:form>
 </div>
-	<s:include value="footer.jsp"/>
 </body>
 </html>
