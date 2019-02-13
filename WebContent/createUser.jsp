@@ -5,7 +5,7 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/pagetitle.css">
+		<link rel="stylesheet" href="./css/pageTitle.css">
 		<title>ユーザー情報入力画面</title>
 		<link rel="stylesheet" href="./css/yellow.css">
 	</head>
@@ -13,7 +13,7 @@
 		<jsp:include page="header.jsp" />
 
 		<div id="contents">
-			<h1>ユーザー情報入力画面</h1>
+			<h1 class="pageTitle">ユーザー情報入力画面</h1>
 
 			<s:if test="!errorMsgList.isEmpty()" >
 				<div class="error">
@@ -24,7 +24,7 @@
 			</s:if>
 
 			<s:form action="CreateUserConfirmAction" theme="simple">
-				<table class="vertical-list-table">
+				<table class="inputTable">
 					<tr>
 						<th scope="row">姓</th>
 						<td><s:textfield name="familyName" value="%{familyName}" placeholder="姓" class="txt" /></td>
@@ -58,9 +58,9 @@
 						<td><s:textfield name="password" value="" placeholder="パスワード" class="txt" /></td>
 					</tr>
 				</table>
-				<div class="submit_btn_box">
+				<div class="button_box">
 					<div id=".contents-btn-set">
-						<s:submit value="確認" class="submit_buttun" />
+						<s:submit value="確認" class="button" />
 					</div>
 				</div>
 			</s:form>

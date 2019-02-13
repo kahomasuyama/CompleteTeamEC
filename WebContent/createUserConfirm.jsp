@@ -23,9 +23,9 @@
 		<jsp:include page="header.jsp" />
 
 		<div id="contents">
-			<h1>ユーザー情報入力確認画面</h1>
+			<h1 class="pageTitle">ユーザー情報入力確認画面</h1>
 			<s:form id="s_form">
-				<table class="vertical-list-table">
+				<table class="inputTable">
 					<tr>
 						<th scope="row"><s:label value="姓"/></th>
 						<td><s:property value="familyName"/></td>
@@ -59,10 +59,10 @@
 						<td><s:property value="password"/></td>
 					</tr>
 				</table>
-				<div class="submit_btn_box">
+				<div class="button_box">
 					<div id=".contents-btn-set">
-					    <s:submit value="戻る" onclick="goCreateUserAction()"  class="submit_buttun"/>
-						<s:submit value="登録" onclicK="goCreateUserCompleteAction()" class="submit_buttun" />
+					    <s:submit value="戻る" onclick="goCreateUserAction()"  class="button"/>
+						<s:submit value="登録" onclicK="goCreateUserCompleteAction()" class="button" />
 					</div>
 				</div>
 

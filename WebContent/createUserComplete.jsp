@@ -21,7 +21,7 @@
 		<jsp:include page="header.jsp" />
 
 		<div id="contents">
-			<h1>ユーザー情報入力完了画面</h1>
+			<h1 class="pageTitle">ユーザー情報入力完了画面</h1>
 			<div class="completeMsgBox">
 				ユーザー情報入力が完了しました。
 			</div>
