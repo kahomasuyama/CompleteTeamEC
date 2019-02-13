@@ -1,11 +1,14 @@
 @CHARSET "UTF-8";
 
 table.vertical-list-table{
-	width:90%;
-	padding:10px;
+	border-spacing:0;
+	width:50%;
+}
+table.vertical-list-table th{
+	width:150px;
+	text-align:left;
 	font-weight:bold;
 	font-size:0.8em;
-	text-align:center;
 	vertical-align:top;
 	background-color:#005392;
 	color:#ffffff;

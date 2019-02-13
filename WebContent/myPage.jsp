@@ -5,13 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/yellow.css">
+<link rel="stylesheet" href="./css/myPage.css">
 <title>マイページ</title>
 </head>
 <body>
 <jsp:include page="header.jsp" />
 <div id="contents">
-<h1>マイページ画面</h1>
+<h1 class="pageTitle">マイページ画面</h1>
 	<s:form action="MyPageAction">
 		<s:if test="userInfoDTO == null">
 				ユーザー情報がありません。
@@ -44,7 +44,7 @@
 		</tr>
 	</table>
 	<div class="submit_btn_box">
-	<input type="button" value="購入履歴" onClick="location.href='PurchaseHistoryAction'">
+	<input type="button" value="購入履歴" onClick="location.href='PurchaseHistoryAction'" class="button">
 	</div>
 	</s:else>
 
