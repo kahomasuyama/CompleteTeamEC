@@ -29,8 +29,8 @@ h1
 
 .item-image-box-320
 {
-	width:350px;
-	height:350px;
+	width : 100%;
+	height : 320px;
 }
 
 .left
@@ -55,7 +55,7 @@ h1
 	padding:7px;
 }
 
-.product-details-recomend-box
+.relatedProductListBox
 {
 	margin-top:35px;
 	margin-left:200px;

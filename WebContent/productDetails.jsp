@@ -22,7 +22,7 @@
 			<s:else>
 				<s:form action="AddCartAction" theme="simple">
 
-					<div class="box">
+					<div class="productDetails">
 						<div class="2coulm-container">
 
 							<div class="right">
@@ -81,7 +81,7 @@
 				</s:form>
 				<!-- 関連商品 -->
 			<div class="box">
-				<div class="product-details-recomend-box">
+				<div class="relatedProductListBox">
 					<s:iterator value="productInfoDtoList">
 						<div class="recommend-box">
 							<a href='<s:url action="ProductDetailsAction"> <s:param name="productId" value="%{productId}"/> </s:url>'>
