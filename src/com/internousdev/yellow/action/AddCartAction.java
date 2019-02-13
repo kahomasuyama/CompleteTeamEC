@@ -40,7 +40,6 @@ public class AddCartAction extends ActionSupport implements SessionAware
 			session.put("tempUserId", commonUtility.getRamdomValue());
 		}
 
-
 		if(session.containsKey("loginId"))
 		{
 			userId=String.valueOf(session.get("loginId"));

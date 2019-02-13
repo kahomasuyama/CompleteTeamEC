@@ -101,7 +101,6 @@ public class CartInfoDTO
 		this.productNameKana=productNameKana;
 	}
 
-
 	public String getImageFilePath()
 	{
 		return imageFilePath;
