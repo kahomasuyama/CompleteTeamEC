@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href=".css/style.css">
+		<link rel="stylesheet" href=".css/yellow.css">
 		<title>カート画面</title>
 		<script>
 			function checkValue(check)
