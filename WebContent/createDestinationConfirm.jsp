@@ -59,11 +59,11 @@
 	</table>
 
 	<div class="button_box">
-			<s:submit value="登録" onclick="goCreateDestinationCompleteAction()" class="submit_buttun" />
+			<s:submit value="登録" onclick="goCreateDestinationCompleteAction()" class="button" />
 	</div>
 
 	<div class="button_box">
-			<s:submit value="戻る" onclick="goCreateDestinationAction()" class="submit_buttun" />
+			<s:submit value="戻る" onclick="goCreateDestinationAction()" class="button" />
 	</div>
 
 		<s:hidden name="loginId" value="%{loginId}"/>
