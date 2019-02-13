@@ -7,14 +7,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/yellow.css">
-		<title>商品詳細画面</title>
+		<title>商品詳細</title>
 	</head>
 	<body>
 
 		<jsp:include page="header.jsp" />
 
 		<div id="contents">
-			<h1>商品詳細画面</h1>
+			<h1 class="pageTitle">商品詳細画面</h1>
 
 			<s:if test="productInfoDTO == null">
 				商品の詳細情報がありません
@@ -23,14 +23,12 @@
 				<s:form action="AddCartAction" theme="simple">
 
 					<div class="productDetails">
-						<div class="2coulm-container">
-
-							<div class="right">
-								<img src='<s:property value="%{productInfoDTO.imageFilePath}"/>/<s:property value="%{productInfoDTO.imageFileName}"/>' class="item-image-box-320" width="100" /><br>
+							<div class="left">
+								<img src='<s:property value="%{productInfoDTO.imageFilePath}"/>/<s:property value="%{productInfoDTO.imageFileName}"/>' /><br>
 							</div>
 
-							<div class="left">
-								<table class="vertical-list-table-mini">
+							<div class="right">
+								<table class="inputTable-mini">
 									<tr>
 										<th scope="row"><s:label value="商品名" /></th>
 										<td><s:property value="%{productInfoDTO.productName}" /></td>
@@ -61,7 +59,6 @@
 									</tr>
 								</table>
 							</div>
-						</div>
 
 						<s:hidden name="productId" value="%{productInfoDTO.productId}" />
 						<s:hidden name="productName" value="%{productInfoDTO.productName}" />
@@ -74,24 +71,24 @@
 						<s:hidden name="productDescription" value="%{productInfoDTO.productDescription}" />
 					</div>
 
-					<div class="submit_btn_box">
-						<s:submit value="カートに追加" class="submit_btn" />
+					<div class="button_box">
+						<s:submit value="カートに追加" class="button" />
 					</div>
 
 				</s:form>
 				<!-- 関連商品 -->
-			<div class="box">
-				<div class="relatedProductListBox">
+				<ul class="productList">
 					<s:iterator value="productInfoDtoList">
-						<div class="recommend-box">
-							<a href='<s:url action="ProductDetailsAction"> <s:param name="productId" value="%{productId}"/> </s:url>'>
-								<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' class="item-image-box-100" width="100" />
-							</a>
-							<s:property value="productName" /><br>
-						</div>
+						<li>
+							<div class="relatedProductBox">
+								<a href='<s:url action="ProductDetailsAction"> <s:param name="productId" value="%{productId}"/> </s:url>'>
+									<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' />
+								</a>
+								<s:property value="productName" /><br>
+							</div>
+						</li>
 					</s:iterator>
-				</div>
-			</div>
+				</ul>
 			</s:else>
 
 		</div>

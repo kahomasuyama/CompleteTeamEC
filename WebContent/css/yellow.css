@@ -283,3 +283,40 @@ table.inputTable-mini td
 	color:gray;
 	margin-left:20px;
 }
+
+.2coulm-container {
+	width: 100%;
+	height: 50px;
+	border: 1px solid black;
+	background-color: red;
+}
+
+.left img{
+	width: 100%;
+	height: 100%;
+}
+
+.left{
+	padding: 30px;
+
+	float:left;
+
+	width: 30%;
+	height: 100%;
+}
+
+.right {
+	padding: 30px;
+
+	float:left;
+
+	width: 40%;
+	height: 100%;
+
+}
+
+.relatedProductBox
+{
+	margin: 0 auto;
+	width:200px;
+}
