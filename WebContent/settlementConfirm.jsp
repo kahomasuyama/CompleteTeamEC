@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/yellow.css">
-		<title>決済確認</title>
+		<title>決済確認画面</title>
 	</head>
 	<body>
 
@@ -25,7 +25,7 @@
 						<thead>
 							<tr>
 								<th><s:label value="#"/></th>
-									<th><s:label value="姓"/></th>
+								<th><s:label value="姓"/></th>
 								<th><s:label value="名"/></th>
 								<th><s:label value="ふりがな"/></th>
 								<th><s:label value="住所"/></th>
