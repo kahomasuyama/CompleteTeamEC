@@ -13,7 +13,7 @@
 		<jsp:include page="header.jsp" />
 
 		<div id="contents">
-			<h1>決済確認画面</h1>
+			<h1 class="pageTitle">決済確認画面</h1>
 			<s:if test="!#session.destinationInfoDtoList.isEmpty()">
 
 				<div class="info">
@@ -21,7 +21,7 @@
 				</div>
 				<s:form id="form" action="SettlementCompleteAction" >
 					<h3>お届け先住所</h3>
-					<table class="vertical-list-table">
+					<table class="inputTable">
 						<thead>
 							<tr>
 								<th><s:label value="#"/></th>
@@ -67,25 +67,24 @@
 						</tbody>
 					</table>
 
-					<div class="submit_btn_box">
-						<div id="contents-btn-set">
-							<s:submit value="決済" class="submit_buttun"/>
+					<div class="button_box">
+						
+							<s:submit value="決済" class="button"/>
 						</div>
-					</div>
 				</s:form>
 			</s:if>
 			<s:else>
-				<div class="info">
+				<div class="notFoundMsgBox">
 					宛先情報がありません。
 				</div>
 			</s:else>
 
-			<div class="submit_btn_box">
-				<div id=".contents-btn-set">
+			<div class="button_box">
+				
 					<s:form action="CreateDestinationAction">
-						<s:submit value="新規宛先登録" class="submit_buttun"/>
+						<s:submit value="新規宛先登録" class="button"/>
 					</s:form>
-				</div>
+				
 			</div>
 
 		</div>

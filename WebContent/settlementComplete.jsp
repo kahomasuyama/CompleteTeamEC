@@ -6,7 +6,7 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/yellow.css">
 		<meta http-equiv="refresh" content="3;URL='HomeAction'"/>
 		<title>決済完了画面</title>
 	</head>
@@ -16,7 +16,7 @@
 	<jsp:include page="header.jsp" />
 
 	<div id="contents">
-		<h1>決済完了画面</h1>
+		<h1 class="pageTitle">決済完了画面</h1>
 
 		<div class="success">
 			決済が完了しました。
