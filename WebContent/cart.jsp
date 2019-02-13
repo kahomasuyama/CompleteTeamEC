@@ -36,7 +36,6 @@
 	</head>
 	<body>
 		<jsp:include page="header.jsp" />
-		<div id="contents">
 			<h1 class="pageTitle">カート画面</h1>
 			<s:if test="#session.cartInfoDtoList.size()>0">
 				<s:form id="form" action="SettlementConfirmAction">
@@ -80,29 +79,24 @@
 							</s:iterator>
 						</tbody>
 					</table>
-					<h2>
+					<h2 class="totalPrice">
 						<s:label value="カート合計金額 :" />
 						<s:property value="#session.totalPrice" />円
 					</h2>
 					<br>
 					<div class="button_box">
-						<div id=".contents-btn-set">
 							<s:submit value="決済" class="button" />
-						</div>
 					</div>
 
 					<div class="button_box">
-						<div id=".contents-btn-set">
 							<s:submit value="削除" id="delete_btn" class="button" onclick="this.form.action='DeleteCartAction';" disabled="true" />
-						</div>
 					</div>
 				</s:form>
 			</s:if>
 			<s:else>
-				<div class="info">
+				<div class="notFoundMsgBox">
 					カート情報はありません。
 				</div>
 			</s:else>
-		</div>
 	</body>
 </html>
