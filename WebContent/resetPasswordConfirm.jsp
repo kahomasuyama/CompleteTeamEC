@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/yellow.css">
-		<title>パスワード再設定確認</title>
+		<title>パスワード再設定確認画面</title>
 		<script>
 			function goResetPasswordCompleteAction()
 			{

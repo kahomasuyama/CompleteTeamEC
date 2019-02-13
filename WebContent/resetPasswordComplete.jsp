@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="refresh" content="3;URL='HomeAction'"/>
 		<link rel="stylesheet" href="./css/yellow.css">
-		<title>パスワード再設定完了</title>
+		<title>パスワード再設定完了画面</title>
 	</head>
 	<body>
 

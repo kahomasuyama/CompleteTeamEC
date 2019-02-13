@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/style.css">
-		<title>商品詳細</title>
+		<title>商品詳細画面</title>
 	</head>
 	<body>
 

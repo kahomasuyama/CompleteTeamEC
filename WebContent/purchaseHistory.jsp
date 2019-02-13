@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/style.css">
-		<title>商品購入履歴</title>
+		<title>商品購入履歴一覧画面</title>
 	</head>
 	<body>
 		<jsp:include page="header.jsp" />
