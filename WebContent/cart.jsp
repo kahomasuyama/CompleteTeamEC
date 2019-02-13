@@ -6,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href=".css/style.css">
-		<title>カート</title>
+		<title>カート画面</title>
 		<script>
 			function checkValue(check)
 			{
@@ -37,10 +37,10 @@
 	<body>
 		<jsp:include page="header.jsp" />
 		<div id="contents">
-			<h1>カート画面</h1>
+			<h1 class="pageTitle">カート画面</h1>
 			<s:if test="#session.cartInfoDtoList.size()>0">
 				<s:form id="form" action="SettlementConfirmAction">
-					<table class="horizontal-list-table">
+					<table class="inputTable">
 						<thead>
 							<tr>
 								<th><s:label value="#" /></th>
@@ -85,15 +85,15 @@
 						<s:property value="#session.totalPrice" />円
 					</h2>
 					<br>
-					<div class="submit_btn_box">
+					<div class="button_box">
 						<div id=".contents-btn-set">
-							<s:submit value="決済" class="submit_btn" />
+							<s:submit value="決済" class="button" />
 						</div>
 					</div>
 
-					<div class="submit_btn_box">
+					<div class="button_box">
 						<div id=".contents-btn-set">
-							<s:submit value="削除" id="delete_btn" class="submit_btn" onclick="this.form.action='DeleteCartAction';" disabled="true" />
+							<s:submit value="削除" id="delete_btn" class="button" onclick="this.form.action='DeleteCartAction';" disabled="true" />
 						</div>
 					</div>
 				</s:form>
