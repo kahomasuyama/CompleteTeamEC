@@ -64,18 +64,14 @@
 				</div>
 			</s:form>
 			<div class="button_box">
-				<div id=".contents-btn-set">
 					<s:form action="CreateUserAction">
 						<s:submit value="新規ユーザー登録" class="button"/>
 					</s:form>
-				</div>
 			</div>
 			<div class="button_box">
-				<div id=".contents-btn-set">
 					<s:form action="ResetPasswordAction">
 						<s:submit value="パスワード再設定" class="button"/>
 					</s:form>
-				</div>
 			</div>
 		</div>
 	</body>
