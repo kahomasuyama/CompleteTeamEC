@@ -10,7 +10,8 @@ import com.internousdev.yellow.dao.ProductInfoDAO;
 import com.internousdev.yellow.dto.ProductInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ProductDetailsAction extends ActionSupport implements SessionAware {
+public class ProductDetailsAction extends ActionSupport implements SessionAware
+{
 
 	//	Receive
 	private int productId;
