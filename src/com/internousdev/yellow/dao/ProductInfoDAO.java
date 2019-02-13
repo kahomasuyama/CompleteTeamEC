@@ -206,7 +206,7 @@ public class ProductInfoDAO
 			}
 			else
 			{
-				return null;
+				productInfoDTO = null;
 			}
 		}
 		catch(SQLException e)
