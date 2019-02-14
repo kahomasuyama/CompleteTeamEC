@@ -162,6 +162,7 @@ table.inputTable
 
 table.inputTable th
 {
+	text-align:left;
 	padding: 10px;
 	font-weight: 400;
 	vertical-align: top;
