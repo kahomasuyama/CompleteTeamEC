@@ -71,7 +71,7 @@
 			</div>
 		</s:if>
 
-		<s:form action="CreateUserConfirmAction" theme="simple">
+		<s:form action="CreateUserConfirmAction">
 			<table class="inputTable">
 				<tr>
 					<th scope="row">姓</th>
