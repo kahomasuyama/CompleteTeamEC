@@ -14,15 +14,58 @@
 
 		<div id="contents">
 			<h1 class="pageTitle">ユーザー情報入力画面</h1>
-
-			<s:if test="!errorMsgList.isEmpty()" >
-				<div class="error">
-					<div class="errorMsgBox">
-						<s:iterator value="errorMsgList"><s:property /><br></s:iterator>
-					</div>
+			
+			<!-- エラーメッセージ表示 -->
+			<s:if test="!familyNameErrorMsgList.isEmpty()" >
+				<div class="errorMsgBox">
+					<s:iterator value="familyNameErrorMsgList">
+						<s:property /><br>
+					</s:iterator>
 				</div>
 			</s:if>
-
+			<s:if test="!firstNameErrorMsgList.isEmpty()" >
+				<div class="errorMsgBox">
+					<s:iterator value="firstNameErrorMsgList">
+						<s:property /><br>
+					</s:iterator>
+				</div>
+			</s:if>
+			<s:if test="!familyNameKanaErrorMsgList.isEmpty()" >
+				<div class="errorMsgBox">
+					<s:iterator value="familyNameKanaErrorMsgList">
+						<s:property /><br>
+					</s:iterator>
+				</div>
+			</s:if>
+			<s:if test="!firstNameKanaErrorMsgList.isEmpty()" >
+				<div class="errorMsgBox">
+					<s:iterator value="firstNameKanaErrorMsgList">
+						<s:property /><br>
+					</s:iterator>
+				</div>
+			</s:if>
+			<s:if test="!emailErrorMsgList.isEmpty()" >
+				<div class="errorMsgBox">
+					<s:iterator value="emailErrorMsgList">
+						<s:property /><br>
+					</s:iterator>
+				</div>
+			</s:if>
+			<s:if test="!loginErrorMsgList.isEmpty()" >
+				<div class="errorMsgBox">
+					<s:iterator value="loginErrorMsgList">
+						<s:property /><br>
+					</s:iterator>
+				</div>
+			</s:if>
+			<s:if test="!passwordErrorMsgList.isEmpty()" >
+				<div class="errorMsgBox">
+					<s:iterator value="passwordErrorMsgList">
+						<s:property /><br>
+					</s:iterator>
+				</div>
+			</s:if>
+			
 			<s:form action="CreateUserConfirmAction" theme="simple">
 				<table class="inputTable">
 					<tr>
