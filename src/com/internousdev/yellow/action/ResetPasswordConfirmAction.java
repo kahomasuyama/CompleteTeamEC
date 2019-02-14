@@ -45,7 +45,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		loginIdMsgList=inputChecker.doCheck("ユーザーID", loginId,1,8,true,false, false, true, false, false, false, false, false);
 		passwordMsgList=inputChecker.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
 		newPasswordMsgList=inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false, false, false, false);
-		reConfirmationPasswordMsgList=inputChecker.doPasswordCheck(newPassword, reConfirmationPassword);
+		reConfirmationPasswordMsgList=inputChecker.doCheck("（再確認）", reConfirmationPassword, 1, 16, true, false, false, true, false, false, false, false, false);
 
         //	入力値チェックで、エラーがなかったら
         if(!loginIdMsgList.isEmpty()
@@ -62,6 +62,12 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	    //	ユーザーが存在するのならば
 		if(userInfoDAO.checkPassword(loginId, password))
 		{
+			errorMsgList = inputChecker.doPasswordCheck(password, reConfirmationPassword);
+			if(!errorMsgList.isEmpty())
+			{
+				return ERROR;
+			}
+			
 			//	パスワードを一文字目のみ表示する
 			StringBuilder stringBuilder = new StringBuilder("****************");
 			concealedPassword = stringBuilder.replace(0, 1, newPassword.substring(0, 1)).toString();
@@ -74,10 +80,12 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		//	存在しないなら
 		else
 		{
-			errorMsgList.add("ユーザーIDまたは現在のパスワードが異なります。");
+			errorMsgList.add("ユーザーIDと現在のパスワードが異なります。");
 
 	        return ERROR;
 		}
+		
+		
 
 	}
 
