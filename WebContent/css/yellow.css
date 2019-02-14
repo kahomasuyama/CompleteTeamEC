@@ -208,11 +208,11 @@ table.inputTable, th, td
 
 table.inputTable-mini
 {
-	width: 100%;
+	margin: 30px;
+	width: calc(100% - 60px);
 	border-collapse: separate;
 	border-spacing: 0;
 	text-align: left;
-	font-size: 1.0rem;
 	line-height: 1.5;
 	border-top: 1px solid #ccc;
 	border-left: 1px solid #ccc;
@@ -220,10 +220,9 @@ table.inputTable-mini
 
 table.inputTable-mini th
 {
-	width: 35%;
 	padding: 10px;
 	font-weight: 400;
-	vertical-align: middle;
+	vertical-align: top;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	border-top: 1px solid #fff;
@@ -234,11 +233,35 @@ table.inputTable-mini th
 
 table.inputTable-mini td
 {
-	width: 65%;
 	padding: 10px;
-	vertical-align: middle;
+	vertical-align: top;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
+}
+
+table.inputTable-mini td input
+{
+	width: 95%;
+	padding: 10px;
+	vertical-align: top;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+table.inputTable-mini td input[type="radio"]
+{
+	width: 10%;
+	padding: 10px;
+	vertical-align: top;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+table.inputTable-mini, th, td
+{
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+	line-height: 1.5;
 }
 
 .relatedProductListBox
