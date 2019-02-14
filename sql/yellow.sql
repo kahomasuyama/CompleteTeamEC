@@ -77,7 +77,7 @@ INSERT INTO product_info VALUES
 ( 12, 12, "マリオ オリジナルサントラ","まりおおりじなるさんとら","サウンドトラック２の商品詳細",4,100,"./images","soundtrack2.jpg",now(),"発売会社",0,now(),now()),
 ( 13, 13, "フミーポピンズ","ふみーぽぴんず","サウンドトラック３の商品詳細",4,100,"./images","soundtrack3.jpg",now(),"発売会社",0,now(),now()),
 ( 14, 14, "GREITEST SHOWMAN","ぐれいてすとしょーまん","サウンドトラック４の商品詳細",4,100,"./images","soundtrack4.jpg",now(),"発売会社",0,now(),now()),
-( 15, 15, "Hummy Potter","ふみーぽったー","サウンドトラック５の商品詳細",4,100,"./images","soundtrack5.jpg",now(),"発売会社",0,now(),now());
+( 15, 15, "Hummy Potter","ふみーぽったー","サウンドトラック５の商品詳細",4,100,"./images","soundtrack6.jpg",now(),"発売会社",0,now(),now());
 
 CREATE TABLE cart_info
 (
