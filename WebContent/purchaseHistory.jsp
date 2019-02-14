@@ -41,7 +41,7 @@
 						</s:iterator>
 					</tbody>
 				</table>
-				<div class="button_box">
+				<div class="notFoundMsgBox">
 					<div id=".contents-btn-set">
 						<s:form action="DeletePurchaseHistoryAction">
 							<s:submit value="履歴削除" class="button" />
