@@ -21,6 +21,11 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	//	Send
 	private String concealedPassword;
 	private List<String> errorMsgList;
+	private List<String> loginIdMsgList;
+	private List<String> passwordMsgList;
+	private List<String> newPasswordMsgList;
+	private List<String> reConfirmationPasswordMsgList;
+
 	//	Session
 	private Map<String,Object> session;
 
@@ -36,42 +41,44 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		InputChecker inputChecker = new InputChecker();
 
 		errorMsgList = new ArrayList<String>();
-		errorMsgList.addAll(inputChecker.doCheck("ユーザーID", loginId,1,8,true,false, false, true, false, false, false, false, false));
-		errorMsgList.addAll(inputChecker.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false, false, false, false));
-		errorMsgList.addAll(inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false, false, false, false));
-		errorMsgList.addAll(inputChecker.doCheck("(再確認)", reConfirmationPassword, 1, 16, true, false, false, true, false, false, false, false, false));
-		errorMsgList.addAll(inputChecker.doPasswordCheck(newPassword, reConfirmationPassword));
+		
+		loginIdMsgList=inputChecker.doCheck("ユーザーID", loginId,1,8,true,false, false, true, false, false, false, false, false);
+		passwordMsgList=inputChecker.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
+		newPasswordMsgList=inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false, false, false, false);
+		reConfirmationPasswordMsgList=inputChecker.doPasswordCheck(newPassword, reConfirmationPassword);
 
         //	入力値チェックで、エラーがなかったら
-        if(errorMsgList.isEmpty())
+        if(!loginIdMsgList.isEmpty()
+        ||!passwordMsgList.isEmpty()	
+        ||!newPasswordMsgList.isEmpty()
+        ||!reConfirmationPasswordMsgList.isEmpty())
         {
-		    UserInfoDAO userInfoDAO = new UserInfoDAO();
+        	return ERROR;
+        }
+        
+        // ユーザーIDの存在チェック    
+	    UserInfoDAO userInfoDAO = new UserInfoDAO();
 
-		    //	ユーザーが存在するのならば
-			if(userInfoDAO.checkPassword(loginId, password))
-			{
-				//	パスワードを一文字目のみ表示する
-				StringBuilder stringBuilder = new StringBuilder("****************");
-				concealedPassword = stringBuilder.replace(0, 1, newPassword.substring(0, 1)).toString();
+	    //	ユーザーが存在するのならば
+		if(userInfoDAO.checkPassword(loginId, password))
+		{
+			//	パスワードを一文字目のみ表示する
+			StringBuilder stringBuilder = new StringBuilder("****************");
+			concealedPassword = stringBuilder.replace(0, 1, newPassword.substring(0, 1)).toString();
 
-				session.put("loginId", loginId);
-				session.put("newPassword", newPassword);
+			session.put("loginId", loginId);
+			session.put("newPassword", newPassword);
 
-				return SUCCESS;
-			}
-			//	存在しないなら
-			else
-			{
-				errorMsgList.add("ユーザーIDまたは現在のパスワードが異なります。");
+			return SUCCESS;
+		}
+		//	存在しないなら
+		else
+		{
+			errorMsgList.add("ユーザーIDまたは現在のパスワードが異なります。");
 
-		        return ERROR;
-			}
-	    }
-        //	入力値チェックでエラーがあったら、それを表示させる
-        else
-	    {
 	        return ERROR;
 		}
+
 	}
 
 	public String getLoginId() {
@@ -110,10 +117,44 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+
 	public List<String> getErrorMsgList() {
 		return errorMsgList;
 	}
+
 	public void setErrorMsgList(List<String> errorMsgList) {
 		this.errorMsgList = errorMsgList;
+	}
+
+	public List<String> getLoginIdMsgList() {
+		return loginIdMsgList;
+	}
+
+	public void setLoginIdMsgList(List<String> loginIdMsgList) {
+		this.loginIdMsgList = loginIdMsgList;
+	}
+
+	public List<String> getPasswordMsgList() {
+		return passwordMsgList;
+	}
+
+	public void setPasswordMsgList(List<String> passwordMsgList) {
+		this.passwordMsgList = passwordMsgList;
+	}
+
+	public List<String> getNewPasswordMsgList() {
+		return newPasswordMsgList;
+	}
+
+	public void setNewPasswordMsgList(List<String> newPasswordMsgList) {
+		this.newPasswordMsgList = newPasswordMsgList;
+	}
+
+	public List<String> getReConfirmationPasswordMsgList() {
+		return reConfirmationPasswordMsgList;
+	}
+
+	public void setReConfirmationPasswordMsgList(List<String> reConfirmationPasswordMsgList) {
+		this.reConfirmationPasswordMsgList = reConfirmationPasswordMsgList;
 	}
 }

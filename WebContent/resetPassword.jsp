@@ -17,10 +17,28 @@
 		<div id="contents">
 			<h1 class="pageTitle">パスワード再設定画面</h1>
 			<s:if test="!errorMsgList.isEmpty()">
-				<div class="error">
-					<div class="errorMsgBox">
+				<div class="errorMsgBox">
 						<s:iterator value="errorMsgList"><s:property/><br></s:iterator>
-					</div>
+				</div>
+			</s:if>
+			<s:if test="!loginIdMsgList.isEmpty()">
+				<div class="errorMsgBox">
+						<s:iterator value="loginIdMsgList"><s:property/><br></s:iterator>
+				</div>
+			</s:if>
+			<s:if test="!passwordMsgList.isEmpty()">
+				<div class="errorMsgBox">
+						<s:iterator value="passwordMsgList"><s:property/><br></s:iterator>
+				</div>
+			</s:if>
+			<s:if test="!newPasswordMsgList.isEmpty()">
+				<div class="errorMsgBox">
+						<s:iterator value="newPasswordMsgList"><s:property/><br></s:iterator>
+				</div>
+			</s:if>
+			<s:if test="!reConfirmationPasswordMsgList.isEmpty()">
+				<div class="errorMsgBox">
+						<s:iterator value="reConfirmationPasswordMsgList"><s:property/><br></s:iterator>
 				</div>
 			</s:if>
 
