@@ -15,13 +15,56 @@
 <jsp:include page="header.jsp" />
 	<h1 class="pageTitle">宛先情報入力画面</h1>
 
-	<s:if test="!errorMsgList.isEmpty()">
-	<div class="errorMsgBox">
-		<div class="error-message">
-			<s:iterator value="errorMsgList"><s:property /><br></s:iterator>
-		</div>
-	</div>
-	</s:if>
+	<!-- エラーメッセージ表示 -->
+			<s:if test="!familyNameErrorMsgList.isEmpty()" >
+				<div class="errorMsgBox">
+					<s:iterator value="familyNameErrorMsgList">
+						<s:property /><br>
+					</s:iterator>
+				</div>
+			</s:if>
+			<s:if test="!firstNameErrorMsgList.isEmpty()" >
+				<div class="errorMsgBox">
+					<s:iterator value="firstNameErrorMsgList">
+						<s:property /><br>
+					</s:iterator>
+				</div>
+			</s:if>
+			<s:if test="!familyNameKanaErrorMsgList.isEmpty()" >
+				<div class="errorMsgBox">
+					<s:iterator value="familyNameKanaErrorMsgList">
+						<s:property /><br>
+					</s:iterator>
+				</div>
+			</s:if>
+			<s:if test="!firstNameKanaErrorMsgList.isEmpty()" >
+				<div class="errorMsgBox">
+					<s:iterator value="firstNameKanaErrorMsgList">
+						<s:property /><br>
+					</s:iterator>
+				</div>
+			</s:if>
+			<s:if test="!emailErrorMsgList.isEmpty()" >
+				<div class="errorMsgBox">
+					<s:iterator value="emailErrorMsgList">
+						<s:property /><br>
+					</s:iterator>
+				</div>
+			</s:if>
+			<s:if test="!tellNumberErrorMsgList.isEmpty()" >
+				<div class="errorMsgBox">
+					<s:iterator value="tellNumberErrorMsgList">
+						<s:property /><br>
+					</s:iterator>
+				</div>
+			</s:if>
+			<s:if test="!userAddressErrorMsgList.isEmpty()" >
+				<div class="errorMsgBox">
+					<s:iterator value="userAddressErrorMsgList">
+						<s:property /><br>
+					</s:iterator>
+				</div>
+			</s:if>
 
 	<s:form action="CreateDestinationConfirmAction">
 	<table class="inputTable">

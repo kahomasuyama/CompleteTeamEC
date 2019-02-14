@@ -21,6 +21,7 @@
 	}
 	</script>
 </head>
+
 <body>
 	<jsp:include page="header.jsp" />
 		<h1 class="pageTitle">宛先情報入力確認画面</h1>
