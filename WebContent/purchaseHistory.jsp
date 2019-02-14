@@ -50,7 +50,7 @@
 				</div>
 			</s:if>
 			<s:else>
-				<div class="info">
+				<div class="notFoundMsgBox">
 					商品購入履歴情報がありません。
 				</div>
 			</s:else>
