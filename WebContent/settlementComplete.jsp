@@ -18,7 +18,7 @@
 	<div id="contents">
 		<h1 class="pageTitle">決済完了画面</h1>
 
-		<div class="success">
+		<div class="completeMsgBox">
 			決済が完了しました。
 		</div>
 	</div>

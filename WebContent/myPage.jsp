@@ -5,7 +5,7 @@
 	<html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/myPage.css">
+		<link rel="stylesheet" href="./css/yellow.css">
 		<title>マイページ画面</title>
 	</head>
 	<body>
@@ -15,11 +15,16 @@
 		<div id="contents">
 			<h1 class="pageTitle">マイページ画面</h1>
 			<s:form action="MyPageAction">
+			
+			
 				<s:if test="userInfoDTO == null">
-						ユーザー情報がありません。
+				<div class="notFoundMsgBox">
+				ユーザー情報がありません。
+				</div>
 				</s:if>
+			
 					<s:else>
-						<table class="vertical-list-table">
+						<table class="inputTable">
 							<tr>
 								<th><s:label value="姓"/></th>
 								<td><s:property value="userInfoDTO.familyName"/></td>
@@ -42,7 +47,7 @@
 								<td><s:property value="userInfoDTO.email"/></td>
 							</tr>
 						</table>
-						<div class="submit_btn_box">
+						<div class="button_box">
 							<input type="button" value="購入履歴" onClick="location.href='PurchaseHistoryAction'" class="button">
 						</div>
 					</s:else>
