@@ -124,7 +124,7 @@ public class PurchaseHistoryInfoDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		// phiに()の中の値を入れる
-		String sql = "INSERT INTO purchase_history_info(user_id, product_id, product_count, price, destination_id, regist_date, update_date) VALUES (?, ?, ?, ?, ?, now(), '0000-01-01')";
+		String sql = "INSERT INTO purchase_history_info(user_id, product_id, product_count, price, destination_id, regist_date, update_date) VALUES (?, ?, ?, ?, ?, now(), now())";
 		int count = 0;
 
 		try
