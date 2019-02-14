@@ -152,7 +152,7 @@ public class LoginAction extends ActionSupport implements SessionAware
 		this.session = session;
 	}
 
-	public List<String> getloginIdErrorMsgList()
+	public List<String> getLoginIdErrorMsgList()
 	{
 		return loginIdErrorMsgList;
 	}
@@ -162,7 +162,7 @@ public class LoginAction extends ActionSupport implements SessionAware
 		this.loginIdErrorMsgList = loginIdErrorMsgList;
 	}
 
-	public List<String> getpasswordErrorMsgList()
+	public List<String> getPasswordErrorMsgList()
 	{
 		return passwordErrorMsgList;
 	}

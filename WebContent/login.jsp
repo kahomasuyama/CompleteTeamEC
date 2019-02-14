@@ -36,6 +36,11 @@
 					<s:iterator value="passwordErrorMsgList"><s:property /><br></s:iterator>
 				</div>
 			</s:if>
+			<s:if test="!errorMsgList.isEmpty()">
+				<div class="errorMsgBox">
+					<s:iterator value="errorMsgList"><s:property /><br></s:iterator>
+				</div>
+			</s:if>
 			<s:form id="form" action="LoginAction">
 
 				<table class="inputTable">
