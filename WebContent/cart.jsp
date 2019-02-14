@@ -39,7 +39,7 @@
 			<h1 class="pageTitle">カート画面</h1>
 			<s:if test="#session.cartInfoDtoList.size()>0">
 				<s:form id="form" action="SettlementConfirmAction">
-					<table class="inputTable-mini">
+					<table class="inputTable">
 						<thead>
 							<tr>
 								<th><s:label value="#" /></th>
@@ -95,7 +95,7 @@
 			</s:if>
 			<s:else>
 				<div class="notFoundMsgBox">
-					カート情報はありません。
+					カート情報がありません。
 				</div>
 			</s:else>
 	</body>

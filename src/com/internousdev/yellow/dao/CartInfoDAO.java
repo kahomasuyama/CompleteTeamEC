@@ -136,8 +136,8 @@ public class CartInfoDAO {
     	int count=0;
 
     	// SQL作成
-    	String sql="INSERT INTO cart_info(user_id,temp_user_id,product_id,product_count,price,regist_date, update_date)"
-    		+"VALUES (?,?,?,?,?,now(), now())";
+    	String sql="INSERT INTO cart_info(user_id,temp_user_id,product_id,product_count,price,regist_date,update_date)"
+    		+"VALUES (?,?,?,?,?,now(),now())";
 
     	// SQL実行
     	try
