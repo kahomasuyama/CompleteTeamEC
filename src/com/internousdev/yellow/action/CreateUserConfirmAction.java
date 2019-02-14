@@ -12,6 +12,9 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateUserConfirmAction extends ActionSupport implements SessionAware
 {
+	private static final String MALE = "男性";
+	private static final String FEMALE = "女性";
+	
 	//	Receive + Send
 	private String familyName;
 	private String firstName;
@@ -45,6 +48,9 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 			return "sessionTimeOut";
 		}
 
+		sexList.add(MALE);
+		sexList.add(FEMALE);
+		
 		//	入力値チェック
 		InputChecker inputChecker = new InputChecker();
 		errorMsgList = new ArrayList<String>();
@@ -68,7 +74,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		{
 			return ERROR;
 		}
-//		
+		
 		//	ユーザーIDの存在チェック
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		if(userInfoDAO.isExistsUserInfo(loginId))

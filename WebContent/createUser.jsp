@@ -65,6 +65,13 @@
 					</s:iterator>
 				</div>
 			</s:if>
+			<s:if test="!ErrorMsgList.isEmpty()" >
+				<div class="errorMsgBox">
+					<s:iterator value="ErrorMsgList">
+						<s:property /><br>
+					</s:iterator>
+				</div>
+			</s:if>
 			
 			<s:form action="CreateUserConfirmAction" theme="simple">
 				<table class="inputTable">
