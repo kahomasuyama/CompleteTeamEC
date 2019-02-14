@@ -82,7 +82,7 @@
 						<li>
 							<div class="relatedProductBox">
 								<a href='<s:url action="ProductDetailsAction"> <s:param name="productId" value="%{productId}"/> </s:url>'>
-									<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' />
+									<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' /><br/>
 								</a>
 								<s:property value="productName" /><br>
 							</div>

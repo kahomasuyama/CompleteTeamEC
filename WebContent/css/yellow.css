@@ -120,32 +120,44 @@ header ul li {
 
 /* 完了メッセージ */
 .completeMsgBox{
+	margin: 10px 30px;
+	padding: 20px 30px;
+
+	color: #00552e;
+	text-align:center;
 
 	background-color: #E6FFE6;
-	border: 3px solid #00552e;
-	padding: 60px 100px;
-	font-family: 'Vidaloka', serif;
-	text-align: center;
-	font-weight: bold;
-	color: #00552e;
-	font-size: 10px;
+	border: 1px solid #00552e;
 }
 .productList
 {
+    display:flex;
+    flex-wrap:wrap;
+
 	padding: 0;
-	list-style: none;
+
 	width: 100%;
+
+	list-style: none;
 }
 .productList li
 {
 	float: left;
-	width: calc(100% / 3);
+
 	margin: 25px 0;
+
+	width: calc(100% / 3);
+
 	text-align: center;
 }
 .productList li img
 {
 	width: 55%;
+
+	margin: 0 auto;
+	padding: 0;
+	display: block;
+	vertical-align: bottom;
 }
 
 table.inputTable
@@ -285,41 +297,35 @@ table.inputTable-mini, th, td
 }
 
 .errorMsgBox{
+	margin: 10px 30px;
+	padding: 20px 30px;
+
 	text-align:center;
-	background-color:pink;
-	margin:auto;
-	padding: 15px;
-	border: 1px solid red;
-	font-family:;
-	font-size:10px;
 	color:red;
-	width:85%;
-	margin-top:40px;
+
+	background-color:pink;
+	border: 1px solid red;
 }
 
 .notFoundMsgBox{
-	text-align:center;
-	background-color:lightblue;
-	margin:auto;
-	padding: 15px;
-	border: 1px solid blue;
-	font-family:;
-	font-size:10px;
+	margin: 10px 30px;
+	padding: 20px 30px;
+
 	color:blue;
-	width:85%;
-	margin-top:40px;
+	text-align:center;
+
+	background-color:lightblue;
+	border: 1px solid blue;
 }
 .infoMsgBox{
-	text-align:center;
-	background-color:lightblue;
-	margin:auto;
-	padding: 15px;
-	border: 1px solid blue;
-	font-family:;
-	font-size:10px;
+	margin: 10px 30px;
+	padding: 20px 30px;
+
 	color:blue;
-	width:85%;
-	margin-top:40px;
+	text-align:center;
+
+	background-color:lightblue;
+	border: 1px solid blue;
 }
 .userIdCheckBox{
 	color:gray;
