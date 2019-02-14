@@ -253,29 +253,35 @@ table.inputTable-mini td
 	 padding:5px;
 	 font-family:;
 	 color:blue;
-
+	 width:90%;
+	 margin:auto;
+	 margin-top:10px;
 }
 
 .errorMsgBox{
 	text-align:center;
 	background-color:pink;
-	margin:5px;
+	margin:auto;
 	padding: 15px;
 	border: 1px solid red;
 	font-family:;
 	font-size:10px;
 	color:red;
+	width:85%;
+	margin-top:40px;
 }
 
 .notFoundMsgBox{
 	text-align:center;
 	background-color:lightblue;
-	margin:5px;
+	margin:auto;
 	padding: 15px;
 	border: 1px solid blue;
 	font-family:;
 	font-size:10px;
 	color:blue;
+	width:85%;
+	margin-top:40px;
 }
 .userIdCheckBox{
 	color:gray;
