@@ -26,14 +26,17 @@
 		<jsp:include page="header.jsp"/>
 		<div id="contents">
 			<h1 class="pageTitle">ログイン画面</h1>
+			<s:if test="!loginIdErrorMsgList.isEmpty()">
+				<div class="errorMsgBox">
+					<s:iterator value="loginIdErrorMsgList"><s:property /><br></s:iterator>
+				</div>
+			</s:if>
+			<s:if test="!passwordErrorMsgList.isEmpty()">
+				<div class="errorMsgBox">
+					<s:iterator value="passwordErrorMsgList"><s:property /><br></s:iterator>
+				</div>
+			</s:if>
 			<s:form id="form" action="LoginAction">
-				<s:if test="errorMsgList != null && !errorMsgList.isEmpty()">
-					<div class="error">
-						<div class="errorMsgBox">
-							<s:iterator value="errorMsgList"><s:property /><br></s:iterator>
-						</div>
-					</div>
-				</s:if>
 
 				<table class="inputTable">
 					<tr>

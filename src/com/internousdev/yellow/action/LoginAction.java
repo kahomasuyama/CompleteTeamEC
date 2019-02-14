@@ -25,6 +25,8 @@ public class LoginAction extends ActionSupport implements SessionAware
 
 	//	Send
 	private List<String> errorMsgList;
+	private List<String> passwordErrorMsgList;
+	private List<String> loginIdErrorMsgList;
 
 	//	Session
 	private Map<String,Object>session;
@@ -54,16 +56,16 @@ public class LoginAction extends ActionSupport implements SessionAware
 		//文字種の判定
 		InputChecker inputChecker=new InputChecker();
 		errorMsgList = new ArrayList<String>();
-		errorMsgList.addAll(inputChecker.doCheck("ユーザーID",loginId,1,8,true,false,false,true,false,false,false,false,false));
-		errorMsgList.addAll(inputChecker.doCheck("パスワード",password,1,16,true,false,false,true,false,false,false,false,false));
+
+		loginIdErrorMsgList = inputChecker.doCheck("ユーザーID",loginId,1,8,true,false,false,true,false,false,false,false,false);
+		passwordErrorMsgList = inputChecker.doCheck("パスワード",password,1,16,true,false,false,true,false,false,false,false,false);
 
 		//	エラーメッセージがあるならば
-		if(!errorMsgList.isEmpty())
+		if(!loginIdErrorMsgList.isEmpty()
+			|| !passwordErrorMsgList.isEmpty())
 		{
 			return ERROR;
 		}
-
-		session.put("logined",0);
 
 		//	DBにユーザーが存在しているかの確認
 		UserInfoDAO userInfoDao = new UserInfoDAO();
@@ -150,13 +152,23 @@ public class LoginAction extends ActionSupport implements SessionAware
 		this.session = session;
 	}
 
-	public List<String> getErrorMsgList()
+	public List<String> getloginIdErrorMsgList()
 	{
-		return errorMsgList;
+		return loginIdErrorMsgList;
 	}
 
-	public void setErrorMsgList(List<String> errorMsgList)
+	public void setLoginIdErrorMsgList(List<String> loginIdErrorMsgList)
 	{
-		this.errorMsgList = errorMsgList;
+		this.loginIdErrorMsgList = loginIdErrorMsgList;
+	}
+
+	public List<String> getpasswordErrorMsgList()
+	{
+		return passwordErrorMsgList;
+	}
+
+	public void setPasswordErrorMsgList(List<String> passwordErrorMsgList)
+	{
+		this.passwordErrorMsgList = passwordErrorMsgList;
 	}
 }
