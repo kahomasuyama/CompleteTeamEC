@@ -25,7 +25,6 @@ public class MyPageAction extends ActionSupport implements SessionAware
 
 		userInfoDTO = userInfoDAO.getUserInfo(String.valueOf(session.get("loginId")));
 
-
 		return SUCCESS;
 	}
 

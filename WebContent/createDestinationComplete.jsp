@@ -3,24 +3,22 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE html>
-
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="refresh" content="3;URL='SettlementConfirmAction'"/>
-	<link rel="stylesheet" href="./css/yellow.css">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="refresh" content="3;URL='SettlementConfirmAction'"/>
+		<link rel="stylesheet" href="./css/yellow.css">
+		<title>宛先情報入力完了画面</title>
+	</head>
+	<body>
 
-	<title>宛先情報入力完了画面</title>
+		<jsp:include page="header.jsp" />
 
-</head>
+		<h1 class="pageTitle">宛先情報入力完了画面</h1>
 
-<body>
-<jsp:include page="header.jsp" />
-	<h1 class="pageTitle">宛先情報入力完了画面</h1><br>
+		<div class="completeMsgBox">
+			宛先情報入力が完了しました。
+		</div>
 
-	<div class="completeMsgBox">
-		宛先情報入力が完了しました。
-	</div>
-
-</body>
+	</body>
 </html>

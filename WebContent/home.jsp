@@ -12,9 +12,7 @@
 
 		<jsp:include page="header.jsp" />
 
-		<div id="contents">
-			<h1 class="pageTitle">ホーム画面</h1>
-		</div>
+		<h1 class="pageTitle">ホーム画面</h1>
 
 	</body>
 </html>

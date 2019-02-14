@@ -13,6 +13,7 @@
 		<jsp:include page="header.jsp" />
 
 		<h1 class="pageTitle">商品一覧画面</h1>
+
 		<s:if test="!errorMsgList.isEmpty()">
 			<div class="errorMsgBox">
 				<s:iterator value="errorMsgList">

@@ -13,10 +13,9 @@
 
 		<jsp:include page="header.jsp" />
 
-		<div id="contents">
-			<h1 class="pageTitle">パスワード再設定完了画面</h1>
-			<div class="completeMsgBox">パスワード再設定が完了しました。</div>
-		</div>
+		<h1 class="pageTitle">パスワード再設定完了画面</h1>
+
+		<div class="completeMsgBox">パスワード再設定が完了しました。</div>
 
 	</body>
 </html>

@@ -10,8 +10,6 @@
 		<title>yellow</title>
 	</head>
 	<body>
-		<header>
-			<jsp:include page="header.jsp" />
-		</header>
+		<jsp:include page="header.jsp" />
 	</body>
 </html>

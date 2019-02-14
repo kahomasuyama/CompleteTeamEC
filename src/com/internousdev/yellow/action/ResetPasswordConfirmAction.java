@@ -41,7 +41,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		InputChecker inputChecker = new InputChecker();
 
 		errorMsgList = new ArrayList<String>();
-		
+
 		loginIdMsgList=inputChecker.doCheck("ユーザーID", loginId,1,8,true,false, false, true, false, false, false, false, false);
 		passwordMsgList=inputChecker.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
 		newPasswordMsgList=inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false, false, false, false);
@@ -49,14 +49,14 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 
         //	入力値チェックで、エラーがなかったら
         if(!loginIdMsgList.isEmpty()
-        ||!passwordMsgList.isEmpty()	
+        ||!passwordMsgList.isEmpty()
         ||!newPasswordMsgList.isEmpty()
         ||!reConfirmationPasswordMsgList.isEmpty())
         {
         	return ERROR;
         }
-        
-        // ユーザーIDの存在チェック    
+
+        // ユーザーIDの存在チェック
 	    UserInfoDAO userInfoDAO = new UserInfoDAO();
 
 	    //	ユーザーが存在するのならば
@@ -67,7 +67,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 			{
 				return ERROR;
 			}
-			
+
 			//	パスワードを一文字目のみ表示する
 			StringBuilder stringBuilder = new StringBuilder("****************");
 			concealedPassword = stringBuilder.replace(0, 1, newPassword.substring(0, 1)).toString();
@@ -84,8 +84,6 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 
 	        return ERROR;
 		}
-		
-		
 
 	}
 
