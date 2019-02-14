@@ -41,12 +41,10 @@
 						</s:iterator>
 					</tbody>
 				</table>
-				<div class="notFoundMsgBox">
-					<div id=".contents-btn-set">
-						<s:form action="DeletePurchaseHistoryAction">
-							<s:submit value="履歴削除" class="button" />
-						</s:form>
-					</div>
+				<div class="button_box">
+					<s:form action="DeletePurchaseHistoryAction">
+						<s:submit value="履歴削除" class="button" />
+					</s:form>
 				</div>
 			</s:if>
 			<s:else>
