@@ -51,9 +51,9 @@
 					</s:iterator>
 				</div>
 			</s:if>
-			<s:if test="!loginErrorMsgList.isEmpty()" >
+			<s:if test="!loginIdErrorMsgList.isEmpty()" >
 				<div class="errorMsgBox">
-					<s:iterator value="loginErrorMsgList">
+					<s:iterator value="loginIdErrorMsgList">
 						<s:property /><br>
 					</s:iterator>
 				</div>
