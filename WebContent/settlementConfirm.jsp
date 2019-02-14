@@ -16,7 +16,7 @@
 			<h1 class="pageTitle">決済確認画面</h1>
 			<s:if test="!#session.destinationInfoDtoList.isEmpty()">
 
-				<div class="info">
+				<div class="infoMsgBox">
 					送り先情報を選択してください
 				</div>
 				<s:form id="form" action="SettlementCompleteAction" >
