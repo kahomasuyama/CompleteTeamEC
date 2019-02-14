@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/yellow.css">
 		<meta http-equiv="refresh" content="0;URL='HomeAction'" />
 		<title>yellow</title>
 	</head>
