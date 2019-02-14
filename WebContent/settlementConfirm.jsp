@@ -21,7 +21,7 @@
 				</div>
 				<s:form id="form" action="SettlementCompleteAction" >
 					<h3>お届け先住所</h3>
-					<table class="inputTable">
+					<table class="inputTable-mini">
 						<thead>
 							<tr>
 								<th><s:label value="#"/></th>
@@ -68,7 +68,7 @@
 					</table>
 
 					<div class="button_box">
-						
+
 							<s:submit value="決済" class="button"/>
 						</div>
 				</s:form>
@@ -80,11 +80,11 @@
 			</s:else>
 
 			<div class="button_box">
-				
+
 					<s:form action="CreateDestinationAction">
 						<s:submit value="新規宛先登録" class="button"/>
 					</s:form>
-				
+
 			</div>
 
 		</div>

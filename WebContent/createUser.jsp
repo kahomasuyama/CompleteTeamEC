@@ -5,7 +5,6 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/pageTitle.css">
 		<title>ユーザー情報入力画面</title>
 		<link rel="stylesheet" href="./css/yellow.css">
 	</head>
@@ -14,7 +13,7 @@
 
 		<div id="contents">
 			<h1 class="pageTitle">ユーザー情報入力画面</h1>
-			
+
 			<!-- エラーメッセージ表示 -->
 			<s:if test="!familyNameErrorMsgList.isEmpty()" >
 				<div class="errorMsgBox">
@@ -65,14 +64,14 @@
 					</s:iterator>
 				</div>
 			</s:if>
-			<s:if test="!ErrorMsgList.isEmpty()" >
+			<s:if test="!errorMsgList.isEmpty()" >
 				<div class="errorMsgBox">
-					<s:iterator value="ErrorMsgList">
+					<s:iterator value="errorMsgList">
 						<s:property /><br>
 					</s:iterator>
 				</div>
 			</s:if>
-			
+
 			<s:form action="CreateUserConfirmAction" theme="simple">
 				<table class="inputTable">
 					<tr>

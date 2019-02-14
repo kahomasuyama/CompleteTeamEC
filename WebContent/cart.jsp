@@ -39,7 +39,7 @@
 			<h1 class="pageTitle">カート画面</h1>
 			<s:if test="#session.cartInfoDtoList.size()>0">
 				<s:form id="form" action="SettlementConfirmAction">
-					<table class="inputTable">
+					<table class="inputTable-mini">
 						<thead>
 							<tr>
 								<th><s:label value="#" /></th>

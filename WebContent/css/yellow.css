@@ -112,9 +112,9 @@ header ul li {
 }
 /* カート合計 */
 .totalPrice{
+	margin: 30px;
 	color: #575757;
-	font-family:'Vidaloka', serif ;
-	font-size: 50px;
+	font-size: 1.4em;
 	text-align: right;
 }
 
@@ -251,26 +251,19 @@ table.inputTable-mini td
 
 table.inputTable-mini td input
 {
-	width: 95%;
 	padding: 10px;
 	vertical-align: top;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
 
-table.inputTable-mini td input[type="checkbox"]
+table.inputTable td input[type="text"],
+table.inputTable td input[type="password"]
 {
-	width: 50px;
-	height: 50px;
+	width: 100%;
+	box-sizing:border-box;
 }
-table.inputTable-mini td input[type="radio"]
-{
-	width: 10%;
-	padding: 10px;
-	vertical-align: top;
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-}
+
 
 table.inputTable-mini, th, td
 {
