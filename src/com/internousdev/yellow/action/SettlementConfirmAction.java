@@ -15,7 +15,6 @@ import com.internousdev.yellow.dto.PurchaseHistoryInfoDTO;
 import com.internousdev.yellow.util.CommonUtility;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 public class SettlementConfirmAction extends ActionSupport implements SessionAware
 {
 	//	Receive
