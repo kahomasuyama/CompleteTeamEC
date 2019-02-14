@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 /* ボタンのデザイン */
 .button {
 	margin-top : -5px;
@@ -46,6 +45,9 @@
 /* ボタンが有効時に稼働 */
 .button:active{
 	background: blue;
+}
+.button:disabled{
+	opacity: 0.5;
 }
 /* ボタン配置 */
 .button_box{
@@ -118,17 +120,6 @@ header ul li {
 	text-align: right;
 }
 
-/* 完了メッセージ */
-.completeMsgBox{
-	margin: 10px 30px;
-	padding: 20px 30px;
-
-	color: #00552e;
-	text-align:center;
-
-	background-color: #E6FFE6;
-	border: 1px solid #00552e;
-}
 .productList
 {
     display:flex;
@@ -166,9 +157,11 @@ table.inputTable
 	width: calc(100% - 60px);
 	border-collapse: separate;
 	border-spacing: 0;
+
 	text-align: left;
-	font-size: 1.4rem;
-	line-height: 1.5;
+	font-size: 1.2em;
+	line-height: 1.5em;
+
 	border-top: 1px solid #ccc;
 	border-left: 1px solid #ccc;
 }
@@ -176,12 +169,13 @@ table.inputTable
 table.inputTable th
 {
 	padding: 10px;
-	font-weight: 400;
-	vertical-align: top;
+	font-weight: bold;
+
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	border-top: 1px solid #fff;
 	border-left: 1px solid #fff;
+
 	background: #005392;
 	color:#ffffff;
 }
@@ -189,7 +183,7 @@ table.inputTable th
 table.inputTable td
 {
 	padding: 10px;
-	vertical-align: top;
+
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
@@ -197,7 +191,6 @@ table.inputTable td
 table.inputTable td input
 {
 	padding: 10px;
-	vertical-align: top;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
@@ -213,7 +206,6 @@ table.inputTable, th, td
 {
 	border-collapse: collapse;
 	border: 1px solid #ccc;
-	line-height: 1.5;
 }
 
 table.inputTable-mini
@@ -223,7 +215,7 @@ table.inputTable-mini
 	border-collapse: separate;
 	border-spacing: 0;
 	text-align: left;
-	line-height: 1.5;
+	line-height: 1.5em;
 	border-top: 1px solid #ccc;
 	border-left: 1px solid #ccc;
 }
@@ -231,8 +223,7 @@ table.inputTable-mini
 table.inputTable-mini th
 {
 	padding: 10px;
-	font-weight: 400;
-	vertical-align: top;
+	font-weight: bold;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	border-top: 1px solid #fff;
@@ -244,7 +235,6 @@ table.inputTable-mini th
 table.inputTable-mini td
 {
 	padding: 10px;
-	vertical-align: top;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
@@ -252,7 +242,6 @@ table.inputTable-mini td
 table.inputTable-mini td input
 {
 	padding: 10px;
-	vertical-align: top;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
@@ -272,86 +261,87 @@ table.inputTable-mini, th, td
 	line-height: 1.5;
 }
 
-.relatedProductListBox
-{
-	margin-top:35px;
-	margin-left:200px;
-}
 .pageTitle{
 	 text-align:center;
+
+	 margin: 20px 30px;
+	 padding:5px;
+
 	 border-top: 2px solid blue;
 	 border-bottom: 2px solid blue;
-	 padding:5px;
-	 font-family:;
+
 	 color:blue;
-	 width:90%;
-	 margin:auto;
-	 margin-top:10px;
 }
 
+/* メッセージボックス */
+.completeMsgBox,
+.infoMsgBox,
+.notFoundMsgBox,
 .errorMsgBox{
-	margin: 10px 30px;
+	margin: 10px 50px;
 	padding: 20px 30px;
-
 	text-align:center;
-	color:red;
+	font-size: 0.9em;
+}
 
+/* 完了メッセージ */
+.completeMsgBox{
+	color: #00552e;
+
+	background-color: #E6FFE6;
+	border: 1px solid #00552e;
+}
+/* エラーメッセージ */
+.errorMsgBox{
+	color:red;
 	background-color:pink;
 	border: 1px solid red;
 }
-
+/* 情報なしメッセージ */
 .notFoundMsgBox{
-	margin: 10px 30px;
-	padding: 20px 30px;
-
 	color:blue;
-	text-align:center;
-
 	background-color:lightblue;
 	border: 1px solid blue;
 }
+/* 情報メッセージ */
 .infoMsgBox{
-	margin: 10px 30px;
-	padding: 20px 30px;
-
 	color:blue;
-	text-align:center;
-
 	background-color:lightblue;
 	border: 1px solid blue;
 }
+
+
 .userIdCheckBox{
 	color:gray;
-	margin-left:20px;
+	margin: 20px 30px;
 }
 
-.2coulm-container {
-	width: 100%;
-	height: 50px;
-	border: 1px solid black;
-	background-color: red;
-}
+/* 商品詳細 */
+.productDetails{
+    display: inline-block;
 
-.left img{
 	width: 100%;
-	height: 100%;
 }
 
 .left{
-	padding: 30px;
+	box-sizing: border-box;
 
 	float:left;
 
-	width: 30%;
+	width: 35%;
 	height: 100%;
+}
+.left img{
+	margin: 30px;
+	width: calc(100% - 60px);
 }
 
 .right {
-	padding: 30px;
+	box-sizing: border-box;
 
 	float:left;
 
-	width: 40%;
+	width: 65%;
 	height: 100%;
 
 }
@@ -359,5 +349,6 @@ table.inputTable-mini, th, td
 .relatedProductBox
 {
 	margin: 0 auto;
-	width:200px;
+	max-width: 200px;
+	width: 100%;
 }

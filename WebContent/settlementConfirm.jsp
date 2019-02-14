@@ -20,7 +20,6 @@
 					送り先情報を選択してください
 				</div>
 				<s:form id="form" action="SettlementCompleteAction" >
-					<h3>お届け先住所</h3>
 					<table class="inputTable-mini">
 						<thead>
 							<tr>
