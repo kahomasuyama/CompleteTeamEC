@@ -27,11 +27,13 @@
 			<s:form id="resetPassword_form" action="ResetPasswordCompleteAction">
 				<table class="inputTable">
 					<tr>
-						<th>ユーザーID：<s:property value="loginId" /><br></th>
+						<th>ユーザーID</th>
+						<td><s:property value="loginId" /></td>
 						<s:hidden name="userId" value="%{loginId}"/>
 					</tr>
 					<tr>
-						<th>新しいパスワード：<s:property value="concealedPassword"/><br></th>
+						<th>新しいパスワード</th>
+						<td><s:property value="concealedPassword"/></td>
 					</tr>
 				</table>
 				<div class="button_box">
