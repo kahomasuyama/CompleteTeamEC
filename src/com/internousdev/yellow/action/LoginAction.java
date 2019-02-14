@@ -119,6 +119,14 @@ public class LoginAction extends ActionSupport implements SessionAware
 		return result;
 	}
 
+	public List<String> getErrorMsgList() {
+		return errorMsgList;
+	}
+
+	public void setErrorMsgList(List<String> errorMsgList) {
+		this.errorMsgList = errorMsgList;
+	}
+
 	public String getLoginId()
 	{
 		return loginId;
