@@ -149,7 +149,8 @@ header ul li {
 }
 table.inputTable
 {
-	width: 90%;
+	margin: 30px;
+	width: calc(100% - 60px);
 	border-collapse: separate;
 	border-spacing: 0;
 	text-align: left;
@@ -161,7 +162,6 @@ table.inputTable
 
 table.inputTable th
 {
-	width: 25%;
 	padding: 10px;
 	font-weight: 400;
 	vertical-align: top;
@@ -175,7 +175,6 @@ table.inputTable th
 
 table.inputTable td
 {
-	width: 75%;
 	padding: 10px;
 	vertical-align: top;
 	border-right: 1px solid #ccc;
@@ -202,7 +201,6 @@ table.inputTable td input[type="radio"]
 
 table.inputTable, th, td
 {
-	margin : 3%;
 	border-collapse: collapse;
 	border: 1px solid #ccc;
 	line-height: 1.5;

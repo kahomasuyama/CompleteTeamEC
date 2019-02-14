@@ -5,15 +5,15 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/yellow.css">
 		<title>商品購入履歴一覧画面</title>
 	</head>
 	<body>
 		<jsp:include page="header.jsp" />
 		<div id="contents">
-			<h1>商品購入履歴一覧画面</h1>
+			<h1 class="pageTitle">商品購入履歴一覧画面</h1>
 			<s:if test="purchaseHistoryInfoDtoList.size()>0">
-				<table class="horizontal-list-table">
+				<table class="inputTable-mini">
 					<thead>
 						<tr>
 							<th><s:label value="商品名"/></th>
@@ -41,10 +41,10 @@
 						</s:iterator>
 					</tbody>
 				</table>
-				<div class="submit_btn_box">
+				<div class="button_box">
 					<div id=".contents-btn-set">
 						<s:form action="DeletePurchaseHistoryAction">
-							<s:submit value="履歴削除" class="submit_btn" />
+							<s:submit value="履歴削除" class="button" />
 						</s:form>
 					</div>
 				</div>
