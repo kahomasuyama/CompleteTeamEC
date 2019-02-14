@@ -147,6 +147,7 @@ header ul li {
 {
 	width: 55%;
 }
+
 table.inputTable
 {
 	margin: 30px;
@@ -162,7 +163,6 @@ table.inputTable
 
 table.inputTable th
 {
-	text-align:left;
 	padding: 10px;
 	font-weight: 400;
 	vertical-align: top;
@@ -184,20 +184,17 @@ table.inputTable td
 
 table.inputTable td input
 {
-	width: 95%;
 	padding: 10px;
 	vertical-align: top;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
 
-table.inputTable td input[type="radio"]
+table.inputTable td input[type="text"],
+table.inputTable td input[type="password"]
 {
-	width: 10%;
-	padding: 10px;
-	vertical-align: top;
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+	width: 100%;
+	box-sizing:border-box;
 }
 
 table.inputTable, th, td
@@ -249,6 +246,11 @@ table.inputTable-mini td input
 	border-bottom: 1px solid #ccc;
 }
 
+table.inputTable-mini td input[type="checkbox"]
+{
+	width: 50px;
+	height: 50px;
+}
 table.inputTable-mini td input[type="radio"]
 {
 	width: 10%;

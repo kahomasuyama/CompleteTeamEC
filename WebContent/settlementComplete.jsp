@@ -16,7 +16,7 @@
 	<jsp:include page="header.jsp" />
 
 	<div id="contents">
-		<h1 class="pageTitle">決済完了画面</h1>
+		<h1 class="pageTitle">決済完了画面</h1><br>
 
 		<div class="completeMsgBox">
 			決済が完了しました。
