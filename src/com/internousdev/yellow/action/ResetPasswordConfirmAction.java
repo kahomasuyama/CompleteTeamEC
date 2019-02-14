@@ -62,7 +62,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	    //	ユーザーが存在するのならば
 		if(userInfoDAO.checkPassword(loginId, password))
 		{
-			errorMsgList = inputChecker.doPasswordCheck(password, reConfirmationPassword);
+			errorMsgList = inputChecker.doPasswordCheck(newPassword, reConfirmationPassword);
 			if(!errorMsgList.isEmpty())
 			{
 				return ERROR;
