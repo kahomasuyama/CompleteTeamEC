@@ -1,6 +1,5 @@
 package com.internousdev.yellow.action;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -9,9 +8,8 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.yellow.dao.CartInfoDAO;
-import com.internousdev.yellow.dao.DestinationInfoDAO;
 import com.internousdev.yellow.dao.UserInfoDAO;
-import com.internousdev.yellow.dto.DestinationInfoDTO;
+import com.internousdev.yellow.dto.CartInfoDTO;
 import com.internousdev.yellow.dto.UserInfoDTO;
 import com.internousdev.yellow.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
@@ -71,34 +69,32 @@ public class LoginAction extends ActionSupport implements SessionAware
 		UserInfoDAO userInfoDao = new UserInfoDAO();
 		if(userInfoDao.isExistsUserInfo(loginId))
 		{
-			if(userInfoDao.login(loginId,password) > 0)
+			int count = userInfoDao.login(loginId,password);
+			if(count > 0)
 			{
 				UserInfoDTO userInfoDTO = userInfoDao.getUserInfo(loginId);
 				session.put("loginId", userInfoDTO.getUserId());
-				int count = 0;
+				//カート情報をユーザーに紐付ける。
 				CartInfoDAO cartInfoDao=new CartInfoDAO();
-
 				count = cartInfoDao.linkToLoginId(String.valueOf(session.get("tempUserId")),loginId);
+
 				if(count > 0)
 				{
-					DestinationInfoDAO destinationInfoDao=new DestinationInfoDAO();
-					try
-					{
-						List<DestinationInfoDTO> destinationInfoDtoList = new  ArrayList<DestinationInfoDTO>();
-						destinationInfoDtoList = destinationInfoDao.getDestinationInfo(loginId);
-						Iterator<DestinationInfoDTO>iterator = destinationInfoDtoList.iterator();
-						if(!(iterator.hasNext()))
-						{
-							destinationInfoDtoList=null;
-						}
-						session.put("destinationInfoDtoList",destinationInfoDtoList);
-					}
-					catch(SQLException e)
-					{
-						e.printStackTrace();
-					}
 					//cart.jspへ飛ぶ
 					result="cart";
+					List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
+					cartInfoDtoList = cartInfoDao.getCartInfoDtoList(loginId);
+					Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
+
+					if(!(iterator.hasNext()))
+					{
+						cartInfoDtoList = null;
+					}
+					session.put("cartInfoDtoList", cartInfoDtoList);
+
+					int totalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(loginId)));
+					session.put("totalPrice", totalPrice);
+
 				}
 				else
 				{
