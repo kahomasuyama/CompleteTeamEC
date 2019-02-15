@@ -206,6 +206,7 @@ table.inputTable td
 
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
+	background: white;
 }
 
 table.inputTable td input
@@ -248,8 +249,8 @@ table.inputTable-mini th
 	border-bottom: 1px solid #ccc;
 	border-top: 1px solid #fff;
 	border-left: 1px solid #fff;
-	background: #005392;
-	color:#ffffff;
+	background: #FFCC33;
+	color:#333333;
 }
 
 table.inputTable-mini td
@@ -257,6 +258,7 @@ table.inputTable-mini td
 	padding: 10px;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
+	background: white;
 }
 
 table.inputTable-mini td input
