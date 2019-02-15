@@ -186,27 +186,46 @@ table.inputTable
 	border-left: 1px solid #ccc;
 }
 
+table.inputTable th:first-child{
+  border-radius: 5px 0 0 0;
+}
+
+table.inputTable th:last-child{
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
+}
+
 table.inputTable th
 {
 	padding: 10px;
 	font-weight: bold;
-
+	background: linear-gradient(#FFCC33,yellow);
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	border-top: 1px solid #fff;
 	border-left: 1px solid #fff;
-
-	background: #FFCC33;
-	color:#333333;
+	box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
 }
 
 table.inputTable td
 {
 	padding: 10px;
-
+	box-shadow: 0px -3px 5px 1px #eee inset;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	background: white;
+}
+
+table td:last-child{
+  border-right: 1px solid #a8b7c5;
+}
+
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+
+table tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
 }
 
 table.inputTable td input
@@ -235,27 +254,39 @@ table.inputTable-mini
 	width: calc(100% - 60px);
 	border-collapse: separate;
 	border-spacing: 0;
+
 	text-align: left;
 	line-height: 1.5em;
+
 	border-top: 1px solid #ccc;
 	border-left: 1px solid #ccc;
+}
+
+table.inputTable-mini th:first-child{
+  border-radius: 5px 0 0 0;
+}
+
+table.inputTable-mini th:last-child{
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
 }
 
 table.inputTable-mini th
 {
 	padding: 10px;
 	font-weight: bold;
+	background: linear-gradient(#FFCC33,yellow);
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	border-top: 1px solid #fff;
 	border-left: 1px solid #fff;
-	background: #FFCC33;
-	color:#333333;
+	box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
 }
 
 table.inputTable-mini td
 {
 	padding: 10px;
+	box-shadow: 0px -3px 5px 1px #eee inset;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	background: white;
@@ -268,19 +299,17 @@ table.inputTable-mini td input
 	border-bottom: 1px solid #ccc;
 }
 
-table.inputTable td input[type="text"],
-table.inputTable td input[type="password"]
+table.inputTable-mini td input[type="text"],
+table.inputTable-mini td input[type="password"]
 {
 	width: 100%;
 	box-sizing:border-box;
 }
 
-
 table.inputTable-mini, th, td
 {
 	border-collapse: collapse;
 	border: 1px solid #ccc;
-	line-height: 1.5;
 }
 
 .pageTitle{
