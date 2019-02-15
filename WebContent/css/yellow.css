@@ -4,6 +4,7 @@ body{
 	background: background: -moz-linear-gradient(top, white, #FFFFDD);
   background: -webkit-linear-gradient(top, white, #FFFFDD);
   background: linear-gradient(to bottom, white, #FFFFDD);
+  height:100vh;
 }
 
 
