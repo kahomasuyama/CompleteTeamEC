@@ -1,7 +1,6 @@
 package com.internousdev.yellow.action;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -27,36 +26,25 @@ public class LoginAction extends ActionSupport implements SessionAware
 	private List<String> loginIdErrorMsgList;
 
 	//	Session
-	private Map<String,Object>session;
+	private Map<String,Object> session;
 
 	public String execute()
 	{
-		String result=ERROR;
-
 		//	商品カテゴリがないならセッションタイムアウト
 		if(!session.containsKey("mCategoryDtoList"))
 		{
 			return "sessionTimeOut";
 		}
 
-		//	ユーザーIDが保存されているか
-		if(savedLoginId)
-		{
-			session.put("savedLoginId", true);
-			session.put("loginId",loginId);
-		}
-		else
-		{
-			session.put("savedLoginId", false);
-			session.put("loginId", loginId);
-		}
+		//	ユーザーID保存
+		session.put("savedLoginId", savedLoginId);
+		session.put("saveLoginId",loginId);
 
 		//文字種の判定
-		InputChecker inputChecker=new InputChecker();
+		InputChecker inputChecker = new InputChecker();
 		errorMsgList = new ArrayList<String>();
-
-		loginIdErrorMsgList = inputChecker.doCheck("ユーザーID",loginId,1,8,true,false,false,true,false,false,false,false,false);
-		passwordErrorMsgList = inputChecker.doCheck("パスワード",password,1,16,true,false,false,true,false,false,false,false,false);
+		loginIdErrorMsgList = inputChecker.doCheck("ユーザーID", loginId, 1, 8, true, false, false, true, false, false, false, false, false);
+		passwordErrorMsgList = inputChecker.doCheck("パスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
 
 		//	エラーメッセージがあるならば
 		if(!loginIdErrorMsgList.isEmpty()
@@ -67,62 +55,49 @@ public class LoginAction extends ActionSupport implements SessionAware
 
 		//	DBにユーザーが存在しているかの確認
 		UserInfoDAO userInfoDao = new UserInfoDAO();
-		if(userInfoDao.isExistsUserInfo(loginId))
-		{
-			int count = userInfoDao.login(loginId,password);
-			if(count > 0)
-			{
-				UserInfoDTO userInfoDTO = userInfoDao.getUserInfo(loginId);
-				session.put("loginId", userInfoDTO.getUserId());
-				//カート情報をユーザーに紐付ける。
-				CartInfoDAO cartInfoDao=new CartInfoDAO();
-				count = cartInfoDao.linkToLoginId(String.valueOf(session.get("tempUserId")),loginId);
-
-				if(count > 0)
-				{
-					//cart.jspへ飛ぶ
-					result="cart";
-					List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
-					cartInfoDtoList = cartInfoDao.getCartInfoDtoList(loginId);
-					Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
-
-					if(!(iterator.hasNext()))
-					{
-						cartInfoDtoList = null;
-					}
-					session.put("cartInfoDtoList", cartInfoDtoList);
-
-					int totalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(loginId)));
-					session.put("totalPrice", totalPrice);
-
-				}
-				else
-				{
-					//home.jspへ飛ぶ
-					result=SUCCESS;
-				}
-				session.put("logined", 1);
-			}
-			else
-			{
-				errorMsgList.add("ユーザーIDまたはパスワードが異なります。");
-			}
-		}
-		else
+		if(!userInfoDao.isExistsUserInfo(loginId))
 		{
 			errorMsgList.add("ユーザーIDまたはパスワードが異なります。");
+			return ERROR;
 		}
-		return result;
+
+		if(userInfoDao.login(loginId,password) == 0)
+		{
+			errorMsgList.add("ユーザーIDまたはパスワードが異なります。");
+			return ERROR;
+		}
+
+		UserInfoDTO userInfoDTO = userInfoDao.getUserInfo(loginId);
+		session.put("loginId", userInfoDTO.getUserId());
+		session.put("logined", 1);
+
+		//カート情報をユーザーに紐付ける。
+		CartInfoDAO cartInfoDao = new CartInfoDAO();
+		if(cartInfoDao.linkToLoginId(String.valueOf(session.get("tempUserId")),loginId) == 0)
+		{
+			//home.jspへ飛ぶ
+			return SUCCESS;
+		}
+
+		List<CartInfoDTO> cartInfoDtoList = cartInfoDao.getCartInfoDtoList(loginId);
+		if(cartInfoDtoList.isEmpty())
+		{
+			cartInfoDtoList = null;
+		}
+		session.put("cartInfoDtoList", cartInfoDtoList);
+
+		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(loginId)));
+		session.put("totalPrice", totalPrice);
+
+		return "cart";
 	}
 
 	public List<String> getErrorMsgList() {
 		return errorMsgList;
 	}
-
 	public void setErrorMsgList(List<String> errorMsgList) {
 		this.errorMsgList = errorMsgList;
 	}
-
 	public String getLoginId()
 	{
 		return loginId;

@@ -42,16 +42,16 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 
 		errorMsgList = new ArrayList<String>();
 
-		loginIdMsgList=inputChecker.doCheck("ユーザーID", loginId,1,8,true,false, false, true, false, false, false, false, false);
-		passwordMsgList=inputChecker.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
-		newPasswordMsgList=inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false, false, false, false);
-		reConfirmationPasswordMsgList=inputChecker.doCheck("（再確認）", reConfirmationPassword, 1, 16, true, false, false, true, false, false, false, false, false);
+		loginIdMsgList = inputChecker.doCheck("ユーザーID", loginId,1,8,true,false, false, true, false, false, false, false, false);
+		passwordMsgList = inputChecker.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
+		newPasswordMsgList = inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false, false, false, false);
+		reConfirmationPasswordMsgList = inputChecker.doCheck("（再確認）", reConfirmationPassword, 1, 16, true, false, false, true, false, false, false, false, false);
 
         //	入力値チェックで、エラーがなかったら
         if(!loginIdMsgList.isEmpty()
-        ||!passwordMsgList.isEmpty()
-        ||!newPasswordMsgList.isEmpty()
-        ||!reConfirmationPasswordMsgList.isEmpty())
+        	||!passwordMsgList.isEmpty()
+        	||!newPasswordMsgList.isEmpty()
+        	||!reConfirmationPasswordMsgList.isEmpty())
         {
         	return ERROR;
         }
@@ -59,32 +59,28 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
         // ユーザーIDの存在チェック
 	    UserInfoDAO userInfoDAO = new UserInfoDAO();
 
-	    //	ユーザーが存在するのならば
-		if(userInfoDAO.checkPassword(loginId, password))
+		//	ユーザーIDとパスワードがないのならば
+		if(!userInfoDAO.checkPassword(loginId, password))
 		{
-			errorMsgList = inputChecker.doPasswordCheck(newPassword, reConfirmationPassword);
-			if(!errorMsgList.isEmpty())
-			{
-				return ERROR;
-			}
-
-			//	パスワードを一文字目のみ表示する
-			StringBuilder stringBuilder = new StringBuilder("****************");
-			concealedPassword = stringBuilder.replace(0, 1, newPassword.substring(0, 1)).toString();
-
-			session.put("loginId", loginId);
-			session.put("newPassword", newPassword);
-
-			return SUCCESS;
-		}
-		//	存在しないなら
-		else
-		{
-			errorMsgList.add("ユーザーIDと現在のパスワードが異なります。");
-
+			errorMsgList.add("ユーザーIDまたは現在のパスワードが異なります。");
 	        return ERROR;
 		}
 
+		//	パスワードが異なるならば
+		errorMsgList = inputChecker.doPasswordCheck(newPassword, reConfirmationPassword);
+		if(!errorMsgList.isEmpty())
+		{
+			return ERROR;
+		}
+
+		//	パスワードを一文字目のみ表示する
+		StringBuilder stringBuilder = new StringBuilder("****************");
+		concealedPassword = stringBuilder.replace(0, 1, newPassword.substring(0, 1)).toString();
+
+		session.put("loginId", loginId);
+		session.put("newPassword", newPassword);
+
+		return SUCCESS;
 	}
 
 	public String getLoginId() {

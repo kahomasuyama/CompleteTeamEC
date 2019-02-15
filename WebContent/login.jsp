@@ -48,7 +48,7 @@
 				<tr>
 					<th scope="row"><s:label value="ユーザーID"/></th>
 					<s:if test="#session.savedLoginId">
-						<td><s:textfield name="loginId" class="txt" placeholder="ユーザーID" value='%{#session.loginId}' autocomplete="off"/></td>
+						<td><s:textfield name="loginId" class="txt" placeholder="ユーザーID" value='%{#session.saveLoginId}' autocomplete="off"/></td>
 					</s:if>
 					<s:else>
 						<td><s:textfield name="loginId" class="txt" placeholder="ユーザーID" autocomplete="off"/></td>

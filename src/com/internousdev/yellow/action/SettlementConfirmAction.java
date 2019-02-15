@@ -1,9 +1,7 @@
 package com.internousdev.yellow.action;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -43,22 +41,14 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
 		if(session.containsKey("loginId"))
 		{
 			DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
-			List<DestinationInfoDTO> destinationInfoDtoList = new ArrayList<>();
-			try
+			List<DestinationInfoDTO> destinationInfoDtoList = destinationInfoDAO.getDestinationInfo(String.valueOf(session.get("loginId")));
+			if(destinationInfoDtoList.isEmpty())
 			{
-				destinationInfoDtoList = destinationInfoDAO.getDestinationInfo(String.valueOf(session.get("loginId")));
-				Iterator<DestinationInfoDTO> iterator = destinationInfoDtoList.iterator();
-				if(!(iterator.hasNext()))
-				{
-						destinationInfoDtoList = null;
-				}
-				session.put("destinationInfoDtoList", destinationInfoDtoList);
+				destinationInfoDtoList = null;
 			}
-			catch (SQLException e)
-			{
-				e.printStackTrace();
-		    }
+			session.put("destinationInfoDtoList", destinationInfoDtoList);
 		}
+
 		//商品購入履歴
 		if(!session.containsKey("purchaseHistoryInfoDtoList"))
 		{

@@ -53,7 +53,7 @@ public class DestinationInfoDAO {
 		return count;
 	}
 
-	public List<DestinationInfoDTO> getDestinationInfo(String loginId) throws SQLException
+	public List<DestinationInfoDTO> getDestinationInfo(String loginId)
 	{
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();

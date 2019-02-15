@@ -2,7 +2,6 @@ package com.internousdev.yellow.action;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -28,22 +27,20 @@ public class DeleteCartAction extends ActionSupport implements SessionAware
 			return "sessionTimeOut";
 		}
 
-		String result=ERROR;
-		CartInfoDAO cartInfoDAO = new CartInfoDAO();
-		int count = 0;
 		String userId = null;
-
 		if(session.containsKey("loginId"))
 		{
 			userId = String.valueOf(session.get("loginId"));
 		}
-
 		else if (session.containsKey("tempUserId"))
 		{
 			userId = String.valueOf(session.get("tempUserId"));
 		}
 
-		for(String productId:checkList)
+		CartInfoDAO cartInfoDAO = new CartInfoDAO();
+		int count = 0;
+
+		for(String productId : checkList)
 		{
 			count += cartInfoDAO.delete(productId, userId);
 		}
@@ -52,24 +49,18 @@ public class DeleteCartAction extends ActionSupport implements SessionAware
 		{
 			return ERROR;
 		}
-		else
+
+		List<CartInfoDTO> cartInfoDtoList = cartInfoDAO.getCartInfoDtoList(userId);
+		if(cartInfoDtoList.isEmpty())
 		{
-			List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
-			cartInfoDtoList = cartInfoDAO.getCartInfoDtoList(userId);
-			Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
-
-			if(!(iterator.hasNext()))
-			{
-				cartInfoDtoList = null;
-			}
-			session.put("cartInfoDtoList", cartInfoDtoList);
-
-			int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
-			session.put("totalPrice", totalPrice);
-
-			result=SUCCESS;
+			cartInfoDtoList = null;
 		}
-		return result;
+		session.put("cartInfoDtoList", cartInfoDtoList);
+
+		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
+		session.put("totalPrice", totalPrice);
+
+		return SUCCESS;
 	}
 
 	public List<MCategoryDTO> getmCategoryDtoList()

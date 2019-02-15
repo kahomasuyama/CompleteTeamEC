@@ -19,11 +19,11 @@ public class HomeAction extends ActionSupport implements SessionAware
 	{
 		//	商品カテゴリを取得
 		MCategoryDAO mcategoryDAO = new MCategoryDAO();
-		List<MCategoryDTO >mCategoryDtoList = mcategoryDAO.getMCategoryList();
+		List<MCategoryDTO > mCategoryDtoList = mcategoryDAO.getMCategoryList();
 		session.put("mCategoryDtoList", mCategoryDtoList);
 
 		//未ログイン時のときにtempUserIdの発行
-		if(!(session.containsKey("loginId"))&& !(session.containsKey("tempUserId")))
+		if(!(session.containsKey("loginId")) && !(session.containsKey("tempUserId")))
 		{
 			CommonUtility commonUtility = new CommonUtility();
 			session.put("tempUserId", commonUtility.getRamdomValue());

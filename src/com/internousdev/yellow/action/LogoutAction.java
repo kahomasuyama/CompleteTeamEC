@@ -21,15 +21,15 @@ public class LogoutAction extends ActionSupport implements SessionAware
 		UserInfoDAO userInfoDao = new UserInfoDAO();
 		String loginId = String.valueOf(session.get("loginId"));
 		boolean savedLoginId = Boolean.valueOf(String.valueOf(session.get("savedLoginId")));
-		int count = userInfoDao.logout(loginId);
-		if(count > 0)
+
+		if(userInfoDao.logout(loginId) > 0)
 		{
 			session.clear();
 
 			if(savedLoginId)
 			{
 				session.put("savedLoginId", savedLoginId);
-				session.put("loginId", loginId);
+				session.put("saveLoginId", loginId);
 			}
 		}
 

@@ -1,6 +1,5 @@
 package com.internousdev.yellow.action;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -15,10 +14,9 @@ public class DeletePurchaseHistoryAction extends ActionSupport implements Sessio
 	private String sex;
 	private List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList;
 	private Map<String, Object> session;
+
 	public String execute()
 	{
-		String result = ERROR;
-
 		//	商品カテゴリがないならセッションタイムアウト
 		if(!session.containsKey("mCategoryDtoList"))
 		{
@@ -26,19 +24,18 @@ public class DeletePurchaseHistoryAction extends ActionSupport implements Sessio
 		}
 
 		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
-		int count = purchaseHistoryInfoDAO.deleteAll(String.valueOf(session.get("loginId")));
-		if(count > 0)
+		if(purchaseHistoryInfoDAO.deleteAll(String.valueOf(session.get("loginId"))) == 0)
 		{
-			purchaseHistoryInfoDTOList = purchaseHistoryInfoDAO.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
-			Iterator<PurchaseHistoryInfoDTO> iterator = purchaseHistoryInfoDTOList.iterator();
-			if(!(iterator.hasNext()))
-			{
-				purchaseHistoryInfoDTOList = null;
-			}
-
-			result=SUCCESS;
+			return ERROR;
 		}
-		return result;
+
+		purchaseHistoryInfoDTOList = purchaseHistoryInfoDAO.getPurchaseHistoryList(String.valueOf(session.get("loginId")));
+		if(purchaseHistoryInfoDTOList.isEmpty())
+		{
+			purchaseHistoryInfoDTOList = null;
+		}
+
+		return SUCCESS;
 	}
 
 	public String getSex() {
