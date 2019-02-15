@@ -83,7 +83,7 @@
 					</tbody>
 				</table>
 				<p class="totalPrice">
-					カート合計金額 : <s:property value="#session.totalPrice" />円
+					カート合計金額 : <span><s:property value="#session.totalPrice" />円</span>
 				</p>
 				<div class="button_box">
 					<s:submit value="決済" class="button" />

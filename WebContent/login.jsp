@@ -66,7 +66,7 @@
 				<s:else>
 					<s:checkbox name="savedLoginId"/>
 				</s:else>
-				<s:label value="ユーザーID保存"/><br>
+				<s:label value="ユーザーID保存" class="id"/><br>
 			</div>
 			<div class="button_box">
 				<s:submit value="ログイン" class="button" onclick="goLoginAction();"/>
