@@ -201,9 +201,9 @@ table.inputTable th
 	font-weight: bold;
 	background: linear-gradient(#FFCC33,yellow);
 	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	border-top: 1px solid #fff;
-	border-left: 1px solid #fff;
+	border-bottom: 2px solid #ccc;
+	border-top: 2px solid lightgray;
+	border-left: 2px solid lightgray;
 	box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
 }
 
@@ -292,8 +292,8 @@ table.inputTable-mini th
 	background: linear-gradient(#FFCC33,yellow);
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
-	border-top: 1px solid #fff;
-	border-left: 1px solid #fff;
+	border-top: 1px solid #lightgray;
+	border-left: 1px solid #lightgray;
 	box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
 }
 
