@@ -6,6 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="./css/yellow.css">
+		<script type="text/javascript" src="yellow.js"></script>
 		<title>ホーム画面</title>
 	</head>
 	<body>
@@ -14,5 +15,7 @@
 
 		<h1 class="pageTitle">ホーム画面</h1>
 
+		<div class="cursor"></div>
+		<div class="cursor-follower"></div>
 	</body>
 </html>

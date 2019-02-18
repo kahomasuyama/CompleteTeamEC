@@ -32,11 +32,13 @@
 					<s:iterator value="productInfoList">
 						<li>
 							<a href='<s:url action="ProductDetailsAction"> <s:param name="productId" value="%{productId}" /> </s:url>'>
-								<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' width="100" />
+								<img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' width="100" class="imageAnimation"/>
 							</a><br />
-							<s:property value="productName" /><br/>
-							<s:property value="productNameKana" /><br/>
-							<s:property value="price" />円<br/>
+								<div class="moji">
+									<s:property value="productName" /><br/>
+									<s:property value="productNameKana" /><br/>
+									<s:property value="price" />円<br/>
+								</div>
 						</li>
 					</s:iterator>
 				</ul>
