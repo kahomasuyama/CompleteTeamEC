@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 body{
-	background: background: -moz-linear-gradient(top, white, #FFFFDD);
-  background: -webkit-linear-gradient(top, white, #FFFFDD);
-  background: linear-gradient(to bottom, white, #FFFFDD);
+	background: background: -moz-linear-gradient(top, #FFFFDD, white);
+  background: -webkit-linear-gradient(top, #FFFFDD, white);
+  background: linear-gradient(to bottom, #FFFFDD, white);
   min-height:100vh;
 }
 
@@ -168,7 +168,7 @@ header ul li {
 	margin-bottom: 0px;
 
 	width: calc(55% + 8px);
-	filter: drop-shadow(0px 0px 20px rgb(200, 200, 5));
+	filter: drop-shadow(0px 0px 20px rgb(255, 204, 51));
 }
 
 table.inputTable
@@ -314,7 +314,7 @@ table.inputTable-mini, th, td
 
 .pageTitle{
 	 text-align:center;
-	 font-family:  Meiryo, sans-serif;
+	 font-family:  arial black, sans-serif;
 
 	 margin: 20px 30px;
 	 padding:5px;
