@@ -73,11 +73,11 @@ INSERT INTO product_info VALUES
 ( 8, 8, "イチブトゼンブ","いちぶとぜんぶ","邦楽３の商品詳細",3,100,"./images","邦楽3.jpg",now(),"発売会社",0,now(),now()),
 ( 9, 9, "Ambitions","あんびしょんず","邦楽４の商品詳細",3,100,"./images","邦楽4.jpg",now(),"発売会社",0,now(),now()),
 ( 10, 10, "おジャ魔女どれみドッカ〜ン","おじゃまじょどれみどっか〜ん","邦楽５の商品詳細",3,100,"./images","邦楽5.jpg",now(),"発売会社",0,now(),now()),
-( 11, 11, "BOHUMIYAN RHAPSODY","ぼふみやん らぷそでぃー","サウンドトラック１の商品詳細",4,100,"./images","soundtrack1.jpg",now(),"発売会社",0,now(),now()),
+( 11, 11, "BOHEMIAN RHAPSODY","ぼへみあん らぷそでぃー","サウンドトラック１の商品詳細",4,100,"./images","soundtrack1.jpg",now(),"発売会社",0,now(),now()),
 ( 12, 12, "マリオ オリジナルサントラ","まりおおりじなるさんとら","サウンドトラック２の商品詳細",4,100,"./images","soundtrack2.jpg",now(),"発売会社",0,now(),now()),
-( 13, 13, "フミーポピンズ","ふみーぽぴんず","サウンドトラック３の商品詳細",4,100,"./images","soundtrack3.jpg",now(),"発売会社",0,now(),now()),
+( 13, 13, "メリーポピンズ","めりーぽぴんず","サウンドトラック３の商品詳細",4,100,"./images","soundtrack3.jpg",now(),"発売会社",0,now(),now()),
 ( 14, 14, "GREITEST SHOWMAN","ぐれいてすとしょーまん","サウンドトラック４の商品詳細",4,100,"./images","soundtrack4.jpg",now(),"発売会社",0,now(),now()),
-( 15, 15, "Hummy Potter","ふみーぽったー","サウンドトラック５の商品詳細",4,100,"./images","soundtrack6.jpg",now(),"発売会社",0,now(),now());
+( 15, 15, "Harry Potter","はりーぽったー","サウンドトラック５の商品詳細",4,100,"./images","soundtrack6.jpg",now(),"発売会社",0,now(),now());
 
 CREATE TABLE cart_info
 (
