@@ -65,7 +65,7 @@ DEFAULT charset=utf8 comment="商品情報テーブル";
 INSERT INTO product_info VALUES
 ( 1, 1,"Wash House Thig","うぉっしゅはうすてぃんぐ","洋楽１の商品詳細",2,1500,"./images","洋楽1.jpg",now(),"発売会社",0,now(),now()),
 ( 2, 2,"MY WORLDS ACOUSTIC","まいわーるどあこーすてぃっく","洋楽２の商品詳細",2,9800,"./images","洋楽2.jpg",now(),"発売会社",0,now(),now()),
-( 3, 3,"DIRTY WORK","だーてぃーうぉーく","洋楽３の商品詳細",2,3500000000,"./images","洋楽3.jpg",now(),"発売会社",0,now(),now()),
+( 3, 3,"DIRTY WORK","だーてぃーうぉーく","洋楽３の商品詳細",2,3500,"./images","洋楽3.jpg",now(),"発売会社",0,now(),now()),
 ( 4, 4,"FACE YOURSELF","ふぇいすゆあーせるふ","洋楽４の商品詳細",2,2000,"./images","洋楽4.jpg",now(),"発売会社",0,now(),now()),
 ( 5, 5,"CALL ME MAYBE","こーるみーめいびー","洋楽５の商品詳細",2,4500,"./images","洋楽5.jpg",now(),"発売会社",0,now(),now()),
 ( 6, 6, "アンビバレント","あんびばれんと","邦楽１の商品詳細",3,1000,"./images","邦楽1.jpg",now(),"発売会社",0,now(),now()),
