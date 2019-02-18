@@ -240,6 +240,20 @@ table.inputTable td input[type="password"]
 {
 	width: 100%;
 	box-sizing:border-box;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #333333;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+
+table.inputTable td input[type="text"]:focus,
+table.inputTable td input[type="password"]:focus
+{
+	border: 1px solid #da3c41;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
 }
 
 table.inputTable, th, td
