@@ -17,7 +17,7 @@
 		<s:if test="!#session.destinationInfoDtoList.isEmpty()">
 
 			<div class="infoMsgBox">
-				送り先情報を選択してください。
+				宛先情報を選択してください。
 			</div>
 			<s:form id="form" action="SettlementCompleteAction" >
 				<table class="inputTable-mini verticalTable">
