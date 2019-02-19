@@ -1,6 +1,6 @@
 package com.internousdev.yellow.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *	商品情報
