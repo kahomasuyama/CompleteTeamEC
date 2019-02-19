@@ -46,7 +46,7 @@
 			<table class="inputTable">
 				<tr>
 					<th scope="row"><s:label value="ユーザーID"/></th>
-					<td><s:textfield name="loginId" placeholder="ユーザーID" class="txt" value="%{userId}"/></td>
+					<td><s:textfield name="userId" placeholder="ユーザーID" class="txt" value="%{userId}"/></td>
 				</tr>
 				<tr>
 					<th scope="row"><s:label value="現在のパスワード"/></th>

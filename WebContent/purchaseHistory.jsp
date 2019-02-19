@@ -14,7 +14,7 @@
 		<h1 class="pageTitle">商品購入履歴一覧画面</h1>
 
 		<s:if test="!purchaseHistoryInfoDtoList.isEmpty()">
-			<table class="inputTable-mini">
+			<table class="inputTable-mini verticalTable">
 				<thead>
 					<tr>
 						<th><s:label value="商品名"/></th>

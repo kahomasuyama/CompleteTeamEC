@@ -33,12 +33,3 @@ $(document).on("mousemove", function(e) {
     mouseX = e.pageX;
     mouseY = e.pageY;
 });
-
-//$(".link").on("mouseenter", function() {
-//    cursor.addClass("active");
-//    follower.addClass("active");
-//});
-//$(".link").on("mouseleave", function() {
-//    cursor.removeClass("active");
-//    follower.removeClass("active");
-//});

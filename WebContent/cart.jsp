@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href=".css/yellow.css">
+		<link rel="stylesheet" href="./css/yellow.css">
 		<title>カート画面</title>
 		<script>
 			function checkValue(check)
@@ -42,7 +42,7 @@
 
 		<s:if test="#session.cartInfoDtoList.size()>0">
 			<s:form id="form" action="SettlementConfirmAction">
-				<table class="inputTable">
+				<table class="inputTable verticalTable">
 					<thead>
 						<tr>
 							<th><s:label value="#" /></th>

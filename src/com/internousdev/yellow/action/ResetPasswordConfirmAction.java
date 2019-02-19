@@ -13,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ResetPasswordConfirmAction extends ActionSupport implements SessionAware
 {
 	//	Receive
-	private String loginId;
+	private String userId;
 	private String password;
 	private String newPassword;
 	private String reConfirmationPassword;
@@ -42,7 +42,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 
 		errorMsgList = new ArrayList<String>();
 
-		loginIdMsgList = inputChecker.doCheck("ユーザーID", loginId,1,8,true,false, false, true, false, false, false, false, false);
+		loginIdMsgList = inputChecker.doCheck("ユーザーID", userId,1,8,true,false, false, true, false, false, false, false, false);
 		passwordMsgList = inputChecker.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
 		newPasswordMsgList = inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false, false, false, false);
 		reConfirmationPasswordMsgList = inputChecker.doCheck("（再確認）", reConfirmationPassword, 1, 16, true, false, false, true, false, false, false, false, false);
@@ -60,7 +60,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	    UserInfoDAO userInfoDAO = new UserInfoDAO();
 
 		//	ユーザーIDとパスワードがないのならば
-		if(!userInfoDAO.checkPassword(loginId, password))
+		if(!userInfoDAO.checkPassword(userId, password))
 		{
 			errorMsgList.add("ユーザーIDまたは現在のパスワードが異なります。");
 	        return ERROR;
@@ -77,18 +77,12 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		StringBuilder stringBuilder = new StringBuilder("****************");
 		concealedPassword = stringBuilder.replace(0, 1, newPassword.substring(0, 1)).toString();
 
-		session.put("loginId", loginId);
+		session.put("loginId", userId);
 		session.put("newPassword", newPassword);
 
 		return SUCCESS;
 	}
 
-	public String getLoginId() {
-		return loginId;
-	}
-	public void setLoginId(String loginId) {
-		this.loginId = loginId;
-	}
 	public String getPassword() {
 		return password;
 	}
@@ -119,44 +113,40 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
 	public List<String> getErrorMsgList() {
 		return errorMsgList;
 	}
-
 	public void setErrorMsgList(List<String> errorMsgList) {
 		this.errorMsgList = errorMsgList;
 	}
-
 	public List<String> getLoginIdMsgList() {
 		return loginIdMsgList;
 	}
-
 	public void setLoginIdMsgList(List<String> loginIdMsgList) {
 		this.loginIdMsgList = loginIdMsgList;
 	}
-
 	public List<String> getPasswordMsgList() {
 		return passwordMsgList;
 	}
-
 	public void setPasswordMsgList(List<String> passwordMsgList) {
 		this.passwordMsgList = passwordMsgList;
 	}
-
 	public List<String> getNewPasswordMsgList() {
 		return newPasswordMsgList;
 	}
-
 	public void setNewPasswordMsgList(List<String> newPasswordMsgList) {
 		this.newPasswordMsgList = newPasswordMsgList;
 	}
-
 	public List<String> getReConfirmationPasswordMsgList() {
 		return reConfirmationPasswordMsgList;
 	}
-
 	public void setReConfirmationPasswordMsgList(List<String> reConfirmationPasswordMsgList) {
 		this.reConfirmationPasswordMsgList = reConfirmationPasswordMsgList;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 }

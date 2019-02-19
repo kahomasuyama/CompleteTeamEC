@@ -1,71 +1,19 @@
 @charset "UTF-8";
 
+/*
+ *		Body
+ */
 body{
 	background: background: -moz-linear-gradient(top, #FFFFDD, white);
-  background: -webkit-linear-gradient(top, #FFFFDD, white);
-  background: linear-gradient(to bottom, #FFFFDD, white);
-  min-height:100vh;
-}
-
-
-/* ボタンのデザイン */
-.button {
-	margin-top : -5px;
-	margin-left : 6px;
-    padding: 0.5em 1em;
-    box-sizing:;
-
-    width: 100px;
-    max-width: 100%;
-	height : 35px;
-
-    font-size: 10px;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-
-    border-radius: 100px;
-    box-shadow: 2px 2px;
-
-    background: #ff9933;
-/*     background: -webkit-gradient(linear, left top, left bottom, from(), to() ); */
-/*     background: -moz-linear-gradient(); */
-
-/*     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#81a8cb', endColorstr='#4477a1'); */
-}
-/* ボタンの押印時に稼働 */
-.button:hover{
-    color: ;
-
-    cursor: pointer;
-    opacity: ;
-
-    box-shadow: 2px 2px ;
-    background-color: #6c272d;
-/*     background: #81a8cb; */
-/*     background: -webkit-gradient(linear, left top, left bottom, from(#4477a1), to(#81a8cb) ); */
-/*     background: -moz-linear-gradient(-90deg, #4477a1, #81a8cb); */
-
-/*     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4477a1', endColorstr='#81a8cb'); */
-
-}
-/* ボタンが有効時に稼働 */
-.button:active{
-	background: #6c272d;
-}
-.button:disabled{
-	opacity: 0.5;
-}
-/* ボタン配置 */
-.button_box{
-	margin: 20px;
-	text-align: center;
-	clear: both;
-}
-body {
+	background: -webkit-linear-gradient(top, #FFFFDD, white);
+	background: linear-gradient(to bottom, #FFFFDD, white);
+	min-height: calc(100vh - 20px);
     margin: 0;
 }
 
+/*
+ *		Header
+ */
 header {
 	padding: 15px;
 	margin: 0px;
@@ -92,6 +40,10 @@ header ul li {
 
     max-width: calc(100% / 8 - 6px);
 }
+
+/*
+ *		SiteTitle
+ */
 .siteTitle {
 	color: red;
 	text-shadow:2px 2px 0px white;
@@ -99,6 +51,10 @@ header ul li {
 	font-weight: bold;
 	font-family:'impact';
 }
+
+/*
+ *		CategorySelect
+ */
 .categorySelect {
     padding: 2px 2px 5px 2px;
     box-sizing: border-box;
@@ -110,6 +66,9 @@ header ul li {
     border-radius: 5px;
 }
 
+/*
+ *		SearchWordInput
+ */
 .searchWordInput {
     padding: 5px 10px;
     box-sizing: border-box;
@@ -121,8 +80,53 @@ header ul li {
     border-radius: 13px;
 
 }
-/* カート合計 */
-.totalPrice{
+
+/*
+ *		Button
+ */
+.button {
+	margin-top: -5px;
+	margin-left: 6px;
+	padding: 0.5em 1em;
+	box-sizing:;
+
+	width: 100px;
+	max-width: 100%;
+	height : 35px;
+
+	font-size: 10px;
+	text-align: center;
+	color: white;
+	text-decoration: none;
+
+	border-radius: 100px;
+	box-shadow: 2px 2px;
+
+	background: #ff9933;
+}
+.button:hover {
+	cursor: pointer;
+
+	box-shadow: 2px 2px ;
+	background-color: #6c272d;
+
+}
+.button:active {
+	background: #6c272d;
+}
+.button:disabled {
+	opacity: 0.5;
+}
+.button_box {
+	margin: 20px;
+	text-align: center;
+	clear: both;
+}
+
+/*
+ *		TotalPrice
+ */
+.totalPrice {
 	margin: 30px;
 	color: #575757;
 	font-size: 1.4em;
@@ -130,8 +134,10 @@ header ul li {
 	font-weight:bold;
 }
 
-.productList
-{
+/*
+ *		ProductList
+ */
+.productList {
     display:flex;
     flex-wrap:wrap;
 
@@ -141,8 +147,7 @@ header ul li {
 
 	list-style: none;
 }
-.productList li
-{
+.productList li {
 	float: left;
 
 	margin: 25px 0;
@@ -151,8 +156,7 @@ header ul li {
 
 	text-align: center;
 }
-.productList li img
-{
+.productList li img {
 	margin: 4px auto;
 	width: 55%;
 
@@ -162,8 +166,7 @@ header ul li {
 	transition: all 200ms ease;
 
 }
-.productList li img:hover
-{
+.productList li img:hover {
 	margin-top: 0px;
 	margin-bottom: 0px;
 
@@ -171,8 +174,14 @@ header ul li {
 	filter: drop-shadow(0px 0px 20px rgb(255, 204, 51));
 }
 
-table.inputTable
-{
+/*
+ *		InputTable
+ */
+table.verticalTable th {
+	text-align: center;
+}
+
+table.inputTable {
 	margin: 30px;
 	width: calc(100% - 60px);
 	border-collapse: separate;
@@ -186,17 +195,16 @@ table.inputTable
 	border-left: 1px solid #ccc;
 }
 
-table.inputTable th:first-child{
+table.inputTable th:first-child {
   border-radius: 5px 0 0 0;
 }
 
-table.inputTable th:last-child{
+table.inputTable th:last-child {
   border-radius: 0 5px 0 0;
   border-right: 1px solid #3c6690;
 }
 
-table.inputTable th
-{
+table.inputTable th {
 	padding: 10px;
 	font-weight: bold;
 	background: linear-gradient(#FFCC33,yellow);
@@ -207,8 +215,7 @@ table.inputTable th
 	box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
 }
 
-table.inputTable td
-{
+table.inputTable td {
 	padding: 10px;
 	box-shadow: 0px -3px 5px 1px #eee inset;
 	border-right: 1px solid #ccc;
@@ -216,7 +223,7 @@ table.inputTable td
 	background: white;
 }
 
-table td:last-child{
+table td:last-child {
   border-right: 1px solid #a8b7c5;
 }
 
@@ -228,16 +235,14 @@ table tr:last-child td:last-child {
   border-radius: 0 0 5px 0;
 }
 
-table.inputTable td input
-{
+table.inputTable td input {
 	padding: 10px;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
 
 table.inputTable td input[type="text"],
-table.inputTable td input[type="password"]
-{
+table.inputTable td input[type="password"] {
 	width: 100%;
 	height: 40px;
 	box-sizing:border-box;
@@ -250,21 +255,18 @@ table.inputTable td input[type="password"]
 }
 
 table.inputTable td input[type="text"]:focus,
-table.inputTable td input[type="password"]:focus
-{
+table.inputTable td input[type="password"]:focus {
 	border: 1px solid #da3c41;
 	outline: none;
 	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
 }
 
-table.inputTable, th, td
-{
+table.inputTable, th, td {
 	border-collapse: collapse;
 	border: 2px solid #ccc;
 }
 
-table.inputTable-mini
-{
+table.inputTable-mini {
 	margin: 30px;
 	width: calc(100% - 60px);
 	border-collapse: separate;
@@ -277,17 +279,16 @@ table.inputTable-mini
 	border-left: 1px solid #ccc;
 }
 
-table.inputTable-mini th:first-child{
+table.inputTable-mini th:first-child {
   border-radius: 5px 0 0 0;
 }
 
-table.inputTable-mini th:last-child{
+table.inputTable-mini th:last-child {
   border-radius: 0 5px 0 0;
   border-right: 1px solid #3c6690;
 }
 
-table.inputTable-mini th
-{
+table.inputTable-mini th {
 	padding: 10px;
 	font-weight: bold;
 	background: linear-gradient(#FFCC33,yellow);
@@ -298,8 +299,7 @@ table.inputTable-mini th
 	box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
 }
 
-table.inputTable-mini td
-{
+table.inputTable-mini td {
 	padding: 10px;
 	box-shadow: 0px -3px 5px 1px #eee inset;
 	border-right: 1px solid #ccc;
@@ -307,27 +307,27 @@ table.inputTable-mini td
 	background: white;
 }
 
-table.inputTable-mini td input
-{
+table.inputTable-mini td input {
 	padding: 10px;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
 
 table.inputTable-mini td input[type="text"],
-table.inputTable-mini td input[type="password"]
-{
+table.inputTable-mini td input[type="password"] {
 	width: 100%;
 	box-sizing:border-box;
 }
 
-table.inputTable-mini, th, td
-{
+table.inputTable-mini, th, td {
 	border-collapse: collapse;
 	border: 1px solid #ccc;
 }
 
-.pageTitle{
+/*
+ *		PageTitle
+ */
+.pageTitle {
 	 text-align:center;
 	 font-family:  arial black, sans-serif;
 
@@ -341,57 +341,74 @@ table.inputTable-mini, th, td
 	 color:red;
 }
 
-/* メッセージボックス */
+/*
+ *		MessageBoxs
+ */
 .completeMsgBox,
 .infoMsgBox,
 .notFoundMsgBox,
-.errorMsgBox{
+.errorMsgBox {
 	margin: 10px 50px;
 	padding: 20px 30px;
 	text-align:center;
 	font-size: 0.9em;
 }
 
-/* 完了メッセージ */
-.completeMsgBox{
+/*
+ *		CompleteMsgBox
+ */
+.completeMsgBox {
 	color: #00552e;
 
 	background-color: #E6FFE6;
 	border: 1px solid #00552e;
 }
-/* エラーメッセージ */
-.errorMsgBox{
+
+/*
+ *		ErrorMsgBox
+ */
+.errorMsgBox {
 	color:red;
 	background-color:pink;
 	border: 1px solid red;
 }
-/* 情報なしメッセージ */
-.notFoundMsgBox{
-	color:blue;
-	background-color:lightblue;
-	border: 1px solid blue;
-}
-/* 情報メッセージ */
-.infoMsgBox{
+
+/*
+ *		NotFoundBox
+ */
+.notFoundMsgBox {
 	color:blue;
 	background-color:lightblue;
 	border: 1px solid blue;
 }
 
+/*
+ *		InfoMsgBox
+ */
+.infoMsgBox {
+	color:blue;
+	background-color:lightblue;
+	border: 1px solid blue;
+}
 
-.userIdCheckBox{
+/*
+ *		UserIdCheckBox
+ */
+.userIdCheckBox {
 	color:gray;
 	margin: 20px 30px;
 }
 
-/* 商品詳細 */
-.productDetails{
+/*
+ *		ProductDetails
+ */
+.productDetails {
     display: inline-block;
 
 	width: 100%;
 }
 
-.left{
+.left {
 	box-sizing: border-box;
 
 	float:left;
@@ -399,7 +416,7 @@ table.inputTable-mini, th, td
 	width: 35%;
 	height: 100%;
 }
-.left img{
+.left img {
 	margin: 30px;
 	width: calc(100% - 60px);
 }
@@ -414,14 +431,16 @@ table.inputTable-mini, th, td
 
 }
 
-.relatedProductBox
-{
+.relatedProductBox {
 	margin: 0 auto;
 	max-width: 200px;
 	width: 100%;
 }
 
-.id{
+/*
+ *		Common
+ */
+.id {
 	color: red;
 	letter-spacing:;
 	font-size: 15px;
@@ -429,7 +448,7 @@ table.inputTable-mini, th, td
 	font-family:Helvetica;
 }
 
-span{
+span {
 	color: red;
 	font-weight: bold;
 	font-family:Verdana;

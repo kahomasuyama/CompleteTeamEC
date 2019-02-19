@@ -103,7 +103,7 @@
 				</tr>
 				<tr>
 					<th scope="row">パスワード</th>
-					<td><s:textfield name="password" value="" placeholder="パスワード" class="txt" /></td>
+					<td><s:password name="password" value="" placeholder="パスワード" class="txt" /></td>
 				</tr>
 			</table>
 			<div class="button_box">

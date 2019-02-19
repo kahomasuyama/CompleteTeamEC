@@ -28,8 +28,8 @@
 			<table class="inputTable">
 				<tr>
 					<th>ユーザーID</th>
-					<td><s:property value="loginId" /></td>
-					<s:hidden name="userId" value="%{loginId}"/>
+					<td><s:property value="userId" /></td>
+					<s:hidden name="userId" value="%{userId}"/>
 				</tr>
 				<tr>
 					<th>新しいパスワード</th>

@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="./css/yellow.css">
-		<title>ヘッダー</title>
+
 		<script>
 			function goLoginAction()
 			{
@@ -33,8 +28,6 @@
 				document.getElementById("form").action = "SearchItemAction";
 			}
 		</script>
-	</head>
-	<body>
 		<header>
 			<ul>
 				<li class="siteTitle">Yellow</li>
@@ -87,5 +80,3 @@
 				</s:form>
 			</ul>
 		</header>
-	</body>
-</html>
