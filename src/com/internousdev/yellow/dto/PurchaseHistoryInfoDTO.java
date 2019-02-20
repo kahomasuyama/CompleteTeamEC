@@ -165,6 +165,7 @@ public class PurchaseHistoryInfoDTO
 		return userAddress;
 	}
 	public void setUserAddress(String userAddress) {
+		this.userAddress=userAddress;
 	}
 	public int getSubtotal() {
 		return subtotal;
