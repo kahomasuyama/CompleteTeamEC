@@ -109,7 +109,6 @@
 			<div class="button_box">
 					<s:submit value="確認" class="button" />
 				</div>
-			</div>
 		</s:form>
 	</body>
 </html>
