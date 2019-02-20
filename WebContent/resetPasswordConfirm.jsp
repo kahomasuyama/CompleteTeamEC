@@ -37,10 +37,10 @@
 				</tr>
 			</table>
 			<div class="button_box">
-				<s:submit value="戻る" class="button" onclick="goResetPasswordAction();" />
+				<s:submit value="パスワード再設定" class="button" onclick="goResetPasswordCompleteAction();" />
 			</div>
 			<div class="button_box">
-				<s:submit value="パスワード再設定" class="button" onclick="goResetPasswordCompleteAction();" />
+				<s:submit value="戻る" class="button" onclick="goResetPasswordAction();" />
 			</div>
 		</s:form>
 	</body>
