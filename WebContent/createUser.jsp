@@ -107,7 +107,6 @@
 				</tr>
 			</table>
 			<div class="button_box">
-				<div id=".contents-btn-set">
 					<s:submit value="確認" class="button" />
 				</div>
 			</div>
