@@ -60,7 +60,6 @@
 						<s:iterator value="#session.cartInfoDtoList">
 							<tr>
 								<td><s:checkbox name="checkList" class="checkList" value="checked" fieldValue="%{productId}" onchange="checkValue(this)" /></td>
-								<s:hidden name="productId" value="%{productId}" />
 								<td><s:property value="productName" /></td>
 								<td><s:property value="productNameKana" /></td>
 								<td><img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' width="50px" height="50px" /></td>
@@ -70,6 +69,7 @@
 								<td><s:property value="productCount" /></td>
 								<td><s:property value="subtotal" />円</td>
 							</tr>
+							<s:hidden name="productId" value="%{productId}" />
 							<s:hidden name="productName" value="%{productName}" />
 							<s:hidden name="productNameKana" value="%{productNameKana}" />
 							<s:hidden name="imageFilePath" value="%{imageFilePath}" />

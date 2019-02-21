@@ -119,7 +119,7 @@ public class PurchaseHistoryInfoDAO {
 		return purchaseHistoryInfoDTOList;
 	}
 
-	public int regist(String loginId, int productId, int productCount, int destinationId, int price)
+	public boolean regist(String loginId, int productId, int productCount, int destinationId, int price)
 	{
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
@@ -154,7 +154,7 @@ public class PurchaseHistoryInfoDAO {
             }
 		}
 
-		return count;
+		return count > 0;
 	}
 
 	public int deleteAll(String loginId)

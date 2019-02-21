@@ -211,6 +211,46 @@ public class CartInfoDAO {
     	return result;
     }
 
+    public boolean deleteAsId(List<Integer> idList)
+    {
+    	DBConnector dbConnector=new DBConnector();
+    	Connection connection=dbConnector.getConnection();
+
+    	boolean result = false;
+
+    	//SQL作成
+    	String sql="DELETE FROM cart_info WHERE 0";
+    	for (int id : idList)
+    	{
+    		sql += " OR id = " + id;
+		}
+
+    	//SQL実行
+    	try
+    	{
+    		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+    		result = (preparedStatement.executeUpdate() > 0);
+    	}
+    	catch(SQLException e)
+    	{
+    		e.printStackTrace();
+    	}
+        finally
+        {
+            // Close
+            try
+            {
+            	connection.close();
+            }
+            catch (SQLException e)
+            {
+            	e.printStackTrace();
+            }
+		}
+
+    	return result;
+    }
+
     public int delete(String productId,String userId)
     {
     	DBConnector dbConnector=new DBConnector();

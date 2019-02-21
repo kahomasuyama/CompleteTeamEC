@@ -1,7 +1,6 @@
 package com.internousdev.yellow.action;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -10,7 +9,6 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.yellow.dao.CartInfoDAO;
 import com.internousdev.yellow.dao.PurchaseHistoryInfoDAO;
 import com.internousdev.yellow.dto.CartInfoDTO;
-import com.internousdev.yellow.dto.PurchaseHistoryInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SettlementCompleteAction extends ActionSupport implements SessionAware
@@ -26,56 +24,33 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 			return "sessionTimeOut";
 		}
 
-		//	購入処理待ちの購入履歴
-		@SuppressWarnings("unchecked")
-		ArrayList<PurchaseHistoryInfoDTO> purchaseHistoryInfoDtoList = (ArrayList<PurchaseHistoryInfoDTO>)session.get("purchaseHistoryInfoDtoList");
+		//	ユーザーID
+		String loginId = String.valueOf(session.get("loginId"));
 
 		//	選択された宛先IDを購入履歴の宛先IDに代入
 		int destinationId = Integer.valueOf(id);
-		for (PurchaseHistoryInfoDTO purchaseHistoryInfoDTO : purchaseHistoryInfoDtoList)
-		{
-			purchaseHistoryInfoDTO.setDestinationId(destinationId);
-		}
 
-		//	購入処理
+		//	カートの中身を取得
+		CartInfoDAO cartInfoDAO  = new CartInfoDAO();
+		List<CartInfoDTO> cartInfoDtoList = cartInfoDAO.getCartInfoDtoList(loginId);
+
+		//	購入したカートのID
+		List<Integer> idList = new ArrayList<Integer>();
+
+		//	カートの中の商品を購入
 		PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
-		int count = 0;
-		for(PurchaseHistoryInfoDTO dto : purchaseHistoryInfoDtoList)
+		for (CartInfoDTO cartInfoDTO : cartInfoDtoList)
 		{
-			count += purchaseHistoryInfoDAO.regist(String.valueOf(session.get("loginId")), dto.getProductId(), dto.getProductCount(), dto.getDestinationId(), dto.getPrice());
-		}
-
-		if(count > 0)
-		{
-			//	カートの中身を削除
-			CartInfoDAO cartInfoDAO = new CartInfoDAO();
-			count = cartInfoDAO.deleteAll(String.valueOf(session.get("loginId")));
-
-			if(count > 0)
+			if(purchaseHistoryInfoDAO.regist(loginId, cartInfoDTO.getProductId(), cartInfoDTO.getProductCount(), destinationId, cartInfoDTO.getPrice()))
 			{
-				//	カートの中身を取得
-				List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
-				cartInfoDtoList = cartInfoDAO.getCartInfoDtoList(String.valueOf(session.get("loginId")));
-				Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
-
-				if(!(iterator.hasNext()))
-				{
-					cartInfoDtoList = null;
-				}
-				session.put("cartInfoDtoList", cartInfoDtoList);
-
-				//	合計金額を取得
-				int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(String.valueOf(session.get("loginId")))));
-				session.put("totalPrice", totalPrice);
-
-				//	購入し終わった購入履歴を削除
-				session.remove("purchaseHistoryInfoDtoList");
-
-				return SUCCESS;
+				idList.add(cartInfoDTO.getId());
 			}
 		}
 
-		return ERROR;
+		//	カートの中身を削除
+		cartInfoDAO.deleteAsId(idList);
+
+		return SUCCESS;
 	}
 
 	public String getId() {
