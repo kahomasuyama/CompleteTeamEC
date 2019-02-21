@@ -63,21 +63,21 @@ CREATE TABLE product_info
 DEFAULT charset=utf8 comment="商品情報テーブル";
 
 INSERT INTO product_info VALUES
-( 1, 1,"Wash House Thig","うぉっしゅはうすてぃんぐ","洋楽１の商品詳細",2,1500,"./images","洋楽1.jpg",now(),"発売会社",0,now(),now()),
-( 2, 2,"MY WORLDS ACOUSTIC","まいわーるどあこーすてぃっく","洋楽２の商品詳細",2,9800,"./images","洋楽2.jpg",now(),"発売会社",0,now(),now()),
-( 3, 3,"DIRTY WORK","だーてぃーうぉーく","洋楽３の商品詳細",2,3500,"./images","洋楽3.jpg",now(),"発売会社",0,now(),now()),
-( 4, 4,"FACE YOURSELF","ふぇいすゆあーせるふ","洋楽４の商品詳細",2,2000,"./images","洋楽4.jpg",now(),"発売会社",0,now(),now()),
-( 5, 5,"CALL ME MAYBE","こーるみーめいびー","洋楽５の商品詳細",2,4500,"./images","洋楽5.jpg",now(),"発売会社",0,now(),now()),
-( 6, 6, "アンビバレント","あんびばれんと","邦楽１の商品詳細",3,1000,"./images","邦楽1.jpg",now(),"発売会社",0,now(),now()),
-( 7, 7, "Neyagawa City Pop","ねやがわしてぃぽっぷ","邦楽２の商品詳細",3,1620,"./images","邦楽2.jpg",now(),"発売会社",0,now(),now()),
-( 8, 8, "イチブトゼンブ","いちぶとぜんぶ","邦楽３の商品詳細",3,3300,"./images","邦楽3.jpg",now(),"発売会社",0,now(),now()),
-( 9, 9, "Ambitions","あんびしょんず","邦楽４の商品詳細",3,10000,"./images","邦楽4.jpg",now(),"発売会社",0,now(),now()),
-( 10, 10, "おジャ魔女どれみドッカ〜ン","おじゃまじょどれみどっか〜ん","邦楽５の商品詳細",3,5600,"./images","邦楽5.jpg",now(),"発売会社",0,now(),now()),
-( 11, 11, "BOHEMIAN RHAPSODY","ぼへみあん らぷそでぃー","サウンドトラック１の商品詳細",4,2700,"./images","soundtrack1.jpg",now(),"発売会社",0,now(),now()),
-( 12, 12, "マリオ オリジナルサントラ","まりおおりじなるさんとら","サウンドトラック２の商品詳細",4,6400,"./images","soundtrack2.jpg",now(),"発売会社",0,now(),now()),
-( 13, 13, "メリーポピンズ","めりーぽぴんず","サウンドトラック３の商品詳細",4,4700,"./images","soundtrack3.jpg",now(),"発売会社",0,now(),now()),
-( 14, 14, "GREITEST SHOWMAN","ぐれいてすとしょーまん","サウンドトラック４の商品詳細",4,1200,"./images","soundtrack4.jpg",now(),"発売会社",0,now(),now()),
-( 15, 15, "Harry Potter","はりーぽったー","サウンドトラック５の商品詳細",4,100,"./images","soundtrack6.jpg",now(),"発売会社",0,now(),now());
+( 1, 1,"Wash House Thig","うぉっしゅはうすてぃんぐ","Wash House Thingです。",2,1500,"./images","洋楽1.jpg",now(),"発売会社",0,now(),now()),
+( 2, 2,"MY WORLDS ACOUSTIC","まいわーるどあこーすてぃっく","MY WORLD ACOUSTICです。",2,9800,"./images","洋楽2.jpg",now(),"発売会社",0,now(),now()),
+( 3, 3,"DIRTY WORK","だーてぃーうぉーく","DIRTY WORKです。",2,3500,"./images","洋楽3.jpg",now(),"発売会社",0,now(),now()),
+( 4, 4,"FACE YOURSELF","ふぇいすゆあーせるふ","FACE YOURSELFです。",2,2000,"./images","洋楽4.jpg",now(),"発売会社",0,now(),now()),
+( 5, 5,"CALL ME MAYBE","こーるみーめいびー","CALL ME MAYBEです。",2,4500,"./images","洋楽5.jpg",now(),"発売会社",0,now(),now()),
+( 6, 6, "アンビバレント","あんびばれんと","アンビバレントです。",3,1000,"./images","邦楽1.jpg",now(),"発売会社",0,now(),now()),
+( 7, 7, "Neyagawa City Pop","ねやがわしてぃぽっぷ","Neyagawa City Popです。",3,1620,"./images","邦楽2.jpg",now(),"発売会社",0,now(),now()),
+( 8, 8, "イチブトゼンブ","いちぶとぜんぶ","イチブトゼンブです。",3,3300,"./images","邦楽3.jpg",now(),"発売会社",0,now(),now()),
+( 9, 9, "Ambitions","あんびしょんず","Ambitionsです。",3,10000,"./images","邦楽4.jpg",now(),"発売会社",0,now(),now()),
+( 10, 10, "おジャ魔女どれみドッカ〜ン","おじゃまじょどれみどっか〜ん","おジャ魔女どれみドッカ〜ンです。",3,5600,"./images","邦楽5.jpg",now(),"発売会社",0,now(),now()),
+( 11, 11, "BOHEMIAN RHAPSODY","ぼへみあん らぷそでぃー","BOHEMAN RHAPSODYです。",4,2700,"./images","soundtrack1.jpg",now(),"発売会社",0,now(),now()),
+( 12, 12, "マリオ オリジナルサントラ","まりおおりじなるさんとら","マリオ オリジナルサントラです。",4,6400,"./images","soundtrack2.jpg",now(),"発売会社",0,now(),now()),
+( 13, 13, "メリーポピンズ","めりーぽぴんず","メリーポピンズです。",4,4700,"./images","soundtrack3.jpg",now(),"発売会社",0,now(),now()),
+( 14, 14, "GREITEST SHOWMAN","ぐれいてすとしょーまん","GREITEST SHOWMANです。",4,1200,"./images","soundtrack4.jpg",now(),"発売会社",0,now(),now()),
+( 15, 15, "Harry Potter","はりーぽったー","Harry Potterです。",4,100,"./images","soundtrack6.jpg",now(),"発売会社",0,now(),now());
 
 CREATE TABLE cart_info
 (
