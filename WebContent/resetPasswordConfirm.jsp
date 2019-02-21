@@ -25,7 +25,7 @@
 		<h1 class="pageTitle">パスワード再設定確認画面</h1>
 
 		<s:form id="resetPassword_form" action="ResetPasswordCompleteAction">
-			<table class="inputTable horizonTable"">
+			<table class="inputTable horizonTable">
 				<tr>
 					<th>ユーザーID</th>
 					<td><s:property value="userId" /></td>

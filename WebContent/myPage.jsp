@@ -22,7 +22,7 @@
 				</div>
 			</s:if>
 			<s:else>
-				<table class="inputTable horizonTable"">
+				<table class="inputTable horizonTable">
 					<tr>
 						<th><s:label value="姓"/></th>
 						<td><s:property value="userInfoDTO.familyName"/></td>

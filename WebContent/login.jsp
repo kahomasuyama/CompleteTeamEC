@@ -44,7 +44,7 @@
 			</div>
 		</s:if>
 		<s:form id="form" action="LoginAction">
-			<table class="inputTable horizonTable"">
+			<table class="inputTable horizonTable">
 				<tr>
 					<th scope="row"><s:label value="ユーザーID"/></th>
 					<s:if test="#session.savedLoginId">
