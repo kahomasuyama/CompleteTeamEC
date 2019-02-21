@@ -69,16 +69,6 @@
 								<td><s:property value="productCount" /></td>
 								<td><s:property value="subtotal" />円</td>
 							</tr>
-							<s:hidden name="productId" value="%{productId}" />
-							<s:hidden name="productName" value="%{productName}" />
-							<s:hidden name="productNameKana" value="%{productNameKana}" />
-							<s:hidden name="imageFilePath" value="%{imageFilePath}" />
-							<s:hidden name="imageFileName" value="%{imageFileName}" />
-							<s:hidden name="price" value="%{price}" />
-							<s:hidden name="releaseCompany" value="%{releaseCompany}" />
-							<s:hidden name="releaseDate" value="%{releaseDate}" />
-							<s:hidden name="productCount" value="%{productCount}" />
-							<s:hidden name="subtotal" value="%{subtotal}" />
 						</s:iterator>
 					</tbody>
 				</table>
