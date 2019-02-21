@@ -25,7 +25,7 @@
 		<h1 class="pageTitle">ユーザー情報入力確認画面</h1>
 
 		<s:form id="s_form">
-			<table class="inputTable">
+			<table class="inputTable horizonTable"">
 				<tr>
 					<th scope="row"><s:label value="姓"/></th>
 					<td><s:property value="familyName"/></td>

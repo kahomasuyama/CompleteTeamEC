@@ -181,6 +181,13 @@ table.verticalTable th {
 	text-align: center;
 }
 
+table.horizonTable td {
+	width: 70%;
+}
+table.horizonTable td {
+	width: 30%:
+}
+
 table.inputTable {
 	margin: 30px;
 	width: 90%;

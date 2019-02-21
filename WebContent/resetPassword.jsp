@@ -43,7 +43,7 @@
 		</s:if>
 
 		<s:form action="ResetPasswordConfirmAction">
-			<table class="inputTable">
+			<table class="inputTable horizonTable"">
 				<tr>
 					<th scope="row"><s:label value="ユーザーID"/></th>
 					<td><s:textfield name="userId" placeholder="ユーザーID" class="txt" value="%{userId}"/></td>

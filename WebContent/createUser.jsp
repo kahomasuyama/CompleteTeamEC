@@ -72,7 +72,7 @@
 		</s:if>
 
 		<s:form action="CreateUserConfirmAction">
-			<table class="inputTable">
+			<table class="inputTable horizonTable">
 				<tr>
 					<th scope="row">姓</th>
 					<td><s:textfield name="familyName" value="%{familyName}" placeholder="姓" class="txt" /></td>
