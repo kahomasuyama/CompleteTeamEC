@@ -45,7 +45,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		loginIdMsgList = inputChecker.doCheck("ユーザーID", userId,1,8,true,false, false, true, false, false, false, false, false);
 		passwordMsgList = inputChecker.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
 		newPasswordMsgList = inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false, false, false, false);
-		reConfirmationPasswordMsgList = inputChecker.doCheck("（再確認）", reConfirmationPassword, 1, 16, true, false, false, true, false, false, false, false, false);
+		reConfirmationPasswordMsgList = inputChecker.doCheck("新しいパスワード（再確認）", reConfirmationPassword, 1, 16, true, false, false, true, false, false, false, false, false);
 
         //	入力値チェックで、エラーがなかったら
         if(!loginIdMsgList.isEmpty()
