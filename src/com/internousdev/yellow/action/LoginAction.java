@@ -71,13 +71,33 @@ public class LoginAction extends ActionSupport implements SessionAware
 		session.put("loginId", userInfoDTO.getUserId());
 		session.put("logined", 1);
 
+		String tempUserId = String.valueOf(session.get("tempUserId"));
+
 		//カート情報をユーザーに紐付ける。
 		CartInfoDAO cartInfoDao = new CartInfoDAO();
-		if(cartInfoDao.linkToLoginId(String.valueOf(session.get("tempUserId")),loginId) == 0)
+		List<CartInfoDTO> cartList = cartInfoDao.getCartInfoDtoList(tempUserId);
+		if(cartList.isEmpty())
 		{
-			//home.jspへ飛ぶ
 			return SUCCESS;
 		}
+
+		List<Integer> deleteProductIdList = new ArrayList<Integer>();
+		for (CartInfoDTO cartInfoDTO : cartList)
+		{
+			boolean addCart = false;
+			if(cartInfoDao.isExistsCartInfo(loginId, cartInfoDTO.getProductId()))
+			{
+				addCart = cartInfoDao.update(loginId, cartInfoDTO.getProductId(), cartInfoDTO.getProductCount()) > 0;
+			}
+			else
+			{
+				addCart = cartInfoDao.regist(loginId, null, cartInfoDTO.getProductId(),cartInfoDTO.getProductCount(), cartInfoDTO.getPrice()) > 0;
+			}
+
+			if(addCart) deleteProductIdList.add(cartInfoDTO.getId());
+		}
+
+		cartInfoDao.deleteAsId(deleteProductIdList);
 
 		List<CartInfoDTO> cartInfoDtoList = cartInfoDao.getCartInfoDtoList(loginId);
 		if(cartInfoDtoList.isEmpty())

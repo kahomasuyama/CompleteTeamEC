@@ -46,8 +46,8 @@ public class AddCartAction extends ActionSupport implements SessionAware
 		}
 		else
 		{
-			userId=String.valueOf(session.get("tempUserId"));
-			tempUserId=String.valueOf(session.get("tempUserId"));
+			userId = String.valueOf(session.get("tempUserId"));
+			tempUserId = String.valueOf(session.get("tempUserId"));
 		}
 
 		int intProductCount=Integer.parseInt(productCount);
@@ -63,7 +63,7 @@ public class AddCartAction extends ActionSupport implements SessionAware
 		}
 		else
 		{
-			count=cartInfoDAO.regist(userId,tempUserId,productId,intProductCount,price);
+			count=cartInfoDAO.regist(userId, tempUserId, productId,intProductCount,price);
 		}
 
 		if(count>0)
