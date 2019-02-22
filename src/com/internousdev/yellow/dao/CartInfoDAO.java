@@ -372,38 +372,38 @@ public class CartInfoDAO {
     	return result;
     }
 
-    public int linkToLoginId(String tempUserId,String loginId)
+    public boolean addCart(String userId, String tempUserId, int productId, int productCount, int price)
     {
-    	DBConnector dbConnector = new DBConnector();
-    	Connection connection = dbConnector.getConnection();
-    	int count=0;
-    	String sql="UPDATE cart_info SET user_id = ?, temp_user_id = null WHERE temp_user_id = ?";
-
-    	try
-    	{
-    		PreparedStatement preparedStatement=connection.prepareStatement(sql);
-    		preparedStatement.setString(1, loginId);
-    		preparedStatement.setString(2, tempUserId);
-    		count=preparedStatement.executeUpdate();
-    	}
-    	catch(SQLException e)
-    	{
-    		e.printStackTrace();
-    	}
-        finally
-        {
-            // Close
-            try
-            {
-            	connection.close();
-            }
-            catch (SQLException e)
-            {
-            	e.printStackTrace();
-            }
+    	boolean success = false;
+		if(this.isExistsCartInfo(userId, productId))
+		{
+			success = this.update(userId,productId, productCount) > 0;
+		}
+		else
+		{
+			success =this.regist(userId, tempUserId, productId, productCount, price) > 0;
 		}
 
-    	return count;
+		return success;
     }
 
+    public int changeCart(String newUserId, String oldUserId)
+    {
+		List<CartInfoDTO> cartList = this.getCartInfoDtoList(oldUserId);
+
+		int count = 0;
+
+		for (CartInfoDTO cartInfoDTO : cartList)
+		{
+			if(this.addCart(newUserId, null, cartInfoDTO.getProductId(), cartInfoDTO.getProductCount(), cartInfoDTO.getPrice()))
+			{
+				count++;
+			}
+		}
+
+		//	削除
+		this.deleteAll(oldUserId);
+
+		return count;
+    }
 }

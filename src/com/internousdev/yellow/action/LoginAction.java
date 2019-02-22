@@ -73,32 +73,16 @@ public class LoginAction extends ActionSupport implements SessionAware
 
 		String tempUserId = String.valueOf(session.get("tempUserId"));
 
-		//カート情報をユーザーに紐付ける。
 		CartInfoDAO cartInfoDao = new CartInfoDAO();
-		List<CartInfoDTO> cartList = cartInfoDao.getCartInfoDtoList(tempUserId);
-		if(cartList.isEmpty())
+
+		//	カート情報を変更する
+		//	なにも変更しなかった場合、ホームへ戻る
+		if(cartInfoDao.changeCart(loginId, tempUserId) == 0)
 		{
 			return SUCCESS;
 		}
 
-		List<Integer> deleteProductIdList = new ArrayList<Integer>();
-		for (CartInfoDTO cartInfoDTO : cartList)
-		{
-			boolean addCart = false;
-			if(cartInfoDao.isExistsCartInfo(loginId, cartInfoDTO.getProductId()))
-			{
-				addCart = cartInfoDao.update(loginId, cartInfoDTO.getProductId(), cartInfoDTO.getProductCount()) > 0;
-			}
-			else
-			{
-				addCart = cartInfoDao.regist(loginId, null, cartInfoDTO.getProductId(),cartInfoDTO.getProductCount(), cartInfoDTO.getPrice()) > 0;
-			}
-
-			if(addCart) deleteProductIdList.add(cartInfoDTO.getId());
-		}
-
-		cartInfoDao.deleteAsId(deleteProductIdList);
-
+		//	カート情報を得る
 		List<CartInfoDTO> cartInfoDtoList = cartInfoDao.getCartInfoDtoList(loginId);
 		if(cartInfoDtoList.isEmpty())
 		{
@@ -106,6 +90,7 @@ public class LoginAction extends ActionSupport implements SessionAware
 		}
 		session.put("cartInfoDtoList", cartInfoDtoList);
 
+		//	合計金額を得る
 		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(loginId)));
 		session.put("totalPrice", totalPrice);
 

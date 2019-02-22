@@ -1,7 +1,6 @@
 package com.internousdev.yellow.action;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +28,6 @@ public class AddCartAction extends ActionSupport implements SessionAware
 			return "sessionTimeOut";
 		}
 
-		String result=ERROR;
 		String userId=null;
 		String tempUserId=null;
 
@@ -50,40 +48,28 @@ public class AddCartAction extends ActionSupport implements SessionAware
 			tempUserId = String.valueOf(session.get("tempUserId"));
 		}
 
-		int intProductCount=Integer.parseInt(productCount);
+		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 
-		CartInfoDAO cartInfoDao=new CartInfoDAO();
-		CartInfoDAO cartInfoDAO=new CartInfoDAO();
-
-		int count=0;
-
-		if(cartInfoDAO.isExistsCartInfo(userId,productId))
+		//	カートに追加できなかったら、エラーを返す
+		if(!cartInfoDAO.addCart(userId, tempUserId, productId, Integer.parseInt(productCount), price))
 		{
-			count=cartInfoDAO.update(userId,productId,intProductCount);
-		}
-		else
-		{
-			count=cartInfoDAO.regist(userId, tempUserId, productId,intProductCount,price);
+			return ERROR;
 		}
 
-		if(count>0)
+		//	カート情報取得
+		List<CartInfoDTO> cartInfoDtoList=new ArrayList<CartInfoDTO>();
+		cartInfoDtoList = cartInfoDAO.getCartInfoDtoList(userId);
+		if(cartInfoDtoList.isEmpty())
 		{
-
-			List<CartInfoDTO> cartInfoDtoList=new ArrayList<CartInfoDTO>();
-			cartInfoDtoList=cartInfoDao.getCartInfoDtoList(userId);
-			Iterator<CartInfoDTO> iterator=cartInfoDtoList.iterator();
-
-			if(!(iterator.hasNext()))
-			{
-				cartInfoDtoList=null;
-			}
-			session.put("cartInfoDtoList",cartInfoDtoList);
-			int totalPrice=Integer.parseInt(String.valueOf(cartInfoDao.getTotalPrice(userId)));
-			session.put("totalPrice", totalPrice);
-			result=SUCCESS;
+			cartInfoDtoList=null;
 		}
+		session.put("cartInfoDtoList",cartInfoDtoList);
 
-		return result;
+		//	合計金額を取得
+		int totalPrice = Integer.parseInt(String.valueOf(cartInfoDAO.getTotalPrice(userId)));
+		session.put("totalPrice", totalPrice);
+
+		return SUCCESS;
 
 	}
 	public int getProductId(){
