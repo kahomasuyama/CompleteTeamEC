@@ -5,10 +5,13 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./css/yellow.css">
+		<script type="text/javascript" src="yellow.js"></script>
 		<title>エラー画面</title>
 		<meta http-equiv="refresh" content="3; URL='HomeAction'" />
 	</head>
 	<body>
-		<div class="error">エラーが発生しました。</div>
+		<jsp:include page="header.jsp" />
+		<h1 class="pageTitle">エラーが発生しました。</h1>
 	</body>
 </html>
