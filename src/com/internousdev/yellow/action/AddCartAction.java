@@ -66,7 +66,7 @@ public class AddCartAction extends ActionSupport implements SessionAware
 
 		//	カートに追加できなかったら、エラーを返す
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
-		if(productCountInRange && productInfoExists && cartInfoDAO.addCart(userId, tempUserId, productId, Integer.parseInt(productCount), productInfoDTO.getPrice()))
+		if(productCountInRange && productInfoExists && cartInfoDAO.addCart(userId, tempUserId, productId, intProductCount, productInfoDTO.getPrice()))
 		{
 			//	カート情報取得
 			List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
