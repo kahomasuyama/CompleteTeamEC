@@ -14,7 +14,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 {
 	private static final String MALE = "男性";
 	private static final String FEMALE = "女性";
-	
+
 	//	Receive + Send
 	private String familyName;
 	private String firstName;
@@ -34,7 +34,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	private List<String> emailErrorMsgList;
 	private List<String> loginIdErrorMsgList;
 	private List<String> passwordErrorMsgList;
-	
+
 	private List<String> sexList = new ArrayList<String>();
 
 	//	Session
@@ -50,11 +50,10 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 
 		sexList.add(MALE);
 		sexList.add(FEMALE);
-		
+
 		//	入力値チェック
 		InputChecker inputChecker = new InputChecker();
-		errorMsgList = new ArrayList<String>();
-		
+
 		familyNameErrorMsgList = inputChecker.doCheck("姓", familyName, 1, 16, true, true, true, false, false, false, false, false, false);
 		firstNameErrorMsgList = inputChecker.doCheck("名", firstName, 1, 16, true, true, true, false, false, false, false, false, false);
 		familyNameKanaErrorMsgList = inputChecker.doCheck("姓ふりがな", familyNameKana, 1, 16, false, false, true, false, false, false, false, false, false);
@@ -74,9 +73,10 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		{
 			return ERROR;
 		}
-		
+
 		//	ユーザーIDの存在チェック
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
+		errorMsgList = new ArrayList<String>();
 		if(userInfoDAO.isExistsUserInfo(loginId))
 		{
 			errorMsgList.add("使用できないユーザーIDです。");
@@ -86,59 +86,59 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		return SUCCESS;
 	}
 
-	public List<String> getSexList() 
+	public List<String> getSexList()
 	{
 		return sexList;
 	}
-	public void setSexList(List<String> sexList) 
+	public void setSexList(List<String> sexList)
 	{
 		this.sexList = sexList;
 	}
-	public String getFamilyName() 
+	public String getFamilyName()
 	{
 		return familyName;
 	}
-	public void setFamilyName(String familyName) 
+	public void setFamilyName(String familyName)
 	{
 		this.familyName = familyName;
 	}
-	public String getFirstName() 
+	public String getFirstName()
 	{
 		return firstName;
 	}
-	public void setFirstName(String firstName) 
+	public void setFirstName(String firstName)
 	{
 		this.firstName = firstName;
 	}
-	public String getFamilyNameKana() 
+	public String getFamilyNameKana()
 	{
 		return familyNameKana;
 	}
-	public void setFamilyNameKana(String familyNameKana) 
+	public void setFamilyNameKana(String familyNameKana)
 	{
 		this.familyNameKana = familyNameKana;
 	}
-	public String getFirstNameKana() 
+	public String getFirstNameKana()
 	{
 		return firstNameKana;
 	}
-	public void setFirstNameKana(String firstNameKana) 
+	public void setFirstNameKana(String firstNameKana)
 	{
 		this.firstNameKana = firstNameKana;
 	}
-	public String getSex() 
+	public String getSex()
 	{
 		return sex;
 	}
-	public void setSex(String sex) 
+	public void setSex(String sex)
 	{
 		this.sex = sex;
 	}
-	public String getEmail() 
+	public String getEmail()
 	{
 		return email;
 	}
-	public void setEmail(String email) 
+	public void setEmail(String email)
 	{
 		this.email = email;
 	}
@@ -148,27 +148,27 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	public void setLoginId(String loginId) {
 		this.loginId = loginId;
 	}
-	public String getPassword() 
+	public String getPassword()
 	{
 		return password;
 	}
-	public void setPassword(String password) 
+	public void setPassword(String password)
 	{
 		this.password = password;
 	}
-	public List<String> getErrorMsgList() 
+	public List<String> getErrorMsgList()
 	{
 		return errorMsgList;
 	}
-	public void setErrorMsgList(List<String> errorMsgList) 
+	public void setErrorMsgList(List<String> errorMsgList)
 	{
 		this.errorMsgList = errorMsgList;
 	}
-	public Map<String, Object> getSession() 
+	public Map<String, Object> getSession()
 	{
 		return session;
 	}
-	public void setSession(Map<String, Object> session) 
+	public void setSession(Map<String, Object> session)
 	{
 		this.session = session;
 	}
@@ -226,5 +226,5 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 
 	public void setPasswordErrorMsgList(List<String> passwordErrorMsgList) {
 		this.passwordErrorMsgList = passwordErrorMsgList;
-	}	
+	}
 }
