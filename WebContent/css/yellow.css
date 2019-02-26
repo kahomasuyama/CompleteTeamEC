@@ -190,10 +190,9 @@ table.horizonTable td {
 
 table.inputTable {
 	margin: 30px;
-	width: 90%;
+	width: calc(100% - 60px);
 	border-collapse: separate;
 	border-spacing: 0;
-
 	text-align: left;
 	font-size: 1.2em;
 	line-height: 1.5em;
@@ -215,10 +214,10 @@ table.inputTable th {
 	padding: 10px;
 	font-weight: bold;
 	background: linear-gradient(#FFCC33,yellow);
-	border-right: 1px solid #ccc;
-	border-bottom: 2px solid #ccc;
-	border-top: 2px solid lightgray;
-	border-left: 2px solid lightgray;
+	border-right: 0.5px solid #ccc;
+	border-bottom: 0.5px solid #ccc;
+	border-top: 0.5px solid #ccc;
+	border-left: 0.5px solid #ccc;
 	box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
 }
 
@@ -256,7 +255,6 @@ table.inputTable td input[type="password"] {
 	transition: 0.3s;
 	letter-spacing: 1px;
 	color: #333333;
-	border: 1px solid #1b2538;
 	border-radius: 4px;
 }
 
@@ -269,7 +267,6 @@ table.inputTable td input[type="password"]:focus {
 
 table.inputTable, th, td {
 	border-collapse: collaspse;
-	border: 2px solid #ccc;
 }
 
 table.inputTable-mini {
@@ -298,10 +295,10 @@ table.inputTable-mini th {
 	padding: 10px;
 	font-weight: bold;
 	background: linear-gradient(#FFCC33,yellow);
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-	border-top: 1px solid #lightgray;
-	border-left: 1px solid #lightgray;
+	border-right: 0.5px solid #ccc;
+	border-bottom: 0.5px solid #ccc;
+	border-top: 0.5px solid #ccc;
+	border-left: 0.5px solid #ccc;
 	box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
 }
 
@@ -327,7 +324,6 @@ table.inputTable-mini td input[type="password"] {
 
 table.inputTable-mini, th, td {
 	border-collapse: collapse;
-	border: 1px solid #ccc;
 }
 
 /*
