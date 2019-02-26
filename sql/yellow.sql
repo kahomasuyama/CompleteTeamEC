@@ -74,7 +74,7 @@ INSERT INTO product_info VALUES
 ( 9, 9, "Ambitions","あんびしょんず","Ambitionsです。",3,10000,"./images","邦楽4.jpg",now(),"発売会社",0,now(),now()),
 ( 10, 10, "おジャ魔女どれみドッカ〜ン","おじゃまじょどれみどっか〜ん","おジャ魔女どれみドッカ〜ンです。",3,5600,"./images","邦楽5.jpg",now(),"発売会社",0,now(),now()),
 ( 11, 11, "BOHEMIAN RHAPSODY","ぼへみあん らぷそでぃー","BOHEMAN RHAPSODYです。",4,2700,"./images","soundtrack1.jpg",now(),"発売会社",0,now(),now()),
-( 12, 12, "マリオ オリジナルサントラ","まりおおりじなるさんとら","マリオ オリジナルサントラです。",4,6400,"./images","soundtrack2.jpg",now(),"発売会社",0,now(),now()),
+( 12, 12, "マリオ オリジナルサントラ","まりおおりじなるさんとら","マリオ オリジナルサントラです。",4,6400,"./images","soundtrack7.jpg",now(),"発売会社",0,now(),now()),
 ( 13, 13, "メリーポピンズ","めりーぽぴんず","メリーポピンズです。",4,4700,"./images","soundtrack3.jpg",now(),"発売会社",0,now(),now()),
 ( 14, 14, "GREITEST SHOWMAN","ぐれいてすとしょーまん","GREITEST SHOWMANです。",4,1200,"./images","soundtrack4.jpg",now(),"発売会社",0,now(),now()),
 ( 15, 15, "Harry Potter","はりーぽったー","Harry Potterです。",4,100,"./images","soundtrack6.jpg",now(),"発売会社",0,now(),now());
