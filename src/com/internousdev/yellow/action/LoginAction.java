@@ -36,9 +36,20 @@ public class LoginAction extends ActionSupport implements SessionAware
 			return "sessionTimeOut";
 		}
 
-		//	ユーザーID保存
-		session.put("savedLoginId", savedLoginId);
-		session.put("saveLoginId",loginId);
+		// loginIdが空の時
+		//	savedLoginIdをチェックしない
+		if(loginId.isEmpty())
+		{
+			session.remove("savedLoginId");
+		}
+		else
+		{
+			//	loginIdが存在する時
+			//	savedLoginIdをチェックされていたらチェックする
+			// 入力したユーザーIDを保持
+			session.put("savedLoginId", savedLoginId);
+			session.put("saveLoginId",loginId);
+		}
 
 		//文字種の判定
 		InputChecker inputChecker = new InputChecker();
